@@ -2,7 +2,15 @@
   "name": "babel-preset-kensho",
   "version": "1.0.0",
   "description": "Babel preset to transpile ES2015+/JSX to ES5.",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "prebuild": "rm -rf lib",
+    "build": "babel src -d lib",
+    "prepublish": "npm run build"
+  },
   "author": "Billy Janitsch <billyjanitsch@gmail.com> (http://billyjanitsch.com)",
   "license": "MIT",
   "repository": "kensho/babel-preset-kensho",
@@ -11,5 +19,8 @@
     "babel-preset-latest": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-1": "^6.16.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.22.2"
   }
 }
