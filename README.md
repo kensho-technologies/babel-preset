@@ -1,6 +1,6 @@
 # babel-preset-kensho
 
-This [Babel preset](http://babeljs.io/docs/plugins/#presets) transpiles ES2016/JSX to ES5. It also includes some experimental features (stage >= 1).
+This [Babel preset](http://babeljs.io/docs/plugins/#presets) transpiles ES2017+/JSX to ES5. It includes [stage >=1 proposals](https://babeljs.io/docs/plugins/preset-stage-1/) and some [extra goodies](src/index.js).
 
 ## Usage
 
@@ -15,5 +15,15 @@ Then add a `.babelrc` which includes the preset:
 ```json
 {
   "presets": ["kensho"]
+}
+```
+
+Optionally, configure the preset:
+
+```json
+{
+  "presets": [
+    ["kensho", {"lodash": false}]
+  ]
 }
 ```
