@@ -9,8 +9,9 @@
   "scripts": {
     "prebuild": "rm -rf lib",
     "build": "babel src -d lib",
-    "lint": "eslint src",
-    "prepublish": "npm run lint && npm run build"
+    "lint": "eslint src test.js",
+    "test": "ava",
+    "prepublish": "npm run lint && npm run build && npm test"
   },
   "author": "Billy Janitsch <billyjanitsch@gmail.com> (http://billyjanitsch.com)",
   "license": "MIT",
@@ -23,7 +24,9 @@
     "babel-preset-stage-1": "^6.16.0"
   },
   "devDependencies": {
+    "ava": "^0.17.0",
     "babel-cli": "^6.22.2",
+    "babel-core": "^6.22.1",
     "eslint": "^3.14.0",
     "eslint-config-kensho": "^1.0.0"
   }
