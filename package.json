@@ -11,7 +11,7 @@
     "build": "babel src -d lib",
     "lint": "eslint src test.js",
     "test": "ava",
-    "prepublish": "npm run lint && npm run build && npm test"
+    "prepublish": "npm run build"
   },
   "author": "Billy Janitsch <billyjanitsch@gmail.com> (http://billyjanitsch.com)",
   "license": "MIT",
