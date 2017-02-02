@@ -6,6 +6,7 @@ import presetReact from 'babel-preset-react'
 
 const defaultOptions = {
   lodash: true,
+  modules: 'commonjs',
 }
 
 export default (context, userOptions) => {
@@ -16,7 +17,7 @@ export default (context, userOptions) => {
       pluginReactRequire,
     ].filter(Boolean),
     presets: [
-      presetLatest,
+      [presetLatest, {es2015: {modules: options.modules}}],
       presetStage1,
       presetReact,
     ],

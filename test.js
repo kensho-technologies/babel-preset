@@ -37,3 +37,11 @@ test('requires React when JSX is present', macro, `
 `, [
   /require\(['"]react['"]\)/,
 ])
+
+test('does not transpile imports/exports when {modules: false}', macro, `
+  import foo from 'foo'
+  export default foo
+`, [
+  /import foo from 'foo'/,
+  /export default foo/,
+], {modules: false})
