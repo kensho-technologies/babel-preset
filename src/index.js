@@ -6,11 +6,14 @@ import presetReact from 'babel-preset-react'
 
 const defaultOptions = {
   lodash: true,
-  modules: 'commonjs',
 }
 
 export default (context, userOptions) => {
   const options = {...defaultOptions, ...userOptions}
+  if (options.modules === undefined) {
+    if (process.env.BABEL_ENV === 'cjs') options.modules = 'commonjs'
+    else if (process.env.BABEL_ENV === 'es') options.modules = false
+  }
   return {
     plugins: [
       options.lodash && pluginLodash,
