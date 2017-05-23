@@ -1,15 +1,15 @@
-import pluginLodash from 'babel-plugin-lodash'
-import pluginReactRequire from 'babel-plugin-react-require'
-import presetLatest from 'babel-preset-latest'
-import presetStage1 from 'babel-preset-stage-1'
-import presetReact from 'babel-preset-react'
+const pluginLodash = require('babel-plugin-lodash')
+const pluginReactRequire = require('babel-plugin-react-require').default
+const presetLatest = require('babel-preset-latest')
+const presetStage1 = require('babel-preset-stage-1')
+const presetReact = require('babel-preset-react')
 
 const defaultOptions = {
   lodash: true,
 }
 
-export default (context, userOptions) => {
-  const options = {...defaultOptions, ...userOptions}
+module.exports = (context, userOptions) => {
+  const options = Object.assign({}, defaultOptions, userOptions)
   if (options.modules === undefined) {
     if (process.env.BABEL_ENV === 'cjs') options.modules = 'commonjs'
     else if (process.env.BABEL_ENV === 'es') options.modules = false

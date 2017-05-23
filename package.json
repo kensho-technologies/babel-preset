@@ -2,16 +2,12 @@
   "name": "babel-preset-kensho",
   "version": "2.0.0",
   "description": "Babel preset to transpile ES2015+/JSX to ES5.",
-  "main": "lib",
+  "main": "index.js",
   "files": [
-    "lib"
+    "index.js"
   ],
   "scripts": {
-    "prebuild": "rm -rf lib",
-    "build": "babel src -d lib",
-    "lint": "eslint src test.js",
-    "test": "ava",
-    "prepublish": "npm run build"
+    "test": "eslint '*.js' && ava"
   },
   "author": "Billy Janitsch <billyjanitsch@gmail.com> (http://billyjanitsch.com)",
   "license": "MIT",
@@ -25,7 +21,6 @@
   },
   "devDependencies": {
     "ava": "^0.19.0",
-    "babel-cli": "^6.22.2",
     "babel-core": "^6.22.1",
     "eslint": "^3.14.0",
     "eslint-config-kensho": "^1.0.0"
