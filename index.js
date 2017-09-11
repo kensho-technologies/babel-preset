@@ -1,8 +1,10 @@
 const pluginLodash = require('babel-plugin-lodash')
 const pluginReactRequire = require('babel-plugin-react-require').default
-const presetLatest = require('babel-preset-latest')
+const presetEnv = require('babel-preset-env')
 const presetStage1 = require('babel-preset-stage-1')
 const presetReact = require('babel-preset-react')
+
+const BABEL_ENV = process.env.BABEL_ENV
 
 const defaultOptions = {
   lodash: true,
@@ -11,8 +13,8 @@ const defaultOptions = {
 module.exports = (context, userOptions) => {
   const options = Object.assign({}, defaultOptions, userOptions)
   if (options.modules === undefined) {
-    if (process.env.BABEL_ENV === 'cjs') options.modules = 'commonjs'
-    else if (process.env.BABEL_ENV === 'es') options.modules = false
+    if (BABEL_ENV === 'cjs') options.modules = 'commonjs'
+    else if (BABEL_ENV === 'es') options.modules = false
   }
   return {
     plugins: [
@@ -20,7 +22,7 @@ module.exports = (context, userOptions) => {
       pluginReactRequire,
     ].filter(Boolean),
     presets: [
-      [presetLatest, {es2015: {modules: options.modules}}],
+      [presetEnv, {modules: options.modules}],
       presetStage1,
       presetReact,
     ],
