@@ -17,14 +17,7 @@ module.exports = (context, userOptions) => {
     else if (BABEL_ENV === 'es') options.modules = false
   }
   return {
-    plugins: [
-      options.lodash && pluginLodash,
-      pluginReactRequire,
-    ].filter(Boolean),
-    presets: [
-      [presetEnv, {modules: options.modules}],
-      presetStage1,
-      presetReact,
-    ],
+    plugins: [options.lodash && pluginLodash, pluginReactRequire].filter(Boolean),
+    presets: [[presetEnv, {modules: options.modules}], presetStage1, presetReact],
   }
 }
