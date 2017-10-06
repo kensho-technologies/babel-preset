@@ -4,7 +4,7 @@ const presetEnv = require('babel-preset-env')
 const presetStage1 = require('babel-preset-stage-1')
 const presetReact = require('babel-preset-react')
 
-const BABEL_ENV = process.env.BABEL_ENV
+const {BABEL_ENV} = process.env
 
 const defaultOptions = {
   lodash: true,
