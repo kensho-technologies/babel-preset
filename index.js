@@ -8,7 +8,7 @@ const {BABEL_ENV} = process.env
 
 const defaultOptions = {
   lodash: true,
-  modules: BABEL_ENV === 'cjs' ? 'commonjs' : false,
+  modules: ['cjs', 'test'].includes(BABEL_ENV) ? 'commonjs' : false,
   targets: {
     browsers: ['IE 11', 'last 2 Edge versions', 'Firefox >= 45', 'last 2 Chrome versions'],
     node: 8,
