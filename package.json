@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-kensho",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Babel preset to transpile ES2015+/JSX to ES5.",
   "main": "index.js",
   "files": [
