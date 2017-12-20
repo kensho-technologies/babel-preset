@@ -9,12 +9,20 @@ const {BABEL_ENV} = process.env
 const defaultOptions = {
   lodash: true,
   modules: BABEL_ENV === 'cjs' ? 'commonjs' : false,
+  targets: {
+    browsers: ['IE 11', 'last 2 Edge versions', 'Firefox >= 45', 'last 2 Chrome versions'],
+    node: 8,
+  },
 }
 
 module.exports = (context, userOptions) => {
   const options = Object.assign({}, defaultOptions, userOptions)
   return {
     plugins: [options.lodash && pluginLodash, pluginReactRequire].filter(Boolean),
-    presets: [[presetEnv, {modules: options.modules}], presetStage1, presetReact],
+    presets: [
+      [presetEnv, {modules: options.modules, targets: options.targets}],
+      presetStage1,
+      presetReact,
+    ],
   }
 }
