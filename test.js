@@ -1,9 +1,9 @@
 import test from 'ava'
 import {transform} from 'babel-core'
 
-import preset from '.'
-
-const macro = (t, input, regexes, presetOptions = {}) => {
+const macro = (t, input, regexes, presetOptions = {}, NODE_ENV = 'development') => {
+  process.env.NODE_ENV = NODE_ENV
+  const preset = require('.')
   const options = {presets: [[preset, presetOptions]], babelrc: false}
   const {code} = transform(input, options)
   regexes.forEach(regex => {

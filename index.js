@@ -4,11 +4,11 @@ const presetEnv = require('babel-preset-env')
 const presetStage1 = require('babel-preset-stage-1')
 const presetReact = require('babel-preset-react')
 
-const {BABEL_ENV} = process.env
+const {BABEL_ENV, NODE_ENV} = process.env
 
 const defaultOptions = {
   lodash: true,
-  modules: ['cjs', 'test'].includes(BABEL_ENV) ? 'commonjs' : false,
+  modules: BABEL_ENV === 'cjs' || NODE_ENV === 'test' ? 'commonjs' : false,
   targets: {
     browsers: ['IE 11', 'last 2 Edge versions', 'Firefox >= 45', 'last 2 Chrome versions'],
     node: 8,
