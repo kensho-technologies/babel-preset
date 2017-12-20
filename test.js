@@ -11,34 +11,34 @@ const macro = (t, input, regexes, presetOptions = {}) => {
   })
 }
 
-test('transforms ES2015 imports/exports', macro, "import foo from 'foo'; export default 5", [
-  /require\('foo'\)/,
-  /exports.default = 5/,
+test('does not transpile ESM', macro, "import foo from 'foo'; export default foo", [
+  /import foo from 'foo'/,
+  /export default foo/,
 ])
+
+test(
+  "transpiles ESM when {modules: 'commonjs'}",
+  macro,
+  "import foo from 'foo'; export default 5",
+  [/require\('foo'\)/, /exports.default = 5/],
+  {modules: 'commonjs'}
+)
 
 test(
   'cherry picks lodash modules',
   macro,
   "import {max, range} from 'lodash'; module.exports = max(range(5))",
-  [/require\('lodash\/max'\)/, /require\('lodash\/range'\)/]
+  [/from 'lodash\/max'/, /from 'lodash\/range'/]
 )
 
 test(
   'does not cherry pick lodash modules when {lodash: false}',
   macro,
   "import {max, range} from 'lodash'; module.exports = max(range(5))",
-  [/require\('lodash'\)/],
+  [/from 'lodash'/],
   {lodash: false}
 )
 
 test('requires React when JSX is present', macro, 'export default <div />', [
-  /require\(['"]react['"]\)/,
+  /import React from ['"]react['"]/,
 ])
-
-test(
-  'does not transpile imports/exports when {modules: false}',
-  macro,
-  "import foo from 'foo'; export default foo",
-  [/import foo from 'foo'/, /export default foo/],
-  {modules: false}
-)

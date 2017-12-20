@@ -8,14 +8,11 @@ const {BABEL_ENV} = process.env
 
 const defaultOptions = {
   lodash: true,
+  modules: BABEL_ENV === 'cjs' ? 'commonjs' : false,
 }
 
 module.exports = (context, userOptions) => {
   const options = Object.assign({}, defaultOptions, userOptions)
-  if (options.modules === undefined) {
-    if (BABEL_ENV === 'cjs') options.modules = 'commonjs'
-    else if (BABEL_ENV === 'es') options.modules = false
-  }
   return {
     plugins: [options.lodash && pluginLodash, pluginReactRequire].filter(Boolean),
     presets: [[presetEnv, {modules: options.modules}], presetStage1, presetReact],
