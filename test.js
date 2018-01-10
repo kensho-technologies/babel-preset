@@ -1,5 +1,5 @@
 import test from 'ava'
-import {transform} from 'babel-core'
+import {transform} from '@babel/core'
 
 const macro = (t, input, regexes, presetOptions = {}, NODE_ENV = 'development') => {
   process.env.NODE_ENV = NODE_ENV
@@ -20,7 +20,7 @@ test(
   "transpiles ESM when {modules: 'commonjs'}",
   macro,
   "import foo from 'foo'; export default 5",
-  [/require\('foo'\)/, /exports.default = 5/],
+  [/require\(['"]foo['"]\)/, /exports.default =/],
   {modules: 'commonjs'}
 )
 
@@ -28,14 +28,14 @@ test(
   'cherry picks lodash modules',
   macro,
   "import {max, range} from 'lodash'; module.exports = max(range(5))",
-  [/from 'lodash\/max'/, /from 'lodash\/range'/]
+  [/from ['"]lodash\/max['"]/, /from ['"]lodash\/range['"]/]
 )
 
 test(
   'does not cherry pick lodash modules when {lodash: false}',
   macro,
   "import {max, range} from 'lodash'; module.exports = max(range(5))",
-  [/from 'lodash'/],
+  [/from ['"]lodash['"]/],
   {lodash: false}
 )
 

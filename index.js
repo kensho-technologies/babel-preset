@@ -17,16 +17,16 @@ module.exports = (context, userOptions) => {
     require('babel-plugin-react-require').default,
 
     // use Object.assign instead of a helper function
-    [require('babel-plugin-transform-object-rest-spread'), {useBuiltIns: true}],
-    [require('babel-plugin-transform-react-jsx'), {useBuiltIns: true}],
+    [require('@babel/plugin-proposal-object-rest-spread'), {useBuiltIns: true}],
+    [require('@babel/plugin-transform-react-jsx'), {useBuiltIns: true}],
   ]
 
   if (options.lodash) plugins.push(require('babel-plugin-lodash'))
 
   const presets = [
-    [require('babel-preset-env'), {modules: options.modules, targets: options.targets}],
-    require('babel-preset-stage-1'),
-    require('babel-preset-react'),
+    [require('@babel/preset-env'), {modules: options.modules, targets: options.targets}],
+    require('@babel/preset-stage-1'),
+    require('@babel/preset-react'),
   ]
 
   return {plugins, presets}
