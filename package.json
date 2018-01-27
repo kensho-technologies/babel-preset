@@ -22,10 +22,10 @@
     "babel-preset-stage-1": "^6.24.1"
   },
   "devDependencies": {
-    "ava": "^0.24.0",
+    "ava": "^0.25.0",
     "babel-core": "^6.26.0",
-    "eslint": "^4.13.1",
+    "eslint": "^4.16.0",
     "eslint-config-kensho": "^4.0.1",
-    "prettier": "^1.9.2"
+    "prettier": "^1.10.2"
   }
 }
