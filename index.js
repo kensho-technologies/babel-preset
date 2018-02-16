@@ -1,8 +1,10 @@
+const pluginExportDefault = require('@babel/plugin-proposal-export-default-from')
+const pluginExportNamespace = require('@babel/plugin-proposal-export-namespace-from')
 const pluginLodash = require('babel-plugin-lodash')
 const pluginReactRequire = require('babel-plugin-react-require').default
 const pluginRuntime = require('@babel/plugin-transform-runtime')
 const presetEnv = require('@babel/preset-env')
-const presetStage1 = require('@babel/preset-stage-1')
+const presetStage3 = require('@babel/preset-stage-3')
 const presetReact = require('@babel/preset-react')
 
 const {BABEL_ENV, NODE_ENV} = process.env
@@ -23,13 +25,13 @@ module.exports = (context, userOptions) => {
   const options = Object.assign({}, defaultOptions, userOptions)
   const {lodash, loose, modules, runtime, targets, useBuiltIns} = options
 
-  const plugins = [pluginReactRequire]
+  const plugins = [pluginExportDefault, pluginExportNamespace, pluginReactRequire]
   if (lodash) plugins.push(pluginLodash)
   if (runtime) plugins.push([pluginRuntime, {polyfill: false, useBuiltIns}])
 
   const presets = [
     [presetEnv, {loose, modules, targets}],
-    [presetStage1, {loose, useBuiltIns}],
+    [presetStage3, {loose, useBuiltIns}],
     [presetReact, {useBuiltIns}],
   ]
 
