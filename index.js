@@ -15,18 +15,14 @@ module.exports = (context, userOptions) => {
   const plugins = [
     // ensure that React is imported if JSX is used
     require('babel-plugin-react-require').default,
-
-    // use Object.assign instead of a helper function
-    [require('@babel/plugin-proposal-object-rest-spread'), {useBuiltIns: true}],
-    [require('@babel/plugin-transform-react-jsx'), {useBuiltIns: true}],
   ]
 
   if (options.lodash) plugins.push(require('babel-plugin-lodash'))
 
   const presets = [
     [require('@babel/preset-env'), {modules: options.modules, targets: options.targets}],
-    require('@babel/preset-stage-1'),
-    require('@babel/preset-react'),
+    [require('@babel/preset-stage-1'), {useBuiltIns: true}],
+    [require('@babel/preset-react'), {useBuiltIns: true}],
   ]
 
   return {plugins, presets}
