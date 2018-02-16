@@ -13,6 +13,7 @@
   "license": "MIT",
   "repository": "kensho/babel-preset-kensho",
   "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.0.0-beta.40",
     "@babel/preset-env": "7.0.0-beta.40",
     "@babel/preset-react": "7.0.0-beta.40",
     "@babel/preset-stage-1": "7.0.0-beta.40",
