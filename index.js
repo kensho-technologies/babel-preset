@@ -1,6 +1,7 @@
 const pluginExportDefault = require('@babel/plugin-proposal-export-default-from')
 const pluginExportNamespace = require('@babel/plugin-proposal-export-namespace-from')
 const pluginLodash = require('babel-plugin-lodash')
+const pluginReactRemovePropTypes = require('babel-plugin-transform-react-remove-prop-types')
 const pluginReactRequire = require('babel-plugin-react-require').default
 const pluginRuntime = require('@babel/plugin-transform-runtime')
 const presetEnv = require('@babel/preset-env')
@@ -13,6 +14,7 @@ const defaultOptions = {
   lodash: true,
   loose: false,
   modules: BABEL_ENV === 'cjs' || NODE_ENV === 'test' ? 'commonjs' : false,
+  removePropTypes: 'wrap',
   runtime: false,
   targets: {
     browsers: ['IE 11', 'last 2 Edge versions', 'Firefox >= 45', 'last 2 Chrome versions'],
@@ -23,10 +25,11 @@ const defaultOptions = {
 
 module.exports = (context, userOptions) => {
   const options = Object.assign({}, defaultOptions, userOptions)
-  const {lodash, loose, modules, runtime, targets, useBuiltIns} = options
+  const {lodash, loose, modules, removePropTypes, runtime, targets, useBuiltIns} = options
 
   const plugins = [pluginExportDefault, pluginExportNamespace, pluginReactRequire]
   if (lodash) plugins.push(pluginLodash)
+  if (removePropTypes) plugins.push([pluginReactRemovePropTypes, {mode: removePropTypes}])
   if (runtime) plugins.push([pluginRuntime, {polyfill: false, useBuiltIns}])
 
   const presets = [
