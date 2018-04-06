@@ -1,12 +1,12 @@
-const pluginClassProperties = require('@babel/plugin-proposal-class-properties')
-const pluginExportNamespaceFrom = require('@babel/plugin-proposal-export-namespace-from')
-const pluginObjectRestSpread = require('@babel/plugin-proposal-object-rest-spread')
-const pluginLodash = require('babel-plugin-lodash')
-const pluginReactRemovePropTypes = require('babel-plugin-transform-react-remove-prop-types')
-const pluginRuntime = require('@babel/plugin-transform-runtime')
-const presetEnv = require('@babel/preset-env')
-const presetFlow = require('@babel/preset-flow')
-const presetReact = require('@babel/preset-react')
+import pluginClassProperties from '@babel/plugin-proposal-class-properties'
+import pluginExportNamespaceFrom from '@babel/plugin-proposal-export-namespace-from'
+import pluginObjectRestSpread from '@babel/plugin-proposal-object-rest-spread'
+import pluginLodash from 'babel-plugin-lodash'
+import pluginReactRemovePropTypes from 'babel-plugin-transform-react-remove-prop-types'
+import pluginRuntime from '@babel/plugin-transform-runtime'
+import presetEnv from '@babel/preset-env'
+import presetFlow from '@babel/preset-flow'
+import presetReact from '@babel/preset-react'
 
 const {BABEL_ENV, NODE_ENV} = process.env
 
@@ -23,7 +23,7 @@ const defaultOptions = {
   useBuiltIns: true,
 }
 
-module.exports = (context, userOptions) => {
+export default (context, userOptions) => {
   const options = Object.assign({}, defaultOptions, userOptions)
   const {lodash, loose, modules, removePropTypes, runtime, targets, useBuiltIns} = options
 
