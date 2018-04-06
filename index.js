@@ -1,11 +1,11 @@
-const pluginExportDefault = require('@babel/plugin-proposal-export-default-from')
-const pluginExportNamespace = require('@babel/plugin-proposal-export-namespace-from')
+const pluginClassProperties = require('@babel/plugin-proposal-class-properties')
+const pluginExportNamespaceFrom = require('@babel/plugin-proposal-export-namespace-from')
+const pluginObjectRestSpread = require('@babel/plugin-proposal-object-rest-spread')
 const pluginLodash = require('babel-plugin-lodash')
 const pluginReactRemovePropTypes = require('babel-plugin-transform-react-remove-prop-types')
-const pluginReactRequire = require('babel-plugin-react-require').default
 const pluginRuntime = require('@babel/plugin-transform-runtime')
 const presetEnv = require('@babel/preset-env')
-const presetStage3 = require('@babel/preset-stage-3')
+const presetFlow = require('@babel/preset-flow')
 const presetReact = require('@babel/preset-react')
 
 const {BABEL_ENV, NODE_ENV} = process.env
@@ -27,14 +27,18 @@ module.exports = (context, userOptions) => {
   const options = Object.assign({}, defaultOptions, userOptions)
   const {lodash, loose, modules, removePropTypes, runtime, targets, useBuiltIns} = options
 
-  const plugins = [pluginExportDefault, pluginExportNamespace, pluginReactRequire]
+  const plugins = [
+    [pluginClassProperties, {loose}],
+    pluginExportNamespaceFrom,
+    [pluginObjectRestSpread, {loose, useBuiltIns}],
+  ]
   if (lodash) plugins.push(pluginLodash)
   if (removePropTypes) plugins.push([pluginReactRemovePropTypes, {mode: removePropTypes}])
   if (runtime) plugins.push([pluginRuntime, {polyfill: false, useBuiltIns}])
 
   const presets = [
     [presetEnv, {loose, modules, targets}],
-    [presetStage3, {loose, useBuiltIns}],
+    [presetFlow],
     [presetReact, {useBuiltIns}],
   ]
 

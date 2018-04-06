@@ -38,7 +38,3 @@ test(
   [/from ['"]lodash['"]/],
   {lodash: false}
 )
-
-test('requires React when JSX is present', macro, 'export default <div />', [
-  /import React from ['"]react['"]/,
-])
