@@ -3,9 +3,8 @@ import fs from 'fs'
 import test from 'ava'
 import {transform} from '@babel/core'
 
-process.env.NODE_ENV = 'development'
-
-function snapshot(t, fixture, presetOptions = {}) {
+function snapshot(t, fixture, presetOptions = {}, env = 'development') {
+  process.env.BABEL_ENV = env
   const filename = `${__dirname}/fixtures/${fixture}.js`
   const input = fs.readFileSync(filename, 'utf8')
   const preset = require('..')
@@ -16,7 +15,13 @@ function snapshot(t, fixture, presetOptions = {}) {
 
 test('transforms ES2018+ syntax', snapshot, 'esnext')
 test('transforms ES2018+ syntax in loose mode', snapshot, 'esnext', {loose: true})
+
 test('does not transpile ES modules', snapshot, 'esm')
 test(`transpiles ES modules when {modules: 'commonjs'}`, snapshot, 'esm', {modules: 'commonjs'})
+test(`transpiles ES modules in test env`, snapshot, 'esm', undefined, 'test')
+
 test('cherry picks lodash modules', snapshot, 'lodash')
 test('does not modify lodash imports when {lodash: false}', snapshot, 'lodash', {lodash: false})
+
+test('wraps prop types', snapshot, 'prop-types')
+test('removes prop types in production env', snapshot, 'prop-types', undefined, 'production')
