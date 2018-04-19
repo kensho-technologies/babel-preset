@@ -1,15 +1,15 @@
-import pluginClassProperties from '@babel/plugin-proposal-class-properties'
-import pluginExportNamespaceFrom from '@babel/plugin-proposal-export-namespace-from'
-import pluginObjectRestSpread from '@babel/plugin-proposal-object-rest-spread'
-import pluginSyntaxDynamicImport from '@babel/plugin-syntax-dynamic-import'
-import pluginLodash from 'babel-plugin-lodash'
-import pluginRemovePropTypes from 'babel-plugin-transform-react-remove-prop-types'
-import pluginRuntime from '@babel/plugin-transform-runtime'
-import presetEnv from '@babel/preset-env'
-import presetFlow from '@babel/preset-flow'
-import presetReact from '@babel/preset-react'
+const pluginClassProperties = require('@babel/plugin-proposal-class-properties').default
+const pluginExportNamespaceFrom = require('@babel/plugin-proposal-export-namespace-from').default
+const pluginObjectRestSpread = require('@babel/plugin-proposal-object-rest-spread').default
+const pluginSyntaxDynamicImport = require('@babel/plugin-syntax-dynamic-import').default
+const pluginLodash = require('babel-plugin-lodash')
+const pluginRemovePropTypes = require('babel-plugin-transform-react-remove-prop-types').default
+const pluginRuntime = require('@babel/plugin-transform-runtime').default
+const presetEnv = require('@babel/preset-env').default
+const presetFlow = require('@babel/preset-flow').default
+const presetReact = require('@babel/preset-react').default
 
-export default (babel, userOptions) => {
+module.exports = (babel, userOptions) => {
   const env = babel.getEnv()
   const defaultOptions = {
     lodash: true,

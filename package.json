@@ -2,13 +2,12 @@
   "name": "babel-preset-kensho",
   "version": "4.0.0-alpha.6",
   "description": "Babel preset to transpile ES2015+/JSX to ES5.",
-  "main": "lib",
+  "main": "index.js",
   "files": [
-    "lib"
+    "index.js"
   ],
   "scripts": {
-    "prepare": "babel src -d lib",
-    "test": "eslint src test.js && ava"
+    "test": "eslint . && ava"
   },
   "author": "Billy Janitsch <billyjanitsch@gmail.com> (http://billyjanitsch.com)",
   "license": "MIT",
@@ -26,11 +25,10 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.13"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0-beta.44",
     "@babel/core": "7.0.0-beta.44",
     "ava": "^0.25.0",
     "eslint": "^4.19.1",
     "eslint-config-kensho": "^4.0.1",
-    "prettier": "^1.11.1"
+    "prettier": "^1.12.1"
   }
 }
