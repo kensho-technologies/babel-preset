@@ -1,6 +1,7 @@
 import pluginClassProperties from '@babel/plugin-proposal-class-properties'
 import pluginExportNamespaceFrom from '@babel/plugin-proposal-export-namespace-from'
 import pluginObjectRestSpread from '@babel/plugin-proposal-object-rest-spread'
+import pluginSyntaxDynamicImport from '@babel/plugin-syntax-dynamic-import'
 import pluginLodash from 'babel-plugin-lodash'
 import pluginReactRemovePropTypes from 'babel-plugin-transform-react-remove-prop-types'
 import pluginRuntime from '@babel/plugin-transform-runtime'
@@ -31,6 +32,7 @@ export default (context, userOptions) => {
     [pluginClassProperties, {loose}],
     pluginExportNamespaceFrom,
     [pluginObjectRestSpread, {loose, useBuiltIns}],
+    pluginSyntaxDynamicImport,
   ]
   if (lodash) plugins.push(pluginLodash)
   if (removePropTypes) plugins.push([pluginReactRemovePropTypes, {mode: removePropTypes}])
