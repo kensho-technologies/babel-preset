@@ -1,14 +1,3 @@
-const pluginClassProperties = require('@babel/plugin-proposal-class-properties').default
-const pluginExportNamespaceFrom = require('@babel/plugin-proposal-export-namespace-from').default
-const pluginObjectRestSpread = require('@babel/plugin-proposal-object-rest-spread').default
-const pluginSyntaxDynamicImport = require('@babel/plugin-syntax-dynamic-import').default
-const pluginLodash = require('babel-plugin-lodash')
-const pluginRemovePropTypes = require('babel-plugin-transform-react-remove-prop-types').default
-const pluginRuntime = require('@babel/plugin-transform-runtime').default
-const presetEnv = require('@babel/preset-env').default
-const presetFlow = require('@babel/preset-flow').default
-const presetReact = require('@babel/preset-react').default
-
 module.exports = (babel, userOptions) => {
   const env = babel.getEnv()
   const defaultOptions = {
@@ -28,22 +17,22 @@ module.exports = (babel, userOptions) => {
   const {lodash, loose, modules, removePropTypes, runtime, targets, useBuiltIns} = options
 
   const plugins = [
-    [pluginClassProperties, {loose}],
-    pluginExportNamespaceFrom,
-    [pluginObjectRestSpread, {loose, useBuiltIns}],
-    pluginSyntaxDynamicImport,
-  ]
-  if (lodash) plugins.push(pluginLodash)
-  if (runtime) plugins.push([pluginRuntime, {polyfill: false, useBuiltIns}])
-  if (removePropTypes) {
-    const removeImport = removePropTypes === 'remove'
-    plugins.push([pluginRemovePropTypes, {mode: removePropTypes, removeImport}])
-  }
+    [require('@babel/plugin-proposal-class-properties').default, {loose}],
+    [require('@babel/plugin-proposal-export-namespace-from').default],
+    [require('@babel/plugin-proposal-object-rest-spread').default, {loose, useBuiltIns}],
+    [require('@babel/plugin-syntax-dynamic-import').default],
+    lodash && [require('babel-plugin-lodash')],
+    runtime && [require('@babel/plugin-transform-runtime').default, {polyfill: false, useBuiltIns}],
+    removePropTypes && [
+      require('babel-plugin-transform-react-remove-prop-types').default,
+      {mode: removePropTypes, removeImport: removePropTypes === 'remove'},
+    ],
+  ].filter(Boolean)
 
   const presets = [
-    [presetEnv, {loose, modules, targets}],
-    [presetFlow],
-    [presetReact, {useBuiltIns}],
+    [require('@babel/preset-env').default, {loose, modules, targets}],
+    [require('@babel/preset-flow').default],
+    [require('@babel/preset-react').default, {useBuiltIns}],
   ]
 
   return {plugins, presets}
