@@ -2,7 +2,7 @@ module.exports = (babel, userOptions) => {
   const env = babel.getEnv()
   const defaultOptions = {
     lodash: true,
-    loose: false,
+    loose: true,
     modules: env === 'cjs' || env === 'test' ? 'commonjs' : false,
     removePropTypes: env === 'production' ? 'remove' : 'wrap',
     runtime: false,
