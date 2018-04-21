@@ -13,8 +13,9 @@ function snapshot(t, fixture, presetOptions = {}, env = 'development') {
   t.snapshot(result.code)
 }
 
-test('transforms ES2018+ syntax', snapshot, 'esnext')
-test('transforms ES2018+ syntax in loose mode', snapshot, 'esnext', {loose: true})
+test('transpiles ES2018+ syntax', snapshot, 'esnext')
+test('transpiles ES2018+ syntax in test env', snapshot, 'esnext', undefined, 'test')
+test('transpiles ES2018+ syntax in loose mode', snapshot, 'esnext', {loose: true})
 
 test('does not transpile ES modules', snapshot, 'esm')
 test(`transpiles ES modules when {modules: 'commonjs'}`, snapshot, 'esm', {modules: 'commonjs'})
