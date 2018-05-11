@@ -8,7 +8,7 @@ module.exports = (babel, userOptions) => {
     runtime: false,
     targets: {
       browsers: env !== 'test' && ['IE 11', 'Firefox ESR', 'last 2 Chrome versions'],
-      node: env === 'test' || '8.11.1',
+      node: env === 'test' || '10.0.0',
     },
     useBuiltIns: true,
   }
