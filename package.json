@@ -13,7 +13,7 @@
   "license": "MIT",
   "repository": "kensho/babel-preset-kensho",
   "dependencies": {
-    "@babel/plugin-proposal-class-properties": "7.0.0-beta.44",
+    "@babel/plugin-proposal-class-properties": "7.0.0-beta.47",
     "@babel/plugin-proposal-export-namespace-from": "7.0.0-beta.44",
     "@babel/plugin-proposal-object-rest-spread": "7.0.0-beta.44",
     "@babel/plugin-syntax-dynamic-import": "7.0.0-beta.44",
