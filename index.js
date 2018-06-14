@@ -7,7 +7,7 @@ module.exports = (babel, userOptions) => {
     removePropTypes: env === 'production' ? 'remove' : 'wrap',
     runtime: false,
     targets: {
-      browsers: env !== 'test' && ['IE 11', 'Firefox ESR', 'last 2 Chrome versions'],
+      browsers: env === 'test' ? undefined : ['IE 11', 'Firefox ESR', 'last 2 Chrome versions'],
       node: env === 'test' || '10.0.0',
     },
     useBuiltIns: true,
