@@ -28,7 +28,7 @@
     "@babel/core": "7.0.0-beta.51",
     "ava": "1.0.0-beta.6",
     "eslint": "^4.19.1",
-    "eslint-config-kensho": "5.0.0-alpha.3",
+    "eslint-config-kensho": "5.0.0",
     "prettier": "^1.13.5"
   }
 }
