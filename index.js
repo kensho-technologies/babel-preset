@@ -22,10 +22,7 @@ module.exports = (babel, userOptions) => {
     [require('@babel/plugin-proposal-object-rest-spread').default, {loose, useBuiltIns}],
     [require('@babel/plugin-syntax-dynamic-import').default],
     lodash && [require('babel-plugin-lodash')],
-    runtime && [
-      require('@babel/plugin-transform-runtime').default,
-      {polyfill: false, regenerator: false, useBuiltIns},
-    ],
+    runtime && [require('@babel/plugin-transform-runtime').default, {regenerator: false}],
     removePropTypes && [
       require('babel-plugin-transform-react-remove-prop-types').default,
       {mode: removePropTypes, removeImport: removePropTypes === 'remove'},
