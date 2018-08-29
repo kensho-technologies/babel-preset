@@ -21,6 +21,12 @@ test('does not transpile ES modules', snapshot, 'esm')
 test(`transpiles ES modules when {modules: 'commonjs'}`, snapshot, 'esm', {modules: 'commonjs'})
 test(`transpiles ES modules in test env`, snapshot, 'esm', undefined, 'test')
 
+test('does not use esm babel helpers when {modules: commonjs}', snapshot, 'esm-helpers', {
+  modules: 'commonjs',
+  runtime: true,
+})
+test('uses esm babel helpers when {modules: false}', snapshot, 'esm-helpers', {runtime: true})
+
 test('cherry picks lodash modules', snapshot, 'lodash')
 test('does not modify lodash imports when {lodash: false}', snapshot, 'lodash', {lodash: false})
 
