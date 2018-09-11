@@ -32,7 +32,7 @@ module.exports = (babel, userOptions) => {
   ].filter(Boolean)
 
   const presets = [
-    [require('@babel/preset-env').default, {loose, modules, targets}],
+    [require('@babel/preset-env').default, {loose, modules, targets, useBuiltIns: 'entry'}],
     [require('@babel/preset-flow').default],
     [require('@babel/preset-react').default, {useBuiltIns}],
   ]

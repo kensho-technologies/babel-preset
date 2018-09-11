@@ -17,6 +17,8 @@ test('transpiles ES2018+ syntax', snapshot, 'esnext')
 test('transpiles ES2018+ syntax in test env', snapshot, 'esnext', undefined, 'test')
 test(`transpiles ES2018+ syntax strictly when {loose: false}`, snapshot, 'esnext', {loose: false})
 
+test('replaces generic polyfill with env-targeted polyfills', snapshot, 'polyfill')
+
 test('does not transpile ES modules', snapshot, 'esm')
 test(`transpiles ES modules when {modules: 'commonjs'}`, snapshot, 'esm', {modules: 'commonjs'})
 test(`transpiles ES modules in test env`, snapshot, 'esm', undefined, 'test')
