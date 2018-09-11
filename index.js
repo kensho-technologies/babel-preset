@@ -1,6 +1,7 @@
 module.exports = (babel, userOptions) => {
   const env = babel.env()
   const defaultOptions = {
+    inlineReactElements: env === 'production',
     lodash: true,
     loose: true,
     modules: env === 'cjs' || env === 'test' ? 'commonjs' : false,
@@ -13,13 +14,23 @@ module.exports = (babel, userOptions) => {
     useBuiltIns: true,
   }
   const options = Object.assign(defaultOptions, userOptions)
-  const {lodash, loose, modules, removePropTypes, runtime, targets, useBuiltIns} = options
+  const {
+    inlineReactElements,
+    lodash,
+    loose,
+    modules,
+    removePropTypes,
+    runtime,
+    targets,
+    useBuiltIns,
+  } = options
 
   const plugins = [
     [require('@babel/plugin-proposal-class-properties').default, {loose}],
     [require('@babel/plugin-proposal-export-namespace-from').default],
     [require('@babel/plugin-proposal-object-rest-spread').default, {loose, useBuiltIns}],
     [require('@babel/plugin-syntax-dynamic-import').default],
+    inlineReactElements && [require('@babel/plugin-transform-react-inline-elements').default],
     lodash && [require('babel-plugin-lodash')],
     runtime && [
       require('@babel/plugin-transform-runtime').default,
