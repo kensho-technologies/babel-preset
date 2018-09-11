@@ -1,5 +1,5 @@
 module.exports = (babel, userOptions) => {
-  const env = babel.getEnv()
+  const env = babel.env()
   const defaultOptions = {
     lodash: true,
     loose: true,
@@ -12,7 +12,6 @@ module.exports = (babel, userOptions) => {
     },
     useBuiltIns: true,
   }
-
   const options = Object.assign(defaultOptions, userOptions)
   const {lodash, loose, modules, removePropTypes, runtime, targets, useBuiltIns} = options
 
