@@ -4,7 +4,7 @@ module.exports = (babel, userOptions) => {
     lodash: true,
     loose: true,
     modules: env === 'cjs' || env === 'test' ? 'commonjs' : false,
-    removePropTypes: env === 'production' ? 'remove' : 'wrap',
+    removePropTypes: env === 'production' ? 'remove' : 'unsafe-wrap',
     runtime: false,
     targets: {
       browsers: env === 'test' ? undefined : ['IE 11', 'Firefox ESR', 'last 2 Chrome versions'],
