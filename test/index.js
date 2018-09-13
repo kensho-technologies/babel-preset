@@ -40,3 +40,12 @@ test('wraps prop types value', snapshot, 'prop-types', {removePropTypes: 'wrap'}
 test('removes prop types', snapshot, 'prop-types', undefined, 'production')
 test('removes prop types', snapshot, 'prop-types', {removePropTypes: 'remove'})
 test('does not remove prop types', snapshot, 'prop-types', {removePropTypes: false})
+
+test('inlines React elements', snapshot, 'component', undefined, 'production')
+test(
+  'inlines React elements with external helper',
+  snapshot,
+  'component',
+  {runtime: true},
+  'production'
+)
