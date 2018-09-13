@@ -3,12 +3,11 @@ import fs from 'fs'
 import test from 'ava'
 import {transform} from '@babel/core'
 
-function snapshot(t, fixture, presetOptions = {}, env = 'development') {
-  process.env.BABEL_ENV = env
+function snapshot(t, fixture, presetOptions = {}, envName = 'development') {
   const filename = `${__dirname}/fixtures/${fixture}.js`
   const input = fs.readFileSync(filename, 'utf8')
   const preset = require('..')
-  const options = {presets: [[preset, presetOptions]], babelrc: false}
+  const options = {envName, presets: [[preset, presetOptions]], babelrc: false}
   const result = transform(input, options)
   t.snapshot(result.code)
 }
