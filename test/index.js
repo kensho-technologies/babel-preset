@@ -42,6 +42,14 @@ test('removes prop types', snapshot, 'prop-types', {removePropTypes: 'remove'})
 test('does not remove prop types', snapshot, 'prop-types', {removePropTypes: false})
 
 test('inlines React elements', snapshot, 'component', undefined, 'production')
+test('does not inline React elements', snapshot, 'component')
+test(
+  'does not inline React elements',
+  snapshot,
+  'component',
+  {inlineReactElements: false},
+  'production'
+)
 test(
   'inlines React elements with external helper',
   snapshot,
