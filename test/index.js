@@ -8,9 +8,10 @@ import preset from '..'
 function snapshot(t, fixture, presetOptions = {}, envName = 'development') {
   const filename = `${__dirname}/fixtures/${fixture}.js`
   const input = fs.readFileSync(filename, 'utf8')
+  t.snapshot(input, 'input')
   const options = {envName, presets: [[preset, presetOptions]], babelrc: false}
   const result = transform(input, options)
-  t.snapshot(result.code)
+  t.snapshot(result.code, 'output')
 }
 
 snapshot.title = (provided, fixture, options, envName) => {
