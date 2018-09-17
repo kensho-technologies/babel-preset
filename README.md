@@ -25,6 +25,13 @@ You can set up Babel transpilation in [several ways](http://babeljs.io/docs/setu
 
 The preset can be configured using several options. Note that some options' defaults depend on the [Babel environment](https://babeljs.io/docs/en/options#envname), which may be one of: `development` | `production` | `test` | `cjs`
 
+### `inlineReactElements`
+
+`true` | `false`<br />
+Default: `true` in `production` env, `false` otherwise
+
+Whether to [transpile JSX to an inline element helper](https://babeljs.io/docs/en/babel-plugin-transform-react-inline-elements) rather than `React.createElement` where possible. This should only be enabled in production since it causes `propTypes` checks to be skipped and provides less useful errors.
+
 ### `lodash`
 
 `true` | `false`<br />
