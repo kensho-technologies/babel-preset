@@ -34,8 +34,9 @@ test('uses external CJS helpers', snapshot, 'esm-helpers', {modules: 'commonjs',
 test('cherry picks lodash modules', snapshot, 'lodash')
 test('does not cherry pick lodash modules', snapshot, 'lodash', {lodash: false})
 
-test('wraps prop types', snapshot, 'prop-types')
-test('wraps prop types', snapshot, 'prop-types', {removePropTypes: 'wrap'})
+test('wraps prop types assignment', snapshot, 'prop-types')
+test('wraps prop types assignment', snapshot, 'prop-types', {removePropTypes: 'unsafe-wrap'})
+test('wraps prop types value', snapshot, 'prop-types', {removePropTypes: 'wrap'})
 test('removes prop types', snapshot, 'prop-types', undefined, 'production')
 test('removes prop types', snapshot, 'prop-types', {removePropTypes: 'remove'})
 test('does not remove prop types', snapshot, 'prop-types', {removePropTypes: false})
