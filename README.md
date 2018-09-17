@@ -66,7 +66,7 @@ const foo = require('./foo')
 ### `removePropTypes`
 
 `'remove'` | `'wrap'` | `'unsafe-wrap'` | `false`<br />
-Default: `'remove'` in `production` env, `'wrap'` otherwise
+Default: `'remove'` in `production` env, `'unsafe-wrap'` otherwise
 
 Whether to remove React component `propTypes` assignment to reduce bundle size. When set to `'remove'`, also removes imports of the `prop-types` module.
 
