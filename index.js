@@ -10,8 +10,8 @@ module.exports = (babel, userOptions) => {
       browsers: env === 'test' ? undefined : ['IE 11', 'Firefox ESR', 'last 2 Chrome versions'],
       node: env === 'test' || '10.0.0',
     },
-    useBuiltIns: true,
     typescript: false,
+    useBuiltIns: true,
   }
   const {
     lodash,
@@ -20,8 +20,8 @@ module.exports = (babel, userOptions) => {
     removePropTypes,
     runtime,
     targets,
-    useBuiltIns,
     typescript,
+    useBuiltIns,
   } = Object.assign(defaultOptions, userOptions)
 
   const plugins = [
@@ -42,19 +42,13 @@ module.exports = (babel, userOptions) => {
 
   const presets = [
     [require('@babel/preset-env').default, {loose, modules, targets}],
-    !typescript ? [require('@babel/preset-flow').default] : undefined,
+    !typescript && [require('@babel/preset-flow').default],
+    typescript && [
+      require('@babel/preset-typescript').default,
+      typeof typescript === 'object' ? typescript : {},
+    ],
     [require('@babel/preset-react').default, {useBuiltIns}],
-  ]
+  ].filter(Boolean)
 
-  if (typescript) {
-    const typescriptModule = require('@babel/preset-typescript').default
-
-    if (typescript instanceof Object) {
-      presets.push([typescriptModule, typescript])
-    } else {
-      presets.push(typescriptModule)
-    }
-  }
-
-  return {plugins, presets: presets.filter(item => item !== undefined)}
+  return {plugins, presets}
 }
