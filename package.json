@@ -13,7 +13,7 @@
   "license": "MIT",
   "repository": "kensho/babel-preset-kensho",
   "dependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.2.0",
+    "@babel/plugin-proposal-class-properties": "^7.2.1",
     "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
@@ -28,7 +28,7 @@
     "@babel/core": "^7.2.0",
     "ava": "1.0.0-rc.2",
     "eslint": "^5.9.0",
-    "eslint-config-kensho": "^6.1.2",
+    "eslint-config-kensho": "^7.0.0",
     "prettier": "^1.15.3"
   }
 }
