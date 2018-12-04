@@ -42,7 +42,5 @@ test('removes prop types', snapshot, 'prop-types.js', undefined, 'production')
 test('removes prop types', snapshot, 'prop-types.js', {removePropTypes: 'remove'})
 test('does not remove prop types', snapshot, 'prop-types.js', {removePropTypes: false})
 
-test('TypeScript compiles TSX', snapshot, 'react.tsx', {typescript: true})
-test('TypeScript supports syntax dynamic imports', snapshot, 'syntax-dynamic-import.ts', {
-  typescript: true,
-})
+test('transpiles TSX', snapshot, 'react.tsx', {typescript: true})
+test('supports TS dynamic import syntax', snapshot, 'dynamic-imports.ts', {typescript: true})
