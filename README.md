@@ -98,6 +98,13 @@ Default: current node version in `test` env, recent browsers otherwise
 
 The transpilation targets to pass to `@babel/preset-env`.
 
+### `typescript`
+
+`true` | `false` | [`options`](https://babeljs.io/docs/en/babel-preset-typescript#options)<br />
+Default: `false`
+
+Whether to enable TypeScript support. If an `options` object is passed, it's passed to the TypeScript preset.
+
 ### `useBuiltIns`
 
 `true` | `false`<br />
