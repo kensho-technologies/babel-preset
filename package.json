@@ -4,7 +4,10 @@
   "description": "Babel preset to transpile ES2015+/JSX to ES5.",
   "main": "index.js",
   "files": [
-    "index.js"
+    "index.js",
+    "create.js",
+    "dependencies.js",
+    "app.js"
   ],
   "scripts": {
     "test": "eslint . && ava"
