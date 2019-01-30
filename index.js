@@ -42,7 +42,6 @@ module.exports = (babel, userOptions) => {
 
   const presets = [
     [require('@babel/preset-env').default, {loose, modules, targets}],
-    !typescript && [require('@babel/preset-flow').default],
     typescript && [
       require('@babel/preset-typescript').default,
       typeof typescript === 'object' ? typescript : {},
