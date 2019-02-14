@@ -43,4 +43,8 @@ test('removes prop types', snapshot, 'prop-types.js', {removePropTypes: 'remove'
 test('does not remove prop types', snapshot, 'prop-types.js', {removePropTypes: false})
 
 test('transpiles TSX', snapshot, 'react.tsx', {typescript: true})
+test('transpiles TSX with custom pragma', snapshot, 'react.tsx', {
+  react: {pragma: 'jsx'},
+  typescript: true,
+})
 test('supports TS dynamic import syntax', snapshot, 'dynamic-imports.ts', {typescript: true})

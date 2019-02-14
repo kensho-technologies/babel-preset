@@ -4,6 +4,7 @@ module.exports = (babel, userOptions) => {
     lodash: true,
     loose: true,
     modules: env === 'cjs' || env === 'test' ? 'commonjs' : false,
+    react: true,
     removePropTypes: env === 'production' ? 'remove' : 'unsafe-wrap',
     runtime: false,
     targets: {
@@ -17,6 +18,7 @@ module.exports = (babel, userOptions) => {
     lodash,
     loose,
     modules,
+    react,
     removePropTypes,
     runtime,
     targets,
@@ -46,7 +48,10 @@ module.exports = (babel, userOptions) => {
       require('@babel/preset-typescript').default,
       typeof typescript === 'object' ? typescript : {},
     ],
-    [require('@babel/preset-react').default, {useBuiltIns}],
+    react && [
+      require('@babel/preset-react').default,
+      typeof react === 'object' ? {useBuiltIns, ...react} : {useBuiltIns},
+    ],
   ].filter(Boolean)
 
   return {plugins, presets}

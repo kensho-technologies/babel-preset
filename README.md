@@ -63,6 +63,13 @@ import foo from './foo'
 const foo = require('./foo')
 ```
 
+### `react`
+
+`true` | `false` | [`options`](https://babeljs.io/docs/en/babel-preset-react#options)<br />
+Default: `true`
+
+Whether to transpile JSX expressions. If an `options` object is passed, it is forwarded to the [React preset](https://babeljs.io/docs/en/babel-preset-react).
+
 ### `removePropTypes`
 
 `'remove'` | `'wrap'` | `'unsafe-wrap'` | `false`<br />
@@ -78,10 +85,9 @@ Foo.propTypes = {bar: PropTypes.string}
 Foo.propTypes = process.env.NODE_ENV !== 'production' ? {bar: PropTypes.string} : {}
 
 // 'unsafe-wrap':
-process.env.NODE_ENV !== 'production' ? Foo.propTypes = {bar: PropTypes.string} : void 0
+process.env.NODE_ENV !== 'production' ? (Foo.propTypes = {bar: PropTypes.string}) : void 0
 
 // 'remove':
-
 ```
 
 ### `runtime`
