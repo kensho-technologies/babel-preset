@@ -28,9 +28,9 @@ test('does not transpile ES modules', snapshot, 'esm.js')
 test('transpiles ES modules', snapshot, 'esm.js', {modules: 'commonjs'})
 test('transpiles ES modules', snapshot, 'esm.js', undefined, 'test')
 
-test('does not use external helpers', snapshot, 'esm-helpers.js')
-test('uses external ESM helpers', snapshot, 'esm-helpers.js', {runtime: true})
-test('uses external CJS helpers', snapshot, 'esm-helpers.js', {modules: 'commonjs', runtime: true})
+test('uses external ESM helpers', snapshot, 'esm-helpers.js')
+test('does not use external helpers', snapshot, 'esm-helpers.js', {runtime: false})
+test('uses external CJS helpers', snapshot, 'esm-helpers.js', {modules: 'commonjs'})
 
 test('cherry picks lodash modules', snapshot, 'lodash.js')
 test('does not cherry pick lodash modules', snapshot, 'lodash.js', {lodash: false})

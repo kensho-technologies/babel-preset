@@ -12,6 +12,9 @@
   "author": "Billy Janitsch <billyjanitsch@gmail.com> (http://billyjanitsch.com)",
   "license": "MIT",
   "repository": "kensho/babel-preset-kensho",
+  "peerDependencies": {
+    "@babel/runtime": "^7.3.1"
+  },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.3.0",
     "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
