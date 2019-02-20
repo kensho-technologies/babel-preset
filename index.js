@@ -6,7 +6,7 @@ module.exports = (babel, userOptions) => {
     modules: env === 'cjs' || env === 'test' ? 'commonjs' : false,
     react: true,
     removePropTypes: env === 'production' ? 'remove' : 'unsafe-wrap',
-    runtime: false,
+    runtime: true,
     targets: {
       browsers: env === 'test' ? undefined : ['IE 11', 'Firefox ESR', 'last 2 Chrome versions'],
       node: env === 'test' || '10.0.0',
