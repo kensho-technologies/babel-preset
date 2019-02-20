@@ -11,7 +11,7 @@ module.exports = (babel, userOptions) => {
       browsers: env === 'test' ? undefined : ['IE 11', 'Firefox ESR', 'last 2 Chrome versions'],
       node: env === 'test' || '10.0.0',
     },
-    typescript: false,
+    typescript: true,
     useBuiltIns: true,
   }
   const {
