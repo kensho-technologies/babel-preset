@@ -93,7 +93,7 @@ process.env.NODE_ENV !== 'production' ? (Foo.propTypes = {bar: PropTypes.string}
 ### `runtime`
 
 `true` | `false`<br />
-Default: `false`
+Default: `true`
 
 Whether to enable the [Babel runtime transform](https://babeljs.io/docs/en/next/babel-plugin-transform-runtime). This is encouraged to reduce bundle size, but requires adding `@babel/runtime` as a dependency.
 
@@ -107,7 +107,7 @@ The transpilation targets to pass to `@babel/preset-env`.
 ### `typescript`
 
 `true` | `false` | [`options`](https://babeljs.io/docs/en/babel-preset-typescript#options)<br />
-Default: `false`
+Default: `true`
 
 Whether to enable TypeScript support. If an `options` object is passed, it's passed to the TypeScript preset.
 
