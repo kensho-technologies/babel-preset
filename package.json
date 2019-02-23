@@ -7,7 +7,8 @@
     "index.js"
   ],
   "scripts": {
-    "test": "eslint . && ava"
+    "test": "eslint . && ava",
+    "prepublishOnly": "npm test"
   },
   "author": "Billy Janitsch <billyjanitsch@gmail.com> (http://billyjanitsch.com)",
   "license": "MIT",
