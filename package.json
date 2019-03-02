@@ -33,7 +33,7 @@
     "@babel/runtime": "^7.3.4",
     "ava": "^1.2.1",
     "eslint": "^5.14.1",
-    "eslint-config-kensho": "^9.0.0",
+    "eslint-config-kensho": "^10.0.0",
     "prettier": "^1.16.4",
     "typescript": "^3.3.3333"
   }
