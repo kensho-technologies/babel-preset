@@ -45,3 +45,5 @@ test('does not remove prop types', snapshot, 'prop-types.js', {removePropTypes: 
 test('transpiles TSX', snapshot, 'react.tsx')
 test('transpiles TSX with custom pragma', snapshot, 'react.tsx', {react: {pragma: 'jsx'}})
 test('supports TS dynamic import syntax', snapshot, 'dynamic-imports.ts')
+
+test('replaces generic polyfill with env-targeted polyfills', snapshot, 'polyfills.ts')

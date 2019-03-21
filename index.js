@@ -43,7 +43,10 @@ module.exports = (babel, userOptions) => {
   ].filter(Boolean)
 
   const presets = [
-    [require('@babel/preset-env').default, {loose, modules, targets}],
+    [
+      require('@babel/preset-env').default,
+      {loose, modules, targets, corejs: 3, useBuiltIns: 'entry'},
+    ],
     typescript && [
       require('@babel/preset-typescript').default,
       typeof typescript === 'object' ? typescript : {},
