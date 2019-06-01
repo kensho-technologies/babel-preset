@@ -1,4 +1,5 @@
 import fs from 'fs'
+import {resolve} from 'path'
 
 import test from 'ava'
 import {transform} from '@babel/core'
@@ -6,7 +7,7 @@ import {transform} from '@babel/core'
 import preset from '..'
 
 function snapshot(t, fixture, presetOptions = {}, envName = 'development') {
-  const filename = `${__dirname}/fixtures/${fixture}`
+  const filename = resolve(__dirname, '../fixtures', fixture)
   const input = fs.readFileSync(filename, 'utf8')
   t.snapshot(input, 'input')
   const options = {envName, presets: [[preset, presetOptions]], filename, babelrc: false}
