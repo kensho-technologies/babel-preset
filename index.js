@@ -1,30 +1,19 @@
-module.exports = (babel, userOptions) => {
+module.exports = (babel, options) => {
   const env = babel.env()
-  const defaultOptions = {
-    lodash: true,
-    loose: true,
-    modules: env === 'cjs' || env === 'test' ? 'commonjs' : false,
-    react: true,
-    removePropTypes: env === 'production' ? 'remove' : 'unsafe-wrap',
-    runtime: true,
-    targets: {
+  const {
+    lodash = true,
+    loose = true,
+    modules = env === 'cjs' || env === 'test' ? 'commonjs' : false,
+    react = true,
+    removePropTypes = env === 'production' ? 'remove' : 'unsafe-wrap',
+    runtime = true,
+    targets = {
       browsers: env === 'test' ? undefined : ['IE 11', 'Firefox ESR', 'last 2 Chrome versions'],
       node: env === 'test' || '10.0.0',
     },
-    typescript: true,
-    useBuiltIns: true,
-  }
-  const {
-    lodash,
-    loose,
-    modules,
-    react,
-    removePropTypes,
-    runtime,
-    targets,
-    typescript,
-    useBuiltIns,
-  } = Object.assign(defaultOptions, userOptions)
+    typescript = true,
+    useBuiltIns = true,
+  } = options
 
   const plugins = [
     [require('@babel/plugin-proposal-class-properties').default, {loose}],
