@@ -110,10 +110,3 @@ The transpilation targets to pass to `@babel/preset-env`.
 Default: `true`
 
 Whether to enable TypeScript support. If an `options` object is passed, it's passed to the TypeScript preset.
-
-### `useBuiltIns`
-
-`true` | `false`<br />
-Default: `true`
-
-Whether to assume the presence of built-in ES2015 methods (e.g. `Object.assign`) in transpiled output rather than using helper functions. This option assumes that you will be polyfilling a global ES2015 environment if you need to support non-ES2015 browsers.

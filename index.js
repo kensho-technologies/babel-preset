@@ -9,13 +9,11 @@ module.exports = (babel, options) => {
     runtime = true,
     targets = env === 'test' ? {node: true, browsers: []} : undefined,
     typescript = true,
-    useBuiltIns = true,
   } = options
 
   const plugins = [
     [require('@babel/plugin-proposal-class-properties').default, {loose}],
     [require('@babel/plugin-proposal-export-namespace-from').default],
-    [require('@babel/plugin-proposal-object-rest-spread').default, {loose, useBuiltIns}],
     [require('@babel/plugin-syntax-dynamic-import').default],
     lodash && [require('babel-plugin-lodash')],
     runtime && [
@@ -37,10 +35,7 @@ module.exports = (babel, options) => {
       require('@babel/preset-typescript').default,
       typeof typescript === 'object' ? typescript : {},
     ],
-    react && [
-      require('@babel/preset-react').default,
-      typeof react === 'object' ? {useBuiltIns, ...react} : {useBuiltIns},
-    ],
+    react && [require('@babel/preset-react').default, typeof react === 'object' ? react : {}],
   ].filter(Boolean)
 
   return {plugins, presets}
