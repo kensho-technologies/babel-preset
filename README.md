@@ -23,7 +23,7 @@ You can set up Babel transpilation in [several ways](http://babeljs.io/docs/setu
 
 ## Options
 
-The preset can be configured using several options. Note that some options' defaults depend on the [Babel environment](https://babeljs.io/docs/en/options#envname), which may be one of: `development` | `production` | `test`
+The preset can be configured using several options. Note that some options' defaults depend on the [Babel environment](https://babeljs.io/docs/en/options#envname), which may be one of: `development` | `production` | `test` | `library`
 
 ### `emotion`
 
