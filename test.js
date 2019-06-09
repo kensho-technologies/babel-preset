@@ -27,7 +27,7 @@ test('transpiles ES2018+ syntax for specific targets', snapshot, 'esnext.js', {
 })
 test('transpiles ES2018+ syntax strictly', snapshot, 'esnext.js', {loose: false})
 
-test('transpiles standard JS', snapshot, 'dependency.js', undefined, 'dependencies')
+test('transpiles standard JS in node_modules', snapshot, 'node_modules/dependency.js')
 
 test('does not transpile ES modules', snapshot, 'esm.js')
 test('transpiles ES modules', snapshot, 'esm.js', {modules: 'commonjs'})

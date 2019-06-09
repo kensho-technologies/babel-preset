@@ -23,9 +23,7 @@ You can set up Babel transpilation in [several ways](http://babeljs.io/docs/setu
 
 ## Options
 
-The preset can be configured using several options. Note that some options' defaults depend on the [Babel environment](https://babeljs.io/docs/en/options#envname), which may be one of: `development` | `production` | `test` | `dependencies`
-
-The `dependencies` environment is intended for the transpilation of dependencies in `node_modules`. It is expected that all dependencies will contain only standard JavaScript (no proposals, JSX, TypeScript, etc.) but they may need to be transpiled down to a specific target environment (e.g. from ES2018 to ES5).
+The preset can be configured using several options. Note that some options' defaults depend on the [Babel environment](https://babeljs.io/docs/en/options#envname), which may be one of: `development` | `production` | `test`
 
 ### `emotion`
 
