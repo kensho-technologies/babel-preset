@@ -5,7 +5,6 @@ module.exports = (babel, options) => {
     loose = true,
     modules = env === 'test' ? 'commonjs' : false,
     react = true,
-    removePropTypes = env === 'production' ? 'remove' : 'unsafe-wrap',
     runtime = true,
     targets = env === 'test' ? {node: true, browsers: []} : undefined,
     typescript = true,
@@ -18,10 +17,6 @@ module.exports = (babel, options) => {
     runtime && [
       require('@babel/plugin-transform-runtime').default,
       {regenerator: false, useESModules: !modules},
-    ],
-    removePropTypes && [
-      require('babel-plugin-transform-react-remove-prop-types').default,
-      {mode: removePropTypes, removeImport: removePropTypes === 'remove'},
     ],
   ].filter(Boolean)
 

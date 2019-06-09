@@ -38,13 +38,6 @@ test('uses external CJS helpers', snapshot, 'esm-helpers.js', {modules: 'commonj
 test('cherry picks lodash modules', snapshot, 'lodash.js')
 test('does not cherry pick lodash modules', snapshot, 'lodash.js', {lodash: false})
 
-test('wraps prop types assignment', snapshot, 'prop-types.js')
-test('wraps prop types assignment', snapshot, 'prop-types.js', {removePropTypes: 'unsafe-wrap'})
-test('wraps prop types value', snapshot, 'prop-types.js', {removePropTypes: 'wrap'})
-test('removes prop types', snapshot, 'prop-types.js', undefined, 'production')
-test('removes prop types', snapshot, 'prop-types.js', {removePropTypes: 'remove'})
-test('does not remove prop types', snapshot, 'prop-types.js', {removePropTypes: false})
-
 test('transpiles TSX', snapshot, 'react.tsx')
 test('transpiles TSX with custom pragma', snapshot, 'react.tsx', {react: {pragma: 'jsx'}})
 test('supports TS dynamic import syntax', snapshot, 'dynamic-imports.ts')

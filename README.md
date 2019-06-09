@@ -70,26 +70,6 @@ Default: `true`
 
 Whether to transpile JSX expressions. If an `options` object is passed, it is forwarded to the [React preset](https://babeljs.io/docs/en/babel-preset-react).
 
-### `removePropTypes`
-
-`'remove'` | `'wrap'` | `'unsafe-wrap'` | `false`<br />
-Default: `'remove'` in `production` env, `'unsafe-wrap'` otherwise
-
-Whether to remove React component `propTypes` assignment to reduce bundle size. When set to `'remove'`, also removes imports of the `prop-types` module.
-
-```js
-// false:
-Foo.propTypes = {bar: PropTypes.string}
-
-// 'wrap':
-Foo.propTypes = process.env.NODE_ENV !== 'production' ? {bar: PropTypes.string} : {}
-
-// 'unsafe-wrap':
-process.env.NODE_ENV !== 'production' ? (Foo.propTypes = {bar: PropTypes.string}) : void 0
-
-// 'remove':
-```
-
 ### `runtime`
 
 `true` | `false`<br />
