@@ -35,7 +35,10 @@ module.exports = (babel, options) => {
       ].filter(Boolean),
       presets: [
         typescript && [require('@babel/preset-typescript').default, typescript],
-        react && [require('@babel/preset-react').default, react],
+        react && [
+          require('@babel/preset-react').default,
+          {development: env === 'development', ...react},
+        ],
         emotion && [
           require('@emotion/babel-preset-css-prop').default,
           {autoLabel: env === 'development', ...emotion},
