@@ -3,7 +3,7 @@ module.exports = (babel, options) => {
   const {
     lodash = true,
     loose = true,
-    modules = env === 'cjs' || env === 'test' ? 'commonjs' : false,
+    modules = env === 'test' ? 'commonjs' : false,
     react = true,
     removePropTypes = env === 'production' ? 'remove' : 'unsafe-wrap',
     runtime = true,
