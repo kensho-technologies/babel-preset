@@ -32,7 +32,7 @@
     "ava": "^2.0.0",
     "eslint": "^5.16.0",
     "eslint-config-kensho": "^10.1.0",
-    "prettier": "^1.17.1",
+    "prettier": "^1.18.2",
     "typescript": "^3.5.1"
   }
 }
