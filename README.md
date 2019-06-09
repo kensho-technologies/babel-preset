@@ -65,8 +65,8 @@ const foo = require('./foo')
 
 ### `react`
 
-`true` | `false` | [`options`](https://babeljs.io/docs/en/babel-preset-react#options)<br />
-Default: `true`
+`false` | [`options`](https://babeljs.io/docs/en/babel-preset-react#options)<br />
+Default: `{}`
 
 Whether to transpile JSX expressions. If an `options` object is passed, it is forwarded to the [React preset](https://babeljs.io/docs/en/babel-preset-react).
 
@@ -86,7 +86,7 @@ The transpilation targets to pass to `@babel/preset-env`.
 
 ### `typescript`
 
-`true` | `false` | [`options`](https://babeljs.io/docs/en/babel-preset-typescript#options)<br />
-Default: `true`
+`false` | [`options`](https://babeljs.io/docs/en/babel-preset-typescript#options)<br />
+Default: `{}`
 
 Whether to enable TypeScript support. If an `options` object is passed, it's passed to the TypeScript preset.

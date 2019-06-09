@@ -4,10 +4,10 @@ module.exports = (babel, options) => {
     lodash = true,
     loose = true,
     modules = env === 'test' ? 'commonjs' : false,
-    react = true,
+    react = {},
     runtime = true,
     targets = env === 'test' ? {node: true, browsers: []} : undefined,
-    typescript = true,
+    typescript = {},
   } = options
 
   const plugins = [
@@ -25,11 +25,8 @@ module.exports = (babel, options) => {
       require('@babel/preset-env').default,
       {loose, modules, targets, corejs: 3, useBuiltIns: 'entry'},
     ],
-    typescript && [
-      require('@babel/preset-typescript').default,
-      typeof typescript === 'object' ? typescript : {},
-    ],
-    react && [require('@babel/preset-react').default, typeof react === 'object' ? react : {}],
+    typescript && [require('@babel/preset-typescript').default, typescript],
+    react && [require('@babel/preset-react').default, react],
   ].filter(Boolean)
 
   return {plugins, presets}
