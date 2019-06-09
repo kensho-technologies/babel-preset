@@ -22,6 +22,9 @@ snapshot.title = (provided, fixture, options, envName) => {
 
 test('transpiles ES2018+ syntax', snapshot, 'esnext.js')
 test('transpiles ES2018+ syntax for node', snapshot, 'esnext.js', undefined, 'test')
+test('transpiles ES2018+ syntax for specific targets', snapshot, 'esnext.js', {
+  targets: 'last 2 Chrome versions',
+})
 test('transpiles ES2018+ syntax strictly', snapshot, 'esnext.js', {loose: false})
 
 test('does not transpile ES modules', snapshot, 'esm.js')

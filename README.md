@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/kensho/babel-preset-kensho.svg?branch=master)](https://travis-ci.org/kensho/babel-preset-kensho)
 [![npm](https://img.shields.io/npm/v/babel-preset-kensho.svg)](https://npm.im/babel-preset-kensho)
 
-This [Babel 7 preset](http://babeljs.io/docs/plugins/#presets) transpiles ES2018, JSX, and selected language proposals to ES5. It also includes optimizations for specific contexts.
+This [Babel 7 preset](http://babeljs.io/docs/plugins/#presets) transpiles ES2018, JSX, and selected language proposals. It also includes optimizations for specific contexts.
 
 ## Install
 
@@ -100,7 +100,7 @@ Whether to enable the [Babel runtime transform](https://babeljs.io/docs/en/next/
 ### `targets`
 
 See [`@babel/preset-env` options documentation](http://babeljs.io/docs/en/babel-preset-env#targets).<br />
-Default: current node version in `test` env, recent browsers otherwise
+Default: current node version in `test` environment, inferred from browserslist config otherwise
 
 The transpilation targets to pass to `@babel/preset-env`.
 
