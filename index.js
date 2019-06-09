@@ -13,7 +13,6 @@ module.exports = (babel, options) => {
 
   const plugins = [
     [require('@babel/plugin-proposal-class-properties').default, {loose}],
-    [require('@babel/plugin-proposal-export-namespace-from').default],
     [require('@babel/plugin-syntax-dynamic-import').default],
     lodash && [require('babel-plugin-lodash')],
     runtime && [
