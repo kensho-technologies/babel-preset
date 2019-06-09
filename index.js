@@ -1,6 +1,7 @@
 module.exports = (babel, options) => {
   const env = babel.env()
   const {
+    emotion = false,
     lodash = true,
     loose = true,
     modules = env === 'test' ? 'commonjs' : false,
@@ -27,6 +28,10 @@ module.exports = (babel, options) => {
     ],
     typescript && [require('@babel/preset-typescript').default, typescript],
     react && [require('@babel/preset-react').default, react],
+    emotion && [
+      require('@emotion/babel-preset-css-prop').default,
+      {autoLabel: env === 'development', ...emotion},
+    ],
   ].filter(Boolean)
 
   return {plugins, presets}

@@ -25,6 +25,13 @@ You can set up Babel transpilation in [several ways](http://babeljs.io/docs/setu
 
 The preset can be configured using several options. Note that some options' defaults depend on the [Babel environment](https://babeljs.io/docs/en/options#envname), which may be one of: `development` | `production` | `test`
 
+### `emotion`
+
+`false` | [`options`](https://emotion.sh/docs/@emotion/babel-preset-css-prop#options)<br />
+Default: `false`
+
+Whether to enable support for CSS-in-JS via [Emotion](https://emotion.sh). If an `options` object is passed, it is forwarded to the [Emotion preset](https://emotion.sh/docs/@emotion/babel-preset-css-prop). This option requires an additional dependency on [`@emotion/core`](https://npm.im/@emotion/core).
+
 ### `lodash`
 
 `true` | `false`<br />

@@ -43,3 +43,6 @@ test('transpiles TSX with custom pragma', snapshot, 'react.tsx', {react: {pragma
 test('supports TS dynamic import syntax', snapshot, 'dynamic-imports.ts')
 
 test('replaces generic polyfill with env-targeted polyfills', snapshot, 'polyfills.ts')
+
+test('replaces pragma and optimizes styles', snapshot, 'emotion.js', {emotion: true})
+test('optimizes generated class names', snapshot, 'emotion.js', {emotion: true}, 'production')
