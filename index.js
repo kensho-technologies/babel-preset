@@ -11,10 +11,7 @@ module.exports = (babel, options) => {
   } = options
 
   const plugins = [
-    runtime && [
-      require('@babel/plugin-transform-runtime').default,
-      {regenerator: false, useESModules: !modules},
-    ],
+    runtime && [require('@babel/plugin-transform-runtime').default, {useESModules: !modules}],
   ].filter(Boolean)
 
   const presets = [
