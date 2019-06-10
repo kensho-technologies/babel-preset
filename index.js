@@ -2,7 +2,6 @@ module.exports = (babel, options) => {
   const env = babel.env()
   const {
     emotion = false,
-    lodash = true,
     loose = true,
     modules = env === 'test' ? 'commonjs' : false,
     react = {},
@@ -31,8 +30,7 @@ module.exports = (babel, options) => {
       plugins: [
         [require('@babel/plugin-proposal-class-properties').default, {loose}],
         [require('@babel/plugin-syntax-dynamic-import').default],
-        lodash && [require('babel-plugin-lodash')],
-      ].filter(Boolean),
+      ],
       presets: [
         typescript && [require('@babel/preset-typescript').default, typescript],
         react && [

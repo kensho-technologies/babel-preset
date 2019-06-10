@@ -32,22 +32,6 @@ Default: `false`
 
 Whether to enable support for CSS-in-JS via [Emotion](https://emotion.sh). If an `options` object is passed, it is forwarded to the [Emotion preset](https://emotion.sh/docs/@emotion/babel-preset-css-prop). This option requires an additional dependency on [`@emotion/core`](https://npm.im/@emotion/core).
 
-### `lodash`
-
-`true` | `false`<br />
-Default: `true`
-
-Whether to transpile [Lodash](https://lodash.com) imports using [babel-plugin-lodash](https://github.com/lodash/babel-plugin-lodash) to reduce bundle size.
-
-```js
-// false:
-import {map, reduce} from 'lodash'
-
-// true:
-import map from 'lodash/map'
-import reduce from 'lodash/reduce'
-```
-
 ### `loose`
 
 `true` | `false`<br />
