@@ -6,10 +6,11 @@ import {transform} from '@babel/core'
 import preset from '.'
 
 function snapshot(t, fixture, presetOptions = {}, envName = 'development') {
-  const filename = `${__dirname}/fixtures/${fixture}`
-  const input = fs.readFileSync(filename, 'utf8')
+  const file = `${__dirname}/fixtures/${fixture}`
+  const input = fs.readFileSync(file, 'utf8')
   t.snapshot(input, 'input')
-  const options = {envName, presets: [[preset, presetOptions]], filename, babelrc: false}
+  const presets = [[preset, presetOptions]]
+  const options = {envName, presets, filename: `/${fixture}`, babelrc: false}
   const result = transform(input, options)
   t.snapshot(result.code, 'output')
 }
