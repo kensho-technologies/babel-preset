@@ -1,3 +1,5 @@
+/* eslint-disable global-require */
+
 module.exports = (babel, options) => {
   const env = babel.env()
   const {

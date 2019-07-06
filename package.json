@@ -29,7 +29,7 @@
     "@babel/runtime": "^7.5.1",
     "ava": "^2.1.0",
     "eslint": "^5.16.0",
-    "eslint-config-kensho": "^11.0.0",
+    "eslint-config-kensho": "^12.0.0",
     "prettier": "^1.18.2",
     "typescript": "^3.5.2"
   }
