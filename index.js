@@ -13,8 +13,7 @@ module.exports = (babel, options) => {
   const plugins = [
     runtime && [
       require('@babel/plugin-transform-runtime').default,
-      // version must be kept in sync with @babel/runtime peer dependency
-      {useESModules: !modules, version: '7.5.1'},
+      {useESModules: !modules, version: require('@babel/runtime/package.json').version},
     ],
   ].filter(Boolean)
 
