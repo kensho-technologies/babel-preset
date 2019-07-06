@@ -14,7 +14,7 @@
   "license": "MIT",
   "repository": "kensho/babel-preset-kensho",
   "peerDependencies": {
-    "@babel/runtime": "^7.3.0"
+    "@babel/runtime": "^7.5.1"
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.5.0",
