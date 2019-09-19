@@ -23,7 +23,7 @@ You can set up Babel transpilation in [several ways](http://babeljs.io/docs/setu
 
 ## Options
 
-The preset can be configured using several options. Note that some options' defaults depend on the [Babel environment](https://babeljs.io/docs/en/options#envname), which may be one of: `development` | `production` | `test` | `library`
+The preset can be configured using several options. Note that some options' defaults depend on the [Babel environment](https://babeljs.io/docs/en/options#envname), which may be one of: `development` | `production` | `test` | `cjs` | `esm`
 
 ### `emotion`
 
@@ -42,7 +42,7 @@ Whether to enable [loose mode](http://2ality.com/2015/12/babel6-loose-mode.html)
 ### `modules`
 
 `false` | `'commonjs'`<br />
-Default: `'commonjs'` in `test` env, `false` otherwise
+Default: `'commonjs'` in `test` and `cjs` envs, `false` otherwise
 
 Whether to compile ESM imports/exports to another module format.
 

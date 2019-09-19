@@ -5,7 +5,7 @@ module.exports = (babel, options) => {
   const {
     emotion = false,
     loose = true,
-    modules = env === 'test' ? 'commonjs' : false,
+    modules = env === 'test' || env === 'cjs' ? 'commonjs' : false,
     react = {},
     runtime = true,
     targets = env === 'test' ? {node: true, browsers: []} : undefined,

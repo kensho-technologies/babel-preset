@@ -32,6 +32,7 @@ test('transpiles standard JS in node_modules', snapshot, 'node_modules/dependenc
 
 test('does not transpile ES modules', snapshot, 'esm.js')
 test('transpiles ES modules', snapshot, 'esm.js', {modules: 'commonjs'})
+test('transpiles ES modules', snapshot, 'esm.js', undefined, 'cjs')
 test('transpiles ES modules', snapshot, 'esm.js', undefined, 'test')
 
 test('uses external ESM helpers', snapshot, 'esm-helpers.js')
