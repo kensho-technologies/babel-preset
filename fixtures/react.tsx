@@ -1,10 +1,11 @@
-import React from 'react'
+import * as React from 'react'
 
-interface IMyComponentPops {
-  foo?: string
-  bar: number
+interface MyComponentProps {
+  disabled: boolean
+  label?: string
 }
 
-export default function MyComponent({ foo, bar }: IMyComponentPops) {
-  return <div />
+export default function MyComponent(props: MyComponentProps) {
+  const {label, ...rest} = props
+  return <button {...rest}>{label}</button>
 }

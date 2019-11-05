@@ -34,7 +34,7 @@ module.exports = (babel, options) => {
         typescript && [require('@babel/preset-typescript').default, typescript],
         react && [
           require('@babel/preset-react').default,
-          {development: env === 'development', ...react},
+          {development: env === 'development', useSpread: true, ...react},
         ],
         emotion && [
           require('@emotion/babel-preset-css-prop').default,
