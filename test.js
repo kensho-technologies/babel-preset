@@ -39,6 +39,8 @@ test('uses external ESM helpers', snapshot, 'esm-helpers.js')
 test('does not use external helpers', snapshot, 'esm-helpers.js', {runtime: false})
 test('uses external CJS helpers', snapshot, 'esm-helpers.js', {modules: 'commonjs'})
 
+test('transpiles experimental TS features', snapshot, 'experimental.tsx')
+
 test('transpiles TSX', snapshot, 'react.tsx')
 test('transpiles TSX with custom pragma', snapshot, 'react.tsx', {react: {pragma: 'jsx'}})
 test('supports TS dynamic import syntax', snapshot, 'dynamic-imports.ts')
