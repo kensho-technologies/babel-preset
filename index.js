@@ -29,7 +29,11 @@ module.exports = (babel, options) => {
   const overrides = [
     {
       exclude: /node_modules/,
-      plugins: [[require('@babel/plugin-proposal-class-properties').default, {loose}]],
+      plugins: [
+        [require('@babel/plugin-proposal-class-properties').default, {loose}],
+        [require('@babel/plugin-proposal-optional-chaining').default, {loose}],
+        [require('@babel/plugin-proposal-nullish-coalescing-operator').default, {loose}],
+      ],
       presets: [
         typescript && [require('@babel/preset-typescript').default, typescript],
         react && [
