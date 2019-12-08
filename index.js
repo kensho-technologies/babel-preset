@@ -36,6 +36,7 @@ module.exports = (babel, options) => {
       ],
       presets: [
         typescript && [require('@babel/preset-typescript').default, typescript],
+        react && env === 'development' && require('react-refresh/babel'),
         react && [
           require('@babel/preset-react').default,
           {development: env === 'development', useSpread: true, ...react},
