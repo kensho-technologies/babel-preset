@@ -33,10 +33,10 @@ module.exports = (babel, options) => {
         [require('@babel/plugin-proposal-class-properties').default, {loose}],
         [require('@babel/plugin-proposal-optional-chaining').default, {loose}],
         [require('@babel/plugin-proposal-nullish-coalescing-operator').default, {loose}],
-      ],
+        react && env === 'development' && [require('react-refresh/babel'), {skipEnvCheck: true}],
+      ].filter(Boolean),
       presets: [
         typescript && [require('@babel/preset-typescript').default, typescript],
-        react && env === 'development' && require('react-refresh/babel'),
         react && [
           require('@babel/preset-react').default,
           {development: env === 'development', useSpread: true, ...react},
