@@ -11,6 +11,7 @@ module.exports = (babel, options) => {
     targets = env === 'test' ? {node: true, browsers: []} : undefined,
     typescript = {},
   } = options
+  const {reactRefresh = env === 'development' && react && {}} = options
 
   const plugins = [
     runtime && [
@@ -33,7 +34,8 @@ module.exports = (babel, options) => {
         [require('@babel/plugin-proposal-class-properties').default, {loose}],
         [require('@babel/plugin-proposal-optional-chaining').default, {loose}],
         [require('@babel/plugin-proposal-nullish-coalescing-operator').default, {loose}],
-      ],
+        reactRefresh && [require('react-refresh/babel'), {skipEnvCheck: true, ...reactRefresh}],
+      ].filter(Boolean),
       presets: [
         typescript && [require('@babel/preset-typescript').default, typescript],
         react && [

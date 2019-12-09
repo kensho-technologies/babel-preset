@@ -61,6 +61,15 @@ Default: `{}`
 
 Whether to transpile JSX expressions. If an `options` object is passed, it is forwarded to the [React preset](https://babeljs.io/docs/en/babel-preset-react).
 
+### `reactRefresh`
+
+`false` | `options`<br />
+Default: `{}` in `development` env if `react` is enabled
+
+Whether to transform React function components for fast refresh. If an `options` object is passed, it is forwarded to the [React Refresh plugin](https://github.com/facebook/react/tree/3c1efa0d771d3dfb2666b7f4a4392cc851146d44/packages/react-refresh). The list of available options is not currently documented.
+
+This option should only ever be enabled in development. It also requires [bundler integration](https://github.com/pmmmwh/react-refresh-webpack-plugin) because the output code references global variables containing the Refresh runtime. If this integration cannot be added to a project's development environment, this option should be disabled.
+
 ### `runtime`
 
 `true` | `false`<br />
