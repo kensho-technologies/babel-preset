@@ -29,6 +29,10 @@ module.exports = (babel, options) => {
 
   const overrides = [
     {
+      include: /node_modules/,
+      compact: true,
+    },
+    {
       exclude: /node_modules/,
       plugins: [
         [require('@babel/plugin-proposal-class-properties').default, {loose}],
