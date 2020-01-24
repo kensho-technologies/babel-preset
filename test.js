@@ -1,9 +1,9 @@
-import fs from 'fs'
+const fs = require('fs')
 
-import test from 'ava'
-import {transform} from '@babel/core'
+const test = require('ava')
+const {transform} = require('@babel/core')
 
-import preset from '.'
+const preset = require('.')
 
 function snapshot(t, fixture, presetOptions = {}, envName = 'development') {
   const file = `${__dirname}/fixtures/${fixture}`
