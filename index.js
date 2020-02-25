@@ -32,8 +32,6 @@ module.exports = (babel, options) => {
       exclude: /node_modules/,
       plugins: [
         [require('@babel/plugin-proposal-class-properties').default, {loose}],
-        [require('@babel/plugin-proposal-optional-chaining').default, {loose}],
-        [require('@babel/plugin-proposal-nullish-coalescing-operator').default, {loose}],
         reactRefresh && [require('react-refresh/babel'), {skipEnvCheck: true, ...reactRefresh}],
       ].filter(Boolean),
       presets: [
