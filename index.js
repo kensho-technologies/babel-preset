@@ -1,5 +1,10 @@
 /* eslint-disable global-require */
 
+const NODE_MODULES_REGEX = /node_modules/
+
+const PRECOMPILED_PACKAGES = ['core-js', 'lodash', 'react', 'react-dom', 'whatwg-fetch']
+const PRECOMPILED_PACKAGES_REGEX = new RegExp(`node_modules/(${PRECOMPILED_PACKAGES.join('|')})/`)
+
 module.exports = (babel, options) => {
   const env = babel.env()
   const {
@@ -29,11 +34,11 @@ module.exports = (babel, options) => {
 
   const overrides = [
     {
-      include: /node_modules/,
+      include: NODE_MODULES_REGEX,
       compact: true,
     },
     {
-      exclude: /node_modules/,
+      exclude: NODE_MODULES_REGEX,
       plugins: [
         [require('@babel/plugin-proposal-class-properties').default, {loose}],
         reactRefresh && [require('react-refresh/babel'), {skipEnvCheck: true, ...reactRefresh}],
@@ -52,5 +57,5 @@ module.exports = (babel, options) => {
     },
   ]
 
-  return {plugins, presets, overrides}
+  return {exclude: PRECOMPILED_PACKAGES_REGEX, plugins, presets, overrides}
 }
