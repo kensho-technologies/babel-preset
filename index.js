@@ -18,44 +18,45 @@ module.exports = (babel, options) => {
   } = options
   const {reactRefresh = env === 'development' && react && {}} = options
 
-  const plugins = [
-    runtime && [
-      require('@babel/plugin-transform-runtime').default,
-      {useESModules: !modules, version: require('@babel/runtime/package.json').version},
+  const nodeModules = {
+    include: NODE_MODULES_REGEX,
+    compact: true,
+  }
+
+  const nonPrecompiledPackages = {
+    exclude: PRECOMPILED_PACKAGES_REGEX,
+    plugins: [
+      runtime && [
+        require('@babel/plugin-transform-runtime').default,
+        {useESModules: !modules, version: require('@babel/runtime/package.json').version},
+      ],
+    ].filter(Boolean),
+    presets: [
+      [
+        require('@babel/preset-env').default,
+        {loose, modules, targets, corejs: 3, useBuiltIns: 'entry'},
+      ],
     ],
-  ].filter(Boolean)
+  }
 
-  const presets = [
-    [
-      require('@babel/preset-env').default,
-      {loose, modules, targets, corejs: 3, useBuiltIns: 'entry'},
-    ],
-  ]
+  const nonNodeModules = {
+    exclude: NODE_MODULES_REGEX,
+    plugins: [
+      [require('@babel/plugin-proposal-class-properties').default, {loose}],
+      reactRefresh && [require('react-refresh/babel'), {skipEnvCheck: true, ...reactRefresh}],
+    ].filter(Boolean),
+    presets: [
+      typescript && [require('@babel/preset-typescript').default, typescript],
+      react && [
+        require('@babel/preset-react').default,
+        {development: env === 'development', useSpread: true, ...react},
+      ],
+      emotion && [
+        require('@emotion/babel-preset-css-prop').default,
+        {autoLabel: env === 'development', sourceMap: env === 'development', ...emotion},
+      ],
+    ].filter(Boolean),
+  }
 
-  const overrides = [
-    {
-      include: NODE_MODULES_REGEX,
-      compact: true,
-    },
-    {
-      exclude: NODE_MODULES_REGEX,
-      plugins: [
-        [require('@babel/plugin-proposal-class-properties').default, {loose}],
-        reactRefresh && [require('react-refresh/babel'), {skipEnvCheck: true, ...reactRefresh}],
-      ].filter(Boolean),
-      presets: [
-        typescript && [require('@babel/preset-typescript').default, typescript],
-        react && [
-          require('@babel/preset-react').default,
-          {development: env === 'development', useSpread: true, ...react},
-        ],
-        emotion && [
-          require('@emotion/babel-preset-css-prop').default,
-          {autoLabel: env === 'development', sourceMap: env === 'development', ...emotion},
-        ],
-      ].filter(Boolean),
-    },
-  ]
-
-  return {exclude: PRECOMPILED_PACKAGES_REGEX, plugins, presets, overrides}
+  return {overrides: [nodeModules, nonPrecompiledPackages, nonNodeModules]}
 }
