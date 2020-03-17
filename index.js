@@ -5,6 +5,12 @@ const NODE_MODULES_REGEX = /node_modules/
 const PRECOMPILED_PACKAGES = ['core-js', 'lodash', 'react', 'react-dom', 'whatwg-fetch']
 const PRECOMPILED_PACKAGES_REGEX = new RegExp(`node_modules/(${PRECOMPILED_PACKAGES.join('|')})/`)
 
+function getDefaultTargets(env) {
+  if (env === 'test') return {node: true, browsers: []}
+  if (env === 'esm' || env === 'cjs') return {node: '12.16', browsers: []}
+  return undefined
+}
+
 module.exports = (babel, options) => {
   const env = babel.env()
   const {
@@ -13,7 +19,7 @@ module.exports = (babel, options) => {
     modules = env === 'test' || env === 'cjs' ? 'commonjs' : false,
     react = {},
     runtime = true,
-    targets = env === 'test' ? {node: true, browsers: []} : undefined,
+    targets = getDefaultTargets(env),
     typescript = {},
   } = options
   const {reactRefresh = env === 'development' && react && {}} = options
