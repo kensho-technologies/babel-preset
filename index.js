@@ -40,7 +40,7 @@ module.exports = (babel, options) => {
     presets: [
       [
         require('@babel/preset-env').default,
-        {loose, modules, targets, corejs: 3, useBuiltIns: 'entry'},
+        {loose, modules, targets, bugfixes: true, corejs: 3, useBuiltIns: 'entry'},
       ],
     ],
   }
