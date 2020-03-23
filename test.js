@@ -30,6 +30,7 @@ test('transpiles ES2018+ syntax for specific targets', snapshot, 'esnext.js', {
 test('transpiles ES2018+ syntax strictly', snapshot, 'esnext.js', {loose: false})
 
 test('transpiles standard JS in node_modules', snapshot, 'node_modules/my-pkg/index.js')
+test('transpiles CJS in node_modules', snapshot, 'node_modules/my-pkg/cjs.js')
 test('avoids transpiling known precompiled packages', snapshot, 'node_modules/react/index.js')
 
 test('does not transpile ES modules', snapshot, 'esm.js')

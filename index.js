@@ -27,6 +27,7 @@ module.exports = (babel, options) => {
   const nodeModules = {
     include: NODE_MODULES_REGEX,
     compact: true,
+    sourceType: 'unambiguous',
   }
 
   const nonPrecompiledPackages = {
