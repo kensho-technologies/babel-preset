@@ -19,8 +19,8 @@
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/plugin-transform-runtime": "^7.9.0",
-    "@babel/preset-env": "^7.9.0",
-    "@babel/preset-react": "^7.9.1",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
     "@babel/preset-typescript": "^7.9.0",
     "@emotion/babel-preset-css-prop": "^10.0.27",
     "react-refresh": "^0.8.1"
@@ -28,10 +28,10 @@
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/runtime": "^7.9.2",
-    "ava": "^3.5.1",
+    "ava": "^3.7.0",
     "eslint": "^6.8.0",
-    "eslint-config-kensho": "^16.0.0",
-    "prettier": "^2.0.1",
+    "eslint-config-kensho": "^16.3.0",
+    "prettier": "^2.0.4",
     "typescript": "^3.8.3"
   }
 }
