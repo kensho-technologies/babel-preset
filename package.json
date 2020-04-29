@@ -28,10 +28,10 @@
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/runtime": "^7.9.2",
-    "ava": "^3.7.0",
+    "ava": "^3.8.1",
     "eslint": "^6.8.0",
     "eslint-config-kensho": "^16.3.0",
-    "prettier": "^2.0.4",
+    "prettier": "^2.0.5",
     "typescript": "^3.8.3"
   }
 }
