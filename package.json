@@ -17,21 +17,21 @@
     "@babel/runtime": "^7.8.0"
   },
   "dependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/plugin-transform-runtime": "^7.9.0",
-    "@babel/preset-env": "^7.9.5",
-    "@babel/preset-react": "^7.9.4",
-    "@babel/preset-typescript": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.10.1",
+    "@babel/plugin-transform-runtime": "^7.10.1",
+    "@babel/preset-env": "^7.10.1",
+    "@babel/preset-react": "^7.10.1",
+    "@babel/preset-typescript": "^7.10.1",
     "@emotion/babel-preset-css-prop": "^10.0.27",
-    "react-refresh": "^0.8.1"
+    "react-refresh": "^0.8.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/runtime": "^7.9.2",
-    "ava": "^3.8.1",
+    "@babel/core": "^7.10.1",
+    "@babel/runtime": "^7.10.1",
+    "ava": "^3.8.2",
     "eslint": "^6.8.0",
     "eslint-config-kensho": "^16.3.0",
     "prettier": "^2.0.5",
-    "typescript": "^3.8.3"
+    "typescript": "^3.9.3"
   }
 }
