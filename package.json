@@ -18,20 +18,20 @@
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.10.1",
-    "@babel/plugin-transform-runtime": "^7.10.1",
-    "@babel/preset-env": "^7.10.1",
+    "@babel/plugin-transform-runtime": "^7.10.3",
+    "@babel/preset-env": "^7.10.3",
     "@babel/preset-react": "^7.10.1",
     "@babel/preset-typescript": "^7.10.1",
     "@emotion/babel-preset-css-prop": "^10.0.27",
     "react-refresh": "^0.8.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.1",
-    "@babel/runtime": "^7.10.1",
-    "ava": "^3.8.2",
-    "eslint": "^6.8.0",
-    "eslint-config-kensho": "^16.3.0",
+    "@babel/core": "^7.10.3",
+    "@babel/runtime": "^7.10.3",
+    "ava": "^3.9.0",
+    "eslint": "^7.3.1",
+    "eslint-config-kensho": "^17.0.1",
     "prettier": "^2.0.5",
-    "typescript": "^3.9.3"
+    "typescript": "^3.9.5"
   }
 }
