@@ -32,6 +32,13 @@ Default: `false`
 
 Whether to enable support for CSS-in-JS via [Emotion](https://emotion.sh). If an `options` object is passed, it is forwarded to the [Emotion preset](https://emotion.sh/docs/@emotion/babel-preset-css-prop). This option requires an additional dependency on [`@emotion/core`](https://npm.im/@emotion/core).
 
+### `include`
+
+`Array<string|RegExp>`<br />
+Default: `['@babel/plugin-proposal-optional-chaining', '@babel/plugin-proposal-nullish-coalescing-operator']`
+
+List of plugins to always include. Forwarded to [the corresponding option in `@babel/preset-env`](https://babeljs.io/docs/en/babel-preset-env#include).
+
 ### `loose`
 
 `true` | `false`<br />
