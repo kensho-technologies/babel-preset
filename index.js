@@ -22,7 +22,9 @@ module.exports = (babel, options) => {
   const env = babel.env()
   const {
     emotion = false,
-    include = env === 'development' || env === 'production' ? APP_PLUGIN_INCLUDE_LIST : [],
+    include = env === 'development' || env === 'production' || env === 'modern'
+      ? APP_PLUGIN_INCLUDE_LIST
+      : [],
     loose = true,
     modules = env === 'test' || env === 'cjs' ? 'commonjs' : false,
     react = {},
@@ -49,7 +51,16 @@ module.exports = (babel, options) => {
     presets: [
       [
         require('@babel/preset-env').default,
-        {include, loose, modules, targets, bugfixes: true, corejs: 3, useBuiltIns: 'entry'},
+        {
+          include,
+          loose,
+          modules,
+          targets,
+          bugfixes: true,
+          corejs: 3,
+          useBuiltIns: 'entry',
+          browserslistEnv: env === 'modern' ? 'modern' : 'production',
+        },
       ],
     ],
   }
