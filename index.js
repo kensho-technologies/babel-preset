@@ -59,7 +59,7 @@ module.exports = (babel, options) => {
           bugfixes: true,
           corejs: 3,
           useBuiltIns: 'entry',
-          browserslistEnv: env === 'modern' ? 'modern' : 'production',
+          browserslistEnv: env === 'modern' ? 'modern' : undefined,
         },
       ],
     ],
