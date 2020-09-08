@@ -22,7 +22,7 @@ module.exports = (babel, options) => {
   const env = babel.env()
   const {
     emotion = false,
-    include = env === 'development' || env === 'production' || env === 'modern'
+    include = ['development', 'production-compat', 'production-modern'].includes(env)
       ? APP_PLUGIN_INCLUDE_LIST
       : [],
     loose = true,
@@ -59,7 +59,7 @@ module.exports = (babel, options) => {
           bugfixes: true,
           corejs: 3,
           useBuiltIns: 'entry',
-          browserslistEnv: env === 'modern' ? 'modern' : undefined,
+          browserslistEnv: env === 'development' ? 'production-compat' : env,
         },
       ],
     ],
