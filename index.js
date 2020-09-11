@@ -11,6 +11,15 @@ const APP_PLUGIN_INCLUDE_LIST = [
 
 const PRECOMPILED_PACKAGES = ['core-js', 'lodash', 'react', 'react-dom', 'whatwg-fetch']
 const PRECOMPILED_PACKAGES_REGEX = new RegExp(`node_modules/(${PRECOMPILED_PACKAGES.join('|')})/`)
+const ALLOWED_ENVIRONMENTS = [
+  'test',
+  'esm',
+  'cjs',
+  'development-compat',
+  'development-modern',
+  'production-compat',
+  'production-modern',
+]
 
 function getDefaultTargets(env) {
   if (env === 'test') return {node: true, browsers: []}
@@ -20,9 +29,12 @@ function getDefaultTargets(env) {
 
 module.exports = (babel, options) => {
   const env = babel.env()
+  if (!ALLOWED_ENVIRONMENTS.includes(env)) {
+    throw new Error(`Unsupported babel environment type '${env}'. Environment should be one of: ${ALLOWED_ENVIRONMENTS.join(', ')}.`)
+  }
   const {
     emotion = false,
-    include = ['development', 'production-compat', 'production-modern'].includes(env)
+    include = env.includes('development') || env.includes('production')
       ? APP_PLUGIN_INCLUDE_LIST
       : [],
     loose = true,
@@ -32,7 +44,8 @@ module.exports = (babel, options) => {
     targets = getDefaultTargets(env),
     typescript = {},
   } = options
-  const {reactRefresh = env === 'development' && react && {}} = options
+  const dev = env.includes('development')
+  const {reactRefresh = dev && react && {}} = options
 
   const nodeModules = {
     include: NODE_MODULES_REGEX,
@@ -59,7 +72,7 @@ module.exports = (babel, options) => {
           bugfixes: true,
           corejs: 3,
           useBuiltIns: 'entry',
-          browserslistEnv: env === 'development' ? 'production-compat' : env,
+          browserslistEnv: env.includes('modern') ? 'production-modern' : 'production-compat',
         },
       ],
     ],
@@ -81,7 +94,7 @@ module.exports = (babel, options) => {
       react && [
         require('@babel/preset-react').default,
         {
-          development: env === 'development',
+          development: dev,
           importSource: emotion && reactRuntime === 'automatic' ? '@emotion/react' : undefined,
           useSpread: true,
           ...react,
