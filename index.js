@@ -44,8 +44,7 @@ module.exports = (babel, options) => {
     targets = getDefaultTargets(env),
     typescript = {},
   } = options
-  const dev = env.includes('development')
-  const {reactRefresh = dev && react && {}} = options
+  const {reactRefresh = env.includes('development') && react && {}} = options
 
   const nodeModules = {
     include: NODE_MODULES_REGEX,
@@ -94,7 +93,7 @@ module.exports = (babel, options) => {
       react && [
         require('@babel/preset-react').default,
         {
-          development: dev,
+          development: env.includes('development'),
           importSource: emotion && reactRuntime === 'automatic' ? '@emotion/react' : undefined,
           useSpread: true,
           ...react,
