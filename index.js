@@ -30,7 +30,11 @@ function getDefaultTargets(env) {
 module.exports = (babel, options) => {
   const env = babel.env()
   if (!ALLOWED_ENVIRONMENTS.includes(env)) {
-    throw new Error(`Unsupported babel environment type '${env}'. Environment should be one of: ${ALLOWED_ENVIRONMENTS.join(', ')}.`)
+    throw new Error(
+      `Unsupported babel environment type '${env}'. Environment should be one of: ${ALLOWED_ENVIRONMENTS.join(
+        ', '
+      )}.`
+    )
   }
   const {
     emotion = false,
