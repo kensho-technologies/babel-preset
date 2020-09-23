@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-kensho",
-  "version": "12.2.0",
+  "version": "12.2.1",
   "description": "Babel preset to transpile ES2020/TS/JSX.",
   "main": "index.js",
   "files": [
