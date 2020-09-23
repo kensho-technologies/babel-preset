@@ -1,6 +1,6 @@
 # babel-preset-kensho
 
-[![Build Status](https://github.com/kensho-technologies/babel-preset-kensho/workflows/test/badge.svg)](https://github.com/kensho-technologies/babel-preset-kensho/actions)
+[![Build Status](https://img.shields.io/github/workflow/status/kensho-technologies/babel-preset-kensho/test/master)](https://github.com/kensho-technologies/babel-preset-kensho/actions)
 [![npm](https://img.shields.io/npm/v/babel-preset-kensho.svg)](https://npm.im/babel-preset-kensho)
 
 This [Babel 7 preset](http://babeljs.io/docs/plugins/#presets) transpiles ES2018, JSX, and selected language proposals. It also includes optimizations for specific contexts.
