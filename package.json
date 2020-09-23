@@ -1,7 +1,10 @@
 {
-  "name": "babel-preset-kensho",
+  "name": "@kensho-technologies/babel-preset",
   "version": "12.2.1",
   "description": "Babel preset to transpile ES2020/TS/JSX.",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "index.js",
   "files": [
     "index.js"
@@ -13,7 +16,7 @@
   },
   "author": "Kensho Technologies, LLC.",
   "license": "Apache-2.0",
-  "repository": "kensho-technologies/babel-preset-kensho",
+  "repository": "kensho-technologies/babel-preset",
   "prettier": "@kensho-technologies/prettier-config",
   "peerDependencies": {
     "@babel/runtime": "^7.8.0"
