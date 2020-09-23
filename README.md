@@ -55,10 +55,10 @@ Whether to compile ESM imports/exports to another module format.
 
 ```js
 // false:
-import foo from "./foo";
+import foo from './foo'
 
 // 'commonjs' (roughly):
-const foo = require("./foo");
+const foo = require('./foo')
 ```
 
 ### `react`

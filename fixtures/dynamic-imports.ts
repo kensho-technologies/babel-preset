@@ -1,1 +1,1 @@
-import("./some-file")
+import('./some-file')
