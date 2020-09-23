@@ -1,7 +1,7 @@
 {
   "name": "babel-preset-kensho",
   "version": "12.2.0",
-  "description": "Babel preset to transpile ES2015+/JSX to ES5.",
+  "description": "Babel preset to transpile ES2020/TS/JSX.",
   "main": "index.js",
   "files": [
     "index.js"
@@ -10,9 +10,9 @@
     "test": "eslint . && ava",
     "prepublishOnly": "npm test"
   },
-  "author": "Billy Janitsch <billyjanitsch@gmail.com> (http://billyjanitsch.com)",
+  "author": "Kensho Technologies, LLC.",
   "license": "Apache-2.0",
-  "repository": "kensho/babel-preset-kensho",
+  "repository": "kensho-technologies/babel-preset-kensho",
   "peerDependencies": {
     "@babel/runtime": "^7.8.0"
   },
