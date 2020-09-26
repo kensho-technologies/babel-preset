@@ -1,0 +1,7 @@
+{
+  "extends": "@kensho-technologies/tsconfig",
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "noEmit": true
+  }
+}

@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "fix": "prettier -w . && eslint --fix .",
-    "test": "prettier -c . && eslint . && ava",
+    "test": "prettier -c . && eslint . && jest",
     "prepublishOnly": "npm test"
   },
   "author": "Kensho Technologies, LLC.",
@@ -35,8 +35,11 @@
     "@babel/runtime": "^7.11.2",
     "@kensho-technologies/eslint-config": "^20.0.0",
     "@kensho-technologies/prettier-config": "^0.1.0",
-    "ava": "^3.12.1",
+    "@kensho-technologies/tsconfig": "^0.1.0",
+    "@types/babel__core": "^7.1.10",
+    "@types/jest": "^26.0.14",
     "eslint": "^7.9.0",
+    "jest": "^26.4.2",
     "prettier": "^2.1.2",
     "typescript": "^4.0.3"
   }
