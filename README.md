@@ -3,7 +3,7 @@
 [![Build Status](https://img.shields.io/github/workflow/status/kensho-technologies/babel-preset/test/master)](https://github.com/kensho-technologies/babel-preset/actions)
 [![npm](https://img.shields.io/npm/v/@kensho-technologies/babel-preset.svg)](https://npm.im/@kensho-technologies/babel-preset)
 
-This [Babel 7 preset](http://babeljs.io/docs/plugins/#presets) transpiles ES2018, JSX, and selected language proposals. It also includes optimizations for specific contexts.
+This [Babel 7 preset](http://babeljs.io/docs/plugins/#presets) transpiles ES2020, JSX, and selected language proposals. It also includes optimizations for specific contexts.
 
 ## Install
 
@@ -13,11 +13,11 @@ $ npm install -D @kensho-technologies/babel-preset
 
 ## Usage
 
-You can set up Babel transpilation in [several ways](http://babeljs.io/docs/setup) (e.g. via CLI, or through webpack). Choose a method, and configure Babel to include the preset, e.g. in a `.babelrc.json`:
+You can set up Babel transpilation in [several ways](http://babeljs.io/docs/setup). Choose a method, and configure Babel to include the preset, e.g. in a `babel.config.js`:
 
-```json
-{
-  "presets": ["@kensho-technologies/babel-preset"]
+```js
+module.exports = {
+  presets: ['@kensho-technologies/babel-preset'],
 }
 ```
 
