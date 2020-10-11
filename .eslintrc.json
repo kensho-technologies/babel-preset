@@ -1,0 +1,3 @@
+{
+  "extends": "@kensho-technologies/eslint-config"
+}

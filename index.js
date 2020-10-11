@@ -2,6 +2,13 @@
 
 const NODE_MODULES_REGEX = /node_modules/
 
+// webpack@4 depends on a version of acorn that lacks support for optional chaining and nullish
+// coalescing syntax, so, when transpiling an app, these plugins must be included
+const APP_PLUGIN_INCLUDE_LIST = [
+  '@babel/plugin-proposal-optional-chaining',
+  '@babel/plugin-proposal-nullish-coalescing-operator',
+]
+
 const PRECOMPILED_PACKAGES = ['core-js', 'lodash', 'react', 'react-dom', 'whatwg-fetch']
 const PRECOMPILED_PACKAGES_REGEX = new RegExp(`node_modules/(${PRECOMPILED_PACKAGES.join('|')})/`)
 
@@ -15,6 +22,7 @@ module.exports = (babel, options) => {
   const env = babel.env()
   const {
     emotion = false,
+    include = env === 'development' || env === 'production' ? APP_PLUGIN_INCLUDE_LIST : [],
     loose = true,
     modules = env === 'test' || env === 'cjs' ? 'commonjs' : false,
     react = {},
@@ -41,7 +49,7 @@ module.exports = (babel, options) => {
     presets: [
       [
         require('@babel/preset-env').default,
-        {loose, modules, targets, bugfixes: true, corejs: 3, useBuiltIns: 'entry'},
+        {include, loose, modules, targets, bugfixes: true, corejs: 3, useBuiltIns: 'entry'},
       ],
     ],
   }
