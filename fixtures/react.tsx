@@ -1,4 +1,4 @@
-import * as React from 'react'
+import {useState} from 'react'
 
 interface MyComponentProps {
   disabled: boolean
@@ -7,7 +7,7 @@ interface MyComponentProps {
 
 export default function MyComponent(props: MyComponentProps) {
   const {label, ...rest} = props
-  const [count, setCount] = React.useState(0)
+  const [count, setCount] = useState(0)
   return (
     <button onClick={() => setCount(count + 1)} {...rest}>
       {label} {count}
