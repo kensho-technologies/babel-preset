@@ -19,7 +19,7 @@
   "repository": "kensho-technologies/babel-preset",
   "prettier": "@kensho-technologies/prettier-config",
   "peerDependencies": {
-    "@babel/runtime": "^7.8.0"
+    "@babel/runtime": "^7.12.0"
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.10.4",
