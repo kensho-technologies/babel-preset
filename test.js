@@ -45,7 +45,9 @@ test('uses external CJS helpers', snapshot, 'esm-helpers.js', {modules: 'commonj
 test('transpiles experimental TS features', snapshot, 'experimental.tsx')
 
 test('transpiles TSX', snapshot, 'react.tsx')
-test('transpiles TSX with custom pragma', snapshot, 'react.tsx', {react: {pragma: 'jsx'}})
+test('transpiles TSX', snapshot, 'react.tsx', undefined, 'esm')
+test('transpiles TSX', snapshot, 'react.tsx', undefined, 'production')
+
 test('supports TS dynamic import syntax', snapshot, 'dynamic-imports.ts')
 
 test('replaces generic polyfill with env-targeted polyfills', snapshot, 'polyfills.ts')
