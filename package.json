@@ -32,7 +32,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
-    "@babel/runtime": "^7.12.1",
     "@kensho-technologies/eslint-config": "^20.0.1",
     "@kensho-technologies/prettier-config": "^1.0.0",
     "ava": "^3.13.0",
