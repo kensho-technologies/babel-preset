@@ -43,6 +43,7 @@ test('does not use external helpers', snapshot, 'esm-helpers.js', {runtime: fals
 test('uses external CJS helpers', snapshot, 'esm-helpers.js', {modules: 'commonjs'})
 
 test('transpiles experimental TS features', snapshot, 'experimental.tsx')
+test('transpiles experimental TS features', snapshot, 'experimental.tsx', undefined, 'esm')
 
 test('transpiles TSX', snapshot, 'react.tsx')
 test('transpiles TSX', snapshot, 'react.tsx', undefined, 'esm')
