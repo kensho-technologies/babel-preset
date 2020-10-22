@@ -1394,12 +1394,8 @@ exports[`transpiles Emotion given {"emotion":true}: output (cjs) 1`] = `
 
 var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
 exports.__esModule = true;
 exports.default = MyComponent;
-
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
 var React = _interopRequireWildcard(require("react"));
 
@@ -1424,16 +1420,15 @@ function MyComponent(props) {
   return (0, _react2.jsx)(React.Fragment, null, (0, _react2.jsx)("button", {
     css: _ref,
     onClick: () => setCount(prevSize => prevSize + 1)
-  }, "Increment"), (0, _react2.jsx)("div", (0, _extends2.default)({
-    height: count
-  }, rest, {
+  }, "Increment"), (0, _react2.jsx)("div", {
+    height: count,
+    ...rest,
     css: cssObj
-  })));
+  }));
 }
 `;
 
 exports[`transpiles Emotion given {"emotion":true}: output (development) 1`] = `
-import _extends from "@babel/runtime/helpers/esm/extends";
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
 
 var _jsxFileName = "/emotion.js",
@@ -1488,7 +1483,7 @@ export default function MyComponent(props) {
       lineNumber: 11,
       columnNumber: 7
     }
-  }, "Increment"), ___EmotionJSX("div", _extends({
+  }, "Increment"), ___EmotionJSX("div", Object.assign({
     height: count
   }, rest, {
     css: cssObj,
@@ -1511,7 +1506,6 @@ $RefreshReg$(_c, "MyComponent");
 `;
 
 exports[`transpiles Emotion given {"emotion":true}: output (esm) 1`] = `
-import _extends from "@babel/runtime/helpers/esm/extends";
 import * as React from 'react';
 import { css } from '@emotion/react';
 import { jsx as ___EmotionJSX } from "@emotion/react";
@@ -1533,16 +1527,15 @@ export default function MyComponent(props) {
   return ___EmotionJSX(React.Fragment, null, ___EmotionJSX("button", {
     css: _ref,
     onClick: () => setCount(prevSize => prevSize + 1)
-  }, "Increment"), ___EmotionJSX("div", _extends({
-    height: count
-  }, rest, {
+  }, "Increment"), ___EmotionJSX("div", {
+    height: count,
+    ...rest,
     css: cssObj
-  })));
+  }));
 }
 `;
 
 exports[`transpiles Emotion given {"emotion":true}: output (production) 1`] = `
-import _extends from "@babel/runtime/helpers/esm/extends";
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
 import * as React from 'react';
 import { css } from '@emotion/react';
@@ -1571,7 +1564,7 @@ export default function MyComponent(props) {
         return prevSize + 1;
       });
     }
-  }, "Increment"), ___EmotionJSX("div", _extends({
+  }, "Increment"), ___EmotionJSX("div", Object.assign({
     height: count
   }, rest, {
     css: cssObj

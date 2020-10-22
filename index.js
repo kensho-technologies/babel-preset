@@ -73,7 +73,7 @@ module.exports = (babel, options) => {
       ],
       emotion && [
         require('@emotion/babel-preset-css-prop').default,
-        {sourceMap: env === 'development', ...emotion},
+        {useSpread: true, sourceMap: env === 'development', ...emotion},
       ],
     ].filter(Boolean),
   }
