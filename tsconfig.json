@@ -1,0 +1,8 @@
+{
+  "extends": "@kensho-technologies/tsconfig",
+  "exclude": ["fixtures"],
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "noEmit": true
+  }
+}
