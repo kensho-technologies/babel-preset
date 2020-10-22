@@ -1,6 +1,6 @@
 {
   "name": "@kensho-technologies/babel-preset",
-  "version": "13.1.0",
+  "version": "13.2.0",
   "description": "Babel preset to transpile ES2020/TS/JSX.",
   "publishConfig": {
     "access": "public"
@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
-    "@kensho-technologies/eslint-config": "^20.0.1",
+    "@kensho-technologies/eslint-config": "^21.0.0",
     "@kensho-technologies/prettier-config": "^1.0.0",
     "ava": "^3.13.0",
     "eslint": "^7.11.0",
