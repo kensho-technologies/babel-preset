@@ -1,11 +1,6 @@
 import {useState} from 'react'
 
-interface MyComponentProps {
-  disabled: boolean
-  label?: string
-}
-
-export default function MyComponent(props: MyComponentProps) {
+export default function MyComponent(props) {
   const {label, ...rest} = props
   const [count, setCount] = useState(0)
   return (
