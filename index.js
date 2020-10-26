@@ -14,7 +14,7 @@ const PRECOMPILED_PACKAGES_REGEX = new RegExp(`node_modules/(${PRECOMPILED_PACKA
 
 function getDefaultTargets(env) {
   if (env === 'test') return {node: true, browsers: []}
-  if (env === 'esm' || env === 'cjs') return {node: '12.16', browsers: []}
+  if (env === 'esm' || env === 'cjs') return {node: '14.14', browsers: []}
   return undefined
 }
 
