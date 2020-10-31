@@ -22,11 +22,7 @@ import 'core-js/stable'
 
 `;
 
-exports[`replaces generic polyfill with env-targeted polyfills given {}: output (cjs) 1`] = `
-"use strict";
-
-require("core-js/modules/es.math.hypot");
-`;
+exports[`replaces generic polyfill with env-targeted polyfills given {}: output (cjs) 1`] = `"use strict";`;
 
 exports[`replaces generic polyfill with env-targeted polyfills given {}: output (development) 1`] = `
 import "core-js/modules/es.symbol";
@@ -239,7 +235,7 @@ import "core-js/modules/web.url.to-json";
 import "core-js/modules/web.url-search-params";
 `;
 
-exports[`replaces generic polyfill with env-targeted polyfills given {}: output (esm) 1`] = `import "core-js/modules/es.math.hypot";`;
+exports[`replaces generic polyfill with env-targeted polyfills given {}: output (esm) 1`] = ``;
 
 exports[`replaces generic polyfill with env-targeted polyfills given {}: output (production) 1`] = `
 import "core-js/modules/es.symbol";
@@ -535,8 +531,8 @@ const {
   a,
   ...rest
 } = spread;
-const nullishCoalescing = obj !== null && obj !== void 0 ? obj : 1;
-const optionalChaining = obj === null || obj === void 0 ? void 0 : obj.b;
+const nullishCoalescing = obj ?? 1;
+const optionalChaining = obj?.b;
 var _default = obj;
 exports.default = _default;
 `;
@@ -607,8 +603,8 @@ const {
   a,
   ...rest
 } = spread;
-const nullishCoalescing = obj !== null && obj !== void 0 ? obj : 1;
-const optionalChaining = obj === null || obj === void 0 ? void 0 : obj.b;
+const nullishCoalescing = obj ?? 1;
+const optionalChaining = obj?.b;
 export default obj;
 export { obj };
 `;
@@ -715,8 +711,8 @@ const {
   a,
   ...rest
 } = spread;
-const nullishCoalescing = obj != null ? obj : 1;
-const optionalChaining = obj == null ? void 0 : obj.b;
+const nullishCoalescing = obj ?? 1;
+const optionalChaining = obj?.b;
 var _default = obj;
 exports.default = _default;
 `;
@@ -807,8 +803,8 @@ const {
   a,
   ...rest
 } = spread;
-const nullishCoalescing = obj != null ? obj : 1;
-const optionalChaining = obj == null ? void 0 : obj.b;
+const nullishCoalescing = obj ?? 1;
+const optionalChaining = obj?.b;
 var _default = obj;
 exports.default = _default;
 `;
@@ -921,8 +917,8 @@ const {
   a,
   ...rest
 } = spread;
-const nullishCoalescing = obj != null ? obj : 1;
-const optionalChaining = obj == null ? void 0 : obj.b;
+const nullishCoalescing = obj ?? 1;
+const optionalChaining = obj?.b;
 var _default = obj;
 exports.default = _default;
 `;
@@ -985,8 +981,8 @@ const {
   a,
   ...rest
 } = spread;
-const nullishCoalescing = obj != null ? obj : 1;
-const optionalChaining = obj == null ? void 0 : obj.b;
+const nullishCoalescing = obj ?? 1;
+const optionalChaining = obj?.b;
 export default obj;
 export { obj };
 `;
@@ -1253,8 +1249,8 @@ const {
   a,
   ...rest
 } = spread;
-const nullishCoalescing = obj != null ? obj : 1;
-const optionalChaining = obj == null ? void 0 : obj.b;
+const nullishCoalescing = obj ?? 1;
+const optionalChaining = obj?.b;
 var _default = obj;
 exports.default = _default;
 `;
@@ -1316,8 +1312,8 @@ const {
   a,
   ...rest
 } = spread;
-const nullishCoalescing = obj != null ? obj : 1;
-const optionalChaining = obj == null ? void 0 : obj.b;
+const nullishCoalescing = obj ?? 1;
+const optionalChaining = obj?.b;
 export default obj;
 export { obj };
 `;
@@ -1360,11 +1356,11 @@ export function map(value) {
 
 `;
 
-exports[`transpiles ESM in node_modules given {}: output (cjs) 1`] = `"use strict";exports.__esModule=true;exports.map=map;function map(value){return value!=null?value:2;}`;
+exports[`transpiles ESM in node_modules given {}: output (cjs) 1`] = `"use strict";exports.__esModule=true;exports.map=map;function map(value){return value??2;}`;
 
 exports[`transpiles ESM in node_modules given {}: output (development) 1`] = `export function map(value){return value!=null?value:2;}`;
 
-exports[`transpiles ESM in node_modules given {}: output (esm) 1`] = `export function map(value){return value!=null?value:2;}`;
+exports[`transpiles ESM in node_modules given {}: output (esm) 1`] = `export function map(value){return value??2;}`;
 
 exports[`transpiles ESM in node_modules given {}: output (production) 1`] = `export function map(value){return value!=null?value:2;}`;
 
