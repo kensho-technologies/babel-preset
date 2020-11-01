@@ -1365,14 +1365,14 @@ exports[`transpiles ESM in node_modules given {}: output (esm) 1`] = `export fun
 exports[`transpiles ESM in node_modules given {}: output (production) 1`] = `export function map(value){return value!=null?value:2;}`;
 
 exports[`transpiles Emotion given {"emotion":true}: input 1`] = `
-import * as React from 'react'
+import {useState} from 'react'
 import {css} from '@emotion/core'
 
 const cssObj = css({color: 'red'})
 
 export default function MyComponent(props) {
   const {a, b, ...rest} = props
-  const [count, setCount] = React.useState(0)
+  const [count, setCount] = useState(0)
   return (
     <>
       <button css={{color: 'blue'}} onClick={() => setCount((prevSize) => prevSize + 1)}>
@@ -1388,12 +1388,12 @@ export default function MyComponent(props) {
 exports[`transpiles Emotion given {"emotion":true}: output (cjs) 1`] = `
 "use strict";
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
 exports.__esModule = true;
 exports.default = MyComponent;
 
-var React = _interopRequireWildcard(require("react"));
+var _jsxRuntime = require("@emotion/core/jsx-runtime");
+
+var _react = require("react");
 
 var _core = require("@emotion/core");
 
@@ -1412,36 +1412,40 @@ function MyComponent(props) {
     b,
     ...rest
   } = props;
-  const [count, setCount] = React.useState(0);
-  return (0, _core.jsx)(React.Fragment, null, (0, _core.jsx)("button", {
-    css: _ref,
-    onClick: () => setCount(prevSize => prevSize + 1)
-  }, "Increment"), (0, _core.jsx)("div", {
-    height: count,
-    ...rest,
-    css: cssObj
-  }));
+  const [count, setCount] = (0, _react.useState)(0);
+  return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+    children: [(0, _jsxRuntime.jsx)("button", {
+      css: _ref,
+      onClick: () => setCount(prevSize => prevSize + 1),
+      children: "Increment"
+    }), (0, _jsxRuntime.jsx)("div", {
+      height: count,
+      ...rest,
+      css: cssObj
+    })]
+  });
 }
 `;
 
 exports[`transpiles Emotion given {"emotion":true}: output (development) 1`] = `
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+import { jsxDEV as _jsxDEV } from "@emotion/core/jsx-dev-runtime";
+import { Fragment as _Fragment } from "@emotion/core/jsx-dev-runtime";
 
 var _jsxFileName = "/emotion.js",
     _s = $RefreshSig$();
 
 function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."; }
 
-import * as React from 'react';
+import { useState } from 'react';
 import { css } from '@emotion/core';
-import { jsx as ___EmotionJSX } from "@emotion/core";
 var cssObj = process.env.NODE_ENV === "production" ? {
   name: "19ivjt6-cssObj",
   styles: "color:red;;label:cssObj;"
 } : {
   name: "19ivjt6-cssObj",
   styles: "color:red;;label:cssObj;",
-  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVtb3Rpb24uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBR2UiLCJmaWxlIjoiZW1vdGlvbi5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCAqIGFzIFJlYWN0IGZyb20gJ3JlYWN0J1xuaW1wb3J0IHtjc3N9IGZyb20gJ0BlbW90aW9uL2NvcmUnXG5cbmNvbnN0IGNzc09iaiA9IGNzcyh7Y29sb3I6ICdyZWQnfSlcblxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gTXlDb21wb25lbnQocHJvcHMpIHtcbiAgY29uc3Qge2EsIGIsIC4uLnJlc3R9ID0gcHJvcHNcbiAgY29uc3QgW2NvdW50LCBzZXRDb3VudF0gPSBSZWFjdC51c2VTdGF0ZSgwKVxuICByZXR1cm4gKFxuICAgIDw+XG4gICAgICA8YnV0dG9uIGNzcz17e2NvbG9yOiAnYmx1ZSd9fSBvbkNsaWNrPXsoKSA9PiBzZXRDb3VudCgocHJldlNpemUpID0+IHByZXZTaXplICsgMSl9PlxuICAgICAgICBJbmNyZW1lbnRcbiAgICAgIDwvYnV0dG9uPlxuICAgICAgPGRpdiBoZWlnaHQ9e2NvdW50fSB7Li4ucmVzdH0gY3NzPXtjc3NPYmp9IC8+XG4gICAgPC8+XG4gIClcbn1cbiJdfQ== */",
+  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVtb3Rpb24uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBR2UiLCJmaWxlIjoiZW1vdGlvbi5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7dXNlU3RhdGV9IGZyb20gJ3JlYWN0J1xuaW1wb3J0IHtjc3N9IGZyb20gJ0BlbW90aW9uL2NvcmUnXG5cbmNvbnN0IGNzc09iaiA9IGNzcyh7Y29sb3I6ICdyZWQnfSlcblxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gTXlDb21wb25lbnQocHJvcHMpIHtcbiAgY29uc3Qge2EsIGIsIC4uLnJlc3R9ID0gcHJvcHNcbiAgY29uc3QgW2NvdW50LCBzZXRDb3VudF0gPSB1c2VTdGF0ZSgwKVxuICByZXR1cm4gKFxuICAgIDw+XG4gICAgICA8YnV0dG9uIGNzcz17e2NvbG9yOiAnYmx1ZSd9fSBvbkNsaWNrPXsoKSA9PiBzZXRDb3VudCgocHJldlNpemUpID0+IHByZXZTaXplICsgMSl9PlxuICAgICAgICBJbmNyZW1lbnRcbiAgICAgIDwvYnV0dG9uPlxuICAgICAgPGRpdiBoZWlnaHQ9e2NvdW50fSB7Li4ucmVzdH0gY3NzPXtjc3NPYmp9IC8+XG4gICAgPC8+XG4gIClcbn1cbiJdfQ== */",
   toString: _EMOTION_STRINGIFIED_CSS_ERROR__
 };
 
@@ -1451,7 +1455,7 @@ var _ref = process.env.NODE_ENV === "production" ? {
 } : {
   name: "fyjye7-MyComponent",
   styles: "color:blue;;label:MyComponent;",
-  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVtb3Rpb24uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBVWMiLCJmaWxlIjoiZW1vdGlvbi5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCAqIGFzIFJlYWN0IGZyb20gJ3JlYWN0J1xuaW1wb3J0IHtjc3N9IGZyb20gJ0BlbW90aW9uL2NvcmUnXG5cbmNvbnN0IGNzc09iaiA9IGNzcyh7Y29sb3I6ICdyZWQnfSlcblxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gTXlDb21wb25lbnQocHJvcHMpIHtcbiAgY29uc3Qge2EsIGIsIC4uLnJlc3R9ID0gcHJvcHNcbiAgY29uc3QgW2NvdW50LCBzZXRDb3VudF0gPSBSZWFjdC51c2VTdGF0ZSgwKVxuICByZXR1cm4gKFxuICAgIDw+XG4gICAgICA8YnV0dG9uIGNzcz17e2NvbG9yOiAnYmx1ZSd9fSBvbkNsaWNrPXsoKSA9PiBzZXRDb3VudCgocHJldlNpemUpID0+IHByZXZTaXplICsgMSl9PlxuICAgICAgICBJbmNyZW1lbnRcbiAgICAgIDwvYnV0dG9uPlxuICAgICAgPGRpdiBoZWlnaHQ9e2NvdW50fSB7Li4ucmVzdH0gY3NzPXtjc3NPYmp9IC8+XG4gICAgPC8+XG4gIClcbn1cbiJdfQ== */",
+  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVtb3Rpb24uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBVWMiLCJmaWxlIjoiZW1vdGlvbi5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7dXNlU3RhdGV9IGZyb20gJ3JlYWN0J1xuaW1wb3J0IHtjc3N9IGZyb20gJ0BlbW90aW9uL2NvcmUnXG5cbmNvbnN0IGNzc09iaiA9IGNzcyh7Y29sb3I6ICdyZWQnfSlcblxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gTXlDb21wb25lbnQocHJvcHMpIHtcbiAgY29uc3Qge2EsIGIsIC4uLnJlc3R9ID0gcHJvcHNcbiAgY29uc3QgW2NvdW50LCBzZXRDb3VudF0gPSB1c2VTdGF0ZSgwKVxuICByZXR1cm4gKFxuICAgIDw+XG4gICAgICA8YnV0dG9uIGNzcz17e2NvbG9yOiAnYmx1ZSd9fSBvbkNsaWNrPXsoKSA9PiBzZXRDb3VudCgocHJldlNpemUpID0+IHByZXZTaXplICsgMSl9PlxuICAgICAgICBJbmNyZW1lbnRcbiAgICAgIDwvYnV0dG9uPlxuICAgICAgPGRpdiBoZWlnaHQ9e2NvdW50fSB7Li4ucmVzdH0gY3NzPXtjc3NPYmp9IC8+XG4gICAgPC8+XG4gIClcbn1cbiJdfQ== */",
   toString: _EMOTION_STRINGIFIED_CSS_ERROR__
 };
 
@@ -1462,34 +1466,33 @@ export default function MyComponent(props) {
       b = props.b,
       rest = _objectWithoutPropertiesLoose(props, ["a", "b"]);
 
-  var _React$useState = React.useState(0),
-      count = _React$useState[0],
-      setCount = _React$useState[1];
+  var _useState = useState(0),
+      count = _useState[0],
+      setCount = _useState[1];
 
-  return ___EmotionJSX(React.Fragment, null, ___EmotionJSX("button", {
-    css: _ref,
-    onClick: function onClick() {
-      return setCount(function (prevSize) {
-        return prevSize + 1;
-      });
-    },
-    __self: this,
-    __source: {
+  return _jsxDEV(_Fragment, {
+    children: [_jsxDEV("button", {
+      css: _ref,
+      onClick: function onClick() {
+        return setCount(function (prevSize) {
+          return prevSize + 1;
+        });
+      },
+      children: "Increment"
+    }, void 0, false, {
       fileName: _jsxFileName,
       lineNumber: 11,
       columnNumber: 7
-    }
-  }, "Increment"), ___EmotionJSX("div", Object.assign({
-    height: count
-  }, rest, {
-    css: cssObj,
-    __self: this,
-    __source: {
+    }, this), _jsxDEV("div", Object.assign({
+      height: count
+    }, rest, {
+      css: cssObj
+    }), void 0, false, {
       fileName: _jsxFileName,
       lineNumber: 14,
       columnNumber: 7
-    }
-  })));
+    }, this)]
+  }, void 0, true);
 }
 
 _s(MyComponent, "oDgYfYHkD9Wkv4hrAPCkI/ev3YU=");
@@ -1502,9 +1505,11 @@ $RefreshReg$(_c, "MyComponent");
 `;
 
 exports[`transpiles Emotion given {"emotion":true}: output (esm) 1`] = `
-import * as React from 'react';
+import { jsx as _jsx } from "@emotion/core/jsx-runtime";
+import { jsxs as _jsxs } from "@emotion/core/jsx-runtime";
+import { Fragment as _Fragment } from "@emotion/core/jsx-runtime";
+import { useState } from 'react';
 import { css } from '@emotion/core';
-import { jsx as ___EmotionJSX } from "@emotion/core";
 const cssObj = {
   name: "tokvmb",
   styles: "color:red;"
@@ -1519,23 +1524,28 @@ export default function MyComponent(props) {
     b,
     ...rest
   } = props;
-  const [count, setCount] = React.useState(0);
-  return ___EmotionJSX(React.Fragment, null, ___EmotionJSX("button", {
-    css: _ref,
-    onClick: () => setCount(prevSize => prevSize + 1)
-  }, "Increment"), ___EmotionJSX("div", {
-    height: count,
-    ...rest,
-    css: cssObj
-  }));
+  const [count, setCount] = useState(0);
+  return _jsxs(_Fragment, {
+    children: [_jsx("button", {
+      css: _ref,
+      onClick: () => setCount(prevSize => prevSize + 1),
+      children: "Increment"
+    }), _jsx("div", {
+      height: count,
+      ...rest,
+      css: cssObj
+    })]
+  });
 }
 `;
 
 exports[`transpiles Emotion given {"emotion":true}: output (production) 1`] = `
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
-import * as React from 'react';
+import { jsx as _jsx } from "@emotion/core/jsx-runtime";
+import { jsxs as _jsxs } from "@emotion/core/jsx-runtime";
+import { Fragment as _Fragment } from "@emotion/core/jsx-runtime";
+import { useState } from 'react';
 import { css } from '@emotion/core';
-import { jsx as ___EmotionJSX } from "@emotion/core";
 var cssObj = {
   name: "tokvmb",
   styles: "color:red;"
@@ -1549,22 +1559,25 @@ export default function MyComponent(props) {
       b = props.b,
       rest = _objectWithoutPropertiesLoose(props, ["a", "b"]);
 
-  var _React$useState = React.useState(0),
-      count = _React$useState[0],
-      setCount = _React$useState[1];
+  var _useState = useState(0),
+      count = _useState[0],
+      setCount = _useState[1];
 
-  return ___EmotionJSX(React.Fragment, null, ___EmotionJSX("button", {
-    css: _ref,
-    onClick: function onClick() {
-      return setCount(function (prevSize) {
-        return prevSize + 1;
-      });
-    }
-  }, "Increment"), ___EmotionJSX("div", Object.assign({
-    height: count
-  }, rest, {
-    css: cssObj
-  })));
+  return _jsxs(_Fragment, {
+    children: [_jsx("button", {
+      css: _ref,
+      onClick: function onClick() {
+        return setCount(function (prevSize) {
+          return prevSize + 1;
+        });
+      },
+      children: "Increment"
+    }), _jsx("div", Object.assign({
+      height: count
+    }, rest, {
+      css: cssObj
+    }))]
+  });
 }
 `;
 
