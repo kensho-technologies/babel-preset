@@ -1,11 +1,11 @@
-import * as React from 'react'
+import {useState} from 'react'
 import {css} from '@emotion/core'
 
 const cssObj = css({color: 'red'})
 
 export default function MyComponent(props) {
   const {a, b, ...rest} = props
-  const [count, setCount] = React.useState(0)
+  const [count, setCount] = useState(0)
   return (
     <>
       <button css={{color: 'blue'}} onClick={() => setCount((prevSize) => prevSize + 1)}>
