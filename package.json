@@ -28,7 +28,7 @@
     "@babel/preset-react": "^7.12.1",
     "@babel/preset-typescript": "^7.12.1",
     "@emotion/babel-preset-css-prop": "^10.1.0",
-    "react-refresh": "^0.8.3"
+    "react-refresh": "^0.9.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
@@ -36,7 +36,7 @@
     "@kensho-technologies/eslint-config": "^21.0.0",
     "@kensho-technologies/prettier-config": "^1.0.0",
     "@kensho-technologies/tsconfig": "^1.0.0",
-    "@types/babel__core": "^7.1.10",
+    "@types/babel__core": "^7.1.11",
     "eslint": "^7.12.1",
     "jest": "^26.6.1",
     "prettier": "^2.1.2",
