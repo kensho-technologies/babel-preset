@@ -54,7 +54,8 @@ module.exports = (babel, options) => {
     ],
   }
 
-  const isReactPresetEnabled = react && (emotion ? emotion.runtime === 'classic' : true)
+  const reactRuntime = emotion?.runtime ?? react?.runtime ?? 'automatic'
+  const isReactPresetEnabled = react && (emotion ? reactRuntime === 'classic' : true)
 
   const nonNodeModules = {
     exclude: NODE_MODULES_REGEX,
@@ -68,21 +69,21 @@ module.exports = (babel, options) => {
         require('@babel/preset-react').default,
         {
           development: env === 'development',
-          runtime: 'automatic',
           useSpread: true,
           ...react,
+          runtime: reactRuntime,
         },
       ],
       emotion && [
         require('@emotion/babel-preset-css-prop').default,
         {
-          development: env === 'development',
-          runtime: 'automatic',
+          development: env === 'development' && reactRuntime === 'automatic',
           useSpread: true,
           autoLabel: env === 'development',
           sourceMap: env === 'development',
           ...react,
           ...emotion,
+          runtime: reactRuntime,
         },
       ],
     ].filter(Boolean),

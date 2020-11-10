@@ -1581,6 +1581,210 @@ export default function MyComponent(props) {
 }
 `;
 
+exports[`transpiles Emotion with classic runtime given {"emotion":true,"react":{"runtime":"classic"}}: input 1`] = `
+import * as React from 'react'
+import {css} from '@emotion/core'
+
+const cssObj = css({color: 'red'})
+
+export default function MyComponent(props) {
+  const {a, b, ...rest} = props
+  const [count, setCount] = React.useState(0)
+  return (
+    <>
+      <button css={{color: 'blue'}} onClick={() => setCount((prevSize) => prevSize + 1)}>
+        Increment
+      </button>
+      <div height={count} {...rest} css={cssObj} />
+    </>
+  )
+}
+
+`;
+
+exports[`transpiles Emotion with classic runtime given {"emotion":true,"react":{"runtime":"classic"}}: output (cjs) 1`] = `
+"use strict";
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+exports.__esModule = true;
+exports.default = MyComponent;
+
+var React = _interopRequireWildcard(require("react"));
+
+var _core = require("@emotion/core");
+
+const cssObj = {
+  name: "tokvmb",
+  styles: "color:red;"
+};
+var _ref = {
+  name: "14ksm7b",
+  styles: "color:blue;"
+};
+
+function MyComponent(props) {
+  const {
+    a,
+    b,
+    ...rest
+  } = props;
+  const [count, setCount] = React.useState(0);
+  return (0, _core.jsx)(React.Fragment, null, (0, _core.jsx)("button", {
+    css: _ref,
+    onClick: () => setCount(prevSize => prevSize + 1)
+  }, "Increment"), (0, _core.jsx)("div", {
+    height: count,
+    ...rest,
+    css: cssObj
+  }));
+}
+`;
+
+exports[`transpiles Emotion with classic runtime given {"emotion":true,"react":{"runtime":"classic"}}: output (development) 1`] = `
+import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+
+var _jsxFileName = "/emotion-classic.js",
+    _s = $RefreshSig$();
+
+function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."; }
+
+import * as React from 'react';
+import { css } from '@emotion/core';
+import { jsx as ___EmotionJSX } from "@emotion/core";
+var cssObj = process.env.NODE_ENV === "production" ? {
+  name: "19ivjt6-cssObj",
+  styles: "color:red;;label:cssObj;"
+} : {
+  name: "19ivjt6-cssObj",
+  styles: "color:red;;label:cssObj;",
+  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVtb3Rpb24tY2xhc3NpYy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFHZSIsImZpbGUiOiJlbW90aW9uLWNsYXNzaWMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgKiBhcyBSZWFjdCBmcm9tICdyZWFjdCdcbmltcG9ydCB7Y3NzfSBmcm9tICdAZW1vdGlvbi9jb3JlJ1xuXG5jb25zdCBjc3NPYmogPSBjc3Moe2NvbG9yOiAncmVkJ30pXG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIE15Q29tcG9uZW50KHByb3BzKSB7XG4gIGNvbnN0IHthLCBiLCAuLi5yZXN0fSA9IHByb3BzXG4gIGNvbnN0IFtjb3VudCwgc2V0Q291bnRdID0gUmVhY3QudXNlU3RhdGUoMClcbiAgcmV0dXJuIChcbiAgICA8PlxuICAgICAgPGJ1dHRvbiBjc3M9e3tjb2xvcjogJ2JsdWUnfX0gb25DbGljaz17KCkgPT4gc2V0Q291bnQoKHByZXZTaXplKSA9PiBwcmV2U2l6ZSArIDEpfT5cbiAgICAgICAgSW5jcmVtZW50XG4gICAgICA8L2J1dHRvbj5cbiAgICAgIDxkaXYgaGVpZ2h0PXtjb3VudH0gey4uLnJlc3R9IGNzcz17Y3NzT2JqfSAvPlxuICAgIDwvPlxuICApXG59XG4iXX0= */",
+  toString: _EMOTION_STRINGIFIED_CSS_ERROR__
+};
+
+var _ref = process.env.NODE_ENV === "production" ? {
+  name: "fyjye7-MyComponent",
+  styles: "color:blue;;label:MyComponent;"
+} : {
+  name: "fyjye7-MyComponent",
+  styles: "color:blue;;label:MyComponent;",
+  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVtb3Rpb24tY2xhc3NpYy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFVYyIsImZpbGUiOiJlbW90aW9uLWNsYXNzaWMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgKiBhcyBSZWFjdCBmcm9tICdyZWFjdCdcbmltcG9ydCB7Y3NzfSBmcm9tICdAZW1vdGlvbi9jb3JlJ1xuXG5jb25zdCBjc3NPYmogPSBjc3Moe2NvbG9yOiAncmVkJ30pXG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIE15Q29tcG9uZW50KHByb3BzKSB7XG4gIGNvbnN0IHthLCBiLCAuLi5yZXN0fSA9IHByb3BzXG4gIGNvbnN0IFtjb3VudCwgc2V0Q291bnRdID0gUmVhY3QudXNlU3RhdGUoMClcbiAgcmV0dXJuIChcbiAgICA8PlxuICAgICAgPGJ1dHRvbiBjc3M9e3tjb2xvcjogJ2JsdWUnfX0gb25DbGljaz17KCkgPT4gc2V0Q291bnQoKHByZXZTaXplKSA9PiBwcmV2U2l6ZSArIDEpfT5cbiAgICAgICAgSW5jcmVtZW50XG4gICAgICA8L2J1dHRvbj5cbiAgICAgIDxkaXYgaGVpZ2h0PXtjb3VudH0gey4uLnJlc3R9IGNzcz17Y3NzT2JqfSAvPlxuICAgIDwvPlxuICApXG59XG4iXX0= */",
+  toString: _EMOTION_STRINGIFIED_CSS_ERROR__
+};
+
+export default function MyComponent(props) {
+  _s();
+
+  var a = props.a,
+      b = props.b,
+      rest = _objectWithoutPropertiesLoose(props, ["a", "b"]);
+
+  var _React$useState = React.useState(0),
+      count = _React$useState[0],
+      setCount = _React$useState[1];
+
+  return ___EmotionJSX(React.Fragment, null, ___EmotionJSX("button", {
+    css: _ref,
+    onClick: function onClick() {
+      return setCount(function (prevSize) {
+        return prevSize + 1;
+      });
+    },
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 7
+    }
+  }, "Increment"), ___EmotionJSX("div", Object.assign({
+    height: count
+  }, rest, {
+    css: cssObj,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14,
+      columnNumber: 7
+    }
+  })));
+}
+
+_s(MyComponent, "oDgYfYHkD9Wkv4hrAPCkI/ev3YU=");
+
+_c = MyComponent;
+
+var _c;
+
+$RefreshReg$(_c, "MyComponent");
+`;
+
+exports[`transpiles Emotion with classic runtime given {"emotion":true,"react":{"runtime":"classic"}}: output (esm) 1`] = `
+import * as React from 'react';
+import { css } from '@emotion/core';
+import { jsx as ___EmotionJSX } from "@emotion/core";
+const cssObj = {
+  name: "tokvmb",
+  styles: "color:red;"
+};
+var _ref = {
+  name: "14ksm7b",
+  styles: "color:blue;"
+};
+export default function MyComponent(props) {
+  const {
+    a,
+    b,
+    ...rest
+  } = props;
+  const [count, setCount] = React.useState(0);
+  return ___EmotionJSX(React.Fragment, null, ___EmotionJSX("button", {
+    css: _ref,
+    onClick: () => setCount(prevSize => prevSize + 1)
+  }, "Increment"), ___EmotionJSX("div", {
+    height: count,
+    ...rest,
+    css: cssObj
+  }));
+}
+`;
+
+exports[`transpiles Emotion with classic runtime given {"emotion":true,"react":{"runtime":"classic"}}: output (production) 1`] = `
+import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+import * as React from 'react';
+import { css } from '@emotion/core';
+import { jsx as ___EmotionJSX } from "@emotion/core";
+var cssObj = {
+  name: "tokvmb",
+  styles: "color:red;"
+};
+var _ref = {
+  name: "14ksm7b",
+  styles: "color:blue;"
+};
+export default function MyComponent(props) {
+  var a = props.a,
+      b = props.b,
+      rest = _objectWithoutPropertiesLoose(props, ["a", "b"]);
+
+  var _React$useState = React.useState(0),
+      count = _React$useState[0],
+      setCount = _React$useState[1];
+
+  return ___EmotionJSX(React.Fragment, null, ___EmotionJSX("button", {
+    css: _ref,
+    onClick: function onClick() {
+      return setCount(function (prevSize) {
+        return prevSize + 1;
+      });
+    }
+  }, "Increment"), ___EmotionJSX("div", Object.assign({
+    height: count
+  }, rest, {
+    css: cssObj
+  })));
+}
+`;
+
 exports[`transpiles React given {}: input 1`] = `
 import {useState} from 'react'
 
