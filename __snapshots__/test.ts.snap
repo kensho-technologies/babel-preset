@@ -1699,6 +1699,118 @@ export default function MyComponent(props) {
 }
 `;
 
+exports[`transpiles React with classic runtime given {"react":{"runtime":"classic"}}: input 1`] = `
+import * as React from 'react'
+
+export default function MyComponent(props) {
+  const {label, ...rest} = props
+  const [count, setCount] = React.useState(0)
+  return (
+    <button onClick={() => setCount(count + 1)} {...rest}>
+      {label} {count}
+    </button>
+  )
+}
+
+`;
+
+exports[`transpiles React with classic runtime given {"react":{"runtime":"classic"}}: output (cjs) 1`] = `
+"use strict";
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+exports.__esModule = true;
+exports.default = MyComponent;
+
+var React = _interopRequireWildcard(require("react"));
+
+function MyComponent(props) {
+  const {
+    label,
+    ...rest
+  } = props;
+  const [count, setCount] = React.useState(0);
+  return /*#__PURE__*/React.createElement("button", {
+    onClick: () => setCount(count + 1),
+    ...rest
+  }, label, " ", count);
+}
+`;
+
+exports[`transpiles React with classic runtime given {"react":{"runtime":"classic"}}: output (development) 1`] = `
+import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+
+var _jsxFileName = "/react-classic.js",
+    _s = $RefreshSig$();
+
+import * as React from 'react';
+export default function MyComponent(props) {
+  _s();
+
+  var label = props.label,
+      rest = _objectWithoutPropertiesLoose(props, ["label"]);
+
+  var _React$useState = React.useState(0),
+      count = _React$useState[0],
+      setCount = _React$useState[1];
+
+  return /*#__PURE__*/React.createElement("button", Object.assign({
+    onClick: function onClick() {
+      return setCount(count + 1);
+    }
+  }, rest, {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 5
+    }
+  }), label, " ", count);
+}
+
+_s(MyComponent, "oDgYfYHkD9Wkv4hrAPCkI/ev3YU=");
+
+_c = MyComponent;
+
+var _c;
+
+$RefreshReg$(_c, "MyComponent");
+`;
+
+exports[`transpiles React with classic runtime given {"react":{"runtime":"classic"}}: output (esm) 1`] = `
+import * as React from 'react';
+export default function MyComponent(props) {
+  const {
+    label,
+    ...rest
+  } = props;
+  const [count, setCount] = React.useState(0);
+  return /*#__PURE__*/React.createElement("button", {
+    onClick: () => setCount(count + 1),
+    ...rest
+  }, label, " ", count);
+}
+`;
+
+exports[`transpiles React with classic runtime given {"react":{"runtime":"classic"}}: output (production) 1`] = `
+import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+import * as React from 'react';
+export default function MyComponent(props) {
+  var label = props.label,
+      rest = _objectWithoutPropertiesLoose(props, ["label"]);
+
+  var _React$useState = React.useState(0),
+      count = _React$useState[0],
+      setCount = _React$useState[1];
+
+  return /*#__PURE__*/React.createElement("button", Object.assign({
+    onClick: function onClick() {
+      return setCount(count + 1);
+    }
+  }, rest), label, " ", count);
+}
+`;
+
 exports[`transpiles TSX given {}: input 1`] = `
 export default function add(a: number, b: number): number {
   return a + b

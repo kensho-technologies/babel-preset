@@ -34,6 +34,7 @@ macro('transpiles ES2020+ syntax', 'syntax.js', {runtime: false})
 macro('transpiles ES2020+ syntax', 'syntax.js', {modules: 'commonjs'})
 
 macro('transpiles React', 'react.js')
+macro('transpiles React with classic runtime', 'react-classic.js', {react: {runtime: 'classic'}})
 macro('transpiles TSX', 'typescript.tsx')
 macro('transpiles Emotion', 'emotion.js', {emotion: true})
 
