@@ -55,35 +55,45 @@ module.exports = (babel, options) => {
   }
 
   const reactRuntime = emotion?.runtime ?? react?.runtime ?? 'automatic'
-  const isReactPresetEnabled = react && (emotion ? reactRuntime === 'classic' : true)
+  const isEmotionPluginEnabled = emotion && reactRuntime === 'automatic'
+  const isEmotionPresetEnabled = emotion && reactRuntime !== 'automatic'
 
   const nonNodeModules = {
     exclude: NODE_MODULES_REGEX,
     plugins: [
       [require('@babel/plugin-proposal-class-properties').default, {loose}],
       reactRefresh && [require('react-refresh/babel'), {skipEnvCheck: true, ...reactRefresh}],
+      isEmotionPluginEnabled && [
+        require('babel-plugin-emotion').default,
+        {
+          autoLabel: env === 'development',
+          sourceMap: env === 'development',
+          cssPropOptimization: true,
+          ...emotion,
+        },
+      ],
     ].filter(Boolean),
     presets: [
       typescript && [require('@babel/preset-typescript').default, typescript],
-      isReactPresetEnabled && [
+      react && [
         require('@babel/preset-react').default,
         {
           development: env === 'development',
+          importSource: emotion ? '@emotion/core' : undefined,
           useSpread: true,
           ...react,
           runtime: reactRuntime,
         },
       ],
-      emotion && [
+      isEmotionPresetEnabled && [
         require('@emotion/babel-preset-css-prop').default,
         {
-          development: env === 'development' && reactRuntime === 'automatic',
           useSpread: true,
           autoLabel: env === 'development',
           sourceMap: env === 'development',
           ...react,
           ...emotion,
-          runtime: reactRuntime,
+          runtime: undefined,
         },
       ],
     ].filter(Boolean),
