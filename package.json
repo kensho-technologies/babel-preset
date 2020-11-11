@@ -27,7 +27,7 @@
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.5",
     "@babel/preset-typescript": "^7.12.1",
-    "@emotion/babel-preset-css-prop": "^10.2.0",
+    "@emotion/babel-preset-css-prop": "^10.2.1",
     "babel-plugin-emotion": "^10.0.33",
     "react-refresh": "^0.9.0"
   },
