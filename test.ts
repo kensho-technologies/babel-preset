@@ -34,8 +34,13 @@ macro('transpiles ES2020+ syntax', 'syntax.js', {runtime: false})
 macro('transpiles ES2020+ syntax', 'syntax.js', {modules: 'commonjs'})
 
 macro('transpiles React', 'react.js')
+macro('transpiles React with classic runtime', 'react-classic.js', {react: {runtime: 'classic'}})
 macro('transpiles TSX', 'typescript.tsx')
 macro('transpiles Emotion', 'emotion.js', {emotion: true})
+macro('transpiles Emotion with classic runtime', 'emotion-classic.js', {
+  emotion: true,
+  react: {runtime: 'classic'},
+})
 
 macro('replaces generic polyfill with env-targeted polyfills', 'polyfills.js')
 

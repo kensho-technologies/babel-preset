@@ -14,7 +14,7 @@ const PRECOMPILED_PACKAGES_REGEX = new RegExp(`node_modules/(${PRECOMPILED_PACKA
 
 function getDefaultTargets(env) {
   if (env === 'test') return {node: true, browsers: []}
-  if (env === 'esm' || env === 'cjs') return {node: '12.16', browsers: []}
+  if (env === 'esm' || env === 'cjs') return {node: '14.14', browsers: []}
   return undefined
 }
 
@@ -54,11 +54,23 @@ module.exports = (babel, options) => {
     ],
   }
 
+  const reactRuntime = emotion?.runtime ?? react?.runtime ?? 'automatic'
+  const isEmotionPluginEnabled = emotion && reactRuntime === 'automatic'
+  const isEmotionPresetEnabled = emotion && reactRuntime !== 'automatic'
+
   const nonNodeModules = {
     exclude: NODE_MODULES_REGEX,
     plugins: [
       [require('@babel/plugin-proposal-class-properties').default, {loose}],
       reactRefresh && [require('react-refresh/babel'), {skipEnvCheck: true, ...reactRefresh}],
+      isEmotionPluginEnabled && [
+        require('@emotion/babel-plugin').default,
+        {
+          sourceMap: env === 'development',
+          cssPropOptimization: true,
+          ...emotion,
+        },
+      ],
     ].filter(Boolean),
     presets: [
       typescript && [require('@babel/preset-typescript').default, typescript],
@@ -66,14 +78,21 @@ module.exports = (babel, options) => {
         require('@babel/preset-react').default,
         {
           development: env === 'development',
-          runtime: emotion ? 'classic' : 'automatic',
+          importSource: emotion ? '@emotion/core' : undefined,
           useSpread: true,
           ...react,
+          runtime: reactRuntime,
         },
       ],
-      emotion && [
+      isEmotionPresetEnabled && [
         require('@emotion/babel-preset-css-prop').default,
-        {useSpread: true, sourceMap: env === 'development', ...emotion},
+        {
+          useSpread: true,
+          sourceMap: env === 'development',
+          ...react,
+          ...emotion,
+          runtime: undefined,
+        },
       ],
     ].filter(Boolean),
   }
