@@ -63,10 +63,7 @@ module.exports = (babel, options) => {
     plugins: [
       [require('@babel/plugin-proposal-class-properties').default, {loose}],
       reactRefresh && [require('react-refresh/babel'), {skipEnvCheck: true, ...reactRefresh}],
-      isEmotionPluginEnabled && [
-        require('@emotion/babel-plugin').default,
-        {sourceMap: env === 'development', ...emotion},
-      ],
+      isEmotionPluginEnabled && [require('@emotion/babel-plugin').default, {...emotion}],
     ].filter(Boolean),
     presets: [
       typescript && [require('@babel/preset-typescript').default, typescript],
@@ -82,13 +79,7 @@ module.exports = (babel, options) => {
       ],
       isEmotionPresetEnabled && [
         require('@emotion/babel-preset-css-prop').default,
-        {
-          useSpread: true,
-          sourceMap: env === 'development',
-          ...react,
-          ...emotion,
-          runtime: undefined,
-        },
+        {useSpread: true, ...react, ...emotion, runtime: undefined},
       ],
     ].filter(Boolean),
   }
