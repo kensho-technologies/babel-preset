@@ -65,11 +65,7 @@ module.exports = (babel, options) => {
       reactRefresh && [require('react-refresh/babel'), {skipEnvCheck: true, ...reactRefresh}],
       isEmotionPluginEnabled && [
         require('@emotion/babel-plugin').default,
-        {
-          sourceMap: env === 'development',
-          cssPropOptimization: true,
-          ...emotion,
-        },
+        {sourceMap: env === 'development', ...emotion},
       ],
     ].filter(Boolean),
     presets: [
