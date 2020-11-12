@@ -30,7 +30,7 @@ The preset can be configured using several options. Note that some options' defa
 `false` | [`options`](https://emotion.sh/docs/@emotion/babel-preset-css-prop#options)<br />
 Default: `false`
 
-Whether to enable support for CSS-in-JS via [Emotion](https://emotion.sh). If an `options` object is passed, it is forwarded to the [Emotion preset](https://emotion.sh/docs/@emotion/babel-preset-css-prop). This option requires an additional dependency on [`@emotion/core`](https://npm.im/@emotion/core).
+Whether to enable support for CSS-in-JS via [Emotion](https://emotion.sh). If an `options` object is passed, it is forwarded to the [Emotion plugin](https://emotion.sh/docs/@emotion/babel-plugin). This option requires an additional dependency on [`@emotion/react`](https://npm.im/@emotion/react).
 
 ### `include`
 
