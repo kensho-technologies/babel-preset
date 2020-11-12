@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import {css} from '@emotion/core'
+import {css} from '@emotion/react'
 
 const cssObj = css({color: 'red'})
 
