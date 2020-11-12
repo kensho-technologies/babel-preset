@@ -1397,13 +1397,24 @@ var _react = require("react");
 
 var _react2 = require("@emotion/react");
 
-const cssObj = {
+function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."; }
+
+const cssObj = process.env.NODE_ENV === "production" ? {
   name: "hwfcu5",
   styles: "color:red"
+} : {
+  name: "aslxie-cssObj",
+  styles: "color:red;label:cssObj;",
+  toString: _EMOTION_STRINGIFIED_CSS_ERROR__
 };
-var _ref = {
+
+var _ref = process.env.NODE_ENV === "production" ? {
   name: "117wnve",
   styles: "color:blue"
+} : {
+  name: "fveiva-MyComponent",
+  styles: "color:blue;label:MyComponent;",
+  toString: _EMOTION_STRINGIFIED_CSS_ERROR__
 };
 
 function MyComponent(props) {
@@ -1508,16 +1519,29 @@ exports[`transpiles Emotion given {"emotion":true}: output (esm) 1`] = `
 import { jsx as _jsx } from "@emotion/core/jsx-runtime";
 import { jsxs as _jsxs } from "@emotion/core/jsx-runtime";
 import { Fragment as _Fragment } from "@emotion/core/jsx-runtime";
+
+function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."; }
+
 import { useState } from 'react';
 import { css } from '@emotion/react';
-const cssObj = {
+const cssObj = process.env.NODE_ENV === "production" ? {
   name: "hwfcu5",
   styles: "color:red"
+} : {
+  name: "aslxie-cssObj",
+  styles: "color:red;label:cssObj;",
+  toString: _EMOTION_STRINGIFIED_CSS_ERROR__
 };
-var _ref = {
+
+var _ref = process.env.NODE_ENV === "production" ? {
   name: "117wnve",
   styles: "color:blue"
+} : {
+  name: "fveiva-MyComponent",
+  styles: "color:blue;label:MyComponent;",
+  toString: _EMOTION_STRINGIFIED_CSS_ERROR__
 };
+
 export default function MyComponent(props) {
   const {
     a,
@@ -1544,16 +1568,29 @@ import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/esm/objectWith
 import { jsx as _jsx } from "@emotion/core/jsx-runtime";
 import { jsxs as _jsxs } from "@emotion/core/jsx-runtime";
 import { Fragment as _Fragment } from "@emotion/core/jsx-runtime";
+
+function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."; }
+
 import { useState } from 'react';
 import { css } from '@emotion/react';
-var cssObj = {
+var cssObj = process.env.NODE_ENV === "production" ? {
   name: "hwfcu5",
   styles: "color:red"
+} : {
+  name: "aslxie-cssObj",
+  styles: "color:red;label:cssObj;",
+  toString: _EMOTION_STRINGIFIED_CSS_ERROR__
 };
-var _ref = {
+
+var _ref = process.env.NODE_ENV === "production" ? {
   name: "117wnve",
   styles: "color:blue"
+} : {
+  name: "fveiva-MyComponent",
+  styles: "color:blue;label:MyComponent;",
+  toString: _EMOTION_STRINGIFIED_CSS_ERROR__
 };
+
 export default function MyComponent(props) {
   var a = props.a,
       b = props.b,
@@ -1614,13 +1651,24 @@ var React = _interopRequireWildcard(require("react"));
 
 var _react2 = require("@emotion/react");
 
-const cssObj = {
+function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."; }
+
+const cssObj = process.env.NODE_ENV === "production" ? {
   name: "hwfcu5",
   styles: "color:red"
+} : {
+  name: "aslxie-cssObj",
+  styles: "color:red;label:cssObj;",
+  toString: _EMOTION_STRINGIFIED_CSS_ERROR__
 };
-var _ref = {
+
+var _ref = process.env.NODE_ENV === "production" ? {
   name: "117wnve",
   styles: "color:blue"
+} : {
+  name: "fveiva-MyComponent",
+  styles: "color:blue;label:MyComponent;",
+  toString: _EMOTION_STRINGIFIED_CSS_ERROR__
 };
 
 function MyComponent(props) {
@@ -1719,17 +1767,29 @@ $RefreshReg$(_c, "MyComponent");
 `;
 
 exports[`transpiles Emotion with classic runtime given {"emotion":true,"react":{"runtime":"classic"}}: output (esm) 1`] = `
+function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."; }
+
 import * as React from 'react';
 import { css } from '@emotion/react';
 import { jsx as ___EmotionJSX } from "@emotion/react";
-const cssObj = {
+const cssObj = process.env.NODE_ENV === "production" ? {
   name: "hwfcu5",
   styles: "color:red"
+} : {
+  name: "aslxie-cssObj",
+  styles: "color:red;label:cssObj;",
+  toString: _EMOTION_STRINGIFIED_CSS_ERROR__
 };
-var _ref = {
+
+var _ref = process.env.NODE_ENV === "production" ? {
   name: "117wnve",
   styles: "color:blue"
+} : {
+  name: "fveiva-MyComponent",
+  styles: "color:blue;label:MyComponent;",
+  toString: _EMOTION_STRINGIFIED_CSS_ERROR__
 };
+
 export default function MyComponent(props) {
   const {
     a,
@@ -1750,17 +1810,30 @@ export default function MyComponent(props) {
 
 exports[`transpiles Emotion with classic runtime given {"emotion":true,"react":{"runtime":"classic"}}: output (production) 1`] = `
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+
+function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."; }
+
 import * as React from 'react';
 import { css } from '@emotion/react';
 import { jsx as ___EmotionJSX } from "@emotion/react";
-var cssObj = {
+var cssObj = process.env.NODE_ENV === "production" ? {
   name: "hwfcu5",
   styles: "color:red"
+} : {
+  name: "aslxie-cssObj",
+  styles: "color:red;label:cssObj;",
+  toString: _EMOTION_STRINGIFIED_CSS_ERROR__
 };
-var _ref = {
+
+var _ref = process.env.NODE_ENV === "production" ? {
   name: "117wnve",
   styles: "color:blue"
+} : {
+  name: "fveiva-MyComponent",
+  styles: "color:blue;label:MyComponent;",
+  toString: _EMOTION_STRINGIFIED_CSS_ERROR__
 };
+
 export default function MyComponent(props) {
   var a = props.a,
       b = props.b,
