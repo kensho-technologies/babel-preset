@@ -54,7 +54,7 @@ module.exports = (babel, options) => {
     ],
   }
 
-  const reactRuntime = emotion?.runtime ?? react?.runtime ?? 'automatic'
+  const reactRuntime = (emotion && emotion.runtime) || (react && react.runtime) || 'automatic'
   const isEmotionPluginEnabled = emotion && reactRuntime === 'automatic'
   const isEmotionPresetEnabled = emotion && reactRuntime !== 'automatic'
 
