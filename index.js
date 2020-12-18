@@ -71,7 +71,7 @@ module.exports = (babel, options) => {
         require('@babel/preset-react').default,
         {
           development: env === 'development',
-          importSource: emotion ? '@emotion/react' : undefined,
+          importSource: emotion && reactRuntime === 'automatic' ? '@emotion/react' : undefined,
           useSpread: true,
           ...react,
           runtime: reactRuntime,
