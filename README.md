@@ -1,6 +1,6 @@
 # babel-preset
 
-[![Build Status](https://img.shields.io/github/workflow/status/kensho-technologies/babel-preset/test/main)](https://github.com/kensho-technologies/babel-preset/actions)
+[![Build Status](https://img.shields.io/github/workflow/status/kensho-technologies/babel-preset/CI/main)](https://github.com/kensho-technologies/babel-preset/actions)
 [![npm](https://img.shields.io/npm/v/@kensho-technologies/babel-preset.svg)](https://npm.im/@kensho-technologies/babel-preset)
 
 This [Babel 7 preset](http://babeljs.io/docs/plugins/#presets) transpiles ES2020, JSX, and selected language proposals. It also includes optimizations for specific contexts.
