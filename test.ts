@@ -3,9 +3,9 @@ import * as fs from 'fs'
 import {test, expect} from '@jest/globals'
 import {PluginItem, transform, TransformOptions} from '@babel/core'
 
-import preset from '.'
+import {ALLOWED_ENVIRONMENTS} from './api-constants'
 
-const ENVS = ['development', 'production', 'esm', 'cjs']
+import preset from '.'
 
 expect.addSnapshotSerializer({
   test: (val: unknown) => typeof val === 'string',
@@ -18,7 +18,7 @@ function macro(title: string, fixture: string, presetOptions = {}): void {
     const input = fs.readFileSync(file, 'utf8')
     expect(input).toMatchSnapshot('input')
 
-    ENVS.forEach((envName) => {
+    ALLOWED_ENVIRONMENTS.forEach((envName) => {
       const presets: PluginItem[] = [[preset, presetOptions]]
       const options: TransformOptions = {envName, presets, filename: `/${fixture}`, babelrc: false}
       const result = transform(input, options)
