@@ -43,7 +43,7 @@ module.exports = (babel, options) => {
     plugins: [
       runtime && [
         require('@babel/plugin-transform-runtime').default,
-        {useESModules: !modules, version: require('@babel/runtime/package.json').version},
+        {version: require('@babel/runtime/package.json').version},
       ],
     ].filter(Boolean),
     presets: [
