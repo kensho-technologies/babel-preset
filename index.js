@@ -12,17 +12,24 @@ const APP_PLUGIN_INCLUDE_LIST = [
 const PRECOMPILED_PACKAGES = ['core-js', 'lodash', 'react', 'react-dom', 'whatwg-fetch']
 const PRECOMPILED_PACKAGES_REGEX = new RegExp(`node_modules/(${PRECOMPILED_PACKAGES.join('|')})/`)
 
+const ALLOWED_ENVIRONMENTS = [
+  'development',
+  'production',
+  'esm',
+  'cjs',
+  'test',
+  'development-modern',
+  'production-modern',
+]
+
 function getDefaultTargets(env) {
   if (env === 'test') return {node: true, browsers: []}
   if (env === 'esm' || env === 'cjs') return {node: '14.14', browsers: []}
-  return undefined // targets cannot be specified when using browserslistEnv integration
+  return undefined // targets will be overridden using the browserslistEnv preset-env config
 }
 
 module.exports = (babel, options) => {
-  console.log(new Error())
-  console.log(JSON.stringify({options}))
   const env = babel.env()
-  const {ALLOWED_ENVIRONMENTS} = require('./api-constants')
   if (!ALLOWED_ENVIRONMENTS.includes(env)) {
     throw new Error(
       `Unsupported babel environment type '${env}'. Environment should be one of: ${ALLOWED_ENVIRONMENTS.join(
@@ -69,7 +76,7 @@ module.exports = (babel, options) => {
           bugfixes: true,
           corejs: 3,
           useBuiltIns: 'entry',
-          browserslistEnv: env.includes('modern') ? 'production-modern' : 'production-compat',
+          browserslistEnv: env.includes('modern') ? 'production-modern' : undefined,
         },
       ],
     ],

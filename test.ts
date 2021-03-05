@@ -3,9 +3,17 @@ import * as fs from 'fs'
 import {test, expect} from '@jest/globals'
 import {PluginItem, transform, TransformOptions} from '@babel/core'
 
-import {ALLOWED_ENVIRONMENTS} from './api-constants'
-
 import preset from '.'
+
+const ALLOWED_ENVIRONMENTS = [
+  'development',
+  'production',
+  'esm',
+  'cjs',
+  // 'test',
+  // 'development-modern',
+  // 'production-modern',
+]
 
 expect.addSnapshotSerializer({
   test: (val: unknown) => typeof val === 'string',

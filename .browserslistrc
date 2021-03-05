@@ -1,0 +1,8 @@
+[production]
+last 2 Chrome versions
+IE 11
+Firefox ESR
+
+[production-modern]
+last 2 Chrome versions
+last 2 Firefox versions
