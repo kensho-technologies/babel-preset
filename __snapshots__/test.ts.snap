@@ -1391,11 +1391,11 @@ exports[`transpiles Emotion given {"emotion":true}: output (cjs) 1`] = `
 exports.__esModule = true;
 exports.default = MyComponent;
 
-var _jsxRuntime = require("@emotion/react/jsx-runtime");
-
 var _react = require("react");
 
 var _react2 = require("@emotion/react");
+
+var _jsxRuntime = require("@emotion/react/jsx-runtime");
 
 function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."; }
 
@@ -1441,8 +1441,6 @@ function MyComponent(props) {
 `;
 
 exports[`transpiles Emotion given {"emotion":true}: output (development) 1`] = `
-import { Fragment as _Fragment } from "@emotion/react/jsx-dev-runtime";
-import { jsxDEV as _jsxDEV } from "@emotion/react/jsx-dev-runtime";
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
 
 var _jsxFileName = "/emotion.js",
@@ -1452,6 +1450,8 @@ function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringif
 
 import { useState } from 'react';
 import { css } from '@emotion/react';
+import { jsxDEV as _jsxDEV } from "@emotion/react/jsx-dev-runtime";
+import { Fragment as _Fragment } from "@emotion/react/jsx-dev-runtime";
 var cssObj = process.env.NODE_ENV === "production" ? {
   name: "hwfcu5",
   styles: "color:red"
@@ -1518,14 +1518,13 @@ $RefreshReg$(_c, "MyComponent");
 `;
 
 exports[`transpiles Emotion given {"emotion":true}: output (esm) 1`] = `
-import { jsxs as _jsxs } from "@emotion/react/jsx-runtime";
-import { Fragment as _Fragment } from "@emotion/react/jsx-runtime";
-import { jsx as _jsx } from "@emotion/react/jsx-runtime";
-
 function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."; }
 
 import { useState } from 'react';
 import { css } from '@emotion/react';
+import { jsx as _jsx } from "@emotion/react/jsx-runtime";
+import { Fragment as _Fragment } from "@emotion/react/jsx-runtime";
+import { jsxs as _jsxs } from "@emotion/react/jsx-runtime";
 const cssObj = process.env.NODE_ENV === "production" ? {
   name: "hwfcu5",
   styles: "color:red"
@@ -1568,15 +1567,15 @@ export default function MyComponent(props) {
 `;
 
 exports[`transpiles Emotion given {"emotion":true}: output (production) 1`] = `
-import { jsxs as _jsxs } from "@emotion/react/jsx-runtime";
-import { Fragment as _Fragment } from "@emotion/react/jsx-runtime";
-import { jsx as _jsx } from "@emotion/react/jsx-runtime";
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
 
 function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."; }
 
 import { useState } from 'react';
 import { css } from '@emotion/react';
+import { jsx as _jsx } from "@emotion/react/jsx-runtime";
+import { Fragment as _Fragment } from "@emotion/react/jsx-runtime";
+import { jsxs as _jsxs } from "@emotion/react/jsx-runtime";
 var cssObj = process.env.NODE_ENV === "production" ? {
   name: "hwfcu5",
   styles: "color:red"
@@ -1891,9 +1890,9 @@ exports[`transpiles React given {}: output (cjs) 1`] = `
 exports.__esModule = true;
 exports.default = MyComponent;
 
-var _jsxRuntime = require("react/jsx-runtime");
-
 var _react = require("react");
+
+var _jsxRuntime = require("react/jsx-runtime");
 
 function MyComponent(props) {
   const {
@@ -1910,13 +1909,13 @@ function MyComponent(props) {
 `;
 
 exports[`transpiles React given {}: output (development) 1`] = `
-import { jsxDEV as _jsxDEV } from "react/jsx-dev-runtime";
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
 
 var _jsxFileName = "/react.js",
     _s = $RefreshSig$();
 
 import { useState } from 'react';
+import { jsxDEV as _jsxDEV } from "react/jsx-dev-runtime";
 export default function MyComponent(props) {
   _s();
 
@@ -1950,8 +1949,8 @@ $RefreshReg$(_c, "MyComponent");
 `;
 
 exports[`transpiles React given {}: output (esm) 1`] = `
-import { jsxs as _jsxs } from "react/jsx-runtime";
 import { useState } from 'react';
+import { jsxs as _jsxs } from "react/jsx-runtime";
 export default function MyComponent(props) {
   const {
     label,
@@ -1967,9 +1966,9 @@ export default function MyComponent(props) {
 `;
 
 exports[`transpiles React given {}: output (production) 1`] = `
-import { jsxs as _jsxs } from "react/jsx-runtime";
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
 import { useState } from 'react';
+import { jsxs as _jsxs } from "react/jsx-runtime";
 export default function MyComponent(props) {
   var label = props.label,
       rest = _objectWithoutPropertiesLoose(props, ["label"]);
