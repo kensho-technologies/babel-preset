@@ -457,11 +457,11 @@ module.exports = function forEach(array, sideEffect) {
 
 exports[`transpiles CJS in node_modules given {}: output (cjs) 1`] = `module.exports=function forEach(array,sideEffect){for(const value of array)sideEffect(value);};`;
 
-exports[`transpiles CJS in node_modules given {}: output (development) 1`] = `var _createForOfIteratorHelperLoose=require("@babel/runtime/helpers/createForOfIteratorHelperLoose");module.exports=function forEach(array,sideEffect){for(var _iterator=_createForOfIteratorHelperLoose(array),_step;!(_step=_iterator()).done;){var value=_step.value;sideEffect(value);}};`;
+exports[`transpiles CJS in node_modules given {}: output (development) 1`] = `var _createForOfIteratorHelperLoose=require("@babel/runtime/helpers/createForOfIteratorHelperLoose")["default"];module.exports=function forEach(array,sideEffect){for(var _iterator=_createForOfIteratorHelperLoose(array),_step;!(_step=_iterator()).done;){var value=_step.value;sideEffect(value);}};`;
 
 exports[`transpiles CJS in node_modules given {}: output (esm) 1`] = `module.exports=function forEach(array,sideEffect){for(const value of array)sideEffect(value);};`;
 
-exports[`transpiles CJS in node_modules given {}: output (production) 1`] = `var _createForOfIteratorHelperLoose=require("@babel/runtime/helpers/createForOfIteratorHelperLoose");module.exports=function forEach(array,sideEffect){for(var _iterator=_createForOfIteratorHelperLoose(array),_step;!(_step=_iterator()).done;){var value=_step.value;sideEffect(value);}};`;
+exports[`transpiles CJS in node_modules given {}: output (production) 1`] = `var _createForOfIteratorHelperLoose=require("@babel/runtime/helpers/createForOfIteratorHelperLoose")["default"];module.exports=function forEach(array,sideEffect){for(var _iterator=_createForOfIteratorHelperLoose(array),_step;!(_step=_iterator()).done;){var value=_step.value;sideEffect(value);}};`;
 
 exports[`transpiles ES2020+ syntax given {"loose":false}: input 1`] = `
 import defaultImport, {namedImport} from 'foo'
@@ -490,9 +490,9 @@ export {obj}
 exports[`transpiles ES2020+ syntax given {"loose":false}: output (cjs) 1`] = `
 "use strict";
 
-var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard");
+var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard").default;
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -538,10 +538,10 @@ exports.default = _default;
 `;
 
 exports[`transpiles ES2020+ syntax given {"loose":false}: output (development) 1`] = `
-import _objectWithoutProperties from "@babel/runtime/helpers/esm/objectWithoutProperties";
-import _objectSpread from "@babel/runtime/helpers/esm/objectSpread2";
-import _classCallCheck from "@babel/runtime/helpers/esm/classCallCheck";
-import _defineProperty from "@babel/runtime/helpers/esm/defineProperty";
+import _objectWithoutProperties from "@babel/runtime/helpers/objectWithoutProperties";
+import _objectSpread from "@babel/runtime/helpers/objectSpread2";
+import _classCallCheck from "@babel/runtime/helpers/classCallCheck";
+import _defineProperty from "@babel/runtime/helpers/defineProperty";
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 var dynamicImport = import('baz');
@@ -576,7 +576,7 @@ export { obj };
 `;
 
 exports[`transpiles ES2020+ syntax given {"loose":false}: output (esm) 1`] = `
-import _defineProperty from "@babel/runtime/helpers/esm/defineProperty";
+import _defineProperty from "@babel/runtime/helpers/defineProperty";
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
@@ -610,10 +610,10 @@ export { obj };
 `;
 
 exports[`transpiles ES2020+ syntax given {"loose":false}: output (production) 1`] = `
-import _objectWithoutProperties from "@babel/runtime/helpers/esm/objectWithoutProperties";
-import _objectSpread from "@babel/runtime/helpers/esm/objectSpread2";
-import _classCallCheck from "@babel/runtime/helpers/esm/classCallCheck";
-import _defineProperty from "@babel/runtime/helpers/esm/defineProperty";
+import _objectWithoutProperties from "@babel/runtime/helpers/objectWithoutProperties";
+import _objectSpread from "@babel/runtime/helpers/objectSpread2";
+import _classCallCheck from "@babel/runtime/helpers/classCallCheck";
+import _defineProperty from "@babel/runtime/helpers/defineProperty";
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 var dynamicImport = import('baz');
@@ -674,9 +674,9 @@ export {obj}
 exports[`transpiles ES2020+ syntax given {"modules":"commonjs"}: output (cjs) 1`] = `
 "use strict";
 
-var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard");
+var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard").default;
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
 
 exports.__esModule = true;
 exports.obj = exports.default = void 0;
@@ -720,9 +720,9 @@ exports.default = _default;
 exports[`transpiles ES2020+ syntax given {"modules":"commonjs"}: output (development) 1`] = `
 "use strict";
 
-var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard");
+var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard")["default"];
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault")["default"];
 
 exports.__esModule = true;
 exports.obj = exports["default"] = void 0;
@@ -766,9 +766,9 @@ exports["default"] = _default;
 exports[`transpiles ES2020+ syntax given {"modules":"commonjs"}: output (esm) 1`] = `
 "use strict";
 
-var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard");
+var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard").default;
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
 
 exports.__esModule = true;
 exports.obj = exports.default = void 0;
@@ -812,9 +812,9 @@ exports.default = _default;
 exports[`transpiles ES2020+ syntax given {"modules":"commonjs"}: output (production) 1`] = `
 "use strict";
 
-var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard");
+var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard")["default"];
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault")["default"];
 
 exports.__esModule = true;
 exports.obj = exports["default"] = void 0;
@@ -1046,9 +1046,9 @@ export {obj}
 exports[`transpiles ES2020+ syntax given {"targets":"last 2 Chrome versions"}: output (cjs) 1`] = `
 "use strict";
 
-var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard");
+var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard").default;
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
 
 exports.__esModule = true;
 exports.obj = exports.default = void 0;
@@ -1212,9 +1212,9 @@ export {obj}
 exports[`transpiles ES2020+ syntax given {}: output (cjs) 1`] = `
 "use strict";
 
-var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard");
+var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard").default;
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
 
 exports.__esModule = true;
 exports.obj = exports.default = void 0;
@@ -1256,7 +1256,7 @@ exports.default = _default;
 `;
 
 exports[`transpiles ES2020+ syntax given {}: output (development) 1`] = `
-import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 var dynamicImport = import('baz');
@@ -1319,7 +1319,7 @@ export { obj };
 `;
 
 exports[`transpiles ES2020+ syntax given {}: output (production) 1`] = `
-import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 var dynamicImport = import('baz');
@@ -1441,7 +1441,7 @@ function MyComponent(props) {
 `;
 
 exports[`transpiles Emotion given {"emotion":true}: output (development) 1`] = `
-import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
 
 var _jsxFileName = "/emotion.js",
     _s = $RefreshSig$();
@@ -1567,7 +1567,7 @@ export default function MyComponent(props) {
 `;
 
 exports[`transpiles Emotion given {"emotion":true}: output (production) 1`] = `
-import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
 
 function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."; }
 
@@ -1647,7 +1647,7 @@ export default function MyComponent(props) {
 exports[`transpiles Emotion with classic runtime given {"emotion":true,"react":{"runtime":"classic"}}: output (cjs) 1`] = `
 "use strict";
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard").default;
 
 exports.__esModule = true;
 exports.default = MyComponent;
@@ -1697,7 +1697,7 @@ function MyComponent(props) {
 `;
 
 exports[`transpiles Emotion with classic runtime given {"emotion":true,"react":{"runtime":"classic"}}: output (development) 1`] = `
-import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
 
 var _jsxFileName = "/emotion-classic.js",
     _s = $RefreshSig$();
@@ -1818,7 +1818,7 @@ export default function MyComponent(props) {
 `;
 
 exports[`transpiles Emotion with classic runtime given {"emotion":true,"react":{"runtime":"classic"}}: output (production) 1`] = `
-import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
 
 function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."; }
 
@@ -1909,7 +1909,7 @@ function MyComponent(props) {
 `;
 
 exports[`transpiles React given {}: output (development) 1`] = `
-import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
 
 var _jsxFileName = "/react.js",
     _s = $RefreshSig$();
@@ -1966,7 +1966,7 @@ export default function MyComponent(props) {
 `;
 
 exports[`transpiles React given {}: output (production) 1`] = `
-import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
 import { useState } from 'react';
 import { jsxs as _jsxs } from "react/jsx-runtime";
 export default function MyComponent(props) {
@@ -2005,7 +2005,7 @@ export default function MyComponent(props) {
 exports[`transpiles React with classic runtime given {"react":{"runtime":"classic"}}: output (cjs) 1`] = `
 "use strict";
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard").default;
 
 exports.__esModule = true;
 exports.default = MyComponent;
@@ -2026,7 +2026,7 @@ function MyComponent(props) {
 `;
 
 exports[`transpiles React with classic runtime given {"react":{"runtime":"classic"}}: output (development) 1`] = `
-import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
 
 var _jsxFileName = "/react-classic.js",
     _s = $RefreshSig$();
@@ -2081,7 +2081,7 @@ export default function MyComponent(props) {
 `;
 
 exports[`transpiles React with classic runtime given {"react":{"runtime":"classic"}}: output (production) 1`] = `
-import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
 import * as React from 'react';
 export default function MyComponent(props) {
   var label = props.label,
