@@ -76,7 +76,7 @@ module.exports = (babel, options) => {
           bugfixes: true,
           corejs: 3,
           useBuiltIns: 'entry',
-          browserslistEnv: env.includes('modern') ? 'production-modern' : undefined,
+          browserslistEnv: env.includes('modern') ? 'production-modern' : undefined, // defaults to [production]
         },
       ],
     ],
