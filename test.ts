@@ -10,9 +10,9 @@ const TESTED_ENVIRONMENTS = [
   'production',
   'esm',
   'cjs',
-  // 'test',
-  // 'development-modern',
-  // 'production-modern',
+  'test',
+  'development-modern',
+  'production-modern',
 ]
 
 expect.addSnapshotSerializer({
