@@ -2,11 +2,12 @@
 
 const NODE_MODULES_REGEX = /node_modules/
 
-// webpack@4 depends on a version of acorn that lacks support for optional chaining and nullish
+// webpack@4 depends on a version of acorn and terser that lack support for optional chaining and nullish
 // coalescing syntax, so, when transpiling an app, these plugins must be included
 const APP_PLUGIN_INCLUDE_LIST = [
-  '@babel/plugin-proposal-optional-chaining',
+  '@babel/plugin-proposal-logical-assignment-operators',
   '@babel/plugin-proposal-nullish-coalescing-operator',
+  '@babel/plugin-proposal-optional-chaining',
 ]
 
 const PRECOMPILED_PACKAGES = ['core-js', 'lodash', 'react', 'react-dom', 'whatwg-fetch']
