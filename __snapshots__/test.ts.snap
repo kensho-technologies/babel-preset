@@ -2845,3 +2845,73 @@ export default function add(a, b) {
   return a + b;
 }
 `;
+
+exports[`transpiles test env given {"targets":{"node":"14.14","browsers":[]}}: input 1`] = `
+import defaultImport, {namedImport} from 'foo'
+import * as namespaceImport from 'bar'
+
+const dynamicImport = import('baz')
+
+class Foo {
+  static bar = 'abc'
+  baz = (x, y) => x({...y})
+}
+
+const obj = {a: 1, b: 2}
+
+const spread = {...obj, b: 2, c: 3}
+const {a, ...rest} = spread
+
+const nullishCoalescing = obj ?? 1
+const optionalChaining = obj?.b
+
+export default obj
+export {obj}
+
+`;
+
+exports[`transpiles test env given {"targets":{"node":"14.14","browsers":[]}}: output (test) 1`] = `
+"use strict";
+
+var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard").default;
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
+
+exports.__esModule = true;
+exports.obj = exports.default = void 0;
+
+var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
+
+var _foo = _interopRequireWildcard3(require("foo"));
+
+var namespaceImport = _interopRequireWildcard3(require("bar"));
+
+const dynamicImport = Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require('baz')));
+
+class Foo {
+  constructor() {
+    this.baz = (x, y) => x({ ...y
+    });
+  }
+
+}
+
+Foo.bar = 'abc';
+const obj = {
+  a: 1,
+  b: 2
+};
+exports.obj = obj;
+const spread = { ...obj,
+  b: 2,
+  c: 3
+};
+const {
+  a,
+  ...rest
+} = spread;
+const nullishCoalescing = obj ?? 1;
+const optionalChaining = obj?.b;
+var _default = obj;
+exports.default = _default;
+`;

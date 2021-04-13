@@ -25,7 +25,6 @@ function macro(
   presetOptions = {},
   macroOptions = {
     environments: NON_TEST_ENVIRONMENTS,
-    expectMismatch: false,
   }
 ): void {
   test(`${title} given ${JSON.stringify(presetOptions)}`, () => {
@@ -33,7 +32,7 @@ function macro(
     const input = fs.readFileSync(file, 'utf8')
     expect(input).toMatchSnapshot('input')
 
-    const {environments, expectMismatch} = macroOptions
+    const {environments} = macroOptions
     environments.forEach((envName) => {
       const presets: PluginItem[] = [[preset, presetOptions]]
       const options: TransformOptions = {
@@ -48,11 +47,7 @@ function macro(
         browserslistConfigFile: `${__dirname}/.browserslistrc`,
       }
       const result = transform(input, options)
-      if (expectMismatch) {
-        expect(result?.code).not.toMatchSnapshot(`output (${envName})`)
-      } else {
-        expect(result?.code).toMatchSnapshot(`output (${envName})`)
-      }
+      expect(result?.code).toMatchSnapshot(`output (${envName})`)
     })
   })
 }
@@ -77,3 +72,10 @@ macro('replaces generic polyfill with env-targeted polyfills', 'polyfills.js')
 macro('transpiles ESM in node_modules', 'vendor/node_modules/my-pkg/index.js')
 macro('transpiles CJS in node_modules', 'vendor/node_modules/my-pkg/cjs.js')
 macro('avoids transpiling known precompiled packages', 'vendor/node_modules/react/index.js')
+
+macro(
+  'transpiles test env',
+  'syntax.js',
+  {targets: {node: '14.14', browsers: []}},
+  {environments: ['test']}
+)
