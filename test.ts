@@ -5,12 +5,11 @@ import {PluginItem, transform, TransformOptions} from '@babel/core'
 
 import preset from '.'
 
-const TESTED_ENVIRONMENTS = [
+const NON_TEST_ENVIRONMENTS = [
   'development',
   'production',
   'esm',
   'cjs',
-  'test',
   'development-modern',
   'production-modern',
 ]
@@ -20,13 +19,22 @@ expect.addSnapshotSerializer({
   print: (val: string) => val,
 })
 
-function macro(title: string, fixture: string, presetOptions = {}): void {
+function macro(
+  title: string,
+  fixture: string,
+  presetOptions = {},
+  macroOptions = {
+    environments: NON_TEST_ENVIRONMENTS,
+    expectMismatch: false,
+  }
+): void {
   test(`${title} given ${JSON.stringify(presetOptions)}`, () => {
     const file = `${__dirname}/fixtures/${fixture}`
     const input = fs.readFileSync(file, 'utf8')
     expect(input).toMatchSnapshot('input')
 
-    TESTED_ENVIRONMENTS.forEach((envName) => {
+    const {environments, expectMismatch} = macroOptions
+    environments.forEach((envName) => {
       const presets: PluginItem[] = [[preset, presetOptions]]
       const options: TransformOptions = {
         envName,
@@ -40,7 +48,11 @@ function macro(title: string, fixture: string, presetOptions = {}): void {
         browserslistConfigFile: `${__dirname}/.browserslistrc`,
       }
       const result = transform(input, options)
-      expect(result?.code).toMatchSnapshot(`output (${envName})`)
+      if (expectMismatch) {
+        expect(result?.code).not.toMatchSnapshot(`output (${envName})`)
+      } else {
+        expect(result?.code).toMatchSnapshot(`output (${envName})`)
+      }
     })
   })
 }

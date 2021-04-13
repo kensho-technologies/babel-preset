@@ -21,8 +21,6 @@ exports[`avoids transpiling known precompiled packages given {}: output (product
 
 exports[`avoids transpiling known precompiled packages given {}: output (production-modern) 1`] = `export default class React{method(value){return value??2;}}`;
 
-exports[`avoids transpiling known precompiled packages given {}: output (test) 1`] = `export default class React{method(value){return value??2;}}`;
-
 exports[`replaces generic polyfill with env-targeted polyfills given {}: input 1`] = `
 import 'core-js/stable'
 
@@ -458,8 +456,6 @@ import "core-js/modules/web.url-search-params.js";
 
 exports[`replaces generic polyfill with env-targeted polyfills given {}: output (production-modern) 1`] = `import "core-js/modules/web.immediate.js";`;
 
-exports[`replaces generic polyfill with env-targeted polyfills given {}: output (test) 1`] = `"use strict";`;
-
 exports[`transpiles CJS in node_modules given {}: input 1`] = `
 module.exports = function forEach(array, sideEffect) {
   for (const value of array) sideEffect(value)
@@ -478,8 +474,6 @@ exports[`transpiles CJS in node_modules given {}: output (esm) 1`] = `module.exp
 exports[`transpiles CJS in node_modules given {}: output (production) 1`] = `var _createForOfIteratorHelperLoose=require("@babel/runtime/helpers/createForOfIteratorHelperLoose")["default"];module.exports=function forEach(array,sideEffect){for(var _iterator=_createForOfIteratorHelperLoose(array),_step;!(_step=_iterator()).done;){var value=_step.value;sideEffect(value);}};`;
 
 exports[`transpiles CJS in node_modules given {}: output (production-modern) 1`] = `module.exports=function forEach(array,sideEffect){for(const value of array)sideEffect(value);};`;
-
-exports[`transpiles CJS in node_modules given {}: output (test) 1`] = `module.exports=function forEach(array,sideEffect){for(const value of array)sideEffect(value);};`;
 
 exports[`transpiles ES2020+ syntax given {"loose":false}: input 1`] = `
 import defaultImport, {namedImport} from 'foo'
@@ -731,56 +725,6 @@ const nullishCoalescing = obj !== null && obj !== void 0 ? obj : 1;
 const optionalChaining = obj === null || obj === void 0 ? void 0 : obj.b;
 export default obj;
 export { obj };
-`;
-
-exports[`transpiles ES2020+ syntax given {"loose":false}: output (test) 1`] = `
-"use strict";
-
-var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard").default;
-
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.obj = exports.default = void 0;
-
-var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
-
-var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
-
-var _foo = _interopRequireWildcard3(require("foo"));
-
-var namespaceImport = _interopRequireWildcard3(require("bar"));
-
-const dynamicImport = Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require('baz')));
-
-class Foo {
-  constructor() {
-    (0, _defineProperty2.default)(this, "baz", (x, y) => x({ ...y
-    }));
-  }
-
-}
-
-(0, _defineProperty2.default)(Foo, "bar", 'abc');
-const obj = {
-  a: 1,
-  b: 2
-};
-exports.obj = obj;
-const spread = { ...obj,
-  b: 2,
-  c: 3
-};
-const {
-  a,
-  ...rest
-} = spread;
-const nullishCoalescing = obj ?? 1;
-const optionalChaining = obj?.b;
-var _default = obj;
-exports.default = _default;
 `;
 
 exports[`transpiles ES2020+ syntax given {"modules":"commonjs"}: input 1`] = `
@@ -1083,52 +1027,6 @@ var _default = obj;
 exports.default = _default;
 `;
 
-exports[`transpiles ES2020+ syntax given {"modules":"commonjs"}: output (test) 1`] = `
-"use strict";
-
-var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard").default;
-
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
-
-exports.__esModule = true;
-exports.obj = exports.default = void 0;
-
-var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
-
-var _foo = _interopRequireWildcard3(require("foo"));
-
-var namespaceImport = _interopRequireWildcard3(require("bar"));
-
-const dynamicImport = Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require('baz')));
-
-class Foo {
-  constructor() {
-    this.baz = (x, y) => x({ ...y
-    });
-  }
-
-}
-
-Foo.bar = 'abc';
-const obj = {
-  a: 1,
-  b: 2
-};
-exports.obj = obj;
-const spread = { ...obj,
-  b: 2,
-  c: 3
-};
-const {
-  a,
-  ...rest
-} = spread;
-const nullishCoalescing = obj ?? 1;
-const optionalChaining = obj?.b;
-var _default = obj;
-exports.default = _default;
-`;
-
 exports[`transpiles ES2020+ syntax given {"runtime":false}: input 1`] = `
 import defaultImport, {namedImport} from 'foo'
 import * as namespaceImport from 'bar'
@@ -1355,50 +1253,6 @@ const nullishCoalescing = obj != null ? obj : 1;
 const optionalChaining = obj == null ? void 0 : obj.b;
 export default obj;
 export { obj };
-`;
-
-exports[`transpiles ES2020+ syntax given {"runtime":false}: output (test) 1`] = `
-"use strict";
-
-exports.__esModule = true;
-exports.obj = exports.default = void 0;
-
-var _foo = _interopRequireWildcard(require("foo"));
-
-var namespaceImport = _interopRequireWildcard(require("bar"));
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-const dynamicImport = Promise.resolve().then(() => _interopRequireWildcard(require('baz')));
-
-class Foo {
-  constructor() {
-    this.baz = (x, y) => x({ ...y
-    });
-  }
-
-}
-
-Foo.bar = 'abc';
-const obj = {
-  a: 1,
-  b: 2
-};
-exports.obj = obj;
-const spread = { ...obj,
-  b: 2,
-  c: 3
-};
-const {
-  a,
-  ...rest
-} = spread;
-const nullishCoalescing = obj ?? 1;
-const optionalChaining = obj?.b;
-var _default = obj;
-exports.default = _default;
 `;
 
 exports[`transpiles ES2020+ syntax given {"targets":"last 2 Chrome versions"}: input 1`] = `
@@ -1631,52 +1485,6 @@ export default obj;
 export { obj };
 `;
 
-exports[`transpiles ES2020+ syntax given {"targets":"last 2 Chrome versions"}: output (test) 1`] = `
-"use strict";
-
-var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard").default;
-
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
-
-exports.__esModule = true;
-exports.obj = exports.default = void 0;
-
-var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
-
-var _foo = _interopRequireWildcard3(require("foo"));
-
-var namespaceImport = _interopRequireWildcard3(require("bar"));
-
-const dynamicImport = Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require('baz')));
-
-class Foo {
-  constructor() {
-    this.baz = (x, y) => x({ ...y
-    });
-  }
-
-}
-
-Foo.bar = 'abc';
-const obj = {
-  a: 1,
-  b: 2
-};
-exports.obj = obj;
-const spread = { ...obj,
-  b: 2,
-  c: 3
-};
-const {
-  a,
-  ...rest
-} = spread;
-const nullishCoalescing = obj ?? 1;
-const optionalChaining = obj?.b;
-var _default = obj;
-exports.default = _default;
-`;
-
 exports[`transpiles ES2020+ syntax given {}: input 1`] = `
 import defaultImport, {namedImport} from 'foo'
 import * as namespaceImport from 'bar'
@@ -1905,52 +1713,6 @@ export default obj;
 export { obj };
 `;
 
-exports[`transpiles ES2020+ syntax given {}: output (test) 1`] = `
-"use strict";
-
-var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard").default;
-
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
-
-exports.__esModule = true;
-exports.obj = exports.default = void 0;
-
-var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
-
-var _foo = _interopRequireWildcard3(require("foo"));
-
-var namespaceImport = _interopRequireWildcard3(require("bar"));
-
-const dynamicImport = Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require('baz')));
-
-class Foo {
-  constructor() {
-    this.baz = (x, y) => x({ ...y
-    });
-  }
-
-}
-
-Foo.bar = 'abc';
-const obj = {
-  a: 1,
-  b: 2
-};
-exports.obj = obj;
-const spread = { ...obj,
-  b: 2,
-  c: 3
-};
-const {
-  a,
-  ...rest
-} = spread;
-const nullishCoalescing = obj ?? 1;
-const optionalChaining = obj?.b;
-var _default = obj;
-exports.default = _default;
-`;
-
 exports[`transpiles ESM in node_modules given {}: input 1`] = `
 export function map(value) {
   return value ?? 2
@@ -1969,8 +1731,6 @@ exports[`transpiles ESM in node_modules given {}: output (esm) 1`] = `export fun
 exports[`transpiles ESM in node_modules given {}: output (production) 1`] = `export function map(value){return value!=null?value:2;}`;
 
 exports[`transpiles ESM in node_modules given {}: output (production-modern) 1`] = `export function map(value){return value!=null?value:2;}`;
-
-exports[`transpiles ESM in node_modules given {}: output (test) 1`] = `"use strict";exports.__esModule=true;exports.map=map;function map(value){return value??2;}`;
 
 exports[`transpiles Emotion given {"emotion":true}: input 1`] = `
 import {useState} from 'react'
@@ -2349,61 +2109,6 @@ export default function MyComponent(props) {
 }
 `;
 
-exports[`transpiles Emotion given {"emotion":true}: output (test) 1`] = `
-"use strict";
-
-exports.__esModule = true;
-exports.default = MyComponent;
-
-var _react = require("react");
-
-var _react2 = require("@emotion/react");
-
-var _jsxRuntime = require("@emotion/react/jsx-runtime");
-
-function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."; }
-
-const cssObj = process.env.NODE_ENV === "production" ? {
-  name: "hwfcu5",
-  styles: "color:red"
-} : {
-  name: "aslxie-cssObj",
-  styles: "color:red;label:cssObj;",
-  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVtb3Rpb24uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBR2UiLCJmaWxlIjoiZW1vdGlvbi5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7dXNlU3RhdGV9IGZyb20gJ3JlYWN0J1xuaW1wb3J0IHtjc3N9IGZyb20gJ0BlbW90aW9uL3JlYWN0J1xuXG5jb25zdCBjc3NPYmogPSBjc3Moe2NvbG9yOiAncmVkJ30pXG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIE15Q29tcG9uZW50KHByb3BzKSB7XG4gIGNvbnN0IHthLCBiLCAuLi5yZXN0fSA9IHByb3BzXG4gIGNvbnN0IFtjb3VudCwgc2V0Q291bnRdID0gdXNlU3RhdGUoMClcbiAgcmV0dXJuIChcbiAgICA8PlxuICAgICAgPGJ1dHRvbiBjc3M9e3tjb2xvcjogJ2JsdWUnfX0gb25DbGljaz17KCkgPT4gc2V0Q291bnQoKHByZXZTaXplKSA9PiBwcmV2U2l6ZSArIDEpfT5cbiAgICAgICAgSW5jcmVtZW50XG4gICAgICA8L2J1dHRvbj5cbiAgICAgIDxkaXYgaGVpZ2h0PXtjb3VudH0gey4uLnJlc3R9IGNzcz17Y3NzT2JqfSAvPlxuICAgIDwvPlxuICApXG59XG4iXX0= */",
-  toString: _EMOTION_STRINGIFIED_CSS_ERROR__
-};
-
-var _ref = process.env.NODE_ENV === "production" ? {
-  name: "117wnve",
-  styles: "color:blue"
-} : {
-  name: "fveiva-MyComponent",
-  styles: "color:blue;label:MyComponent;",
-  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVtb3Rpb24uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBVWMiLCJmaWxlIjoiZW1vdGlvbi5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7dXNlU3RhdGV9IGZyb20gJ3JlYWN0J1xuaW1wb3J0IHtjc3N9IGZyb20gJ0BlbW90aW9uL3JlYWN0J1xuXG5jb25zdCBjc3NPYmogPSBjc3Moe2NvbG9yOiAncmVkJ30pXG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIE15Q29tcG9uZW50KHByb3BzKSB7XG4gIGNvbnN0IHthLCBiLCAuLi5yZXN0fSA9IHByb3BzXG4gIGNvbnN0IFtjb3VudCwgc2V0Q291bnRdID0gdXNlU3RhdGUoMClcbiAgcmV0dXJuIChcbiAgICA8PlxuICAgICAgPGJ1dHRvbiBjc3M9e3tjb2xvcjogJ2JsdWUnfX0gb25DbGljaz17KCkgPT4gc2V0Q291bnQoKHByZXZTaXplKSA9PiBwcmV2U2l6ZSArIDEpfT5cbiAgICAgICAgSW5jcmVtZW50XG4gICAgICA8L2J1dHRvbj5cbiAgICAgIDxkaXYgaGVpZ2h0PXtjb3VudH0gey4uLnJlc3R9IGNzcz17Y3NzT2JqfSAvPlxuICAgIDwvPlxuICApXG59XG4iXX0= */",
-  toString: _EMOTION_STRINGIFIED_CSS_ERROR__
-};
-
-function MyComponent(props) {
-  const {
-    a,
-    b,
-    ...rest
-  } = props;
-  const [count, setCount] = (0, _react.useState)(0);
-  return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
-    children: [(0, _jsxRuntime.jsx)("button", {
-      css: _ref,
-      onClick: () => setCount(prevSize => prevSize + 1),
-      children: "Increment"
-    }), (0, _jsxRuntime.jsx)("div", {
-      height: count,
-      ...rest,
-      css: cssObj
-    })]
-  });
-}
-`;
-
 exports[`transpiles Emotion with classic runtime given {"emotion":true,"react":{"runtime":"classic"}}: input 1`] = `
 import * as React from 'react'
 import {css} from '@emotion/react'
@@ -2763,58 +2468,6 @@ export default function MyComponent(props) {
 }
 `;
 
-exports[`transpiles Emotion with classic runtime given {"emotion":true,"react":{"runtime":"classic"}}: output (test) 1`] = `
-"use strict";
-
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard").default;
-
-exports.__esModule = true;
-exports.default = MyComponent;
-
-var React = _interopRequireWildcard(require("react"));
-
-var _react2 = require("@emotion/react");
-
-function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."; }
-
-const cssObj = process.env.NODE_ENV === "production" ? {
-  name: "hwfcu5",
-  styles: "color:red"
-} : {
-  name: "aslxie-cssObj",
-  styles: "color:red;label:cssObj;",
-  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVtb3Rpb24tY2xhc3NpYy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFHZSIsImZpbGUiOiJlbW90aW9uLWNsYXNzaWMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgKiBhcyBSZWFjdCBmcm9tICdyZWFjdCdcbmltcG9ydCB7Y3NzfSBmcm9tICdAZW1vdGlvbi9yZWFjdCdcblxuY29uc3QgY3NzT2JqID0gY3NzKHtjb2xvcjogJ3JlZCd9KVxuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBNeUNvbXBvbmVudChwcm9wcykge1xuICBjb25zdCB7YSwgYiwgLi4ucmVzdH0gPSBwcm9wc1xuICBjb25zdCBbY291bnQsIHNldENvdW50XSA9IFJlYWN0LnVzZVN0YXRlKDApXG4gIHJldHVybiAoXG4gICAgPD5cbiAgICAgIDxidXR0b24gY3NzPXt7Y29sb3I6ICdibHVlJ319IG9uQ2xpY2s9eygpID0+IHNldENvdW50KChwcmV2U2l6ZSkgPT4gcHJldlNpemUgKyAxKX0+XG4gICAgICAgIEluY3JlbWVudFxuICAgICAgPC9idXR0b24+XG4gICAgICA8ZGl2IGhlaWdodD17Y291bnR9IHsuLi5yZXN0fSBjc3M9e2Nzc09ian0gLz5cbiAgICA8Lz5cbiAgKVxufVxuIl19 */",
-  toString: _EMOTION_STRINGIFIED_CSS_ERROR__
-};
-
-var _ref = process.env.NODE_ENV === "production" ? {
-  name: "117wnve",
-  styles: "color:blue"
-} : {
-  name: "fveiva-MyComponent",
-  styles: "color:blue;label:MyComponent;",
-  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVtb3Rpb24tY2xhc3NpYy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFVYyIsImZpbGUiOiJlbW90aW9uLWNsYXNzaWMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgKiBhcyBSZWFjdCBmcm9tICdyZWFjdCdcbmltcG9ydCB7Y3NzfSBmcm9tICdAZW1vdGlvbi9yZWFjdCdcblxuY29uc3QgY3NzT2JqID0gY3NzKHtjb2xvcjogJ3JlZCd9KVxuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBNeUNvbXBvbmVudChwcm9wcykge1xuICBjb25zdCB7YSwgYiwgLi4ucmVzdH0gPSBwcm9wc1xuICBjb25zdCBbY291bnQsIHNldENvdW50XSA9IFJlYWN0LnVzZVN0YXRlKDApXG4gIHJldHVybiAoXG4gICAgPD5cbiAgICAgIDxidXR0b24gY3NzPXt7Y29sb3I6ICdibHVlJ319IG9uQ2xpY2s9eygpID0+IHNldENvdW50KChwcmV2U2l6ZSkgPT4gcHJldlNpemUgKyAxKX0+XG4gICAgICAgIEluY3JlbWVudFxuICAgICAgPC9idXR0b24+XG4gICAgICA8ZGl2IGhlaWdodD17Y291bnR9IHsuLi5yZXN0fSBjc3M9e2Nzc09ian0gLz5cbiAgICA8Lz5cbiAgKVxufVxuIl19 */",
-  toString: _EMOTION_STRINGIFIED_CSS_ERROR__
-};
-
-function MyComponent(props) {
-  const {
-    a,
-    b,
-    ...rest
-  } = props;
-  const [count, setCount] = React.useState(0);
-  return (0, _react2.jsx)(React.Fragment, null, (0, _react2.jsx)("button", {
-    css: _ref,
-    onClick: () => setCount(prevSize => prevSize + 1)
-  }, "Increment"), (0, _react2.jsx)("div", {
-    height: count,
-    ...rest,
-    css: cssObj
-  }));
-}
-`;
-
 exports[`transpiles React given {}: input 1`] = `
 import {useState} from 'react'
 
@@ -2984,30 +2637,6 @@ export default function MyComponent(props) {
 }
 `;
 
-exports[`transpiles React given {}: output (test) 1`] = `
-"use strict";
-
-exports.__esModule = true;
-exports.default = MyComponent;
-
-var _react = require("react");
-
-var _jsxRuntime = require("react/jsx-runtime");
-
-function MyComponent(props) {
-  const {
-    label,
-    ...rest
-  } = props;
-  const [count, setCount] = (0, _react.useState)(0);
-  return /*#__PURE__*/(0, _jsxRuntime.jsxs)("button", {
-    onClick: () => setCount(count + 1),
-    ...rest,
-    children: [label, " ", count]
-  });
-}
-`;
-
 exports[`transpiles React with classic runtime given {"react":{"runtime":"classic"}}: input 1`] = `
 import * as React from 'react'
 
@@ -3169,29 +2798,6 @@ export default function MyComponent(props) {
 }
 `;
 
-exports[`transpiles React with classic runtime given {"react":{"runtime":"classic"}}: output (test) 1`] = `
-"use strict";
-
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard").default;
-
-exports.__esModule = true;
-exports.default = MyComponent;
-
-var React = _interopRequireWildcard(require("react"));
-
-function MyComponent(props) {
-  const {
-    label,
-    ...rest
-  } = props;
-  const [count, setCount] = React.useState(0);
-  return /*#__PURE__*/React.createElement("button", {
-    onClick: () => setCount(count + 1),
-    ...rest
-  }, label, " ", count);
-}
-`;
-
 exports[`transpiles TSX given {}: input 1`] = `
 export default function add(a: number, b: number): number {
   return a + b
@@ -3236,17 +2842,6 @@ export default function add(a, b) {
 
 exports[`transpiles TSX given {}: output (production-modern) 1`] = `
 export default function add(a, b) {
-  return a + b;
-}
-`;
-
-exports[`transpiles TSX given {}: output (test) 1`] = `
-"use strict";
-
-exports.__esModule = true;
-exports.default = add;
-
-function add(a, b) {
   return a + b;
 }
 `;
