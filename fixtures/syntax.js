@@ -16,10 +16,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input)
 }
 
-const promise = new Promise((resolve) => resolve())
-
 async function asyncFunction() {
-  return await Promise.all([promise])
+  return await null
 }
 
 const obj = {a: 1, b: 2}

@@ -494,10 +494,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input)
 }
 
-const promise = new Promise((resolve) => resolve())
-
 async function asyncFunction() {
-  return await Promise.all([promise])
+  return await null
 }
 
 const obj = {a: 1, b: 2}
@@ -552,10 +550,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input);
 }
 
-const promise = new Promise(resolve => resolve());
-
 async function asyncFunction() {
-  return await Promise.all([promise]);
+  return await null;
 }
 
 const obj = {
@@ -658,10 +654,6 @@ function generator() {
   }, _marked);
 }
 
-var promise = new Promise(function (resolve) {
-  return resolve();
-});
-
 function asyncFunction() {
   return _asyncFunction.apply(this, arguments);
 }
@@ -673,7 +665,7 @@ function _asyncFunction() {
         switch (_context3.prev = _context3.next) {
           case 0:
             _context3.next = 2;
-            return Promise.all([promise]);
+            return null;
 
           case 2:
             return _context3.abrupt("return", _context3.sent);
@@ -733,10 +725,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input);
 }
 
-const promise = new Promise(resolve => resolve());
-
 async function asyncFunction() {
-  return await Promise.all([promise]);
+  return await null;
 }
 
 const obj = {
@@ -783,10 +773,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input);
 }
 
-const promise = new Promise(resolve => resolve());
-
 async function asyncFunction() {
-  return await Promise.all([promise]);
+  return await null;
 }
 
 const obj = {
@@ -888,10 +876,6 @@ function generator() {
   }, _marked);
 }
 
-var promise = new Promise(function (resolve) {
-  return resolve();
-});
-
 function asyncFunction() {
   return _asyncFunction.apply(this, arguments);
 }
@@ -903,7 +887,7 @@ function _asyncFunction() {
         switch (_context3.prev = _context3.next) {
           case 0:
             _context3.next = 2;
-            return Promise.all([promise]);
+            return null;
 
           case 2:
             return _context3.abrupt("return", _context3.sent);
@@ -963,10 +947,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input);
 }
 
-const promise = new Promise(resolve => resolve());
-
 async function asyncFunction() {
-  return await Promise.all([promise]);
+  return await null;
 }
 
 const obj = {
@@ -1006,10 +988,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input)
 }
 
-const promise = new Promise((resolve) => resolve())
-
 async function asyncFunction() {
-  return await Promise.all([promise])
+  return await null
 }
 
 const obj = {a: 1, b: 2}
@@ -1066,10 +1046,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input);
 }
 
-const promise = new Promise(resolve => resolve());
-
 async function asyncFunction() {
-  return await Promise.all([promise]);
+  return await null;
 }
 
 const obj = {
@@ -1160,10 +1138,6 @@ function generator() {
   }, _marked);
 }
 
-var promise = new Promise(function (resolve) {
-  return resolve();
-});
-
 function asyncFunction() {
   return _asyncFunction.apply(this, arguments);
 }
@@ -1175,7 +1149,7 @@ function _asyncFunction() {
         switch (_context3.prev = _context3.next) {
           case 0:
             _context3.next = 2;
-            return Promise.all([promise]);
+            return null;
 
           case 2:
             return _context3.abrupt("return", _context3.sent);
@@ -1234,10 +1208,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input);
 }
 
-const promise = new Promise(resolve => resolve());
-
 async function asyncFunction() {
-  return await Promise.all([promise]);
+  return await null;
 }
 
 const obj = {
@@ -1283,10 +1255,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input);
 }
 
-const promise = new Promise(resolve => resolve());
-
 async function asyncFunction() {
-  return await Promise.all([promise]);
+  return await null;
 }
 
 const obj = {
@@ -1376,10 +1346,6 @@ function generator() {
   }, _marked);
 }
 
-var promise = new Promise(function (resolve) {
-  return resolve();
-});
-
 function asyncFunction() {
   return _asyncFunction.apply(this, arguments);
 }
@@ -1391,7 +1357,7 @@ function _asyncFunction() {
         switch (_context3.prev = _context3.next) {
           case 0:
             _context3.next = 2;
-            return Promise.all([promise]);
+            return null;
 
           case 2:
             return _context3.abrupt("return", _context3.sent);
@@ -1450,10 +1416,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input);
 }
 
-const promise = new Promise(resolve => resolve());
-
 async function asyncFunction() {
-  return await Promise.all([promise]);
+  return await null;
 }
 
 const obj = {
@@ -1493,10 +1457,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input)
 }
 
-const promise = new Promise((resolve) => resolve())
-
 async function asyncFunction() {
-  return await Promise.all([promise])
+  return await null
 }
 
 const obj = {a: 1, b: 2}
@@ -1549,10 +1511,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input);
 }
 
-const promise = new Promise(resolve => resolve());
-
 async function asyncFunction() {
-  return await Promise.all([promise]);
+  return await null;
 }
 
 const obj = {
@@ -1653,10 +1613,6 @@ function generator() {
   }, _marked);
 }
 
-var promise = new Promise(function (resolve) {
-  return resolve();
-});
-
 function asyncFunction() {
   return _asyncFunction.apply(this, arguments);
 }
@@ -1668,7 +1624,7 @@ function _asyncFunction() {
         switch (_context3.prev = _context3.next) {
           case 0:
             _context3.next = 2;
-            return Promise.all([promise]);
+            return null;
 
           case 2:
             return _context3.abrupt("return", _context3.sent);
@@ -1737,10 +1693,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input);
 }
 
-const promise = new Promise(resolve => resolve());
-
 async function asyncFunction() {
-  return await Promise.all([promise]);
+  return await null;
 }
 
 const obj = {
@@ -1799,10 +1753,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input);
 }
 
-const promise = new Promise(resolve => resolve());
-
 async function asyncFunction() {
-  return await Promise.all([promise]);
+  return await null;
 }
 
 const obj = {
@@ -1903,10 +1855,6 @@ function generator() {
   }, _marked);
 }
 
-var promise = new Promise(function (resolve) {
-  return resolve();
-});
-
 function asyncFunction() {
   return _asyncFunction.apply(this, arguments);
 }
@@ -1918,7 +1866,7 @@ function _asyncFunction() {
         switch (_context3.prev = _context3.next) {
           case 0:
             _context3.next = 2;
-            return Promise.all([promise]);
+            return null;
 
           case 2:
             return _context3.abrupt("return", _context3.sent);
@@ -1987,10 +1935,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input);
 }
 
-const promise = new Promise(resolve => resolve());
-
 async function asyncFunction() {
-  return await Promise.all([promise]);
+  return await null;
 }
 
 const obj = {
@@ -2031,10 +1977,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input)
 }
 
-const promise = new Promise((resolve) => resolve())
-
 async function asyncFunction() {
-  return await Promise.all([promise])
+  return await null
 }
 
 const obj = {a: 1, b: 2}
@@ -2085,10 +2029,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input);
 }
 
-const promise = new Promise(resolve => resolve());
-
 async function asyncFunction() {
-  return await Promise.all([promise]);
+  return await null;
 }
 
 const obj = {
@@ -2172,10 +2114,6 @@ function generator() {
   }, _marked);
 }
 
-var promise = new Promise(function (resolve) {
-  return resolve();
-});
-
 function asyncFunction() {
   return _asyncFunction.apply(this, arguments);
 }
@@ -2187,7 +2125,7 @@ function _asyncFunction() {
         switch (_context3.prev = _context3.next) {
           case 0:
             _context3.next = 2;
-            return Promise.all([promise]);
+            return null;
 
           case 2:
             return _context3.abrupt("return", _context3.sent);
@@ -2244,10 +2182,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input);
 }
 
-const promise = new Promise(resolve => resolve());
-
 async function asyncFunction() {
-  return await Promise.all([promise]);
+  return await null;
 }
 
 const obj = {
@@ -2292,10 +2228,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input);
 }
 
-const promise = new Promise(resolve => resolve());
-
 async function asyncFunction() {
-  return await Promise.all([promise]);
+  return await null;
 }
 
 const obj = {
@@ -2378,10 +2312,6 @@ function generator() {
   }, _marked);
 }
 
-var promise = new Promise(function (resolve) {
-  return resolve();
-});
-
 function asyncFunction() {
   return _asyncFunction.apply(this, arguments);
 }
@@ -2393,7 +2323,7 @@ function _asyncFunction() {
         switch (_context3.prev = _context3.next) {
           case 0:
             _context3.next = 2;
-            return Promise.all([promise]);
+            return null;
 
           case 2:
             return _context3.abrupt("return", _context3.sent);
@@ -2450,10 +2380,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input);
 }
 
-const promise = new Promise(resolve => resolve());
-
 async function asyncFunction() {
-  return await Promise.all([promise]);
+  return await null;
 }
 
 const obj = {
@@ -2493,10 +2421,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input)
 }
 
-const promise = new Promise((resolve) => resolve())
-
 async function asyncFunction() {
-  return await Promise.all([promise])
+  return await null
 }
 
 const obj = {a: 1, b: 2}
@@ -2549,10 +2475,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input);
 }
 
-const promise = new Promise(resolve => resolve());
-
 async function asyncFunction() {
-  return await Promise.all([promise]);
+  return await null;
 }
 
 const obj = {
@@ -2598,10 +2522,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input);
 }
 
-const promise = new Promise(resolve => resolve());
-
 async function asyncFunction() {
-  return await Promise.all([promise]);
+  return await null;
 }
 
 const obj = {
@@ -2646,10 +2568,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input);
 }
 
-const promise = new Promise(resolve => resolve());
-
 async function asyncFunction() {
-  return await Promise.all([promise]);
+  return await null;
 }
 
 const obj = {
@@ -2694,10 +2614,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input);
 }
 
-const promise = new Promise(resolve => resolve());
-
 async function asyncFunction() {
-  return await Promise.all([promise]);
+  return await null;
 }
 
 const obj = {
@@ -2742,10 +2660,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input);
 }
 
-const promise = new Promise(resolve => resolve());
-
 async function asyncFunction() {
-  return await Promise.all([promise]);
+  return await null;
 }
 
 const obj = {
@@ -2790,10 +2706,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input);
 }
 
-const promise = new Promise(resolve => resolve());
-
 async function asyncFunction() {
-  return await Promise.all([promise]);
+  return await null;
 }
 
 const obj = {
@@ -2833,10 +2747,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input)
 }
 
-const promise = new Promise((resolve) => resolve())
-
 async function asyncFunction() {
-  return await Promise.all([promise])
+  return await null
 }
 
 const obj = {a: 1, b: 2}
@@ -2889,10 +2801,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input);
 }
 
-const promise = new Promise(resolve => resolve());
-
 async function asyncFunction() {
-  return await Promise.all([promise]);
+  return await null;
 }
 
 const obj = {
@@ -2974,10 +2884,6 @@ function generator() {
   }, _marked);
 }
 
-var promise = new Promise(function (resolve) {
-  return resolve();
-});
-
 function asyncFunction() {
   return _asyncFunction.apply(this, arguments);
 }
@@ -2989,7 +2895,7 @@ function _asyncFunction() {
         switch (_context3.prev = _context3.next) {
           case 0:
             _context3.next = 2;
-            return Promise.all([promise]);
+            return null;
 
           case 2:
             return _context3.abrupt("return", _context3.sent);
@@ -3046,10 +2952,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input);
 }
 
-const promise = new Promise(resolve => resolve());
-
 async function asyncFunction() {
-  return await Promise.all([promise]);
+  return await null;
 }
 
 const obj = {
@@ -3094,10 +2998,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input);
 }
 
-const promise = new Promise(resolve => resolve());
-
 async function asyncFunction() {
-  return await Promise.all([promise]);
+  return await null;
 }
 
 const obj = {
@@ -3178,10 +3080,6 @@ function generator() {
   }, _marked);
 }
 
-var promise = new Promise(function (resolve) {
-  return resolve();
-});
-
 function asyncFunction() {
   return _asyncFunction.apply(this, arguments);
 }
@@ -3193,7 +3091,7 @@ function _asyncFunction() {
         switch (_context3.prev = _context3.next) {
           case 0:
             _context3.next = 2;
-            return Promise.all([promise]);
+            return null;
 
           case 2:
             return _context3.abrupt("return", _context3.sent);
@@ -3250,10 +3148,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input);
 }
 
-const promise = new Promise(resolve => resolve());
-
 async function asyncFunction() {
-  return await Promise.all([promise]);
+  return await null;
 }
 
 const obj = {
@@ -4426,10 +4322,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input)
 }
 
-const promise = new Promise((resolve) => resolve())
-
 async function asyncFunction() {
-  return await Promise.all([promise])
+  return await null
 }
 
 const obj = {a: 1, b: 2}
@@ -4482,10 +4376,8 @@ function* generator() {
   yield* new Foo().methodGenerator(input);
 }
 
-const promise = new Promise(resolve => resolve());
-
 async function asyncFunction() {
-  return await Promise.all([promise]);
+  return await null;
 }
 
 const obj = {
