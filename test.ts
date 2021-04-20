@@ -56,6 +56,7 @@ macro('transpiles ES2020+ syntax', 'syntax.js')
 macro('transpiles ES2020+ syntax', 'syntax.js', {targets: 'last 2 Chrome versions'})
 macro('transpiles ES2020+ syntax', 'syntax.js', {loose: false})
 macro('transpiles ES2020+ syntax', 'syntax.js', {runtime: false})
+macro('transpiles ES2020+ syntax', 'syntax.js', {loose: false, runtime: false})
 macro('transpiles ES2020+ syntax', 'syntax.js', {modules: 'commonjs'})
 
 macro('transpiles React', 'react.js')
@@ -73,6 +74,8 @@ macro('transpiles ESM in node_modules', 'vendor/node_modules/my-pkg/index.js')
 macro('transpiles CJS in node_modules', 'vendor/node_modules/my-pkg/cjs.js')
 macro('avoids transpiling known precompiled packages', 'vendor/node_modules/react/index.js')
 
+// the test environment targets the currently running version of Node by default
+// since our CI tests multiple Node versions, we need to override this behavior
 macro(
   'transpiles test env',
   'syntax.js',
