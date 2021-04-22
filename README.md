@@ -23,7 +23,23 @@ module.exports = {
 
 ## Options
 
-The preset can be configured using several options. Note that some options' defaults depend on the [Babel environment](https://babeljs.io/docs/en/options#envname), which may be one of: `development` | `production` | `test` | `cjs` | `esm`
+The preset can be configured using several options. Note that some options' defaults depend on the [Babel environment](https://babeljs.io/docs/en/options#envname), which may be one of: `development` | `production` | `development-modern` | `production-modern` | `test` | `cjs` | `esm`.
+
+For development, production, and babel environments, the preset integrates with [`browserslist`](https://github.com/browserslist/browserslist) in order to determine which browser version to transpile for. The `browserslist` configuration can specify a monolithic list of browsers, or partition these browsers into groups, enabling the preset to output customized bundles. To make use of the `...-modern` babel environments, the `browserslist` configuration needs to specify `production` and `production-modern` groups. A monolithic configuration can be upgraded at any time by grouping the original list under `production`, which `browserslist` selects by default.
+
+### `browserslistEnv`
+
+`string` | `undefined`<br />
+Default: `production-modern` for modern babel envrionments, `undefined` otherwise
+
+Whether to override the target [browser group](https://github.com/browserslist/browserslist#configuring-for-different-environments). These targets are selected from the `browserslist` configuration, which applies to development, production, and modern environments. If the group name does not have a match in the configuration file, or is undefined, the `production` group is selected. If the configuration does not group browsers, this parameter has no effect.
+
+### `configPath`
+
+`undefined` | `string`<br />
+Default: `undefined`
+
+Path to the first directory where [`preset-env`](https://babeljs.io/docs/en/babel-preset-env#configpath) will look at to locate the `.browserslistrc` configuration file. By default, the current working directory is checked first, followed by the parent directories, up to system root.
 
 ### `emotion`
 
