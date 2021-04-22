@@ -53,7 +53,7 @@ function macro(
 }
 
 macro('transpiles ES2020+ syntax', 'syntax.js')
-macro('transpiles ES2020+ syntax', 'syntax.js', {targets: 'last 2 Chrome versions'})
+macro('transpiles ES2020+ syntax', 'syntax.js', {targets: 'Chrome 88'})
 macro('transpiles ES2020+ syntax', 'syntax.js', {loose: false})
 macro('transpiles ES2020+ syntax', 'syntax.js', {runtime: false})
 macro('transpiles ES2020+ syntax', 'syntax.js', {loose: false, runtime: false})

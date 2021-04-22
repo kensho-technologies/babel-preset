@@ -2492,7 +2492,7 @@ export default obj;
 export { obj };
 `;
 
-exports[`transpiles ES2020+ syntax given {"targets":"last 2 Chrome versions"}: input 1`] = `
+exports[`transpiles ES2020+ syntax given {"targets":"Chrome 88"}: input 1`] = `
 import defaultImport, {namedImport} from 'foo'
 import * as namespaceImport from 'bar'
 
@@ -2530,7 +2530,7 @@ export {obj}
 
 `;
 
-exports[`transpiles ES2020+ syntax given {"targets":"last 2 Chrome versions"}: output (cjs) 1`] = `
+exports[`transpiles ES2020+ syntax given {"targets":"Chrome 88"}: output (cjs) 1`] = `
 "use strict";
 
 var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard").default;
@@ -2592,7 +2592,7 @@ var _default = obj;
 exports.default = _default;
 `;
 
-exports[`transpiles ES2020+ syntax given {"targets":"last 2 Chrome versions"}: output (development) 1`] = `
+exports[`transpiles ES2020+ syntax given {"targets":"Chrome 88"}: output (development) 1`] = `
 var _nullishAssignment;
 
 import defaultImport, { namedImport } from 'foo';
@@ -2642,7 +2642,7 @@ export default obj;
 export { obj };
 `;
 
-exports[`transpiles ES2020+ syntax given {"targets":"last 2 Chrome versions"}: output (development-modern) 1`] = `
+exports[`transpiles ES2020+ syntax given {"targets":"Chrome 88"}: output (development-modern) 1`] = `
 var _nullishAssignment;
 
 import defaultImport, { namedImport } from 'foo';
@@ -2692,7 +2692,7 @@ export default obj;
 export { obj };
 `;
 
-exports[`transpiles ES2020+ syntax given {"targets":"last 2 Chrome versions"}: output (esm) 1`] = `
+exports[`transpiles ES2020+ syntax given {"targets":"Chrome 88"}: output (esm) 1`] = `
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
@@ -2740,7 +2740,7 @@ export default obj;
 export { obj };
 `;
 
-exports[`transpiles ES2020+ syntax given {"targets":"last 2 Chrome versions"}: output (production) 1`] = `
+exports[`transpiles ES2020+ syntax given {"targets":"Chrome 88"}: output (production) 1`] = `
 var _nullishAssignment;
 
 import defaultImport, { namedImport } from 'foo';
@@ -2790,7 +2790,7 @@ export default obj;
 export { obj };
 `;
 
-exports[`transpiles ES2020+ syntax given {"targets":"last 2 Chrome versions"}: output (production-modern) 1`] = `
+exports[`transpiles ES2020+ syntax given {"targets":"Chrome 88"}: output (production-modern) 1`] = `
 var _nullishAssignment;
 
 import defaultImport, { namedImport } from 'foo';
