@@ -4,16 +4,13 @@ import * as namespaceImport from 'bar'
 const dynamicImport = import('baz')
 
 class Foo {
-  *methodGenerator(seed) {
-    yield seed
-  }
   static bar = 'abc'
   baz = (x, y) => x({...y})
 }
 
-function* generator() {
-  const input = yield 'using last argument passed to next()'
-  yield* new Foo().methodGenerator(input)
+function* infiniteGenerator() {
+  yield 1
+  yield* infiniteGenerator()
 }
 
 async function asyncFunction() {

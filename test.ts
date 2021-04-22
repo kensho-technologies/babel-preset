@@ -5,6 +5,8 @@ import {PluginItem, transform, TransformOptions} from '@babel/core'
 
 import preset from '.'
 
+// the 'test' environment is excluded because it targets the currently running version of Node
+// since our CI runs multiple Node versions, a snapshot for 'test' might not match one of them
 const NON_TEST_ENVIRONMENTS = [
   'development',
   'production',
@@ -19,14 +21,7 @@ expect.addSnapshotSerializer({
   print: (val: string) => val,
 })
 
-function macro(
-  title: string,
-  fixture: string,
-  presetOptions = {},
-  macroOptions = {
-    environments: NON_TEST_ENVIRONMENTS,
-  }
-): void {
+function macro(title: string, fixture: string, presetOptions = {}): void {
   test(`${title} given ${JSON.stringify(presetOptions)}`, () => {
     const file = `${__dirname}/fixtures/${fixture}`
     const input = fs.readFileSync(file, 'utf8')
@@ -37,8 +32,7 @@ function macro(
       configPath: `${__dirname}/fixtures`,
     }
 
-    const {environments} = macroOptions
-    environments.forEach((envName) => {
+    NON_TEST_ENVIRONMENTS.forEach((envName) => {
       const presets: PluginItem[] = [[preset, resolvedPresetOptions]]
       const options: TransformOptions = {
         envName,
@@ -73,12 +67,3 @@ macro('replaces generic polyfill with env-targeted polyfills', 'polyfills.js')
 macro('transpiles ESM in node_modules', 'vendor/node_modules/my-pkg/index.js')
 macro('transpiles CJS in node_modules', 'vendor/node_modules/my-pkg/cjs.js')
 macro('avoids transpiling known precompiled packages', 'vendor/node_modules/react/index.js')
-
-// the test environment targets the currently running version of Node by default
-// since our CI tests multiple Node versions, we need to override this behavior
-macro(
-  'transpiles test env',
-  'syntax.js',
-  {targets: {node: '14.14', browsers: []}},
-  {environments: ['test']}
-)

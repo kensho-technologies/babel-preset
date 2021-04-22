@@ -482,16 +482,13 @@ import * as namespaceImport from 'bar'
 const dynamicImport = import('baz')
 
 class Foo {
-  *methodGenerator(seed) {
-    yield seed
-  }
   static bar = 'abc'
   baz = (x, y) => x({...y})
 }
 
-function* generator() {
-  const input = yield 'using last argument passed to next()'
-  yield* new Foo().methodGenerator(input)
+function* infiniteGenerator() {
+  yield 1
+  yield* infiniteGenerator()
 }
 
 async function asyncFunction() {
@@ -539,17 +536,13 @@ class Foo {
     }));
   }
 
-  *methodGenerator(seed) {
-    yield seed;
-  }
-
 }
 
 _defineProperty(Foo, "bar", 'abc');
 
-function* generator() {
-  const input = yield 'using last argument passed to next()';
-  yield* new Foo().methodGenerator(input);
+function* infiniteGenerator() {
+  yield 1;
+  yield* infiniteGenerator();
 }
 
 async function asyncFunction() {
@@ -588,7 +581,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var _marked = /*#__PURE__*/regeneratorRuntime.mark(generator);
+var _marked = /*#__PURE__*/regeneratorRuntime.mark(infiniteGenerator);
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -596,65 +589,36 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 var dynamicImport = import('baz');
 
-var Foo = /*#__PURE__*/function () {
-  function Foo() {
-    _classCallCheck(this, Foo);
+var Foo = function Foo() {
+  _classCallCheck(this, Foo);
 
-    _defineProperty(this, "baz", function (x, y) {
-      return x(_objectSpread({}, y));
-    });
-  }
-
-  _createClass(Foo, [{
-    key: "methodGenerator",
-    value: /*#__PURE__*/regeneratorRuntime.mark(function methodGenerator(seed) {
-      return regeneratorRuntime.wrap(function methodGenerator$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return seed;
-
-            case 2:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, methodGenerator);
-    })
-  }]);
-
-  return Foo;
-}();
+  _defineProperty(this, "baz", function (x, y) {
+    return x(_objectSpread({}, y));
+  });
+};
 
 _defineProperty(Foo, "bar", 'abc');
 
-function generator() {
-  var input;
-  return regeneratorRuntime.wrap(function generator$(_context2) {
+function infiniteGenerator() {
+  return regeneratorRuntime.wrap(function infiniteGenerator$(_context) {
     while (1) {
-      switch (_context2.prev = _context2.next) {
+      switch (_context.prev = _context.next) {
         case 0:
-          _context2.next = 2;
-          return 'using last argument passed to next()';
+          _context.next = 2;
+          return 1;
 
         case 2:
-          input = _context2.sent;
-          return _context2.delegateYield(new Foo().methodGenerator(input), "t0", 4);
+          return _context.delegateYield(infiniteGenerator(), "t0", 3);
 
-        case 4:
+        case 3:
         case "end":
-          return _context2.stop();
+          return _context.stop();
       }
     }
   }, _marked);
@@ -666,19 +630,19 @@ function asyncFunction() {
 
 function _asyncFunction() {
   _asyncFunction = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-    return regeneratorRuntime.wrap(function _callee$(_context3) {
+    return regeneratorRuntime.wrap(function _callee$(_context2) {
       while (1) {
-        switch (_context3.prev = _context3.next) {
+        switch (_context2.prev = _context2.next) {
           case 0:
-            _context3.next = 2;
+            _context2.next = 2;
             return null;
 
           case 2:
-            return _context3.abrupt("return", _context3.sent);
+            return _context2.abrupt("return", _context2.sent);
 
           case 3:
           case "end":
-            return _context3.stop();
+            return _context2.stop();
         }
       }
     }, _callee);
@@ -722,17 +686,13 @@ class Foo {
     }));
   }
 
-  *methodGenerator(seed) {
-    yield seed;
-  }
-
 }
 
 _defineProperty(Foo, "bar", 'abc');
 
-function* generator() {
-  const input = yield 'using last argument passed to next()';
-  yield* new Foo().methodGenerator(input);
+function* infiniteGenerator() {
+  yield 1;
+  yield* infiniteGenerator();
 }
 
 async function asyncFunction() {
@@ -772,17 +732,13 @@ class Foo {
     }));
   }
 
-  *methodGenerator(seed) {
-    yield seed;
-  }
-
 }
 
 _defineProperty(Foo, "bar", 'abc');
 
-function* generator() {
-  const input = yield 'using last argument passed to next()';
-  yield* new Foo().methodGenerator(input);
+function* infiniteGenerator() {
+  yield 1;
+  yield* infiniteGenerator();
 }
 
 async function asyncFunction() {
@@ -820,7 +776,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var _marked = /*#__PURE__*/regeneratorRuntime.mark(generator);
+var _marked = /*#__PURE__*/regeneratorRuntime.mark(infiniteGenerator);
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -828,65 +784,36 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 var dynamicImport = import('baz');
 
-var Foo = /*#__PURE__*/function () {
-  function Foo() {
-    _classCallCheck(this, Foo);
+var Foo = function Foo() {
+  _classCallCheck(this, Foo);
 
-    _defineProperty(this, "baz", function (x, y) {
-      return x(_objectSpread({}, y));
-    });
-  }
-
-  _createClass(Foo, [{
-    key: "methodGenerator",
-    value: /*#__PURE__*/regeneratorRuntime.mark(function methodGenerator(seed) {
-      return regeneratorRuntime.wrap(function methodGenerator$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return seed;
-
-            case 2:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, methodGenerator);
-    })
-  }]);
-
-  return Foo;
-}();
+  _defineProperty(this, "baz", function (x, y) {
+    return x(_objectSpread({}, y));
+  });
+};
 
 _defineProperty(Foo, "bar", 'abc');
 
-function generator() {
-  var input;
-  return regeneratorRuntime.wrap(function generator$(_context2) {
+function infiniteGenerator() {
+  return regeneratorRuntime.wrap(function infiniteGenerator$(_context) {
     while (1) {
-      switch (_context2.prev = _context2.next) {
+      switch (_context.prev = _context.next) {
         case 0:
-          _context2.next = 2;
-          return 'using last argument passed to next()';
+          _context.next = 2;
+          return 1;
 
         case 2:
-          input = _context2.sent;
-          return _context2.delegateYield(new Foo().methodGenerator(input), "t0", 4);
+          return _context.delegateYield(infiniteGenerator(), "t0", 3);
 
-        case 4:
+        case 3:
         case "end":
-          return _context2.stop();
+          return _context.stop();
       }
     }
   }, _marked);
@@ -898,19 +825,19 @@ function asyncFunction() {
 
 function _asyncFunction() {
   _asyncFunction = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-    return regeneratorRuntime.wrap(function _callee$(_context3) {
+    return regeneratorRuntime.wrap(function _callee$(_context2) {
       while (1) {
-        switch (_context3.prev = _context3.next) {
+        switch (_context2.prev = _context2.next) {
           case 0:
-            _context3.next = 2;
+            _context2.next = 2;
             return null;
 
           case 2:
-            return _context3.abrupt("return", _context3.sent);
+            return _context2.abrupt("return", _context2.sent);
 
           case 3:
           case "end":
-            return _context3.stop();
+            return _context2.stop();
         }
       }
     }, _callee);
@@ -954,17 +881,13 @@ class Foo {
     }));
   }
 
-  *methodGenerator(seed) {
-    yield seed;
-  }
-
 }
 
 _defineProperty(Foo, "bar", 'abc');
 
-function* generator() {
-  const input = yield 'using last argument passed to next()';
-  yield* new Foo().methodGenerator(input);
+function* infiniteGenerator() {
+  yield 1;
+  yield* infiniteGenerator();
 }
 
 async function asyncFunction() {
@@ -998,16 +921,13 @@ import * as namespaceImport from 'bar'
 const dynamicImport = import('baz')
 
 class Foo {
-  *methodGenerator(seed) {
-    yield seed
-  }
   static bar = 'abc'
   baz = (x, y) => x({...y})
 }
 
-function* generator() {
-  const input = yield 'using last argument passed to next()'
-  yield* new Foo().methodGenerator(input)
+function* infiniteGenerator() {
+  yield 1
+  yield* infiniteGenerator()
 }
 
 async function asyncFunction() {
@@ -1057,17 +977,13 @@ class Foo {
     }));
   }
 
-  *methodGenerator(seed) {
-    yield seed;
-  }
-
 }
 
 (0, _defineProperty2.default)(Foo, "bar", 'abc');
 
-function* generator() {
-  const input = yield 'using last argument passed to next()';
-  yield* new Foo().methodGenerator(input);
+function* infiniteGenerator() {
+  yield 1;
+  yield* infiniteGenerator();
 }
 
 async function asyncFunction() {
@@ -1100,67 +1016,42 @@ import _objectWithoutProperties from "@babel/runtime/helpers/objectWithoutProper
 import _asyncToGenerator from "@babel/runtime/helpers/asyncToGenerator";
 import _objectSpread from "@babel/runtime/helpers/objectSpread2";
 import _classCallCheck from "@babel/runtime/helpers/classCallCheck";
-import _createClass from "@babel/runtime/helpers/createClass";
 import _defineProperty from "@babel/runtime/helpers/defineProperty";
 
 var _nullishAssignment;
 
-var _marked = /*#__PURE__*/_regeneratorRuntime.mark(generator);
-
 import _regeneratorRuntime from "@babel/runtime/regenerator";
+
+var _marked = /*#__PURE__*/_regeneratorRuntime.mark(infiniteGenerator);
+
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 var dynamicImport = import('baz');
 
-var Foo = /*#__PURE__*/function () {
-  function Foo() {
-    _classCallCheck(this, Foo);
+var Foo = function Foo() {
+  _classCallCheck(this, Foo);
 
-    _defineProperty(this, "baz", function (x, y) {
-      return x(_objectSpread({}, y));
-    });
-  }
-
-  _createClass(Foo, [{
-    key: "methodGenerator",
-    value: /*#__PURE__*/_regeneratorRuntime.mark(function methodGenerator(seed) {
-      return _regeneratorRuntime.wrap(function methodGenerator$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return seed;
-
-            case 2:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, methodGenerator);
-    })
-  }]);
-
-  return Foo;
-}();
+  _defineProperty(this, "baz", function (x, y) {
+    return x(_objectSpread({}, y));
+  });
+};
 
 _defineProperty(Foo, "bar", 'abc');
 
-function generator() {
-  var input;
-  return _regeneratorRuntime.wrap(function generator$(_context2) {
+function infiniteGenerator() {
+  return _regeneratorRuntime.wrap(function infiniteGenerator$(_context) {
     while (1) {
-      switch (_context2.prev = _context2.next) {
+      switch (_context.prev = _context.next) {
         case 0:
-          _context2.next = 2;
-          return 'using last argument passed to next()';
+          _context.next = 2;
+          return 1;
 
         case 2:
-          input = _context2.sent;
-          return _context2.delegateYield(new Foo().methodGenerator(input), "t0", 4);
+          return _context.delegateYield(infiniteGenerator(), "t0", 3);
 
-        case 4:
+        case 3:
         case "end":
-          return _context2.stop();
+          return _context.stop();
       }
     }
   }, _marked);
@@ -1172,19 +1063,19 @@ function asyncFunction() {
 
 function _asyncFunction() {
   _asyncFunction = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee() {
-    return _regeneratorRuntime.wrap(function _callee$(_context3) {
+    return _regeneratorRuntime.wrap(function _callee$(_context2) {
       while (1) {
-        switch (_context3.prev = _context3.next) {
+        switch (_context2.prev = _context2.next) {
           case 0:
-            _context3.next = 2;
+            _context2.next = 2;
             return null;
 
           case 2:
-            return _context3.abrupt("return", _context3.sent);
+            return _context2.abrupt("return", _context2.sent);
 
           case 3:
           case "end":
-            return _context3.stop();
+            return _context2.stop();
         }
       }
     }, _callee);
@@ -1228,17 +1119,13 @@ class Foo {
     }));
   }
 
-  *methodGenerator(seed) {
-    yield seed;
-  }
-
 }
 
 _defineProperty(Foo, "bar", 'abc');
 
-function* generator() {
-  const input = yield 'using last argument passed to next()';
-  yield* new Foo().methodGenerator(input);
+function* infiniteGenerator() {
+  yield 1;
+  yield* infiniteGenerator();
 }
 
 async function asyncFunction() {
@@ -1277,17 +1164,13 @@ class Foo {
     }));
   }
 
-  *methodGenerator(seed) {
-    yield seed;
-  }
-
 }
 
 _defineProperty(Foo, "bar", 'abc');
 
-function* generator() {
-  const input = yield 'using last argument passed to next()';
-  yield* new Foo().methodGenerator(input);
+function* infiniteGenerator() {
+  yield 1;
+  yield* infiniteGenerator();
 }
 
 async function asyncFunction() {
@@ -1319,67 +1202,42 @@ import _objectWithoutProperties from "@babel/runtime/helpers/objectWithoutProper
 import _asyncToGenerator from "@babel/runtime/helpers/asyncToGenerator";
 import _objectSpread from "@babel/runtime/helpers/objectSpread2";
 import _classCallCheck from "@babel/runtime/helpers/classCallCheck";
-import _createClass from "@babel/runtime/helpers/createClass";
 import _defineProperty from "@babel/runtime/helpers/defineProperty";
 
 var _nullishAssignment;
 
-var _marked = /*#__PURE__*/_regeneratorRuntime.mark(generator);
-
 import _regeneratorRuntime from "@babel/runtime/regenerator";
+
+var _marked = /*#__PURE__*/_regeneratorRuntime.mark(infiniteGenerator);
+
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 var dynamicImport = import('baz');
 
-var Foo = /*#__PURE__*/function () {
-  function Foo() {
-    _classCallCheck(this, Foo);
+var Foo = function Foo() {
+  _classCallCheck(this, Foo);
 
-    _defineProperty(this, "baz", function (x, y) {
-      return x(_objectSpread({}, y));
-    });
-  }
-
-  _createClass(Foo, [{
-    key: "methodGenerator",
-    value: /*#__PURE__*/_regeneratorRuntime.mark(function methodGenerator(seed) {
-      return _regeneratorRuntime.wrap(function methodGenerator$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return seed;
-
-            case 2:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, methodGenerator);
-    })
-  }]);
-
-  return Foo;
-}();
+  _defineProperty(this, "baz", function (x, y) {
+    return x(_objectSpread({}, y));
+  });
+};
 
 _defineProperty(Foo, "bar", 'abc');
 
-function generator() {
-  var input;
-  return _regeneratorRuntime.wrap(function generator$(_context2) {
+function infiniteGenerator() {
+  return _regeneratorRuntime.wrap(function infiniteGenerator$(_context) {
     while (1) {
-      switch (_context2.prev = _context2.next) {
+      switch (_context.prev = _context.next) {
         case 0:
-          _context2.next = 2;
-          return 'using last argument passed to next()';
+          _context.next = 2;
+          return 1;
 
         case 2:
-          input = _context2.sent;
-          return _context2.delegateYield(new Foo().methodGenerator(input), "t0", 4);
+          return _context.delegateYield(infiniteGenerator(), "t0", 3);
 
-        case 4:
+        case 3:
         case "end":
-          return _context2.stop();
+          return _context.stop();
       }
     }
   }, _marked);
@@ -1391,19 +1249,19 @@ function asyncFunction() {
 
 function _asyncFunction() {
   _asyncFunction = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee() {
-    return _regeneratorRuntime.wrap(function _callee$(_context3) {
+    return _regeneratorRuntime.wrap(function _callee$(_context2) {
       while (1) {
-        switch (_context3.prev = _context3.next) {
+        switch (_context2.prev = _context2.next) {
           case 0:
-            _context3.next = 2;
+            _context2.next = 2;
             return null;
 
           case 2:
-            return _context3.abrupt("return", _context3.sent);
+            return _context2.abrupt("return", _context2.sent);
 
           case 3:
           case "end":
-            return _context3.stop();
+            return _context2.stop();
         }
       }
     }, _callee);
@@ -1447,17 +1305,13 @@ class Foo {
     }));
   }
 
-  *methodGenerator(seed) {
-    yield seed;
-  }
-
 }
 
 _defineProperty(Foo, "bar", 'abc');
 
-function* generator() {
-  const input = yield 'using last argument passed to next()';
-  yield* new Foo().methodGenerator(input);
+function* infiniteGenerator() {
+  yield 1;
+  yield* infiniteGenerator();
 }
 
 async function asyncFunction() {
@@ -1491,16 +1345,13 @@ import * as namespaceImport from 'bar'
 const dynamicImport = import('baz')
 
 class Foo {
-  *methodGenerator(seed) {
-    yield seed
-  }
   static bar = 'abc'
   baz = (x, y) => x({...y})
 }
 
-function* generator() {
-  const input = yield 'using last argument passed to next()'
-  yield* new Foo().methodGenerator(input)
+function* infiniteGenerator() {
+  yield 1
+  yield* infiniteGenerator()
 }
 
 async function asyncFunction() {
@@ -1546,17 +1397,13 @@ class Foo {
     });
   }
 
-  *methodGenerator(seed) {
-    yield seed;
-  }
-
 }
 
 Foo.bar = 'abc';
 
-function* generator() {
-  const input = yield 'using last argument passed to next()';
-  yield* new Foo().methodGenerator(input);
+function* infiniteGenerator() {
+  yield 1;
+  yield* infiniteGenerator();
 }
 
 async function asyncFunction() {
@@ -1610,56 +1457,34 @@ var namespaceImport = _interopRequireWildcard3(require("bar"));
 
 var _nullishAssignment;
 
-var _marked = /*#__PURE__*/_regeneratorRuntime2.mark(generator);
+var _marked = /*#__PURE__*/_regeneratorRuntime2.mark(infiniteGenerator);
 
 var dynamicImport = Promise.resolve().then(function () {
   return (0, _interopRequireWildcard2["default"])(require('baz'));
 });
 
-var Foo = /*#__PURE__*/function () {
-  function Foo() {
-    this.baz = function (x, y) {
-      return x(Object.assign({}, y));
-    };
-  }
-
-  var _proto = Foo.prototype;
-  _proto.methodGenerator = /*#__PURE__*/_regenerator["default"].mark(function methodGenerator(seed) {
-    return _regenerator["default"].wrap(function methodGenerator$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            _context.next = 2;
-            return seed;
-
-          case 2:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, methodGenerator);
-  });
-  return Foo;
-}();
+var Foo = function Foo() {
+  this.baz = function (x, y) {
+    return x(Object.assign({}, y));
+  };
+};
 
 Foo.bar = 'abc';
 
-function generator() {
-  var input;
-  return _regenerator["default"].wrap(function generator$(_context2) {
+function infiniteGenerator() {
+  return _regenerator["default"].wrap(function infiniteGenerator$(_context) {
     while (1) {
-      switch (_context2.prev = _context2.next) {
+      switch (_context.prev = _context.next) {
         case 0:
-          _context2.next = 2;
-          return 'using last argument passed to next()';
+          _context.next = 2;
+          return 1;
 
         case 2:
-          input = _context2.sent;
-          return _context2.delegateYield(new Foo().methodGenerator(input), "t0", 4);
+          return _context.delegateYield(infiniteGenerator(), "t0", 3);
 
-        case 4:
+        case 3:
         case "end":
-          return _context2.stop();
+          return _context.stop();
       }
     }
   }, _marked);
@@ -1671,19 +1496,19 @@ function asyncFunction() {
 
 function _asyncFunction() {
   _asyncFunction = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee() {
-    return _regenerator["default"].wrap(function _callee$(_context3) {
+    return _regenerator["default"].wrap(function _callee$(_context2) {
       while (1) {
-        switch (_context3.prev = _context3.next) {
+        switch (_context2.prev = _context2.next) {
           case 0:
-            _context3.next = 2;
+            _context2.next = 2;
             return null;
 
           case 2:
-            return _context3.abrupt("return", _context3.sent);
+            return _context2.abrupt("return", _context2.sent);
 
           case 3:
           case "end":
-            return _context3.stop();
+            return _context2.stop();
         }
       }
     }, _callee);
@@ -1736,17 +1561,13 @@ class Foo {
     });
   }
 
-  *methodGenerator(seed) {
-    yield seed;
-  }
-
 }
 
 Foo.bar = 'abc';
 
-function* generator() {
-  const input = yield 'using last argument passed to next()';
-  yield* new Foo().methodGenerator(input);
+function* infiniteGenerator() {
+  yield 1;
+  yield* infiniteGenerator();
 }
 
 async function asyncFunction() {
@@ -1798,17 +1619,13 @@ class Foo {
     });
   }
 
-  *methodGenerator(seed) {
-    yield seed;
-  }
-
 }
 
 Foo.bar = 'abc';
 
-function* generator() {
-  const input = yield 'using last argument passed to next()';
-  yield* new Foo().methodGenerator(input);
+function* infiniteGenerator() {
+  yield 1;
+  yield* infiniteGenerator();
 }
 
 async function asyncFunction() {
@@ -1862,56 +1679,34 @@ var namespaceImport = _interopRequireWildcard3(require("bar"));
 
 var _nullishAssignment;
 
-var _marked = /*#__PURE__*/_regeneratorRuntime2.mark(generator);
+var _marked = /*#__PURE__*/_regeneratorRuntime2.mark(infiniteGenerator);
 
 var dynamicImport = Promise.resolve().then(function () {
   return (0, _interopRequireWildcard2["default"])(require('baz'));
 });
 
-var Foo = /*#__PURE__*/function () {
-  function Foo() {
-    this.baz = function (x, y) {
-      return x(Object.assign({}, y));
-    };
-  }
-
-  var _proto = Foo.prototype;
-  _proto.methodGenerator = /*#__PURE__*/_regenerator["default"].mark(function methodGenerator(seed) {
-    return _regenerator["default"].wrap(function methodGenerator$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            _context.next = 2;
-            return seed;
-
-          case 2:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, methodGenerator);
-  });
-  return Foo;
-}();
+var Foo = function Foo() {
+  this.baz = function (x, y) {
+    return x(Object.assign({}, y));
+  };
+};
 
 Foo.bar = 'abc';
 
-function generator() {
-  var input;
-  return _regenerator["default"].wrap(function generator$(_context2) {
+function infiniteGenerator() {
+  return _regenerator["default"].wrap(function infiniteGenerator$(_context) {
     while (1) {
-      switch (_context2.prev = _context2.next) {
+      switch (_context.prev = _context.next) {
         case 0:
-          _context2.next = 2;
-          return 'using last argument passed to next()';
+          _context.next = 2;
+          return 1;
 
         case 2:
-          input = _context2.sent;
-          return _context2.delegateYield(new Foo().methodGenerator(input), "t0", 4);
+          return _context.delegateYield(infiniteGenerator(), "t0", 3);
 
-        case 4:
+        case 3:
         case "end":
-          return _context2.stop();
+          return _context.stop();
       }
     }
   }, _marked);
@@ -1923,19 +1718,19 @@ function asyncFunction() {
 
 function _asyncFunction() {
   _asyncFunction = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee() {
-    return _regenerator["default"].wrap(function _callee$(_context3) {
+    return _regenerator["default"].wrap(function _callee$(_context2) {
       while (1) {
-        switch (_context3.prev = _context3.next) {
+        switch (_context2.prev = _context2.next) {
           case 0:
-            _context3.next = 2;
+            _context2.next = 2;
             return null;
 
           case 2:
-            return _context3.abrupt("return", _context3.sent);
+            return _context2.abrupt("return", _context2.sent);
 
           case 3:
           case "end":
-            return _context3.stop();
+            return _context2.stop();
         }
       }
     }, _callee);
@@ -1988,17 +1783,13 @@ class Foo {
     });
   }
 
-  *methodGenerator(seed) {
-    yield seed;
-  }
-
 }
 
 Foo.bar = 'abc';
 
-function* generator() {
-  const input = yield 'using last argument passed to next()';
-  yield* new Foo().methodGenerator(input);
+function* infiniteGenerator() {
+  yield 1;
+  yield* infiniteGenerator();
 }
 
 async function asyncFunction() {
@@ -2033,16 +1824,13 @@ import * as namespaceImport from 'bar'
 const dynamicImport = import('baz')
 
 class Foo {
-  *methodGenerator(seed) {
-    yield seed
-  }
   static bar = 'abc'
   baz = (x, y) => x({...y})
 }
 
-function* generator() {
-  const input = yield 'using last argument passed to next()'
-  yield* new Foo().methodGenerator(input)
+function* infiniteGenerator() {
+  yield 1
+  yield* infiniteGenerator()
 }
 
 async function asyncFunction() {
@@ -2086,17 +1874,13 @@ class Foo {
     });
   }
 
-  *methodGenerator(seed) {
-    yield seed;
-  }
-
 }
 
 Foo.bar = 'abc';
 
-function* generator() {
-  const input = yield 'using last argument passed to next()';
-  yield* new Foo().methodGenerator(input);
+function* infiniteGenerator() {
+  yield 1;
+  yield* infiniteGenerator();
 }
 
 async function asyncFunction() {
@@ -2133,56 +1917,34 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var _marked = /*#__PURE__*/regeneratorRuntime.mark(generator);
+var _marked = /*#__PURE__*/regeneratorRuntime.mark(infiniteGenerator);
 
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 var dynamicImport = import('baz');
 
-var Foo = /*#__PURE__*/function () {
-  function Foo() {
-    this.baz = function (x, y) {
-      return x(Object.assign({}, y));
-    };
-  }
-
-  var _proto = Foo.prototype;
-  _proto.methodGenerator = /*#__PURE__*/regeneratorRuntime.mark(function methodGenerator(seed) {
-    return regeneratorRuntime.wrap(function methodGenerator$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            _context.next = 2;
-            return seed;
-
-          case 2:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, methodGenerator);
-  });
-  return Foo;
-}();
+var Foo = function Foo() {
+  this.baz = function (x, y) {
+    return x(Object.assign({}, y));
+  };
+};
 
 Foo.bar = 'abc';
 
-function generator() {
-  var input;
-  return regeneratorRuntime.wrap(function generator$(_context2) {
+function infiniteGenerator() {
+  return regeneratorRuntime.wrap(function infiniteGenerator$(_context) {
     while (1) {
-      switch (_context2.prev = _context2.next) {
+      switch (_context.prev = _context.next) {
         case 0:
-          _context2.next = 2;
-          return 'using last argument passed to next()';
+          _context.next = 2;
+          return 1;
 
         case 2:
-          input = _context2.sent;
-          return _context2.delegateYield(new Foo().methodGenerator(input), "t0", 4);
+          return _context.delegateYield(infiniteGenerator(), "t0", 3);
 
-        case 4:
+        case 3:
         case "end":
-          return _context2.stop();
+          return _context.stop();
       }
     }
   }, _marked);
@@ -2194,19 +1956,19 @@ function asyncFunction() {
 
 function _asyncFunction() {
   _asyncFunction = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-    return regeneratorRuntime.wrap(function _callee$(_context3) {
+    return regeneratorRuntime.wrap(function _callee$(_context2) {
       while (1) {
-        switch (_context3.prev = _context3.next) {
+        switch (_context2.prev = _context2.next) {
           case 0:
-            _context3.next = 2;
+            _context2.next = 2;
             return null;
 
           case 2:
-            return _context3.abrupt("return", _context3.sent);
+            return _context2.abrupt("return", _context2.sent);
 
           case 3:
           case "end":
-            return _context3.stop();
+            return _context2.stop();
         }
       }
     }, _callee);
@@ -2247,17 +2009,13 @@ class Foo {
     });
   }
 
-  *methodGenerator(seed) {
-    yield seed;
-  }
-
 }
 
 Foo.bar = 'abc';
 
-function* generator() {
-  const input = yield 'using last argument passed to next()';
-  yield* new Foo().methodGenerator(input);
+function* infiniteGenerator() {
+  yield 1;
+  yield* infiniteGenerator();
 }
 
 async function asyncFunction() {
@@ -2295,17 +2053,13 @@ class Foo {
     });
   }
 
-  *methodGenerator(seed) {
-    yield seed;
-  }
-
 }
 
 Foo.bar = 'abc';
 
-function* generator() {
-  const input = yield 'using last argument passed to next()';
-  yield* new Foo().methodGenerator(input);
+function* infiniteGenerator() {
+  yield 1;
+  yield* infiniteGenerator();
 }
 
 async function asyncFunction() {
@@ -2341,56 +2095,34 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var _marked = /*#__PURE__*/regeneratorRuntime.mark(generator);
+var _marked = /*#__PURE__*/regeneratorRuntime.mark(infiniteGenerator);
 
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 var dynamicImport = import('baz');
 
-var Foo = /*#__PURE__*/function () {
-  function Foo() {
-    this.baz = function (x, y) {
-      return x(Object.assign({}, y));
-    };
-  }
-
-  var _proto = Foo.prototype;
-  _proto.methodGenerator = /*#__PURE__*/regeneratorRuntime.mark(function methodGenerator(seed) {
-    return regeneratorRuntime.wrap(function methodGenerator$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            _context.next = 2;
-            return seed;
-
-          case 2:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, methodGenerator);
-  });
-  return Foo;
-}();
+var Foo = function Foo() {
+  this.baz = function (x, y) {
+    return x(Object.assign({}, y));
+  };
+};
 
 Foo.bar = 'abc';
 
-function generator() {
-  var input;
-  return regeneratorRuntime.wrap(function generator$(_context2) {
+function infiniteGenerator() {
+  return regeneratorRuntime.wrap(function infiniteGenerator$(_context) {
     while (1) {
-      switch (_context2.prev = _context2.next) {
+      switch (_context.prev = _context.next) {
         case 0:
-          _context2.next = 2;
-          return 'using last argument passed to next()';
+          _context.next = 2;
+          return 1;
 
         case 2:
-          input = _context2.sent;
-          return _context2.delegateYield(new Foo().methodGenerator(input), "t0", 4);
+          return _context.delegateYield(infiniteGenerator(), "t0", 3);
 
-        case 4:
+        case 3:
         case "end":
-          return _context2.stop();
+          return _context.stop();
       }
     }
   }, _marked);
@@ -2402,19 +2134,19 @@ function asyncFunction() {
 
 function _asyncFunction() {
   _asyncFunction = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-    return regeneratorRuntime.wrap(function _callee$(_context3) {
+    return regeneratorRuntime.wrap(function _callee$(_context2) {
       while (1) {
-        switch (_context3.prev = _context3.next) {
+        switch (_context2.prev = _context2.next) {
           case 0:
-            _context3.next = 2;
+            _context2.next = 2;
             return null;
 
           case 2:
-            return _context3.abrupt("return", _context3.sent);
+            return _context2.abrupt("return", _context2.sent);
 
           case 3:
           case "end":
-            return _context3.stop();
+            return _context2.stop();
         }
       }
     }, _callee);
@@ -2455,17 +2187,13 @@ class Foo {
     });
   }
 
-  *methodGenerator(seed) {
-    yield seed;
-  }
-
 }
 
 Foo.bar = 'abc';
 
-function* generator() {
-  const input = yield 'using last argument passed to next()';
-  yield* new Foo().methodGenerator(input);
+function* infiniteGenerator() {
+  yield 1;
+  yield* infiniteGenerator();
 }
 
 async function asyncFunction() {
@@ -2499,16 +2227,13 @@ import * as namespaceImport from 'bar'
 const dynamicImport = import('baz')
 
 class Foo {
-  *methodGenerator(seed) {
-    yield seed
-  }
   static bar = 'abc'
   baz = (x, y) => x({...y})
 }
 
-function* generator() {
-  const input = yield 'using last argument passed to next()'
-  yield* new Foo().methodGenerator(input)
+function* infiniteGenerator() {
+  yield 1
+  yield* infiniteGenerator()
 }
 
 async function asyncFunction() {
@@ -2554,17 +2279,13 @@ class Foo {
     });
   }
 
-  *methodGenerator(seed) {
-    yield seed;
-  }
-
 }
 
 Foo.bar = 'abc';
 
-function* generator() {
-  const input = yield 'using last argument passed to next()';
-  yield* new Foo().methodGenerator(input);
+function* infiniteGenerator() {
+  yield 1;
+  yield* infiniteGenerator();
 }
 
 async function asyncFunction() {
@@ -2605,17 +2326,13 @@ class Foo {
     });
   }
 
-  *methodGenerator(seed) {
-    yield seed;
-  }
-
 }
 
 Foo.bar = 'abc';
 
-function* generator() {
-  const input = yield 'using last argument passed to next()';
-  yield* new Foo().methodGenerator(input);
+function* infiniteGenerator() {
+  yield 1;
+  yield* infiniteGenerator();
 }
 
 async function asyncFunction() {
@@ -2655,17 +2372,13 @@ class Foo {
     });
   }
 
-  *methodGenerator(seed) {
-    yield seed;
-  }
-
 }
 
 Foo.bar = 'abc';
 
-function* generator() {
-  const input = yield 'using last argument passed to next()';
-  yield* new Foo().methodGenerator(input);
+function* infiniteGenerator() {
+  yield 1;
+  yield* infiniteGenerator();
 }
 
 async function asyncFunction() {
@@ -2703,17 +2416,13 @@ class Foo {
     });
   }
 
-  *methodGenerator(seed) {
-    yield seed;
-  }
-
 }
 
 Foo.bar = 'abc';
 
-function* generator() {
-  const input = yield 'using last argument passed to next()';
-  yield* new Foo().methodGenerator(input);
+function* infiniteGenerator() {
+  yield 1;
+  yield* infiniteGenerator();
 }
 
 async function asyncFunction() {
@@ -2753,17 +2462,13 @@ class Foo {
     });
   }
 
-  *methodGenerator(seed) {
-    yield seed;
-  }
-
 }
 
 Foo.bar = 'abc';
 
-function* generator() {
-  const input = yield 'using last argument passed to next()';
-  yield* new Foo().methodGenerator(input);
+function* infiniteGenerator() {
+  yield 1;
+  yield* infiniteGenerator();
 }
 
 async function asyncFunction() {
@@ -2803,17 +2508,13 @@ class Foo {
     });
   }
 
-  *methodGenerator(seed) {
-    yield seed;
-  }
-
 }
 
 Foo.bar = 'abc';
 
-function* generator() {
-  const input = yield 'using last argument passed to next()';
-  yield* new Foo().methodGenerator(input);
+function* infiniteGenerator() {
+  yield 1;
+  yield* infiniteGenerator();
 }
 
 async function asyncFunction() {
@@ -2847,16 +2548,13 @@ import * as namespaceImport from 'bar'
 const dynamicImport = import('baz')
 
 class Foo {
-  *methodGenerator(seed) {
-    yield seed
-  }
   static bar = 'abc'
   baz = (x, y) => x({...y})
 }
 
-function* generator() {
-  const input = yield 'using last argument passed to next()'
-  yield* new Foo().methodGenerator(input)
+function* infiniteGenerator() {
+  yield 1
+  yield* infiniteGenerator()
 }
 
 async function asyncFunction() {
@@ -2902,17 +2600,13 @@ class Foo {
     });
   }
 
-  *methodGenerator(seed) {
-    yield seed;
-  }
-
 }
 
 Foo.bar = 'abc';
 
-function* generator() {
-  const input = yield 'using last argument passed to next()';
-  yield* new Foo().methodGenerator(input);
+function* infiniteGenerator() {
+  yield 1;
+  yield* infiniteGenerator();
 }
 
 async function asyncFunction() {
@@ -2946,57 +2640,36 @@ import _asyncToGenerator from "@babel/runtime/helpers/asyncToGenerator";
 
 var _nullishAssignment;
 
-var _marked = /*#__PURE__*/_regeneratorRuntime.mark(generator);
-
 import _regeneratorRuntime from "@babel/runtime/regenerator";
+
+var _marked = /*#__PURE__*/_regeneratorRuntime.mark(infiniteGenerator);
+
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 var dynamicImport = import('baz');
 
-var Foo = /*#__PURE__*/function () {
-  function Foo() {
-    this.baz = function (x, y) {
-      return x(Object.assign({}, y));
-    };
-  }
-
-  var _proto = Foo.prototype;
-  _proto.methodGenerator = /*#__PURE__*/_regeneratorRuntime.mark(function methodGenerator(seed) {
-    return _regeneratorRuntime.wrap(function methodGenerator$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            _context.next = 2;
-            return seed;
-
-          case 2:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, methodGenerator);
-  });
-  return Foo;
-}();
+var Foo = function Foo() {
+  this.baz = function (x, y) {
+    return x(Object.assign({}, y));
+  };
+};
 
 Foo.bar = 'abc';
 
-function generator() {
-  var input;
-  return _regeneratorRuntime.wrap(function generator$(_context2) {
+function infiniteGenerator() {
+  return _regeneratorRuntime.wrap(function infiniteGenerator$(_context) {
     while (1) {
-      switch (_context2.prev = _context2.next) {
+      switch (_context.prev = _context.next) {
         case 0:
-          _context2.next = 2;
-          return 'using last argument passed to next()';
+          _context.next = 2;
+          return 1;
 
         case 2:
-          input = _context2.sent;
-          return _context2.delegateYield(new Foo().methodGenerator(input), "t0", 4);
+          return _context.delegateYield(infiniteGenerator(), "t0", 3);
 
-        case 4:
+        case 3:
         case "end":
-          return _context2.stop();
+          return _context.stop();
       }
     }
   }, _marked);
@@ -3008,19 +2681,19 @@ function asyncFunction() {
 
 function _asyncFunction() {
   _asyncFunction = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee() {
-    return _regeneratorRuntime.wrap(function _callee$(_context3) {
+    return _regeneratorRuntime.wrap(function _callee$(_context2) {
       while (1) {
-        switch (_context3.prev = _context3.next) {
+        switch (_context2.prev = _context2.next) {
           case 0:
-            _context3.next = 2;
+            _context2.next = 2;
             return null;
 
           case 2:
-            return _context3.abrupt("return", _context3.sent);
+            return _context2.abrupt("return", _context2.sent);
 
           case 3:
           case "end":
-            return _context3.stop();
+            return _context2.stop();
         }
       }
     }, _callee);
@@ -3061,17 +2734,13 @@ class Foo {
     });
   }
 
-  *methodGenerator(seed) {
-    yield seed;
-  }
-
 }
 
 Foo.bar = 'abc';
 
-function* generator() {
-  const input = yield 'using last argument passed to next()';
-  yield* new Foo().methodGenerator(input);
+function* infiniteGenerator() {
+  yield 1;
+  yield* infiniteGenerator();
 }
 
 async function asyncFunction() {
@@ -3109,17 +2778,13 @@ class Foo {
     });
   }
 
-  *methodGenerator(seed) {
-    yield seed;
-  }
-
 }
 
 Foo.bar = 'abc';
 
-function* generator() {
-  const input = yield 'using last argument passed to next()';
-  yield* new Foo().methodGenerator(input);
+function* infiniteGenerator() {
+  yield 1;
+  yield* infiniteGenerator();
 }
 
 async function asyncFunction() {
@@ -3152,57 +2817,36 @@ import _asyncToGenerator from "@babel/runtime/helpers/asyncToGenerator";
 
 var _nullishAssignment;
 
-var _marked = /*#__PURE__*/_regeneratorRuntime.mark(generator);
-
 import _regeneratorRuntime from "@babel/runtime/regenerator";
+
+var _marked = /*#__PURE__*/_regeneratorRuntime.mark(infiniteGenerator);
+
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 var dynamicImport = import('baz');
 
-var Foo = /*#__PURE__*/function () {
-  function Foo() {
-    this.baz = function (x, y) {
-      return x(Object.assign({}, y));
-    };
-  }
-
-  var _proto = Foo.prototype;
-  _proto.methodGenerator = /*#__PURE__*/_regeneratorRuntime.mark(function methodGenerator(seed) {
-    return _regeneratorRuntime.wrap(function methodGenerator$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            _context.next = 2;
-            return seed;
-
-          case 2:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, methodGenerator);
-  });
-  return Foo;
-}();
+var Foo = function Foo() {
+  this.baz = function (x, y) {
+    return x(Object.assign({}, y));
+  };
+};
 
 Foo.bar = 'abc';
 
-function generator() {
-  var input;
-  return _regeneratorRuntime.wrap(function generator$(_context2) {
+function infiniteGenerator() {
+  return _regeneratorRuntime.wrap(function infiniteGenerator$(_context) {
     while (1) {
-      switch (_context2.prev = _context2.next) {
+      switch (_context.prev = _context.next) {
         case 0:
-          _context2.next = 2;
-          return 'using last argument passed to next()';
+          _context.next = 2;
+          return 1;
 
         case 2:
-          input = _context2.sent;
-          return _context2.delegateYield(new Foo().methodGenerator(input), "t0", 4);
+          return _context.delegateYield(infiniteGenerator(), "t0", 3);
 
-        case 4:
+        case 3:
         case "end":
-          return _context2.stop();
+          return _context.stop();
       }
     }
   }, _marked);
@@ -3214,19 +2858,19 @@ function asyncFunction() {
 
 function _asyncFunction() {
   _asyncFunction = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee() {
-    return _regeneratorRuntime.wrap(function _callee$(_context3) {
+    return _regeneratorRuntime.wrap(function _callee$(_context2) {
       while (1) {
-        switch (_context3.prev = _context3.next) {
+        switch (_context2.prev = _context2.next) {
           case 0:
-            _context3.next = 2;
+            _context2.next = 2;
             return null;
 
           case 2:
-            return _context3.abrupt("return", _context3.sent);
+            return _context2.abrupt("return", _context2.sent);
 
           case 3:
           case "end":
-            return _context3.stop();
+            return _context2.stop();
         }
       }
     }, _callee);
@@ -3267,17 +2911,13 @@ class Foo {
     });
   }
 
-  *methodGenerator(seed) {
-    yield seed;
-  }
-
 }
 
 Foo.bar = 'abc';
 
-function* generator() {
-  const input = yield 'using last argument passed to next()';
-  yield* new Foo().methodGenerator(input);
+function* infiniteGenerator() {
+  yield 1;
+  yield* infiniteGenerator();
 }
 
 async function asyncFunction() {
@@ -4435,104 +4075,4 @@ exports[`transpiles TSX given {}: output (production-modern) 1`] = `
 export default function add(a, b) {
   return a + b;
 }
-`;
-
-exports[`transpiles test env given {"targets":{"node":"14.14","browsers":[]}}: input 1`] = `
-import defaultImport, {namedImport} from 'foo'
-import * as namespaceImport from 'bar'
-
-const dynamicImport = import('baz')
-
-class Foo {
-  *methodGenerator(seed) {
-    yield seed
-  }
-  static bar = 'abc'
-  baz = (x, y) => x({...y})
-}
-
-function* generator() {
-  const input = yield 'using last argument passed to next()'
-  yield* new Foo().methodGenerator(input)
-}
-
-async function asyncFunction() {
-  return await null
-}
-
-const obj = {a: 1, b: 2}
-
-const spread = {...obj, b: 2, c: 3}
-const {a, ...rest} = spread
-
-let nullishAssignment
-nullishAssignment ??= 1
-const nullishCoalescing = obj ?? 1
-const optionalChaining = obj?.b
-
-export default obj
-export {obj}
-
-`;
-
-exports[`transpiles test env given {"targets":{"node":"14.14","browsers":[]}}: output (test) 1`] = `
-"use strict";
-
-var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard").default;
-
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
-
-exports.__esModule = true;
-exports.obj = exports.default = void 0;
-
-var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
-
-var _foo = _interopRequireWildcard3(require("foo"));
-
-var namespaceImport = _interopRequireWildcard3(require("bar"));
-
-const dynamicImport = Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require('baz')));
-
-class Foo {
-  constructor() {
-    this.baz = (x, y) => x({ ...y
-    });
-  }
-
-  *methodGenerator(seed) {
-    yield seed;
-  }
-
-}
-
-Foo.bar = 'abc';
-
-function* generator() {
-  const input = yield 'using last argument passed to next()';
-  yield* new Foo().methodGenerator(input);
-}
-
-async function asyncFunction() {
-  return await null;
-}
-
-const obj = {
-  a: 1,
-  b: 2
-};
-exports.obj = obj;
-const spread = { ...obj,
-  b: 2,
-  c: 3
-};
-const {
-  a,
-  ...rest
-} = spread;
-let nullishAssignment;
-nullishAssignment ?? (nullishAssignment = 1);
-const nullishCoalescing = obj ?? 1;
-const optionalChaining = obj?.b;
-var _default = obj;
-exports.default = _default;
 `;
