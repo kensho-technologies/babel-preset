@@ -32,19 +32,19 @@ function macro(
     const input = fs.readFileSync(file, 'utf8')
     expect(input).toMatchSnapshot('input')
 
+    const resolvedPresetOptions = {
+      ...presetOptions,
+      configPath: `${__dirname}/fixtures`,
+    }
+
     const {environments} = macroOptions
     environments.forEach((envName) => {
-      const presets: PluginItem[] = [[preset, presetOptions]]
+      const presets: PluginItem[] = [[preset, resolvedPresetOptions]]
       const options: TransformOptions = {
         envName,
         presets,
         filename: `/${fixture}`,
         babelrc: false,
-        // TODO: check if browserslist can be moved to the fixtures/ directory once https://github.com/babel/babel/pull/13031 is merged
-        // TODO: remove @ts-ignore once typedefs catch up with API
-        // Note: this option seems to be necessary even for config files at project root
-        // @ts-ignore
-        browserslistConfigFile: `${__dirname}/.browserslistrc`,
       }
       const result = transform(input, options)
       expect(result?.code).toMatchSnapshot(`output (${envName})`)

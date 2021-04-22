@@ -39,6 +39,7 @@ module.exports = (babel, options) => {
     )
   }
   const {
+    browserslistEnv = env.includes('modern') ? 'production-modern' : undefined,
     emotion = false,
     include = env.includes('development') || env.includes('production')
       ? APP_PLUGIN_INCLUDE_LIST
@@ -49,6 +50,7 @@ module.exports = (babel, options) => {
     runtime = true,
     targets = getDefaultTargets(env),
     typescript = {},
+    ...rest
   } = options
   const {reactRefresh = env.includes('development') && react && {}} = options
 
@@ -70,6 +72,8 @@ module.exports = (babel, options) => {
       [
         require('@babel/preset-env').default,
         {
+          ...rest,
+          browserslistEnv,
           include,
           loose,
           modules,
@@ -77,7 +81,6 @@ module.exports = (babel, options) => {
           bugfixes: true,
           corejs: 3,
           useBuiltIns: 'entry',
-          browserslistEnv: env.includes('modern') ? 'production-modern' : undefined, // defaults to [production]
         },
       ],
     ],
