@@ -2,8 +2,8 @@
 
 const NODE_MODULES_REGEX = /node_modules/
 
-// webpack@4 depends on a version of acorn and terser that lack support for optional chaining and nullish
-// coalescing syntax, so, when transpiling an app, these plugins must be included
+// webpack@4 depends on versions of acorn and terser that lack support for certain modern syntax,
+// so, when transpiling an app, these plugins must be included
 const APP_PLUGIN_INCLUDE_LIST = [
   '@babel/plugin-proposal-logical-assignment-operators',
   '@babel/plugin-proposal-nullish-coalescing-operator',
@@ -13,7 +13,7 @@ const APP_PLUGIN_INCLUDE_LIST = [
 const PRECOMPILED_PACKAGES = ['core-js', 'lodash', 'react', 'react-dom', 'whatwg-fetch']
 const PRECOMPILED_PACKAGES_REGEX = new RegExp(`node_modules/(${PRECOMPILED_PACKAGES.join('|')})/`)
 
-const ALLOWED_ENVIRONMENTS = [
+const SUPPORTED_ENVIRONMENTS = [
   'development',
   'production',
   'esm',
@@ -23,6 +23,11 @@ const ALLOWED_ENVIRONMENTS = [
   'production-modern',
 ]
 
+function getUnsupportedEnvMessage(env) {
+  const supportedEnvsString = SUPPORTED_ENVIRONMENTS.join(', ')
+  return `Unexpected Babel environment: \`${env}\`. This preset supports: ${supportedEnvsString}.`
+}
+
 function getDefaultTargets(env) {
   if (env === 'test') return {node: true, browsers: []}
   if (env === 'esm' || env === 'cjs') return {node: '14.14', browsers: []}
@@ -31,13 +36,11 @@ function getDefaultTargets(env) {
 
 module.exports = (babel, options) => {
   const env = babel.env()
-  if (!ALLOWED_ENVIRONMENTS.includes(env)) {
-    throw new Error(
-      `Unsupported babel environment type '${env}'. Environment should be one of: ${ALLOWED_ENVIRONMENTS.join(
-        ', '
-      )}.`
-    )
+
+  if (!SUPPORTED_ENVIRONMENTS.includes(env)) {
+    throw new Error(getUnsupportedEnvMessage(env))
   }
+
   const {
     browserslistEnv = env.includes('modern') ? 'production-modern' : undefined,
     emotion = false,
