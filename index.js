@@ -41,12 +41,14 @@ module.exports = (babel, options) => {
     throw new Error(getUnsupportedEnvMessage(env))
   }
 
+  const isModern = env === 'development-modern' || env === 'production-modern'
+  const isDevelopment = env === 'development' || env === 'development-modern'
+  const isProduction = env === 'production' || env === 'production-modern'
+
   const {
-    browserslistEnv = env.includes('modern') ? 'production-modern' : undefined,
+    browserslistEnv = isModern ? 'production-modern' : undefined,
     emotion = false,
-    include = env.includes('development') || env.includes('production')
-      ? APP_PLUGIN_INCLUDE_LIST
-      : [],
+    include = isDevelopment || isProduction ? APP_PLUGIN_INCLUDE_LIST : [],
     loose = true,
     modules = env === 'test' || env === 'cjs' ? 'commonjs' : false,
     react = {},
@@ -55,7 +57,7 @@ module.exports = (babel, options) => {
     typescript = {},
     ...rest
   } = options
-  const {reactRefresh = env.includes('development') && react && {}} = options
+  const {reactRefresh = isDevelopment && react && {}} = options
 
   const nodeModules = {
     include: NODE_MODULES_REGEX,
@@ -105,7 +107,7 @@ module.exports = (babel, options) => {
       react && [
         require('@babel/preset-react').default,
         {
-          development: env.includes('development'),
+          development: isDevelopment,
           importSource: emotion && reactRuntime === 'automatic' ? '@emotion/react' : undefined,
           useSpread: true,
           ...react,
