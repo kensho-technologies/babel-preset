@@ -23,18 +23,28 @@ module.exports = {
 
 ## Options
 
-The preset can be configured using several options. Note that some options' defaults depend on the [Babel environment](https://babeljs.io/docs/en/options#envname), which may be one of: `development` | `production` | `development-modern` | `production-modern` | `test` | `cjs` | `esm`.
+The preset can be configured using several options. Note that some options' defaults depend on the [Babel environment](https://babeljs.io/docs/en/options#envname), which may be one of the following:
 
-For development, production, and modern Babel environments, the preset integrates with [`browserslist`](https://github.com/browserslist/browserslist) in order to determine which browser version to transpile for. The `browserslist` configuration can specify a monolithic list of browsers, or partition these browsers into groups, enabling the preset to output customized bundles. To make use of the `...-modern` Babel environments, the `browserslist` configuration needs to specify `production` and `production-modern` groups. A monolithic configuration can be upgraded at any time by grouping the original list under `production`, which `browserslist` selects by default.
+| Environment          | Purpose                                                              |
+| -------------------- | -------------------------------------------------------------------- |
+| `development`        | Transpiling an app for development.                                  |
+| `production`         | Transpiling an app for production.                                   |
+| `development-modern` | Transpiling an app for development with only modern browser support. |
+| `production-modern`  | Transpiling an app for production with only modern browser support.  |
+| `test`               | Transpiling an app or library to run in the current version of Node. |
+| `cjs`                | Transpiling a library for distribution as CJS.                       |
+| `esm`                | Transpiling a library for distribution as ESM.                       |
 
-The preset configuration also accepts and forwards all options applicable to [`@babel/preset-env`](https://babeljs.io/docs/en/babel-preset-env).
+The present extends [`@babel/preset-env`](https://babeljs.io/docs/en/babel-preset-env), and forwards all additional options to that preset.
+
+Browser support is provided by `@babel/preset-env`'s [`browserslist` integration](https://babeljs.io/docs/en/babel-preset-env#browserslist-integration), where browser support is declared in a `.browserslistrc` file which can either contain a single set of browser queries or [multiple named groups of queries](https://github.com/browserslist/browserslist#configuring-for-different-environments). This preset's `development` and `production` envs will use the default (`production`) group while the `development-modern` and `production-modern` envs will use a `production-modern` group. Be sure to specify these groups if using the corresponding environments.
 
 ### `browserslistEnv`
 
 `string` | `undefined`<br />
-Default: `production-modern` for modern Babel envrionments, `undefined` otherwise
+Default: `production-modern` for `development-modern` and `production-modern` envs, `undefined` otherwise
 
-Whether to override the target [browsers group](https://github.com/browserslist/browserslist#configuring-for-different-environments). Forwarded to `@babel/preset-env`.
+The Browserslist environment to use. Forwarded to [the corresponding option in `@babel/preset-env`](https://babeljs.io/docs/en/babel-preset-env#browserslistenv).
 
 ### `emotion`
 
