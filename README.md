@@ -37,12 +37,12 @@ The preset can be configured using several options. Note that some options' defa
 
 The present extends [`@babel/preset-env`](https://babeljs.io/docs/en/babel-preset-env), and forwards all additional options to that preset.
 
-Browser support is provided by `@babel/preset-env`'s [`browserslist` integration](https://babeljs.io/docs/en/babel-preset-env#browserslist-integration), where browser support is declared in a `.browserslistrc` file which can either contain a single set of browser queries or [multiple named groups of queries](https://github.com/browserslist/browserslist#configuring-for-different-environments). This preset's `development` and `production` envs will use the default (`production`) group while the `development-modern` and `production-modern` envs will use a `production-modern` group. Be sure to specify these groups if using the corresponding environments.
+Browser support is provided by `@babel/preset-env`'s [`browserslist` integration](https://babeljs.io/docs/en/babel-preset-env#browserslist-integration), where browser support is declared in a `.browserslistrc` file which can either contain a single set of browser queries or [multiple named groups of queries](https://github.com/browserslist/browserslist#configuring-for-different-environments). This preset's `development` and `production` envs will use the default (`production`) group while the `development-modern` and `production-modern` envs will use a `modern` group. Be sure to specify these groups if using the corresponding environments.
 
 ### `browserslistEnv`
 
 `string` | `undefined`<br />
-Default: `production-modern` for `development-modern` and `production-modern` envs, `undefined` otherwise
+Default: `modern` for `development-modern` and `production-modern` envs, `undefined` otherwise
 
 The Browserslist environment to use. Forwarded to [the corresponding option in `@babel/preset-env`](https://babeljs.io/docs/en/babel-preset-env#browserslistenv).
 

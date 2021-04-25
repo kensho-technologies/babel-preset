@@ -46,7 +46,7 @@ module.exports = (babel, options) => {
   const isProduction = env === 'production' || env === 'production-modern'
 
   const {
-    browserslistEnv = isModern ? 'production-modern' : undefined,
+    browserslistEnv = isModern ? 'modern' : undefined,
     emotion = false,
     include = isDevelopment || isProduction ? APP_PLUGIN_INCLUDE_LIST : [],
     loose = true,
