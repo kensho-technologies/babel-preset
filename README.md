@@ -23,7 +23,28 @@ module.exports = {
 
 ## Options
 
-The preset can be configured using several options. Note that some options' defaults depend on the [Babel environment](https://babeljs.io/docs/en/options#envname), which may be one of: `development` | `production` | `test` | `cjs` | `esm`
+The preset can be configured using several options. Note that some options' defaults depend on the [Babel environment](https://babeljs.io/docs/en/options#envname), which may be one of the following:
+
+| Environment          | Purpose                                                              |
+| -------------------- | -------------------------------------------------------------------- |
+| `development`        | Transpiling an app for development.                                  |
+| `production`         | Transpiling an app for production.                                   |
+| `development-modern` | Transpiling an app for development with only modern browser support. |
+| `production-modern`  | Transpiling an app for production with only modern browser support.  |
+| `test`               | Transpiling an app or library to run in the current version of Node. |
+| `cjs`                | Transpiling a library for distribution as CJS.                       |
+| `esm`                | Transpiling a library for distribution as ESM.                       |
+
+The present extends [`@babel/preset-env`](https://babeljs.io/docs/en/babel-preset-env), and forwards all additional options to that preset.
+
+Browser support is provided by `@babel/preset-env`'s [`browserslist` integration](https://babeljs.io/docs/en/babel-preset-env#browserslist-integration), where browser support is declared in a `.browserslistrc` file which can either contain a single set of browser queries or [multiple named groups of queries](https://github.com/browserslist/browserslist#configuring-for-different-environments). This preset's `development` and `production` envs will use the default (`production`) group while the `development-modern` and `production-modern` envs will use a `modern` group. Be sure to specify these groups if using the corresponding environments.
+
+### `browserslistEnv`
+
+`string` | `undefined`<br />
+Default: `modern` for `development-modern` and `production-modern` envs, `undefined` otherwise
+
+The Browserslist environment to use. Forwarded to [the corresponding option in `@babel/preset-env`](https://babeljs.io/docs/en/babel-preset-env#browserslistenv).
 
 ### `emotion`
 

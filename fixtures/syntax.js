@@ -8,11 +8,22 @@ class Foo {
   baz = (x, y) => x({...y})
 }
 
+function* infiniteGenerator() {
+  yield 1
+  yield* infiniteGenerator()
+}
+
+async function asyncFunction() {
+  return await null
+}
+
 const obj = {a: 1, b: 2}
 
 const spread = {...obj, b: 2, c: 3}
 const {a, ...rest} = spread
 
+let nullishAssignment
+nullishAssignment ??= 1
 const nullishCoalescing = obj ?? 1
 const optionalChaining = obj?.b
 

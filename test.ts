@@ -5,7 +5,16 @@ import {PluginItem, transform, TransformOptions} from '@babel/core'
 
 import preset from '.'
 
-const ENVS = ['development', 'production', 'esm', 'cjs']
+// the 'test' environment is excluded because it targets the currently running version of Node
+// since our CI runs multiple Node versions, a snapshot for 'test' might not match one of them
+const NON_TEST_ENVIRONMENTS = [
+  'development',
+  'production',
+  'esm',
+  'cjs',
+  'development-modern',
+  'production-modern',
+]
 
 expect.addSnapshotSerializer({
   test: (val: unknown) => typeof val === 'string',
@@ -18,9 +27,19 @@ function macro(title: string, fixture: string, presetOptions = {}): void {
     const input = fs.readFileSync(file, 'utf8')
     expect(input).toMatchSnapshot('input')
 
-    ENVS.forEach((envName) => {
-      const presets: PluginItem[] = [[preset, presetOptions]]
-      const options: TransformOptions = {envName, presets, filename: `/${fixture}`, babelrc: false}
+    const resolvedPresetOptions = {
+      ...presetOptions,
+      configPath: `${__dirname}/fixtures`,
+    }
+
+    NON_TEST_ENVIRONMENTS.forEach((envName) => {
+      const presets: PluginItem[] = [[preset, resolvedPresetOptions]]
+      const options: TransformOptions = {
+        envName,
+        presets,
+        filename: `/${fixture}`,
+        babelrc: false,
+      }
       const result = transform(input, options)
       expect(result?.code).toMatchSnapshot(`output (${envName})`)
     })
@@ -28,7 +47,7 @@ function macro(title: string, fixture: string, presetOptions = {}): void {
 }
 
 macro('transpiles ES2020+ syntax', 'syntax.js')
-macro('transpiles ES2020+ syntax', 'syntax.js', {targets: 'last 2 Chrome versions'})
+macro('transpiles ES2020+ syntax', 'syntax.js', {targets: 'Chrome 88'})
 macro('transpiles ES2020+ syntax', 'syntax.js', {loose: false})
 macro('transpiles ES2020+ syntax', 'syntax.js', {runtime: false})
 macro('transpiles ES2020+ syntax', 'syntax.js', {modules: 'commonjs'})

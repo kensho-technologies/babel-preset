@@ -2,35 +2,62 @@
 
 const NODE_MODULES_REGEX = /node_modules/
 
-// webpack@4 depends on a version of acorn that lacks support for optional chaining and nullish
-// coalescing syntax, so, when transpiling an app, these plugins must be included
+// webpack@4 depends on versions of acorn and terser that lack support for certain modern syntax,
+// so, when transpiling an app, these plugins must be included
 const APP_PLUGIN_INCLUDE_LIST = [
-  '@babel/plugin-proposal-optional-chaining',
+  '@babel/plugin-proposal-logical-assignment-operators',
   '@babel/plugin-proposal-nullish-coalescing-operator',
+  '@babel/plugin-proposal-optional-chaining',
 ]
 
 const PRECOMPILED_PACKAGES = ['core-js', 'lodash', 'react', 'react-dom', 'whatwg-fetch']
 const PRECOMPILED_PACKAGES_REGEX = new RegExp(`node_modules/(${PRECOMPILED_PACKAGES.join('|')})/`)
 
+const SUPPORTED_ENVIRONMENTS = [
+  'development',
+  'production',
+  'esm',
+  'cjs',
+  'test',
+  'development-modern',
+  'production-modern',
+]
+
+function getUnsupportedEnvMessage(env) {
+  const supportedEnvsString = SUPPORTED_ENVIRONMENTS.join(', ')
+  return `Unexpected Babel environment: \`${env}\`. This preset supports: ${supportedEnvsString}.`
+}
+
 function getDefaultTargets(env) {
   if (env === 'test') return {node: true, browsers: []}
   if (env === 'esm' || env === 'cjs') return {node: '14.14', browsers: []}
-  return undefined
+  return undefined // targets will be overridden using the browserslistEnv preset-env config
 }
 
 module.exports = (babel, options) => {
   const env = babel.env()
+
+  if (!SUPPORTED_ENVIRONMENTS.includes(env)) {
+    throw new Error(getUnsupportedEnvMessage(env))
+  }
+
+  const isModern = env === 'development-modern' || env === 'production-modern'
+  const isDevelopment = env === 'development' || env === 'development-modern'
+  const isProduction = env === 'production' || env === 'production-modern'
+
   const {
+    browserslistEnv = isModern ? 'modern' : undefined,
     emotion = false,
-    include = env === 'development' || env === 'production' ? APP_PLUGIN_INCLUDE_LIST : [],
+    include = isDevelopment || isProduction ? APP_PLUGIN_INCLUDE_LIST : [],
     loose = true,
     modules = env === 'test' || env === 'cjs' ? 'commonjs' : false,
     react = {},
     runtime = true,
     targets = getDefaultTargets(env),
     typescript = {},
+    ...rest
   } = options
-  const {reactRefresh = env === 'development' && react && {}} = options
+  const {reactRefresh = isDevelopment && react && {}} = options
 
   const nodeModules = {
     include: NODE_MODULES_REGEX,
@@ -49,7 +76,17 @@ module.exports = (babel, options) => {
     presets: [
       [
         require('@babel/preset-env').default,
-        {include, loose, modules, targets, bugfixes: true, corejs: 3, useBuiltIns: 'entry'},
+        {
+          ...rest,
+          browserslistEnv,
+          include,
+          loose,
+          modules,
+          targets,
+          bugfixes: true,
+          corejs: 3,
+          useBuiltIns: 'entry',
+        },
       ],
     ],
   }
@@ -70,7 +107,7 @@ module.exports = (babel, options) => {
       react && [
         require('@babel/preset-react').default,
         {
-          development: env === 'development',
+          development: isDevelopment,
           importSource: emotion && reactRuntime === 'automatic' ? '@emotion/react' : undefined,
           useSpread: true,
           ...react,
