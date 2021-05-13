@@ -1,6 +1,6 @@
 {
   "name": "@kensho-technologies/babel-preset",
-  "version": "17.0.0",
+  "version": "17.1.0",
   "description": "Babel preset to transpile ES2020/TS/JSX.",
   "publishConfig": {
     "access": "public"
