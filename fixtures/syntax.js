@@ -6,6 +6,9 @@ const dynamicImport = import('baz')
 class Foo {
   static bar = 'abc'
   baz = (x, y) => x({...y})
+  #privateMethod() {
+    return 1
+  }
 }
 
 function* infiniteGenerator() {
