@@ -5,6 +5,8 @@ const NODE_MODULES_REGEX = /node_modules/
 // webpack@4 depends on versions of acorn and terser that lack support for certain modern syntax,
 // so, when transpiling an app, these plugins must be included
 const APP_PLUGIN_INCLUDE_LIST = [
+  '@babel/plugin-proposal-class-properties',
+  '@babel/plugin-proposal-private-methods',
   '@babel/plugin-proposal-logical-assignment-operators',
   '@babel/plugin-proposal-nullish-coalescing-operator',
   '@babel/plugin-proposal-optional-chaining',
@@ -98,7 +100,6 @@ module.exports = (babel, options) => {
   const nonNodeModules = {
     exclude: NODE_MODULES_REGEX,
     plugins: [
-      [require('@babel/plugin-proposal-class-properties').default, {loose}],
       reactRefresh && [require('react-refresh/babel'), {skipEnvCheck: true, ...reactRefresh}],
       isEmotionPluginEnabled && [require('@emotion/babel-plugin').default, {...emotion}],
     ].filter(Boolean),

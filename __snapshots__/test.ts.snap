@@ -522,8 +522,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.obj = exports.default = void 0;
 
-var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
-
 var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
 
 var _foo = _interopRequireWildcard3(require("foo"));
@@ -533,14 +531,10 @@ var namespaceImport = _interopRequireWildcard3(require("bar"));
 const dynamicImport = Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require('baz')));
 
 class Foo {
-  constructor() {
-    (0, _defineProperty2.default)(this, "baz", (x, y) => x({ ...y
-    }));
-  }
-
+  static bar = 'abc';
+  baz = (x, y) => x({ ...y
+  });
 }
-
-(0, _defineProperty2.default)(Foo, "bar", 'abc');
 
 function* infiniteGenerator() {
   yield 1;
@@ -714,20 +708,15 @@ export { obj };
 `;
 
 exports[`transpiles ES2020+ syntax given {"loose":false}: output (esm) 1`] = `
-import _defineProperty from "@babel/runtime/helpers/defineProperty";
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
 
 class Foo {
-  constructor() {
-    _defineProperty(this, "baz", (x, y) => x({ ...y
-    }));
-  }
-
+  static bar = 'abc';
+  baz = (x, y) => x({ ...y
+  });
 }
-
-_defineProperty(Foo, "bar", 'abc');
 
 function* infiniteGenerator() {
   yield 1;
@@ -953,14 +942,10 @@ var namespaceImport = _interopRequireWildcard3(require("bar"));
 const dynamicImport = Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require('baz')));
 
 class Foo {
-  constructor() {
-    this.baz = (x, y) => x({ ...y
-    });
-  }
-
+  static bar = 'abc';
+  baz = (x, y) => x({ ...y
+  });
 }
-
-Foo.bar = 'abc';
 
 function* infiniteGenerator() {
   yield 1;
@@ -1175,14 +1160,10 @@ var namespaceImport = _interopRequireWildcard3(require("bar"));
 const dynamicImport = Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require('baz')));
 
 class Foo {
-  constructor() {
-    this.baz = (x, y) => x({ ...y
-    });
-  }
-
+  static bar = 'abc';
+  baz = (x, y) => x({ ...y
+  });
 }
-
-Foo.bar = 'abc';
 
 function* infiniteGenerator() {
   yield 1;
@@ -1430,14 +1411,10 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 const dynamicImport = Promise.resolve().then(() => _interopRequireWildcard(require('baz')));
 
 class Foo {
-  constructor() {
-    this.baz = (x, y) => x({ ...y
-    });
-  }
-
+  static bar = 'abc';
+  baz = (x, y) => x({ ...y
+  });
 }
-
-Foo.bar = 'abc';
 
 function* infiniteGenerator() {
   yield 1;
@@ -1609,14 +1586,10 @@ import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
 
 class Foo {
-  constructor() {
-    this.baz = (x, y) => x({ ...y
-    });
-  }
-
+  static bar = 'abc';
+  baz = (x, y) => x({ ...y
+  });
 }
-
-Foo.bar = 'abc';
 
 function* infiniteGenerator() {
   yield 1;
@@ -1835,14 +1808,10 @@ var namespaceImport = _interopRequireWildcard3(require("bar"));
 const dynamicImport = Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require('baz')));
 
 class Foo {
-  constructor() {
-    this.baz = (x, y) => x({ ...y
-    });
-  }
-
+  static bar = 'abc';
+  baz = (x, y) => x({ ...y
+  });
 }
-
-Foo.bar = 'abc';
 
 function* infiniteGenerator() {
   yield 1;
@@ -1972,14 +1941,10 @@ import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
 
 class Foo {
-  constructor() {
-    this.baz = (x, y) => x({ ...y
-    });
-  }
-
+  static bar = 'abc';
+  baz = (x, y) => x({ ...y
+  });
 }
-
-Foo.bar = 'abc';
 
 function* infiniteGenerator() {
   yield 1;
@@ -2156,14 +2121,10 @@ var namespaceImport = _interopRequireWildcard3(require("bar"));
 const dynamicImport = Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require('baz')));
 
 class Foo {
-  constructor() {
-    this.baz = (x, y) => x({ ...y
-    });
-  }
-
+  static bar = 'abc';
+  baz = (x, y) => x({ ...y
+  });
 }
-
-Foo.bar = 'abc';
 
 function* infiniteGenerator() {
   yield 1;
@@ -2334,14 +2295,10 @@ import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
 
 class Foo {
-  constructor() {
-    this.baz = (x, y) => x({ ...y
-    });
-  }
-
+  static bar = 'abc';
+  baz = (x, y) => x({ ...y
+  });
 }
-
-Foo.bar = 'abc';
 
 function* infiniteGenerator() {
   yield 1;
