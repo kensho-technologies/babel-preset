@@ -484,6 +484,9 @@ const dynamicImport = import('baz')
 class Foo {
   static bar = 'abc'
   baz = (x, y) => x({...y})
+  #privateMethod() {
+    return 1
+  }
 }
 
 function* infiniteGenerator() {
@@ -522,8 +525,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.obj = exports.default = void 0;
 
-var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
-
 var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
 
 var _foo = _interopRequireWildcard3(require("foo"));
@@ -533,14 +534,15 @@ var namespaceImport = _interopRequireWildcard3(require("bar"));
 const dynamicImport = Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require('baz')));
 
 class Foo {
-  constructor() {
-    (0, _defineProperty2.default)(this, "baz", (x, y) => x({ ...y
-    }));
+  static bar = 'abc';
+  baz = (x, y) => x({ ...y
+  });
+
+  #privateMethod() {
+    return 1;
   }
 
 }
-
-(0, _defineProperty2.default)(Foo, "bar", 'abc');
 
 function* infiniteGenerator() {
   yield 1;
@@ -589,13 +591,21 @@ import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 var dynamicImport = import('baz');
 
+var _privateMethod = /*#__PURE__*/new WeakSet();
+
 var Foo = function Foo() {
   _classCallCheck(this, Foo);
+
+  _privateMethod.add(this);
 
   _defineProperty(this, "baz", function (x, y) {
     return x(_objectSpread({}, y));
   });
 };
+
+function _privateMethod2() {
+  return 1;
+}
 
 _defineProperty(Foo, "bar", 'abc');
 
@@ -674,12 +684,20 @@ import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
 
+var _privateMethod = /*#__PURE__*/new WeakSet();
+
 class Foo {
   constructor() {
+    _privateMethod.add(this);
+
     _defineProperty(this, "baz", (x, y) => x({ ...y
     }));
   }
 
+}
+
+function _privateMethod2() {
+  return 1;
 }
 
 _defineProperty(Foo, "bar", 'abc');
@@ -714,20 +732,20 @@ export { obj };
 `;
 
 exports[`transpiles ES2020+ syntax given {"loose":false}: output (esm) 1`] = `
-import _defineProperty from "@babel/runtime/helpers/defineProperty";
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
 
 class Foo {
-  constructor() {
-    _defineProperty(this, "baz", (x, y) => x({ ...y
-    }));
+  static bar = 'abc';
+  baz = (x, y) => x({ ...y
+  });
+
+  #privateMethod() {
+    return 1;
   }
 
 }
-
-_defineProperty(Foo, "bar", 'abc');
 
 function* infiniteGenerator() {
   yield 1;
@@ -775,13 +793,21 @@ import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 var dynamicImport = import('baz');
 
+var _privateMethod = /*#__PURE__*/new WeakSet();
+
 var Foo = function Foo() {
   _classCallCheck(this, Foo);
+
+  _privateMethod.add(this);
 
   _defineProperty(this, "baz", function (x, y) {
     return x(_objectSpread({}, y));
   });
 };
+
+function _privateMethod2() {
+  return 1;
+}
 
 _defineProperty(Foo, "bar", 'abc');
 
@@ -860,12 +886,20 @@ import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
 
+var _privateMethod = /*#__PURE__*/new WeakSet();
+
 class Foo {
   constructor() {
+    _privateMethod.add(this);
+
     _defineProperty(this, "baz", (x, y) => x({ ...y
     }));
   }
 
+}
+
+function _privateMethod2() {
+  return 1;
 }
 
 _defineProperty(Foo, "bar", 'abc');
@@ -908,6 +942,9 @@ const dynamicImport = import('baz')
 class Foo {
   static bar = 'abc'
   baz = (x, y) => x({...y})
+  #privateMethod() {
+    return 1
+  }
 }
 
 function* infiniteGenerator() {
@@ -953,14 +990,15 @@ var namespaceImport = _interopRequireWildcard3(require("bar"));
 const dynamicImport = Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require('baz')));
 
 class Foo {
-  constructor() {
-    this.baz = (x, y) => x({ ...y
-    });
+  static bar = 'abc';
+  baz = (x, y) => x({ ...y
+  });
+
+  #privateMethod() {
+    return 1;
   }
 
 }
-
-Foo.bar = 'abc';
 
 function* infiniteGenerator() {
   yield 1;
@@ -1010,6 +1048,8 @@ var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runt
 
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
 
+var _classPrivateFieldLooseKey2 = _interopRequireDefault(require("@babel/runtime/helpers/classPrivateFieldLooseKey"));
+
 var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
 
 var _foo = _interopRequireWildcard3(require("foo"));
@@ -1024,11 +1064,21 @@ var dynamicImport = Promise.resolve().then(function () {
   return (0, _interopRequireWildcard2["default"])(require('baz'));
 });
 
+var _privateMethod = /*#__PURE__*/(0, _classPrivateFieldLooseKey2["default"])("privateMethod");
+
 var Foo = function Foo() {
+  Object.defineProperty(this, _privateMethod, {
+    value: _privateMethod2
+  });
+
   this.baz = function (x, y) {
     return x(Object.assign({}, y));
   };
 };
+
+function _privateMethod2() {
+  return 1;
+}
 
 Foo.bar = 'abc';
 
@@ -1106,6 +1156,8 @@ var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWil
 exports.__esModule = true;
 exports.obj = exports.default = void 0;
 
+var _classPrivateFieldLooseKey2 = _interopRequireDefault(require("@babel/runtime/helpers/classPrivateFieldLooseKey"));
+
 var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
 
 var _foo = _interopRequireWildcard3(require("foo"));
@@ -1116,12 +1168,22 @@ var _nullishAssignment;
 
 const dynamicImport = Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require('baz')));
 
+var _privateMethod = /*#__PURE__*/(0, _classPrivateFieldLooseKey2.default)("privateMethod");
+
 class Foo {
   constructor() {
+    Object.defineProperty(this, _privateMethod, {
+      value: _privateMethod2
+    });
+
     this.baz = (x, y) => x({ ...y
     });
   }
 
+}
+
+function _privateMethod2() {
+  return 1;
 }
 
 Foo.bar = 'abc';
@@ -1175,14 +1237,15 @@ var namespaceImport = _interopRequireWildcard3(require("bar"));
 const dynamicImport = Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require('baz')));
 
 class Foo {
-  constructor() {
-    this.baz = (x, y) => x({ ...y
-    });
+  static bar = 'abc';
+  baz = (x, y) => x({ ...y
+  });
+
+  #privateMethod() {
+    return 1;
   }
 
 }
-
-Foo.bar = 'abc';
 
 function* infiniteGenerator() {
   yield 1;
@@ -1232,6 +1295,8 @@ var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runt
 
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
 
+var _classPrivateFieldLooseKey2 = _interopRequireDefault(require("@babel/runtime/helpers/classPrivateFieldLooseKey"));
+
 var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
 
 var _foo = _interopRequireWildcard3(require("foo"));
@@ -1246,11 +1311,21 @@ var dynamicImport = Promise.resolve().then(function () {
   return (0, _interopRequireWildcard2["default"])(require('baz'));
 });
 
+var _privateMethod = /*#__PURE__*/(0, _classPrivateFieldLooseKey2["default"])("privateMethod");
+
 var Foo = function Foo() {
+  Object.defineProperty(this, _privateMethod, {
+    value: _privateMethod2
+  });
+
   this.baz = function (x, y) {
     return x(Object.assign({}, y));
   };
 };
+
+function _privateMethod2() {
+  return 1;
+}
 
 Foo.bar = 'abc';
 
@@ -1328,6 +1403,8 @@ var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWil
 exports.__esModule = true;
 exports.obj = exports.default = void 0;
 
+var _classPrivateFieldLooseKey2 = _interopRequireDefault(require("@babel/runtime/helpers/classPrivateFieldLooseKey"));
+
 var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
 
 var _foo = _interopRequireWildcard3(require("foo"));
@@ -1338,12 +1415,22 @@ var _nullishAssignment;
 
 const dynamicImport = Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require('baz')));
 
+var _privateMethod = /*#__PURE__*/(0, _classPrivateFieldLooseKey2.default)("privateMethod");
+
 class Foo {
   constructor() {
+    Object.defineProperty(this, _privateMethod, {
+      value: _privateMethod2
+    });
+
     this.baz = (x, y) => x({ ...y
     });
   }
 
+}
+
+function _privateMethod2() {
+  return 1;
 }
 
 Foo.bar = 'abc';
@@ -1387,6 +1474,9 @@ const dynamicImport = import('baz')
 class Foo {
   static bar = 'abc'
   baz = (x, y) => x({...y})
+  #privateMethod() {
+    return 1
+  }
 }
 
 function* infiniteGenerator() {
@@ -1430,14 +1520,15 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 const dynamicImport = Promise.resolve().then(() => _interopRequireWildcard(require('baz')));
 
 class Foo {
-  constructor() {
-    this.baz = (x, y) => x({ ...y
-    });
+  static bar = 'abc';
+  baz = (x, y) => x({ ...y
+  });
+
+  #privateMethod() {
+    return 1;
   }
 
 }
-
-Foo.bar = 'abc';
 
 function* infiniteGenerator() {
   yield 1;
@@ -1480,15 +1571,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var _marked = /*#__PURE__*/regeneratorRuntime.mark(infiniteGenerator);
 
+var id = 0;
+
+function _classPrivateFieldLooseKey(name) { return "__private_" + id++ + "_" + name; }
+
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 var dynamicImport = import('baz');
 
+var _privateMethod = /*#__PURE__*/_classPrivateFieldLooseKey("privateMethod");
+
 var Foo = function Foo() {
+  Object.defineProperty(this, _privateMethod, {
+    value: _privateMethod2
+  });
+
   this.baz = function (x, y) {
     return x(Object.assign({}, y));
   };
 };
+
+function _privateMethod2() {
+  return 1;
+}
 
 Foo.bar = 'abc';
 
@@ -1560,16 +1665,30 @@ export { obj };
 exports[`transpiles ES2020+ syntax given {"runtime":false}: output (development-modern) 1`] = `
 var _nullishAssignment;
 
+var id = 0;
+
+function _classPrivateFieldLooseKey(name) { return "__private_" + id++ + "_" + name; }
+
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
 
+var _privateMethod = /*#__PURE__*/_classPrivateFieldLooseKey("privateMethod");
+
 class Foo {
   constructor() {
+    Object.defineProperty(this, _privateMethod, {
+      value: _privateMethod2
+    });
+
     this.baz = (x, y) => x({ ...y
     });
   }
 
+}
+
+function _privateMethod2() {
+  return 1;
 }
 
 Foo.bar = 'abc';
@@ -1609,14 +1728,15 @@ import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
 
 class Foo {
-  constructor() {
-    this.baz = (x, y) => x({ ...y
-    });
+  static bar = 'abc';
+  baz = (x, y) => x({ ...y
+  });
+
+  #privateMethod() {
+    return 1;
   }
 
 }
-
-Foo.bar = 'abc';
 
 function* infiniteGenerator() {
   yield 1;
@@ -1658,15 +1778,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var _marked = /*#__PURE__*/regeneratorRuntime.mark(infiniteGenerator);
 
+var id = 0;
+
+function _classPrivateFieldLooseKey(name) { return "__private_" + id++ + "_" + name; }
+
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 var dynamicImport = import('baz');
 
+var _privateMethod = /*#__PURE__*/_classPrivateFieldLooseKey("privateMethod");
+
 var Foo = function Foo() {
+  Object.defineProperty(this, _privateMethod, {
+    value: _privateMethod2
+  });
+
   this.baz = function (x, y) {
     return x(Object.assign({}, y));
   };
 };
+
+function _privateMethod2() {
+  return 1;
+}
 
 Foo.bar = 'abc';
 
@@ -1738,16 +1872,30 @@ export { obj };
 exports[`transpiles ES2020+ syntax given {"runtime":false}: output (production-modern) 1`] = `
 var _nullishAssignment;
 
+var id = 0;
+
+function _classPrivateFieldLooseKey(name) { return "__private_" + id++ + "_" + name; }
+
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
 
+var _privateMethod = /*#__PURE__*/_classPrivateFieldLooseKey("privateMethod");
+
 class Foo {
   constructor() {
+    Object.defineProperty(this, _privateMethod, {
+      value: _privateMethod2
+    });
+
     this.baz = (x, y) => x({ ...y
     });
   }
 
+}
+
+function _privateMethod2() {
+  return 1;
 }
 
 Foo.bar = 'abc';
@@ -1790,6 +1938,9 @@ const dynamicImport = import('baz')
 class Foo {
   static bar = 'abc'
   baz = (x, y) => x({...y})
+  #privateMethod() {
+    return 1
+  }
 }
 
 function* infiniteGenerator() {
@@ -1835,14 +1986,15 @@ var namespaceImport = _interopRequireWildcard3(require("bar"));
 const dynamicImport = Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require('baz')));
 
 class Foo {
-  constructor() {
-    this.baz = (x, y) => x({ ...y
-    });
+  static bar = 'abc';
+  baz = (x, y) => x({ ...y
+  });
+
+  #privateMethod() {
+    return 1;
   }
 
 }
-
-Foo.bar = 'abc';
 
 function* infiniteGenerator() {
   yield 1;
@@ -1875,18 +2027,30 @@ exports.default = _default;
 `;
 
 exports[`transpiles ES2020+ syntax given {"targets":"Chrome 88"}: output (development) 1`] = `
+import _classPrivateFieldLooseKey from "@babel/runtime/helpers/classPrivateFieldLooseKey";
+
 var _nullishAssignment;
 
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
 
+var _privateMethod = /*#__PURE__*/_classPrivateFieldLooseKey("privateMethod");
+
 class Foo {
   constructor() {
+    Object.defineProperty(this, _privateMethod, {
+      value: _privateMethod2
+    });
+
     this.baz = (x, y) => x({ ...y
     });
   }
 
+}
+
+function _privateMethod2() {
+  return 1;
 }
 
 Foo.bar = 'abc';
@@ -1921,18 +2085,30 @@ export { obj };
 `;
 
 exports[`transpiles ES2020+ syntax given {"targets":"Chrome 88"}: output (development-modern) 1`] = `
+import _classPrivateFieldLooseKey from "@babel/runtime/helpers/classPrivateFieldLooseKey";
+
 var _nullishAssignment;
 
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
 
+var _privateMethod = /*#__PURE__*/_classPrivateFieldLooseKey("privateMethod");
+
 class Foo {
   constructor() {
+    Object.defineProperty(this, _privateMethod, {
+      value: _privateMethod2
+    });
+
     this.baz = (x, y) => x({ ...y
     });
   }
 
+}
+
+function _privateMethod2() {
+  return 1;
 }
 
 Foo.bar = 'abc';
@@ -1972,14 +2148,15 @@ import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
 
 class Foo {
-  constructor() {
-    this.baz = (x, y) => x({ ...y
-    });
+  static bar = 'abc';
+  baz = (x, y) => x({ ...y
+  });
+
+  #privateMethod() {
+    return 1;
   }
 
 }
-
-Foo.bar = 'abc';
 
 function* infiniteGenerator() {
   yield 1;
@@ -2011,18 +2188,30 @@ export { obj };
 `;
 
 exports[`transpiles ES2020+ syntax given {"targets":"Chrome 88"}: output (production) 1`] = `
+import _classPrivateFieldLooseKey from "@babel/runtime/helpers/classPrivateFieldLooseKey";
+
 var _nullishAssignment;
 
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
 
+var _privateMethod = /*#__PURE__*/_classPrivateFieldLooseKey("privateMethod");
+
 class Foo {
   constructor() {
+    Object.defineProperty(this, _privateMethod, {
+      value: _privateMethod2
+    });
+
     this.baz = (x, y) => x({ ...y
     });
   }
 
+}
+
+function _privateMethod2() {
+  return 1;
 }
 
 Foo.bar = 'abc';
@@ -2057,18 +2246,30 @@ export { obj };
 `;
 
 exports[`transpiles ES2020+ syntax given {"targets":"Chrome 88"}: output (production-modern) 1`] = `
+import _classPrivateFieldLooseKey from "@babel/runtime/helpers/classPrivateFieldLooseKey";
+
 var _nullishAssignment;
 
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
 
+var _privateMethod = /*#__PURE__*/_classPrivateFieldLooseKey("privateMethod");
+
 class Foo {
   constructor() {
+    Object.defineProperty(this, _privateMethod, {
+      value: _privateMethod2
+    });
+
     this.baz = (x, y) => x({ ...y
     });
   }
 
+}
+
+function _privateMethod2() {
+  return 1;
 }
 
 Foo.bar = 'abc';
@@ -2111,6 +2312,9 @@ const dynamicImport = import('baz')
 class Foo {
   static bar = 'abc'
   baz = (x, y) => x({...y})
+  #privateMethod() {
+    return 1
+  }
 }
 
 function* infiniteGenerator() {
@@ -2156,14 +2360,15 @@ var namespaceImport = _interopRequireWildcard3(require("bar"));
 const dynamicImport = Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require('baz')));
 
 class Foo {
-  constructor() {
-    this.baz = (x, y) => x({ ...y
-    });
+  static bar = 'abc';
+  baz = (x, y) => x({ ...y
+  });
+
+  #privateMethod() {
+    return 1;
   }
 
 }
-
-Foo.bar = 'abc';
 
 function* infiniteGenerator() {
   yield 1;
@@ -2198,6 +2403,7 @@ exports.default = _default;
 exports[`transpiles ES2020+ syntax given {}: output (development) 1`] = `
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
 import _asyncToGenerator from "@babel/runtime/helpers/asyncToGenerator";
+import _classPrivateFieldLooseKey from "@babel/runtime/helpers/classPrivateFieldLooseKey";
 
 var _nullishAssignment;
 
@@ -2209,11 +2415,21 @@ import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 var dynamicImport = import('baz');
 
+var _privateMethod = /*#__PURE__*/_classPrivateFieldLooseKey("privateMethod");
+
 var Foo = function Foo() {
+  Object.defineProperty(this, _privateMethod, {
+    value: _privateMethod2
+  });
+
   this.baz = function (x, y) {
     return x(Object.assign({}, y));
   };
 };
+
+function _privateMethod2() {
+  return 1;
+}
 
 Foo.bar = 'abc';
 
@@ -2283,18 +2499,30 @@ export { obj };
 `;
 
 exports[`transpiles ES2020+ syntax given {}: output (development-modern) 1`] = `
+import _classPrivateFieldLooseKey from "@babel/runtime/helpers/classPrivateFieldLooseKey";
+
 var _nullishAssignment;
 
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
 
+var _privateMethod = /*#__PURE__*/_classPrivateFieldLooseKey("privateMethod");
+
 class Foo {
   constructor() {
+    Object.defineProperty(this, _privateMethod, {
+      value: _privateMethod2
+    });
+
     this.baz = (x, y) => x({ ...y
     });
   }
 
+}
+
+function _privateMethod2() {
+  return 1;
 }
 
 Foo.bar = 'abc';
@@ -2334,14 +2562,15 @@ import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
 
 class Foo {
-  constructor() {
-    this.baz = (x, y) => x({ ...y
-    });
+  static bar = 'abc';
+  baz = (x, y) => x({ ...y
+  });
+
+  #privateMethod() {
+    return 1;
   }
 
 }
-
-Foo.bar = 'abc';
 
 function* infiniteGenerator() {
   yield 1;
@@ -2375,6 +2604,7 @@ export { obj };
 exports[`transpiles ES2020+ syntax given {}: output (production) 1`] = `
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
 import _asyncToGenerator from "@babel/runtime/helpers/asyncToGenerator";
+import _classPrivateFieldLooseKey from "@babel/runtime/helpers/classPrivateFieldLooseKey";
 
 var _nullishAssignment;
 
@@ -2386,11 +2616,21 @@ import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 var dynamicImport = import('baz');
 
+var _privateMethod = /*#__PURE__*/_classPrivateFieldLooseKey("privateMethod");
+
 var Foo = function Foo() {
+  Object.defineProperty(this, _privateMethod, {
+    value: _privateMethod2
+  });
+
   this.baz = function (x, y) {
     return x(Object.assign({}, y));
   };
 };
+
+function _privateMethod2() {
+  return 1;
+}
 
 Foo.bar = 'abc';
 
@@ -2460,18 +2700,30 @@ export { obj };
 `;
 
 exports[`transpiles ES2020+ syntax given {}: output (production-modern) 1`] = `
+import _classPrivateFieldLooseKey from "@babel/runtime/helpers/classPrivateFieldLooseKey";
+
 var _nullishAssignment;
 
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
 
+var _privateMethod = /*#__PURE__*/_classPrivateFieldLooseKey("privateMethod");
+
 class Foo {
   constructor() {
+    Object.defineProperty(this, _privateMethod, {
+      value: _privateMethod2
+    });
+
     this.baz = (x, y) => x({ ...y
     });
   }
 
+}
+
+function _privateMethod2() {
+  return 1;
 }
 
 Foo.bar = 'abc';
