@@ -15,7 +15,7 @@ const APP_PLUGIN_INCLUDE_LIST = [
 const PRECOMPILED_PACKAGES = ['core-js', 'lodash', 'react', 'react-dom', 'whatwg-fetch']
 const PRECOMPILED_PACKAGES_REGEX = new RegExp(`node_modules/(${PRECOMPILED_PACKAGES.join('|')})/`)
 
-const ASSUMPTIONS = {
+const assumptions = {
   constantSuper: true,
   ignoreFunctionLength: true,
   ignoreToPrimitiveHint: true,
@@ -67,7 +67,6 @@ module.exports = (babel, options) => {
   const isProduction = env === 'production' || env === 'production-modern'
 
   const {
-    assumptions = {},
     browserslistEnv = isModern ? 'modern' : undefined,
     emotion = false,
     include = isDevelopment || isProduction ? APP_PLUGIN_INCLUDE_LIST : [],
@@ -88,7 +87,7 @@ module.exports = (babel, options) => {
 
   const nonPrecompiledPackages = {
     exclude: PRECOMPILED_PACKAGES_REGEX,
-    assumptions: {...ASSUMPTIONS, ...assumptions},
+    assumptions,
     plugins: [
       runtime && [
         require('@babel/plugin-transform-runtime').default,
