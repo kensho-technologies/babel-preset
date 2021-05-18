@@ -19,11 +19,12 @@
   "repository": "kensho-technologies/babel-preset",
   "prettier": "@kensho-technologies/prettier-config",
   "peerDependencies": {
+    "@babel/core": "^7.14.3",
     "@babel/runtime": "^7.13.9",
     "react-refresh": "^0.9.0 || ^0.10.0"
   },
   "dependencies": {
-    "@babel/plugin-transform-runtime": "^7.14.2",
+    "@babel/plugin-transform-runtime": "^7.14.3",
     "@babel/preset-env": "^7.14.2",
     "@babel/preset-react": "^7.13.13",
     "@babel/preset-typescript": "^7.13.0",
@@ -31,7 +32,6 @@
     "@emotion/babel-preset-css-prop": "^11.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.2",
     "@jest/globals": "^26.6.2",
     "@kensho-technologies/eslint-config": "^22.0.0",
     "@kensho-technologies/prettier-config": "^1.0.0",
