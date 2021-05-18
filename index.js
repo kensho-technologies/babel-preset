@@ -22,7 +22,7 @@ const ASSUMPTIONS = {
   enumerableModuleMeta: true,
   ignoreFunctionLength: true,
   ignoreToPrimitiveHint: true,
-  iterableIsArray: true,
+  // iterableIsArray: true,
   mutableTemplateObject: true,
   noClassCalls: true,
   noDocumentAll: true,

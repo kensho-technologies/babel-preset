@@ -48,7 +48,6 @@ function macro(title: string, fixture: string, presetOptions = {}): void {
 
 macro('transpiles ES2020+ syntax', 'syntax.js')
 macro('transpiles ES2020+ syntax', 'syntax.js', {targets: 'Chrome 88'})
-macro('transpiles ES2020+ syntax', 'syntax.js', {loose: false})
 macro('transpiles ES2020+ syntax', 'syntax.js', {runtime: false})
 macro('transpiles ES2020+ syntax', 'syntax.js', {modules: 'commonjs'})
 
