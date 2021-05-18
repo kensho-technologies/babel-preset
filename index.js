@@ -16,13 +16,9 @@ const PRECOMPILED_PACKAGES = ['core-js', 'lodash', 'react', 'react-dom', 'whatwg
 const PRECOMPILED_PACKAGES_REGEX = new RegExp(`node_modules/(${PRECOMPILED_PACKAGES.join('|')})/`)
 
 const ASSUMPTIONS = {
-  // arrayLikeIsIterable: true,
-  constantReexports: true,
   constantSuper: true,
-  enumerableModuleMeta: true,
   ignoreFunctionLength: true,
   ignoreToPrimitiveHint: true,
-  // iterableIsArray: true,
   mutableTemplateObject: true,
   noClassCalls: true,
   noDocumentAll: true,

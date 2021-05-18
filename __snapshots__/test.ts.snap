@@ -520,7 +520,9 @@ var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWil
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.obj = exports.default = void 0;
 
 var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
@@ -581,7 +583,9 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 
 var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard")["default"];
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.obj = exports["default"] = void 0;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
@@ -695,7 +699,9 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 
 var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard").default;
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.obj = exports.default = void 0;
 
 var _classPrivateFieldLooseKey2 = _interopRequireDefault(require("@babel/runtime/helpers/classPrivateFieldLooseKey"));
@@ -767,7 +773,9 @@ var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWil
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.obj = exports.default = void 0;
 
 var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
@@ -828,7 +836,9 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 
 var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard")["default"];
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.obj = exports["default"] = void 0;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
@@ -942,7 +952,9 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 
 var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard").default;
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.obj = exports.default = void 0;
 
 var _classPrivateFieldLooseKey2 = _interopRequireDefault(require("@babel/runtime/helpers/classPrivateFieldLooseKey"));
@@ -1048,7 +1060,9 @@ export {obj}
 exports[`transpiles ES2020+ syntax given {"runtime":false}: output (cjs) 1`] = `
 "use strict";
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.obj = exports.default = void 0;
 
 var _foo = _interopRequireWildcard(require("foo"));
@@ -1516,7 +1530,9 @@ var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWil
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.obj = exports.default = void 0;
 
 var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
@@ -1890,7 +1906,9 @@ var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWil
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.obj = exports.default = void 0;
 
 var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
@@ -2306,7 +2324,7 @@ export function map(value) {
 
 `;
 
-exports[`transpiles ESM in node_modules given {}: output (cjs) 1`] = `"use strict";exports.__esModule=true;exports.map=map;function map(value){return value??2;}`;
+exports[`transpiles ESM in node_modules given {}: output (cjs) 1`] = `"use strict";Object.defineProperty(exports,"__esModule",{value:true});exports.map=map;function map(value){return value??2;}`;
 
 exports[`transpiles ESM in node_modules given {}: output (development) 1`] = `export function map(value){return value!=null?value:2;}`;
 
@@ -2342,7 +2360,9 @@ export default function MyComponent(props) {
 exports[`transpiles Emotion given {"emotion":true}: output (cjs) 1`] = `
 "use strict";
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.default = MyComponent;
 
 var _react = require("react");
@@ -2725,7 +2745,9 @@ exports[`transpiles Emotion with classic runtime given {"emotion":true,"react":{
 
 var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard").default;
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.default = MyComponent;
 
 var React = _interopRequireWildcard(require("react"));
@@ -3080,7 +3102,9 @@ export default function MyComponent(props) {
 exports[`transpiles React given {}: output (cjs) 1`] = `
 "use strict";
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.default = MyComponent;
 
 var _react = require("react");
@@ -3255,7 +3279,9 @@ exports[`transpiles React with classic runtime given {"react":{"runtime":"classi
 
 var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard").default;
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.default = MyComponent;
 
 var React = _interopRequireWildcard(require("react"));
@@ -3410,7 +3436,9 @@ export default function add(a: number, b: number): number {
 exports[`transpiles TSX given {}: output (cjs) 1`] = `
 "use strict";
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.default = add;
 
 function add(a, b) {
