@@ -21,8 +21,10 @@ expect.addSnapshotSerializer({
   print: (val: string) => val,
 })
 
-function macro(title: string, fixture: string, presetOptions = {}): void {
-  test(`${title} given ${JSON.stringify(presetOptions)}`, () => {
+function macro(title: string, fixture: string, presetOptions = {}, topLevelOptions = {}): void {
+  const presetOptionsString = JSON.stringify(presetOptions)
+  const topLevelOptionsString = JSON.stringify(topLevelOptions)
+  test(`${title} given ${presetOptionsString}, ${topLevelOptionsString}`, () => {
     const file = `${__dirname}/fixtures/${fixture}`
     const input = fs.readFileSync(file, 'utf8')
     expect(input).toMatchSnapshot('input')
@@ -39,6 +41,7 @@ function macro(title: string, fixture: string, presetOptions = {}): void {
         presets,
         filename: `/${fixture}`,
         babelrc: false,
+        ...topLevelOptions,
       }
       const result = transform(input, options)
       expect(result?.code).toMatchSnapshot(`output (${envName})`)
@@ -50,6 +53,9 @@ macro('transpiles ES2020+ syntax', 'syntax.js')
 macro('transpiles ES2020+ syntax', 'syntax.js', {targets: 'Chrome 88'})
 macro('transpiles ES2020+ syntax', 'syntax.js', {runtime: false})
 macro('transpiles ES2020+ syntax', 'syntax.js', {modules: 'commonjs'})
+macro('transpiles ES2020+ syntax', 'syntax.js', undefined, {
+  assumptions: {enumerableModuleMeta: true},
+})
 
 macro('transpiles React', 'react.js')
 macro('transpiles React with classic runtime', 'react-classic.js', {react: {runtime: 'classic'}})
