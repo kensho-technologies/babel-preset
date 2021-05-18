@@ -60,13 +60,6 @@ Default: `['@babel/plugin-proposal-optional-chaining', '@babel/plugin-proposal-n
 
 List of plugins to always include. Forwarded to [the corresponding option in `@babel/preset-env`](https://babeljs.io/docs/en/babel-preset-env#include).
 
-### `loose`
-
-`true` | `false`<br />
-Default: `true`
-
-Whether to enable [loose mode](http://2ality.com/2015/12/babel6-loose-mode.html) in all presets/plugins that support this option.
-
 ### `modules`
 
 `false` | `'commonjs'`<br />
