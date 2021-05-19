@@ -1,16 +1,8 @@
 /* eslint-disable global-require */
 
-const NODE_MODULES_REGEX = /node_modules/
+const semver = require('semver')
 
-// webpack@4 depends on versions of acorn and terser that lack support for certain modern syntax,
-// so, when transpiling an app, these plugins must be included
-const APP_PLUGIN_INCLUDE_LIST = [
-  '@babel/plugin-proposal-class-properties',
-  '@babel/plugin-proposal-private-methods',
-  '@babel/plugin-proposal-logical-assignment-operators',
-  '@babel/plugin-proposal-nullish-coalescing-operator',
-  '@babel/plugin-proposal-optional-chaining',
-]
+const NODE_MODULES_REGEX = /node_modules/
 
 const PRECOMPILED_PACKAGES = ['core-js', 'lodash', 'react', 'react-dom', 'whatwg-fetch']
 const PRECOMPILED_PACKAGES_REGEX = new RegExp(`node_modules/(${PRECOMPILED_PACKAGES.join('|')})/`)
@@ -36,6 +28,37 @@ function getDefaultTargets(env) {
   return undefined // targets will be overridden using the browserslistEnv preset-env config
 }
 
+function getDefaultWebpack() {
+  try {
+    return require('webpack/package.json').version
+  } catch {
+    return undefined
+  }
+}
+
+function getDefaultInclude(env, webpack) {
+  if (env === 'esm' || env === 'cjs' || env === 'test') return []
+  if (semver.valid(webpack) === null) return [] // TODO: throw?
+  const include = []
+
+  if (semver.lt(webpack, '5.36.0')) {
+    include.push(
+      '@babel/plugin-proposal-class-properties',
+      '@babel/plugin-proposal-private-methods'
+    )
+  }
+
+  if (semver.lt(webpack, '5.0.0')) {
+    include.push(
+      '@babel/plugin-proposal-logical-assignment-operators',
+      '@babel/plugin-proposal-nullish-coalescing-operator',
+      '@babel/plugin-proposal-optional-chaining'
+    )
+  }
+
+  return include
+}
+
 module.exports = (babel, options) => {
   const env = babel.env()
 
@@ -45,12 +68,10 @@ module.exports = (babel, options) => {
 
   const isModern = env === 'development-modern' || env === 'production-modern'
   const isDevelopment = env === 'development' || env === 'development-modern'
-  const isProduction = env === 'production' || env === 'production-modern'
 
   const {
     browserslistEnv = isModern ? 'modern' : undefined,
     emotion = false,
-    include = isDevelopment || isProduction ? APP_PLUGIN_INCLUDE_LIST : [],
     loose = true,
     modules = env === 'test' || env === 'cjs' ? 'commonjs' : false,
     react = {},
@@ -58,6 +79,8 @@ module.exports = (babel, options) => {
     runtime = true,
     targets = getDefaultTargets(env),
     typescript = {},
+    webpack = getDefaultWebpack(),
+    include = getDefaultInclude(env, webpack),
     ...rest
   } = options
 

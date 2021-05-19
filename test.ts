@@ -51,6 +51,8 @@ macro('transpiles ES2020+ syntax', 'syntax.js', {targets: 'Chrome 88'})
 macro('transpiles ES2020+ syntax', 'syntax.js', {loose: false})
 macro('transpiles ES2020+ syntax', 'syntax.js', {runtime: false})
 macro('transpiles ES2020+ syntax', 'syntax.js', {modules: 'commonjs'})
+macro('transpiles ES2020+ syntax', 'syntax.js', {webpack: '4.3.0'})
+macro('transpiles ES2020+ syntax', 'syntax.js', {webpack: '5.1.0'})
 
 macro('transpiles React', 'react.js')
 macro('transpiles React with classic runtime', 'react-classic.js', {react: {runtime: 'classic'}})
