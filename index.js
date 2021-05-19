@@ -72,12 +72,12 @@ module.exports = (babel, options) => {
     include = isDevelopment || isProduction ? APP_PLUGIN_INCLUDE_LIST : [],
     modules = env === 'test' || env === 'cjs' ? 'commonjs' : false,
     react = {},
+    reactRefresh = isDevelopment && react && {},
     runtime = true,
     targets = getDefaultTargets(env),
     typescript = {},
     ...rest
   } = options
-  const {reactRefresh = isDevelopment && react && {}} = options
 
   const nodeModules = {
     include: NODE_MODULES_REGEX,
