@@ -54,12 +54,12 @@ module.exports = (babel, options) => {
     loose = true,
     modules = env === 'test' || env === 'cjs' ? 'commonjs' : false,
     react = {},
+    reactRefresh = isDevelopment && react && {},
     runtime = true,
     targets = getDefaultTargets(env),
     typescript = {},
     ...rest
   } = options
-  const {reactRefresh = isDevelopment && react && {}} = options
 
   const nodeModules = {
     include: NODE_MODULES_REGEX,
