@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`avoids transpiling known precompiled packages given {}: input 1`] = `
+exports[`avoids transpiling known precompiled packages given {}, {}: input 1`] = `
 export default class React {
   method(value) {
     return value ?? 2
@@ -9,26 +9,26 @@ export default class React {
 
 `;
 
-exports[`avoids transpiling known precompiled packages given {}: output (cjs) 1`] = `export default class React{method(value){return value??2;}}`;
+exports[`avoids transpiling known precompiled packages given {}, {}: output (cjs) 1`] = `export default class React{method(value){return value??2;}}`;
 
-exports[`avoids transpiling known precompiled packages given {}: output (development) 1`] = `export default class React{method(value){return value??2;}}`;
+exports[`avoids transpiling known precompiled packages given {}, {}: output (development) 1`] = `export default class React{method(value){return value??2;}}`;
 
-exports[`avoids transpiling known precompiled packages given {}: output (development-modern) 1`] = `export default class React{method(value){return value??2;}}`;
+exports[`avoids transpiling known precompiled packages given {}, {}: output (development-modern) 1`] = `export default class React{method(value){return value??2;}}`;
 
-exports[`avoids transpiling known precompiled packages given {}: output (esm) 1`] = `export default class React{method(value){return value??2;}}`;
+exports[`avoids transpiling known precompiled packages given {}, {}: output (esm) 1`] = `export default class React{method(value){return value??2;}}`;
 
-exports[`avoids transpiling known precompiled packages given {}: output (production) 1`] = `export default class React{method(value){return value??2;}}`;
+exports[`avoids transpiling known precompiled packages given {}, {}: output (production) 1`] = `export default class React{method(value){return value??2;}}`;
 
-exports[`avoids transpiling known precompiled packages given {}: output (production-modern) 1`] = `export default class React{method(value){return value??2;}}`;
+exports[`avoids transpiling known precompiled packages given {}, {}: output (production-modern) 1`] = `export default class React{method(value){return value??2;}}`;
 
-exports[`replaces generic polyfill with env-targeted polyfills given {}: input 1`] = `
+exports[`replaces generic polyfill with env-targeted polyfills given {}, {}: input 1`] = `
 import 'core-js/stable'
 
 `;
 
-exports[`replaces generic polyfill with env-targeted polyfills given {}: output (cjs) 1`] = `"use strict";`;
+exports[`replaces generic polyfill with env-targeted polyfills given {}, {}: output (cjs) 1`] = `"use strict";`;
 
-exports[`replaces generic polyfill with env-targeted polyfills given {}: output (development) 1`] = `
+exports[`replaces generic polyfill with env-targeted polyfills given {}, {}: output (development) 1`] = `
 import "core-js/modules/es.symbol.js";
 import "core-js/modules/es.symbol.description.js";
 import "core-js/modules/es.symbol.async-iterator.js";
@@ -239,11 +239,11 @@ import "core-js/modules/web.url.to-json.js";
 import "core-js/modules/web.url-search-params.js";
 `;
 
-exports[`replaces generic polyfill with env-targeted polyfills given {}: output (development-modern) 1`] = `import "core-js/modules/web.immediate.js";`;
+exports[`replaces generic polyfill with env-targeted polyfills given {}, {}: output (development-modern) 1`] = `import "core-js/modules/web.immediate.js";`;
 
-exports[`replaces generic polyfill with env-targeted polyfills given {}: output (esm) 1`] = ``;
+exports[`replaces generic polyfill with env-targeted polyfills given {}, {}: output (esm) 1`] = ``;
 
-exports[`replaces generic polyfill with env-targeted polyfills given {}: output (production) 1`] = `
+exports[`replaces generic polyfill with env-targeted polyfills given {}, {}: output (production) 1`] = `
 import "core-js/modules/es.symbol.js";
 import "core-js/modules/es.symbol.description.js";
 import "core-js/modules/es.symbol.async-iterator.js";
@@ -454,28 +454,28 @@ import "core-js/modules/web.url.to-json.js";
 import "core-js/modules/web.url-search-params.js";
 `;
 
-exports[`replaces generic polyfill with env-targeted polyfills given {}: output (production-modern) 1`] = `import "core-js/modules/web.immediate.js";`;
+exports[`replaces generic polyfill with env-targeted polyfills given {}, {}: output (production-modern) 1`] = `import "core-js/modules/web.immediate.js";`;
 
-exports[`transpiles CJS in node_modules given {}: input 1`] = `
+exports[`transpiles CJS in node_modules given {}, {}: input 1`] = `
 module.exports = function forEach(array, sideEffect) {
   for (const value of array) sideEffect(value)
 }
 
 `;
 
-exports[`transpiles CJS in node_modules given {}: output (cjs) 1`] = `module.exports=function forEach(array,sideEffect){for(const value of array)sideEffect(value);};`;
+exports[`transpiles CJS in node_modules given {}, {}: output (cjs) 1`] = `module.exports=function forEach(array,sideEffect){for(const value of array)sideEffect(value);};`;
 
-exports[`transpiles CJS in node_modules given {}: output (development) 1`] = `var _createForOfIteratorHelperLoose=require("@babel/runtime/helpers/createForOfIteratorHelperLoose")["default"];module.exports=function forEach(array,sideEffect){for(var _iterator=_createForOfIteratorHelperLoose(array),_step;!(_step=_iterator()).done;){var value=_step.value;sideEffect(value);}};`;
+exports[`transpiles CJS in node_modules given {}, {}: output (development) 1`] = `var _createForOfIteratorHelperLoose=require("@babel/runtime/helpers/createForOfIteratorHelperLoose")["default"];module.exports=function forEach(array,sideEffect){for(var _iterator=_createForOfIteratorHelperLoose(array),_step;!(_step=_iterator()).done;){var value=_step.value;sideEffect(value);}};`;
 
-exports[`transpiles CJS in node_modules given {}: output (development-modern) 1`] = `module.exports=function forEach(array,sideEffect){for(const value of array)sideEffect(value);};`;
+exports[`transpiles CJS in node_modules given {}, {}: output (development-modern) 1`] = `module.exports=function forEach(array,sideEffect){for(const value of array)sideEffect(value);};`;
 
-exports[`transpiles CJS in node_modules given {}: output (esm) 1`] = `module.exports=function forEach(array,sideEffect){for(const value of array)sideEffect(value);};`;
+exports[`transpiles CJS in node_modules given {}, {}: output (esm) 1`] = `module.exports=function forEach(array,sideEffect){for(const value of array)sideEffect(value);};`;
 
-exports[`transpiles CJS in node_modules given {}: output (production) 1`] = `var _createForOfIteratorHelperLoose=require("@babel/runtime/helpers/createForOfIteratorHelperLoose")["default"];module.exports=function forEach(array,sideEffect){for(var _iterator=_createForOfIteratorHelperLoose(array),_step;!(_step=_iterator()).done;){var value=_step.value;sideEffect(value);}};`;
+exports[`transpiles CJS in node_modules given {}, {}: output (production) 1`] = `var _createForOfIteratorHelperLoose=require("@babel/runtime/helpers/createForOfIteratorHelperLoose")["default"];module.exports=function forEach(array,sideEffect){for(var _iterator=_createForOfIteratorHelperLoose(array),_step;!(_step=_iterator()).done;){var value=_step.value;sideEffect(value);}};`;
 
-exports[`transpiles CJS in node_modules given {}: output (production-modern) 1`] = `module.exports=function forEach(array,sideEffect){for(const value of array)sideEffect(value);};`;
+exports[`transpiles CJS in node_modules given {}, {}: output (production-modern) 1`] = `module.exports=function forEach(array,sideEffect){for(const value of array)sideEffect(value);};`;
 
-exports[`transpiles ES2020+ syntax given {"loose":false}: input 1`] = `
+exports[`transpiles ES2020+ syntax given {"modules":"commonjs"}, {}: input 1`] = `
 import defaultImport, {namedImport} from 'foo'
 import * as namespaceImport from 'bar'
 
@@ -513,7 +513,7 @@ export {obj}
 
 `;
 
-exports[`transpiles ES2020+ syntax given {"loose":false}: output (cjs) 1`] = `
+exports[`transpiles ES2020+ syntax given {"modules":"commonjs"}, {}: output (cjs) 1`] = `
 "use strict";
 
 var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard").default;
@@ -574,463 +574,7 @@ var _default = obj;
 exports.default = _default;
 `;
 
-exports[`transpiles ES2020+ syntax given {"loose":false}: output (development) 1`] = `
-import _objectWithoutProperties from "@babel/runtime/helpers/objectWithoutProperties";
-import _asyncToGenerator from "@babel/runtime/helpers/asyncToGenerator";
-import _objectSpread from "@babel/runtime/helpers/objectSpread2";
-import _classCallCheck from "@babel/runtime/helpers/classCallCheck";
-import _defineProperty from "@babel/runtime/helpers/defineProperty";
-
-var _nullishAssignment;
-
-import _regeneratorRuntime from "@babel/runtime/regenerator";
-
-var _marked = /*#__PURE__*/_regeneratorRuntime.mark(infiniteGenerator);
-
-import defaultImport, { namedImport } from 'foo';
-import * as namespaceImport from 'bar';
-var dynamicImport = import('baz');
-
-var _privateMethod = /*#__PURE__*/new WeakSet();
-
-var Foo = function Foo() {
-  _classCallCheck(this, Foo);
-
-  _privateMethod.add(this);
-
-  _defineProperty(this, "baz", function (x, y) {
-    return x(_objectSpread({}, y));
-  });
-};
-
-function _privateMethod2() {
-  return 1;
-}
-
-_defineProperty(Foo, "bar", 'abc');
-
-function infiniteGenerator() {
-  return _regeneratorRuntime.wrap(function infiniteGenerator$(_context) {
-    while (1) {
-      switch (_context.prev = _context.next) {
-        case 0:
-          _context.next = 2;
-          return 1;
-
-        case 2:
-          return _context.delegateYield(infiniteGenerator(), "t0", 3);
-
-        case 3:
-        case "end":
-          return _context.stop();
-      }
-    }
-  }, _marked);
-}
-
-function asyncFunction() {
-  return _asyncFunction.apply(this, arguments);
-}
-
-function _asyncFunction() {
-  _asyncFunction = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee() {
-    return _regeneratorRuntime.wrap(function _callee$(_context2) {
-      while (1) {
-        switch (_context2.prev = _context2.next) {
-          case 0:
-            _context2.next = 2;
-            return null;
-
-          case 2:
-            return _context2.abrupt("return", _context2.sent);
-
-          case 3:
-          case "end":
-            return _context2.stop();
-        }
-      }
-    }, _callee);
-  }));
-  return _asyncFunction.apply(this, arguments);
-}
-
-var obj = {
-  a: 1,
-  b: 2
-};
-
-var spread = _objectSpread(_objectSpread({}, obj), {}, {
-  b: 2,
-  c: 3
-});
-
-var a = spread.a,
-    rest = _objectWithoutProperties(spread, ["a"]);
-
-var nullishAssignment;
-(_nullishAssignment = nullishAssignment) !== null && _nullishAssignment !== void 0 ? _nullishAssignment : nullishAssignment = 1;
-var nullishCoalescing = obj !== null && obj !== void 0 ? obj : 1;
-var optionalChaining = obj === null || obj === void 0 ? void 0 : obj.b;
-export default obj;
-export { obj };
-`;
-
-exports[`transpiles ES2020+ syntax given {"loose":false}: output (development-modern) 1`] = `
-import _defineProperty from "@babel/runtime/helpers/defineProperty";
-
-var _nullishAssignment;
-
-import defaultImport, { namedImport } from 'foo';
-import * as namespaceImport from 'bar';
-const dynamicImport = import('baz');
-
-var _privateMethod = /*#__PURE__*/new WeakSet();
-
-class Foo {
-  constructor() {
-    _privateMethod.add(this);
-
-    _defineProperty(this, "baz", (x, y) => x({ ...y
-    }));
-  }
-
-}
-
-function _privateMethod2() {
-  return 1;
-}
-
-_defineProperty(Foo, "bar", 'abc');
-
-function* infiniteGenerator() {
-  yield 1;
-  yield* infiniteGenerator();
-}
-
-async function asyncFunction() {
-  return await null;
-}
-
-const obj = {
-  a: 1,
-  b: 2
-};
-const spread = { ...obj,
-  b: 2,
-  c: 3
-};
-const {
-  a,
-  ...rest
-} = spread;
-let nullishAssignment;
-(_nullishAssignment = nullishAssignment) !== null && _nullishAssignment !== void 0 ? _nullishAssignment : nullishAssignment = 1;
-const nullishCoalescing = obj !== null && obj !== void 0 ? obj : 1;
-const optionalChaining = obj === null || obj === void 0 ? void 0 : obj.b;
-export default obj;
-export { obj };
-`;
-
-exports[`transpiles ES2020+ syntax given {"loose":false}: output (esm) 1`] = `
-import defaultImport, { namedImport } from 'foo';
-import * as namespaceImport from 'bar';
-const dynamicImport = import('baz');
-
-class Foo {
-  static bar = 'abc';
-  baz = (x, y) => x({ ...y
-  });
-
-  #privateMethod() {
-    return 1;
-  }
-
-}
-
-function* infiniteGenerator() {
-  yield 1;
-  yield* infiniteGenerator();
-}
-
-async function asyncFunction() {
-  return await null;
-}
-
-const obj = {
-  a: 1,
-  b: 2
-};
-const spread = { ...obj,
-  b: 2,
-  c: 3
-};
-const {
-  a,
-  ...rest
-} = spread;
-let nullishAssignment;
-nullishAssignment ?? (nullishAssignment = 1);
-const nullishCoalescing = obj ?? 1;
-const optionalChaining = obj?.b;
-export default obj;
-export { obj };
-`;
-
-exports[`transpiles ES2020+ syntax given {"loose":false}: output (production) 1`] = `
-import _objectWithoutProperties from "@babel/runtime/helpers/objectWithoutProperties";
-import _asyncToGenerator from "@babel/runtime/helpers/asyncToGenerator";
-import _objectSpread from "@babel/runtime/helpers/objectSpread2";
-import _classCallCheck from "@babel/runtime/helpers/classCallCheck";
-import _defineProperty from "@babel/runtime/helpers/defineProperty";
-
-var _nullishAssignment;
-
-import _regeneratorRuntime from "@babel/runtime/regenerator";
-
-var _marked = /*#__PURE__*/_regeneratorRuntime.mark(infiniteGenerator);
-
-import defaultImport, { namedImport } from 'foo';
-import * as namespaceImport from 'bar';
-var dynamicImport = import('baz');
-
-var _privateMethod = /*#__PURE__*/new WeakSet();
-
-var Foo = function Foo() {
-  _classCallCheck(this, Foo);
-
-  _privateMethod.add(this);
-
-  _defineProperty(this, "baz", function (x, y) {
-    return x(_objectSpread({}, y));
-  });
-};
-
-function _privateMethod2() {
-  return 1;
-}
-
-_defineProperty(Foo, "bar", 'abc');
-
-function infiniteGenerator() {
-  return _regeneratorRuntime.wrap(function infiniteGenerator$(_context) {
-    while (1) {
-      switch (_context.prev = _context.next) {
-        case 0:
-          _context.next = 2;
-          return 1;
-
-        case 2:
-          return _context.delegateYield(infiniteGenerator(), "t0", 3);
-
-        case 3:
-        case "end":
-          return _context.stop();
-      }
-    }
-  }, _marked);
-}
-
-function asyncFunction() {
-  return _asyncFunction.apply(this, arguments);
-}
-
-function _asyncFunction() {
-  _asyncFunction = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee() {
-    return _regeneratorRuntime.wrap(function _callee$(_context2) {
-      while (1) {
-        switch (_context2.prev = _context2.next) {
-          case 0:
-            _context2.next = 2;
-            return null;
-
-          case 2:
-            return _context2.abrupt("return", _context2.sent);
-
-          case 3:
-          case "end":
-            return _context2.stop();
-        }
-      }
-    }, _callee);
-  }));
-  return _asyncFunction.apply(this, arguments);
-}
-
-var obj = {
-  a: 1,
-  b: 2
-};
-
-var spread = _objectSpread(_objectSpread({}, obj), {}, {
-  b: 2,
-  c: 3
-});
-
-var a = spread.a,
-    rest = _objectWithoutProperties(spread, ["a"]);
-
-var nullishAssignment;
-(_nullishAssignment = nullishAssignment) !== null && _nullishAssignment !== void 0 ? _nullishAssignment : nullishAssignment = 1;
-var nullishCoalescing = obj !== null && obj !== void 0 ? obj : 1;
-var optionalChaining = obj === null || obj === void 0 ? void 0 : obj.b;
-export default obj;
-export { obj };
-`;
-
-exports[`transpiles ES2020+ syntax given {"loose":false}: output (production-modern) 1`] = `
-import _defineProperty from "@babel/runtime/helpers/defineProperty";
-
-var _nullishAssignment;
-
-import defaultImport, { namedImport } from 'foo';
-import * as namespaceImport from 'bar';
-const dynamicImport = import('baz');
-
-var _privateMethod = /*#__PURE__*/new WeakSet();
-
-class Foo {
-  constructor() {
-    _privateMethod.add(this);
-
-    _defineProperty(this, "baz", (x, y) => x({ ...y
-    }));
-  }
-
-}
-
-function _privateMethod2() {
-  return 1;
-}
-
-_defineProperty(Foo, "bar", 'abc');
-
-function* infiniteGenerator() {
-  yield 1;
-  yield* infiniteGenerator();
-}
-
-async function asyncFunction() {
-  return await null;
-}
-
-const obj = {
-  a: 1,
-  b: 2
-};
-const spread = { ...obj,
-  b: 2,
-  c: 3
-};
-const {
-  a,
-  ...rest
-} = spread;
-let nullishAssignment;
-(_nullishAssignment = nullishAssignment) !== null && _nullishAssignment !== void 0 ? _nullishAssignment : nullishAssignment = 1;
-const nullishCoalescing = obj !== null && obj !== void 0 ? obj : 1;
-const optionalChaining = obj === null || obj === void 0 ? void 0 : obj.b;
-export default obj;
-export { obj };
-`;
-
-exports[`transpiles ES2020+ syntax given {"modules":"commonjs"}: input 1`] = `
-import defaultImport, {namedImport} from 'foo'
-import * as namespaceImport from 'bar'
-
-const dynamicImport = import('baz')
-
-class Foo {
-  static bar = 'abc'
-  baz = (x, y) => x({...y})
-  #privateMethod() {
-    return 1
-  }
-}
-
-function* infiniteGenerator() {
-  yield 1
-  yield* infiniteGenerator()
-}
-
-async function asyncFunction() {
-  return await null
-}
-
-const obj = {a: 1, b: 2}
-
-const spread = {...obj, b: 2, c: 3}
-const {a, ...rest} = spread
-
-let nullishAssignment
-nullishAssignment ??= 1
-const nullishCoalescing = obj ?? 1
-const optionalChaining = obj?.b
-
-export default obj
-export {obj}
-
-`;
-
-exports[`transpiles ES2020+ syntax given {"modules":"commonjs"}: output (cjs) 1`] = `
-"use strict";
-
-var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard").default;
-
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
-
-exports.__esModule = true;
-exports.obj = exports.default = void 0;
-
-var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
-
-var _foo = _interopRequireWildcard3(require("foo"));
-
-var namespaceImport = _interopRequireWildcard3(require("bar"));
-
-const dynamicImport = Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require('baz')));
-
-class Foo {
-  static bar = 'abc';
-  baz = (x, y) => x({ ...y
-  });
-
-  #privateMethod() {
-    return 1;
-  }
-
-}
-
-function* infiniteGenerator() {
-  yield 1;
-  yield* infiniteGenerator();
-}
-
-async function asyncFunction() {
-  return await null;
-}
-
-const obj = {
-  a: 1,
-  b: 2
-};
-exports.obj = obj;
-const spread = { ...obj,
-  b: 2,
-  c: 3
-};
-const {
-  a,
-  ...rest
-} = spread;
-let nullishAssignment;
-nullishAssignment ?? (nullishAssignment = 1);
-const nullishCoalescing = obj ?? 1;
-const optionalChaining = obj?.b;
-var _default = obj;
-exports.default = _default;
-`;
-
-exports[`transpiles ES2020+ syntax given {"modules":"commonjs"}: output (development) 1`] = `
+exports[`transpiles ES2020+ syntax given {"modules":"commonjs"}, {}: output (development) 1`] = `
 "use strict";
 
 var _regeneratorRuntime2 = require("@babel/runtime/regenerator");
@@ -1039,7 +583,9 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 
 var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard")["default"];
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.obj = exports["default"] = void 0;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
@@ -1146,14 +692,16 @@ var _default = obj;
 exports["default"] = _default;
 `;
 
-exports[`transpiles ES2020+ syntax given {"modules":"commonjs"}: output (development-modern) 1`] = `
+exports[`transpiles ES2020+ syntax given {"modules":"commonjs"}, {}: output (development-modern) 1`] = `
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
 
 var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard").default;
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.obj = exports.default = void 0;
 
 var _classPrivateFieldLooseKey2 = _interopRequireDefault(require("@babel/runtime/helpers/classPrivateFieldLooseKey"));
@@ -1218,14 +766,16 @@ var _default = obj;
 exports.default = _default;
 `;
 
-exports[`transpiles ES2020+ syntax given {"modules":"commonjs"}: output (esm) 1`] = `
+exports[`transpiles ES2020+ syntax given {"modules":"commonjs"}, {}: output (esm) 1`] = `
 "use strict";
 
 var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard").default;
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.obj = exports.default = void 0;
 
 var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
@@ -1277,7 +827,7 @@ var _default = obj;
 exports.default = _default;
 `;
 
-exports[`transpiles ES2020+ syntax given {"modules":"commonjs"}: output (production) 1`] = `
+exports[`transpiles ES2020+ syntax given {"modules":"commonjs"}, {}: output (production) 1`] = `
 "use strict";
 
 var _regeneratorRuntime2 = require("@babel/runtime/regenerator");
@@ -1286,7 +836,9 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 
 var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard")["default"];
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.obj = exports["default"] = void 0;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
@@ -1393,14 +945,16 @@ var _default = obj;
 exports["default"] = _default;
 `;
 
-exports[`transpiles ES2020+ syntax given {"modules":"commonjs"}: output (production-modern) 1`] = `
+exports[`transpiles ES2020+ syntax given {"modules":"commonjs"}, {}: output (production-modern) 1`] = `
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
 
 var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard").default;
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.obj = exports.default = void 0;
 
 var _classPrivateFieldLooseKey2 = _interopRequireDefault(require("@babel/runtime/helpers/classPrivateFieldLooseKey"));
@@ -1465,7 +1019,7 @@ var _default = obj;
 exports.default = _default;
 `;
 
-exports[`transpiles ES2020+ syntax given {"runtime":false}: input 1`] = `
+exports[`transpiles ES2020+ syntax given {"runtime":false}, {}: input 1`] = `
 import defaultImport, {namedImport} from 'foo'
 import * as namespaceImport from 'bar'
 
@@ -1503,10 +1057,12 @@ export {obj}
 
 `;
 
-exports[`transpiles ES2020+ syntax given {"runtime":false}: output (cjs) 1`] = `
+exports[`transpiles ES2020+ syntax given {"runtime":false}, {}: output (cjs) 1`] = `
 "use strict";
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.obj = exports.default = void 0;
 
 var _foo = _interopRequireWildcard(require("foo"));
@@ -1560,7 +1116,7 @@ var _default = obj;
 exports.default = _default;
 `;
 
-exports[`transpiles ES2020+ syntax given {"runtime":false}: output (development) 1`] = `
+exports[`transpiles ES2020+ syntax given {"runtime":false}, {}: output (development) 1`] = `
 var _nullishAssignment;
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
@@ -1662,7 +1218,7 @@ export default obj;
 export { obj };
 `;
 
-exports[`transpiles ES2020+ syntax given {"runtime":false}: output (development-modern) 1`] = `
+exports[`transpiles ES2020+ syntax given {"runtime":false}, {}: output (development-modern) 1`] = `
 var _nullishAssignment;
 
 var id = 0;
@@ -1722,7 +1278,7 @@ export default obj;
 export { obj };
 `;
 
-exports[`transpiles ES2020+ syntax given {"runtime":false}: output (esm) 1`] = `
+exports[`transpiles ES2020+ syntax given {"runtime":false}, {}: output (esm) 1`] = `
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
@@ -1767,7 +1323,7 @@ export default obj;
 export { obj };
 `;
 
-exports[`transpiles ES2020+ syntax given {"runtime":false}: output (production) 1`] = `
+exports[`transpiles ES2020+ syntax given {"runtime":false}, {}: output (production) 1`] = `
 var _nullishAssignment;
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
@@ -1869,7 +1425,7 @@ export default obj;
 export { obj };
 `;
 
-exports[`transpiles ES2020+ syntax given {"runtime":false}: output (production-modern) 1`] = `
+exports[`transpiles ES2020+ syntax given {"runtime":false}, {}: output (production-modern) 1`] = `
 var _nullishAssignment;
 
 var id = 0;
@@ -1929,7 +1485,7 @@ export default obj;
 export { obj };
 `;
 
-exports[`transpiles ES2020+ syntax given {"targets":"Chrome 88"}: input 1`] = `
+exports[`transpiles ES2020+ syntax given {"targets":"Chrome 88"}, {}: input 1`] = `
 import defaultImport, {namedImport} from 'foo'
 import * as namespaceImport from 'bar'
 
@@ -1967,14 +1523,16 @@ export {obj}
 
 `;
 
-exports[`transpiles ES2020+ syntax given {"targets":"Chrome 88"}: output (cjs) 1`] = `
+exports[`transpiles ES2020+ syntax given {"targets":"Chrome 88"}, {}: output (cjs) 1`] = `
 "use strict";
 
 var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard").default;
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.obj = exports.default = void 0;
 
 var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
@@ -2026,7 +1584,7 @@ var _default = obj;
 exports.default = _default;
 `;
 
-exports[`transpiles ES2020+ syntax given {"targets":"Chrome 88"}: output (development) 1`] = `
+exports[`transpiles ES2020+ syntax given {"targets":"Chrome 88"}, {}: output (development) 1`] = `
 import _classPrivateFieldLooseKey from "@babel/runtime/helpers/classPrivateFieldLooseKey";
 
 var _nullishAssignment;
@@ -2084,7 +1642,7 @@ export default obj;
 export { obj };
 `;
 
-exports[`transpiles ES2020+ syntax given {"targets":"Chrome 88"}: output (development-modern) 1`] = `
+exports[`transpiles ES2020+ syntax given {"targets":"Chrome 88"}, {}: output (development-modern) 1`] = `
 import _classPrivateFieldLooseKey from "@babel/runtime/helpers/classPrivateFieldLooseKey";
 
 var _nullishAssignment;
@@ -2142,7 +1700,7 @@ export default obj;
 export { obj };
 `;
 
-exports[`transpiles ES2020+ syntax given {"targets":"Chrome 88"}: output (esm) 1`] = `
+exports[`transpiles ES2020+ syntax given {"targets":"Chrome 88"}, {}: output (esm) 1`] = `
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
@@ -2187,7 +1745,7 @@ export default obj;
 export { obj };
 `;
 
-exports[`transpiles ES2020+ syntax given {"targets":"Chrome 88"}: output (production) 1`] = `
+exports[`transpiles ES2020+ syntax given {"targets":"Chrome 88"}, {}: output (production) 1`] = `
 import _classPrivateFieldLooseKey from "@babel/runtime/helpers/classPrivateFieldLooseKey";
 
 var _nullishAssignment;
@@ -2245,7 +1803,7 @@ export default obj;
 export { obj };
 `;
 
-exports[`transpiles ES2020+ syntax given {"targets":"Chrome 88"}: output (production-modern) 1`] = `
+exports[`transpiles ES2020+ syntax given {"targets":"Chrome 88"}, {}: output (production-modern) 1`] = `
 import _classPrivateFieldLooseKey from "@babel/runtime/helpers/classPrivateFieldLooseKey";
 
 var _nullishAssignment;
@@ -2303,7 +1861,7 @@ export default obj;
 export { obj };
 `;
 
-exports[`transpiles ES2020+ syntax given {}: input 1`] = `
+exports[`transpiles ES2020+ syntax given {}, {"assumptions":{"enumerableModuleMeta":true}}: input 1`] = `
 import defaultImport, {namedImport} from 'foo'
 import * as namespaceImport from 'bar'
 
@@ -2341,7 +1899,7 @@ export {obj}
 
 `;
 
-exports[`transpiles ES2020+ syntax given {}: output (cjs) 1`] = `
+exports[`transpiles ES2020+ syntax given {}, {"assumptions":{"enumerableModuleMeta":true}}: output (cjs) 1`] = `
 "use strict";
 
 var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard").default;
@@ -2400,7 +1958,7 @@ var _default = obj;
 exports.default = _default;
 `;
 
-exports[`transpiles ES2020+ syntax given {}: output (development) 1`] = `
+exports[`transpiles ES2020+ syntax given {}, {"assumptions":{"enumerableModuleMeta":true}}: output (development) 1`] = `
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
 import _asyncToGenerator from "@babel/runtime/helpers/asyncToGenerator";
 import _classPrivateFieldLooseKey from "@babel/runtime/helpers/classPrivateFieldLooseKey";
@@ -2498,7 +2056,7 @@ export default obj;
 export { obj };
 `;
 
-exports[`transpiles ES2020+ syntax given {}: output (development-modern) 1`] = `
+exports[`transpiles ES2020+ syntax given {}, {"assumptions":{"enumerableModuleMeta":true}}: output (development-modern) 1`] = `
 import _classPrivateFieldLooseKey from "@babel/runtime/helpers/classPrivateFieldLooseKey";
 
 var _nullishAssignment;
@@ -2556,7 +2114,7 @@ export default obj;
 export { obj };
 `;
 
-exports[`transpiles ES2020+ syntax given {}: output (esm) 1`] = `
+exports[`transpiles ES2020+ syntax given {}, {"assumptions":{"enumerableModuleMeta":true}}: output (esm) 1`] = `
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
@@ -2601,7 +2159,7 @@ export default obj;
 export { obj };
 `;
 
-exports[`transpiles ES2020+ syntax given {}: output (production) 1`] = `
+exports[`transpiles ES2020+ syntax given {}, {"assumptions":{"enumerableModuleMeta":true}}: output (production) 1`] = `
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
 import _asyncToGenerator from "@babel/runtime/helpers/asyncToGenerator";
 import _classPrivateFieldLooseKey from "@babel/runtime/helpers/classPrivateFieldLooseKey";
@@ -2699,7 +2257,7 @@ export default obj;
 export { obj };
 `;
 
-exports[`transpiles ES2020+ syntax given {}: output (production-modern) 1`] = `
+exports[`transpiles ES2020+ syntax given {}, {"assumptions":{"enumerableModuleMeta":true}}: output (production-modern) 1`] = `
 import _classPrivateFieldLooseKey from "@babel/runtime/helpers/classPrivateFieldLooseKey";
 
 var _nullishAssignment;
@@ -2757,26 +2315,482 @@ export default obj;
 export { obj };
 `;
 
-exports[`transpiles ESM in node_modules given {}: input 1`] = `
+exports[`transpiles ES2020+ syntax given {}, {}: input 1`] = `
+import defaultImport, {namedImport} from 'foo'
+import * as namespaceImport from 'bar'
+
+const dynamicImport = import('baz')
+
+class Foo {
+  static bar = 'abc'
+  baz = (x, y) => x({...y})
+  #privateMethod() {
+    return 1
+  }
+}
+
+function* infiniteGenerator() {
+  yield 1
+  yield* infiniteGenerator()
+}
+
+async function asyncFunction() {
+  return await null
+}
+
+const obj = {a: 1, b: 2}
+
+const spread = {...obj, b: 2, c: 3}
+const {a, ...rest} = spread
+
+let nullishAssignment
+nullishAssignment ??= 1
+const nullishCoalescing = obj ?? 1
+const optionalChaining = obj?.b
+
+export default obj
+export {obj}
+
+`;
+
+exports[`transpiles ES2020+ syntax given {}, {}: output (cjs) 1`] = `
+"use strict";
+
+var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard").default;
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.obj = exports.default = void 0;
+
+var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
+
+var _foo = _interopRequireWildcard3(require("foo"));
+
+var namespaceImport = _interopRequireWildcard3(require("bar"));
+
+const dynamicImport = Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require('baz')));
+
+class Foo {
+  static bar = 'abc';
+  baz = (x, y) => x({ ...y
+  });
+
+  #privateMethod() {
+    return 1;
+  }
+
+}
+
+function* infiniteGenerator() {
+  yield 1;
+  yield* infiniteGenerator();
+}
+
+async function asyncFunction() {
+  return await null;
+}
+
+const obj = {
+  a: 1,
+  b: 2
+};
+exports.obj = obj;
+const spread = { ...obj,
+  b: 2,
+  c: 3
+};
+const {
+  a,
+  ...rest
+} = spread;
+let nullishAssignment;
+nullishAssignment ?? (nullishAssignment = 1);
+const nullishCoalescing = obj ?? 1;
+const optionalChaining = obj?.b;
+var _default = obj;
+exports.default = _default;
+`;
+
+exports[`transpiles ES2020+ syntax given {}, {}: output (development) 1`] = `
+import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
+import _asyncToGenerator from "@babel/runtime/helpers/asyncToGenerator";
+import _classPrivateFieldLooseKey from "@babel/runtime/helpers/classPrivateFieldLooseKey";
+
+var _nullishAssignment;
+
+import _regeneratorRuntime from "@babel/runtime/regenerator";
+
+var _marked = /*#__PURE__*/_regeneratorRuntime.mark(infiniteGenerator);
+
+import defaultImport, { namedImport } from 'foo';
+import * as namespaceImport from 'bar';
+var dynamicImport = import('baz');
+
+var _privateMethod = /*#__PURE__*/_classPrivateFieldLooseKey("privateMethod");
+
+var Foo = function Foo() {
+  Object.defineProperty(this, _privateMethod, {
+    value: _privateMethod2
+  });
+
+  this.baz = function (x, y) {
+    return x(Object.assign({}, y));
+  };
+};
+
+function _privateMethod2() {
+  return 1;
+}
+
+Foo.bar = 'abc';
+
+function infiniteGenerator() {
+  return _regeneratorRuntime.wrap(function infiniteGenerator$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          _context.next = 2;
+          return 1;
+
+        case 2:
+          return _context.delegateYield(infiniteGenerator(), "t0", 3);
+
+        case 3:
+        case "end":
+          return _context.stop();
+      }
+    }
+  }, _marked);
+}
+
+function asyncFunction() {
+  return _asyncFunction.apply(this, arguments);
+}
+
+function _asyncFunction() {
+  _asyncFunction = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee() {
+    return _regeneratorRuntime.wrap(function _callee$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.next = 2;
+            return null;
+
+          case 2:
+            return _context2.abrupt("return", _context2.sent);
+
+          case 3:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee);
+  }));
+  return _asyncFunction.apply(this, arguments);
+}
+
+var obj = {
+  a: 1,
+  b: 2
+};
+var spread = Object.assign({}, obj, {
+  b: 2,
+  c: 3
+});
+
+var a = spread.a,
+    rest = _objectWithoutPropertiesLoose(spread, ["a"]);
+
+var nullishAssignment;
+(_nullishAssignment = nullishAssignment) != null ? _nullishAssignment : nullishAssignment = 1;
+var nullishCoalescing = obj != null ? obj : 1;
+var optionalChaining = obj == null ? void 0 : obj.b;
+export default obj;
+export { obj };
+`;
+
+exports[`transpiles ES2020+ syntax given {}, {}: output (development-modern) 1`] = `
+import _classPrivateFieldLooseKey from "@babel/runtime/helpers/classPrivateFieldLooseKey";
+
+var _nullishAssignment;
+
+import defaultImport, { namedImport } from 'foo';
+import * as namespaceImport from 'bar';
+const dynamicImport = import('baz');
+
+var _privateMethod = /*#__PURE__*/_classPrivateFieldLooseKey("privateMethod");
+
+class Foo {
+  constructor() {
+    Object.defineProperty(this, _privateMethod, {
+      value: _privateMethod2
+    });
+
+    this.baz = (x, y) => x({ ...y
+    });
+  }
+
+}
+
+function _privateMethod2() {
+  return 1;
+}
+
+Foo.bar = 'abc';
+
+function* infiniteGenerator() {
+  yield 1;
+  yield* infiniteGenerator();
+}
+
+async function asyncFunction() {
+  return await null;
+}
+
+const obj = {
+  a: 1,
+  b: 2
+};
+const spread = { ...obj,
+  b: 2,
+  c: 3
+};
+const {
+  a,
+  ...rest
+} = spread;
+let nullishAssignment;
+(_nullishAssignment = nullishAssignment) != null ? _nullishAssignment : nullishAssignment = 1;
+const nullishCoalescing = obj != null ? obj : 1;
+const optionalChaining = obj == null ? void 0 : obj.b;
+export default obj;
+export { obj };
+`;
+
+exports[`transpiles ES2020+ syntax given {}, {}: output (esm) 1`] = `
+import defaultImport, { namedImport } from 'foo';
+import * as namespaceImport from 'bar';
+const dynamicImport = import('baz');
+
+class Foo {
+  static bar = 'abc';
+  baz = (x, y) => x({ ...y
+  });
+
+  #privateMethod() {
+    return 1;
+  }
+
+}
+
+function* infiniteGenerator() {
+  yield 1;
+  yield* infiniteGenerator();
+}
+
+async function asyncFunction() {
+  return await null;
+}
+
+const obj = {
+  a: 1,
+  b: 2
+};
+const spread = { ...obj,
+  b: 2,
+  c: 3
+};
+const {
+  a,
+  ...rest
+} = spread;
+let nullishAssignment;
+nullishAssignment ?? (nullishAssignment = 1);
+const nullishCoalescing = obj ?? 1;
+const optionalChaining = obj?.b;
+export default obj;
+export { obj };
+`;
+
+exports[`transpiles ES2020+ syntax given {}, {}: output (production) 1`] = `
+import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
+import _asyncToGenerator from "@babel/runtime/helpers/asyncToGenerator";
+import _classPrivateFieldLooseKey from "@babel/runtime/helpers/classPrivateFieldLooseKey";
+
+var _nullishAssignment;
+
+import _regeneratorRuntime from "@babel/runtime/regenerator";
+
+var _marked = /*#__PURE__*/_regeneratorRuntime.mark(infiniteGenerator);
+
+import defaultImport, { namedImport } from 'foo';
+import * as namespaceImport from 'bar';
+var dynamicImport = import('baz');
+
+var _privateMethod = /*#__PURE__*/_classPrivateFieldLooseKey("privateMethod");
+
+var Foo = function Foo() {
+  Object.defineProperty(this, _privateMethod, {
+    value: _privateMethod2
+  });
+
+  this.baz = function (x, y) {
+    return x(Object.assign({}, y));
+  };
+};
+
+function _privateMethod2() {
+  return 1;
+}
+
+Foo.bar = 'abc';
+
+function infiniteGenerator() {
+  return _regeneratorRuntime.wrap(function infiniteGenerator$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          _context.next = 2;
+          return 1;
+
+        case 2:
+          return _context.delegateYield(infiniteGenerator(), "t0", 3);
+
+        case 3:
+        case "end":
+          return _context.stop();
+      }
+    }
+  }, _marked);
+}
+
+function asyncFunction() {
+  return _asyncFunction.apply(this, arguments);
+}
+
+function _asyncFunction() {
+  _asyncFunction = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee() {
+    return _regeneratorRuntime.wrap(function _callee$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.next = 2;
+            return null;
+
+          case 2:
+            return _context2.abrupt("return", _context2.sent);
+
+          case 3:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee);
+  }));
+  return _asyncFunction.apply(this, arguments);
+}
+
+var obj = {
+  a: 1,
+  b: 2
+};
+var spread = Object.assign({}, obj, {
+  b: 2,
+  c: 3
+});
+
+var a = spread.a,
+    rest = _objectWithoutPropertiesLoose(spread, ["a"]);
+
+var nullishAssignment;
+(_nullishAssignment = nullishAssignment) != null ? _nullishAssignment : nullishAssignment = 1;
+var nullishCoalescing = obj != null ? obj : 1;
+var optionalChaining = obj == null ? void 0 : obj.b;
+export default obj;
+export { obj };
+`;
+
+exports[`transpiles ES2020+ syntax given {}, {}: output (production-modern) 1`] = `
+import _classPrivateFieldLooseKey from "@babel/runtime/helpers/classPrivateFieldLooseKey";
+
+var _nullishAssignment;
+
+import defaultImport, { namedImport } from 'foo';
+import * as namespaceImport from 'bar';
+const dynamicImport = import('baz');
+
+var _privateMethod = /*#__PURE__*/_classPrivateFieldLooseKey("privateMethod");
+
+class Foo {
+  constructor() {
+    Object.defineProperty(this, _privateMethod, {
+      value: _privateMethod2
+    });
+
+    this.baz = (x, y) => x({ ...y
+    });
+  }
+
+}
+
+function _privateMethod2() {
+  return 1;
+}
+
+Foo.bar = 'abc';
+
+function* infiniteGenerator() {
+  yield 1;
+  yield* infiniteGenerator();
+}
+
+async function asyncFunction() {
+  return await null;
+}
+
+const obj = {
+  a: 1,
+  b: 2
+};
+const spread = { ...obj,
+  b: 2,
+  c: 3
+};
+const {
+  a,
+  ...rest
+} = spread;
+let nullishAssignment;
+(_nullishAssignment = nullishAssignment) != null ? _nullishAssignment : nullishAssignment = 1;
+const nullishCoalescing = obj != null ? obj : 1;
+const optionalChaining = obj == null ? void 0 : obj.b;
+export default obj;
+export { obj };
+`;
+
+exports[`transpiles ESM in node_modules given {}, {}: input 1`] = `
 export function map(value) {
   return value ?? 2
 }
 
 `;
 
-exports[`transpiles ESM in node_modules given {}: output (cjs) 1`] = `"use strict";exports.__esModule=true;exports.map=map;function map(value){return value??2;}`;
+exports[`transpiles ESM in node_modules given {}, {}: output (cjs) 1`] = `"use strict";Object.defineProperty(exports,"__esModule",{value:true});exports.map=map;function map(value){return value??2;}`;
 
-exports[`transpiles ESM in node_modules given {}: output (development) 1`] = `export function map(value){return value!=null?value:2;}`;
+exports[`transpiles ESM in node_modules given {}, {}: output (development) 1`] = `export function map(value){return value!=null?value:2;}`;
 
-exports[`transpiles ESM in node_modules given {}: output (development-modern) 1`] = `export function map(value){return value!=null?value:2;}`;
+exports[`transpiles ESM in node_modules given {}, {}: output (development-modern) 1`] = `export function map(value){return value!=null?value:2;}`;
 
-exports[`transpiles ESM in node_modules given {}: output (esm) 1`] = `export function map(value){return value??2;}`;
+exports[`transpiles ESM in node_modules given {}, {}: output (esm) 1`] = `export function map(value){return value??2;}`;
 
-exports[`transpiles ESM in node_modules given {}: output (production) 1`] = `export function map(value){return value!=null?value:2;}`;
+exports[`transpiles ESM in node_modules given {}, {}: output (production) 1`] = `export function map(value){return value!=null?value:2;}`;
 
-exports[`transpiles ESM in node_modules given {}: output (production-modern) 1`] = `export function map(value){return value!=null?value:2;}`;
+exports[`transpiles ESM in node_modules given {}, {}: output (production-modern) 1`] = `export function map(value){return value!=null?value:2;}`;
 
-exports[`transpiles Emotion given {"emotion":true}: input 1`] = `
+exports[`transpiles Emotion given {"emotion":true}, {}: input 1`] = `
 import {useState} from 'react'
 import {css} from '@emotion/react'
 
@@ -2797,10 +2811,12 @@ export default function MyComponent(props) {
 
 `;
 
-exports[`transpiles Emotion given {"emotion":true}: output (cjs) 1`] = `
+exports[`transpiles Emotion given {"emotion":true}, {}: output (cjs) 1`] = `
 "use strict";
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.default = MyComponent;
 
 var _react = require("react");
@@ -2852,7 +2868,8 @@ function MyComponent(props) {
 }
 `;
 
-exports[`transpiles Emotion given {"emotion":true}: output (development) 1`] = `
+exports[`transpiles Emotion given {"emotion":true}, {}: output (development) 1`] = `
+import _slicedToArray from "@babel/runtime/helpers/slicedToArray";
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
 
 var _jsxFileName = "/emotion.js",
@@ -2892,8 +2909,9 @@ export default function MyComponent(props) {
       rest = _objectWithoutPropertiesLoose(props, ["a", "b"]);
 
   var _useState = useState(0),
-      count = _useState[0],
-      setCount = _useState[1];
+      _useState2 = _slicedToArray(_useState, 2),
+      count = _useState2[0],
+      setCount = _useState2[1];
 
   return _jsxDEV(_Fragment, {
     children: [_jsxDEV("button", {
@@ -2929,7 +2947,7 @@ var _c;
 $RefreshReg$(_c, "MyComponent");
 `;
 
-exports[`transpiles Emotion given {"emotion":true}: output (development-modern) 1`] = `
+exports[`transpiles Emotion given {"emotion":true}, {}: output (development-modern) 1`] = `
 var _jsxFileName = "/emotion.js",
     _s = $RefreshSig$();
 
@@ -2998,7 +3016,7 @@ var _c;
 $RefreshReg$(_c, "MyComponent");
 `;
 
-exports[`transpiles Emotion given {"emotion":true}: output (esm) 1`] = `
+exports[`transpiles Emotion given {"emotion":true}, {}: output (esm) 1`] = `
 function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."; }
 
 import { useState } from 'react';
@@ -3047,7 +3065,8 @@ export default function MyComponent(props) {
 }
 `;
 
-exports[`transpiles Emotion given {"emotion":true}: output (production) 1`] = `
+exports[`transpiles Emotion given {"emotion":true}, {}: output (production) 1`] = `
+import _slicedToArray from "@babel/runtime/helpers/slicedToArray";
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
 
 function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."; }
@@ -3083,8 +3102,9 @@ export default function MyComponent(props) {
       rest = _objectWithoutPropertiesLoose(props, ["a", "b"]);
 
   var _useState = useState(0),
-      count = _useState[0],
-      setCount = _useState[1];
+      _useState2 = _slicedToArray(_useState, 2),
+      count = _useState2[0],
+      setCount = _useState2[1];
 
   return _jsxs(_Fragment, {
     children: [_jsx("button", {
@@ -3104,7 +3124,7 @@ export default function MyComponent(props) {
 }
 `;
 
-exports[`transpiles Emotion given {"emotion":true}: output (production-modern) 1`] = `
+exports[`transpiles Emotion given {"emotion":true}, {}: output (production-modern) 1`] = `
 function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."; }
 
 import { useState } from 'react';
@@ -3153,7 +3173,7 @@ export default function MyComponent(props) {
 }
 `;
 
-exports[`transpiles Emotion with classic runtime given {"emotion":true,"react":{"runtime":"classic"}}: input 1`] = `
+exports[`transpiles Emotion with classic runtime given {"emotion":true,"react":{"runtime":"classic"}}, {}: input 1`] = `
 import * as React from 'react'
 import {css} from '@emotion/react'
 
@@ -3174,12 +3194,14 @@ export default function MyComponent(props) {
 
 `;
 
-exports[`transpiles Emotion with classic runtime given {"emotion":true,"react":{"runtime":"classic"}}: output (cjs) 1`] = `
+exports[`transpiles Emotion with classic runtime given {"emotion":true,"react":{"runtime":"classic"}}, {}: output (cjs) 1`] = `
 "use strict";
 
 var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard").default;
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.default = MyComponent;
 
 var React = _interopRequireWildcard(require("react"));
@@ -3226,7 +3248,8 @@ function MyComponent(props) {
 }
 `;
 
-exports[`transpiles Emotion with classic runtime given {"emotion":true,"react":{"runtime":"classic"}}: output (development) 1`] = `
+exports[`transpiles Emotion with classic runtime given {"emotion":true,"react":{"runtime":"classic"}}, {}: output (development) 1`] = `
+import _slicedToArray from "@babel/runtime/helpers/slicedToArray";
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
 
 var _jsxFileName = "/emotion-classic.js",
@@ -3265,8 +3288,9 @@ export default function MyComponent(props) {
       rest = _objectWithoutPropertiesLoose(props, ["a", "b"]);
 
   var _React$useState = React.useState(0),
-      count = _React$useState[0],
-      setCount = _React$useState[1];
+      _React$useState2 = _slicedToArray(_React$useState, 2),
+      count = _React$useState2[0],
+      setCount = _React$useState2[1];
 
   return ___EmotionJSX(React.Fragment, null, ___EmotionJSX("button", {
     css: _ref,
@@ -3303,7 +3327,7 @@ var _c;
 $RefreshReg$(_c, "MyComponent");
 `;
 
-exports[`transpiles Emotion with classic runtime given {"emotion":true,"react":{"runtime":"classic"}}: output (development-modern) 1`] = `
+exports[`transpiles Emotion with classic runtime given {"emotion":true,"react":{"runtime":"classic"}}, {}: output (development-modern) 1`] = `
 var _jsxFileName = "/emotion-classic.js",
     _s = $RefreshSig$();
 
@@ -3372,7 +3396,7 @@ var _c;
 $RefreshReg$(_c, "MyComponent");
 `;
 
-exports[`transpiles Emotion with classic runtime given {"emotion":true,"react":{"runtime":"classic"}}: output (esm) 1`] = `
+exports[`transpiles Emotion with classic runtime given {"emotion":true,"react":{"runtime":"classic"}}, {}: output (esm) 1`] = `
 function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."; }
 
 import * as React from 'react';
@@ -3416,7 +3440,8 @@ export default function MyComponent(props) {
 }
 `;
 
-exports[`transpiles Emotion with classic runtime given {"emotion":true,"react":{"runtime":"classic"}}: output (production) 1`] = `
+exports[`transpiles Emotion with classic runtime given {"emotion":true,"react":{"runtime":"classic"}}, {}: output (production) 1`] = `
+import _slicedToArray from "@babel/runtime/helpers/slicedToArray";
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
 
 function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."; }
@@ -3450,8 +3475,9 @@ export default function MyComponent(props) {
       rest = _objectWithoutPropertiesLoose(props, ["a", "b"]);
 
   var _React$useState = React.useState(0),
-      count = _React$useState[0],
-      setCount = _React$useState[1];
+      _React$useState2 = _slicedToArray(_React$useState, 2),
+      count = _React$useState2[0],
+      setCount = _React$useState2[1];
 
   return ___EmotionJSX(React.Fragment, null, ___EmotionJSX("button", {
     css: _ref,
@@ -3468,7 +3494,7 @@ export default function MyComponent(props) {
 }
 `;
 
-exports[`transpiles Emotion with classic runtime given {"emotion":true,"react":{"runtime":"classic"}}: output (production-modern) 1`] = `
+exports[`transpiles Emotion with classic runtime given {"emotion":true,"react":{"runtime":"classic"}}, {}: output (production-modern) 1`] = `
 function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."; }
 
 import * as React from 'react';
@@ -3512,7 +3538,7 @@ export default function MyComponent(props) {
 }
 `;
 
-exports[`transpiles React given {}: input 1`] = `
+exports[`transpiles React given {}, {}: input 1`] = `
 import {useState} from 'react'
 
 export default function MyComponent(props) {
@@ -3527,10 +3553,12 @@ export default function MyComponent(props) {
 
 `;
 
-exports[`transpiles React given {}: output (cjs) 1`] = `
+exports[`transpiles React given {}, {}: output (cjs) 1`] = `
 "use strict";
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.default = MyComponent;
 
 var _react = require("react");
@@ -3551,7 +3579,8 @@ function MyComponent(props) {
 }
 `;
 
-exports[`transpiles React given {}: output (development) 1`] = `
+exports[`transpiles React given {}, {}: output (development) 1`] = `
+import _slicedToArray from "@babel/runtime/helpers/slicedToArray";
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
 
 var _jsxFileName = "/react.js",
@@ -3566,8 +3595,9 @@ export default function MyComponent(props) {
       rest = _objectWithoutPropertiesLoose(props, ["label"]);
 
   var _useState = useState(0),
-      count = _useState[0],
-      setCount = _useState[1];
+      _useState2 = _slicedToArray(_useState, 2),
+      count = _useState2[0],
+      setCount = _useState2[1];
 
   return /*#__PURE__*/_jsxDEV("button", Object.assign({
     onClick: function onClick() {
@@ -3591,7 +3621,7 @@ var _c;
 $RefreshReg$(_c, "MyComponent");
 `;
 
-exports[`transpiles React given {}: output (development-modern) 1`] = `
+exports[`transpiles React given {}, {}: output (development-modern) 1`] = `
 var _jsxFileName = "/react.js",
     _s = $RefreshSig$();
 
@@ -3625,7 +3655,7 @@ var _c;
 $RefreshReg$(_c, "MyComponent");
 `;
 
-exports[`transpiles React given {}: output (esm) 1`] = `
+exports[`transpiles React given {}, {}: output (esm) 1`] = `
 import { useState } from 'react';
 import { jsxs as _jsxs } from "react/jsx-runtime";
 export default function MyComponent(props) {
@@ -3642,7 +3672,8 @@ export default function MyComponent(props) {
 }
 `;
 
-exports[`transpiles React given {}: output (production) 1`] = `
+exports[`transpiles React given {}, {}: output (production) 1`] = `
+import _slicedToArray from "@babel/runtime/helpers/slicedToArray";
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
 import { useState } from 'react';
 import { jsxs as _jsxs } from "react/jsx-runtime";
@@ -3651,8 +3682,9 @@ export default function MyComponent(props) {
       rest = _objectWithoutPropertiesLoose(props, ["label"]);
 
   var _useState = useState(0),
-      count = _useState[0],
-      setCount = _useState[1];
+      _useState2 = _slicedToArray(_useState, 2),
+      count = _useState2[0],
+      setCount = _useState2[1];
 
   return /*#__PURE__*/_jsxs("button", Object.assign({
     onClick: function onClick() {
@@ -3664,7 +3696,7 @@ export default function MyComponent(props) {
 }
 `;
 
-exports[`transpiles React given {}: output (production-modern) 1`] = `
+exports[`transpiles React given {}, {}: output (production-modern) 1`] = `
 import { useState } from 'react';
 import { jsxs as _jsxs } from "react/jsx-runtime";
 export default function MyComponent(props) {
@@ -3681,7 +3713,7 @@ export default function MyComponent(props) {
 }
 `;
 
-exports[`transpiles React with classic runtime given {"react":{"runtime":"classic"}}: input 1`] = `
+exports[`transpiles React with classic runtime given {"react":{"runtime":"classic"}}, {}: input 1`] = `
 import * as React from 'react'
 
 export default function MyComponent(props) {
@@ -3696,12 +3728,14 @@ export default function MyComponent(props) {
 
 `;
 
-exports[`transpiles React with classic runtime given {"react":{"runtime":"classic"}}: output (cjs) 1`] = `
+exports[`transpiles React with classic runtime given {"react":{"runtime":"classic"}}, {}: output (cjs) 1`] = `
 "use strict";
 
 var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard").default;
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.default = MyComponent;
 
 var React = _interopRequireWildcard(require("react"));
@@ -3719,7 +3753,8 @@ function MyComponent(props) {
 }
 `;
 
-exports[`transpiles React with classic runtime given {"react":{"runtime":"classic"}}: output (development) 1`] = `
+exports[`transpiles React with classic runtime given {"react":{"runtime":"classic"}}, {}: output (development) 1`] = `
+import _slicedToArray from "@babel/runtime/helpers/slicedToArray";
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
 
 var _jsxFileName = "/react-classic.js",
@@ -3733,8 +3768,9 @@ export default function MyComponent(props) {
       rest = _objectWithoutPropertiesLoose(props, ["label"]);
 
   var _React$useState = React.useState(0),
-      count = _React$useState[0],
-      setCount = _React$useState[1];
+      _React$useState2 = _slicedToArray(_React$useState, 2),
+      count = _React$useState2[0],
+      setCount = _React$useState2[1];
 
   return /*#__PURE__*/React.createElement("button", Object.assign({
     onClick: function onClick() {
@@ -3759,7 +3795,7 @@ var _c;
 $RefreshReg$(_c, "MyComponent");
 `;
 
-exports[`transpiles React with classic runtime given {"react":{"runtime":"classic"}}: output (development-modern) 1`] = `
+exports[`transpiles React with classic runtime given {"react":{"runtime":"classic"}}, {}: output (development-modern) 1`] = `
 var _jsxFileName = "/react-classic.js",
     _s = $RefreshSig$();
 
@@ -3793,7 +3829,7 @@ var _c;
 $RefreshReg$(_c, "MyComponent");
 `;
 
-exports[`transpiles React with classic runtime given {"react":{"runtime":"classic"}}: output (esm) 1`] = `
+exports[`transpiles React with classic runtime given {"react":{"runtime":"classic"}}, {}: output (esm) 1`] = `
 import * as React from 'react';
 export default function MyComponent(props) {
   const {
@@ -3808,7 +3844,8 @@ export default function MyComponent(props) {
 }
 `;
 
-exports[`transpiles React with classic runtime given {"react":{"runtime":"classic"}}: output (production) 1`] = `
+exports[`transpiles React with classic runtime given {"react":{"runtime":"classic"}}, {}: output (production) 1`] = `
+import _slicedToArray from "@babel/runtime/helpers/slicedToArray";
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
 import * as React from 'react';
 export default function MyComponent(props) {
@@ -3816,8 +3853,9 @@ export default function MyComponent(props) {
       rest = _objectWithoutPropertiesLoose(props, ["label"]);
 
   var _React$useState = React.useState(0),
-      count = _React$useState[0],
-      setCount = _React$useState[1];
+      _React$useState2 = _slicedToArray(_React$useState, 2),
+      count = _React$useState2[0],
+      setCount = _React$useState2[1];
 
   return /*#__PURE__*/React.createElement("button", Object.assign({
     onClick: function onClick() {
@@ -3827,7 +3865,7 @@ export default function MyComponent(props) {
 }
 `;
 
-exports[`transpiles React with classic runtime given {"react":{"runtime":"classic"}}: output (production-modern) 1`] = `
+exports[`transpiles React with classic runtime given {"react":{"runtime":"classic"}}, {}: output (production-modern) 1`] = `
 import * as React from 'react';
 export default function MyComponent(props) {
   const {
@@ -3842,17 +3880,19 @@ export default function MyComponent(props) {
 }
 `;
 
-exports[`transpiles TSX given {}: input 1`] = `
+exports[`transpiles TSX given {}, {}: input 1`] = `
 export default function add(a: number, b: number): number {
   return a + b
 }
 
 `;
 
-exports[`transpiles TSX given {}: output (cjs) 1`] = `
+exports[`transpiles TSX given {}, {}: output (cjs) 1`] = `
 "use strict";
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.default = add;
 
 function add(a, b) {
@@ -3860,31 +3900,31 @@ function add(a, b) {
 }
 `;
 
-exports[`transpiles TSX given {}: output (development) 1`] = `
+exports[`transpiles TSX given {}, {}: output (development) 1`] = `
 export default function add(a, b) {
   return a + b;
 }
 `;
 
-exports[`transpiles TSX given {}: output (development-modern) 1`] = `
+exports[`transpiles TSX given {}, {}: output (development-modern) 1`] = `
 export default function add(a, b) {
   return a + b;
 }
 `;
 
-exports[`transpiles TSX given {}: output (esm) 1`] = `
+exports[`transpiles TSX given {}, {}: output (esm) 1`] = `
 export default function add(a, b) {
   return a + b;
 }
 `;
 
-exports[`transpiles TSX given {}: output (production) 1`] = `
+exports[`transpiles TSX given {}, {}: output (production) 1`] = `
 export default function add(a, b) {
   return a + b;
 }
 `;
 
-exports[`transpiles TSX given {}: output (production-modern) 1`] = `
+exports[`transpiles TSX given {}, {}: output (production-modern) 1`] = `
 export default function add(a, b) {
   return a + b;
 }
