@@ -15,6 +15,8 @@ const APP_PLUGIN_INCLUDE_LIST = [
 const PRECOMPILED_PACKAGES = ['core-js', 'lodash', 'react', 'react-dom', 'whatwg-fetch']
 const PRECOMPILED_PACKAGES_REGEX = new RegExp(`node_modules/(${PRECOMPILED_PACKAGES.join('|')})/`)
 
+// by default, enable most advanced optimizations to roughly match the behavior of `loose` mode,
+// trading off on absolute spec compliance for output size and efficiency
 const assumptions = {
   constantSuper: true,
   ignoreFunctionLength: true,
