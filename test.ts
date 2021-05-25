@@ -1,7 +1,7 @@
 import * as fs from 'fs'
 
 import {test, expect} from '@jest/globals'
-import {PluginItem, transform, TransformOptions} from '@babel/core'
+import {transform} from '@babel/core'
 
 import preset from '.'
 
@@ -35,15 +35,13 @@ function macro(title: string, fixture: string, presetOptions = {}, topLevelOptio
     }
 
     NON_TEST_ENVIRONMENTS.forEach((envName) => {
-      const presets: PluginItem[] = [[preset, resolvedPresetOptions]]
-      const options: TransformOptions = {
+      const result = transform(input, {
         envName,
-        presets,
+        presets: [[preset, resolvedPresetOptions]],
         filename: `/${fixture}`,
         babelrc: false,
         ...topLevelOptions,
-      }
-      const result = transform(input, options)
+      })
       expect(result?.code).toMatchSnapshot(`output (${envName})`)
     })
   })
