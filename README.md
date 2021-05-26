@@ -13,11 +13,11 @@ $ npm install -D @kensho-technologies/babel-preset
 
 ## Usage
 
-You can set up Babel transpilation in [several ways](http://babeljs.io/docs/setup). Choose a method, and configure Babel to include the preset, e.g. in a `babel.config.js`:
+You can set up Babel transpilation in [several ways](http://babeljs.io/docs/setup). Choose a method, and configure Babel to include the preset, e.g. in a `babel.config.json`:
 
-```js
-module.exports = {
-  presets: ['@kensho-technologies/babel-preset'],
+```json
+{
+  "presets": ["@kensho-technologies/babel-preset"]
 }
 ```
 
