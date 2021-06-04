@@ -36,15 +36,7 @@ const assumptions = {
   superIsCallableConstructor: true,
 }
 
-const SUPPORTED_ENVIRONMENTS = [
-  'development',
-  'production',
-  'esm',
-  'cjs',
-  'test',
-  'development-modern',
-  'production-modern',
-]
+const SUPPORTED_ENVIRONMENTS = ['development', 'production', 'esm', 'cjs', 'test']
 
 function getUnsupportedEnvMessage(env) {
   const supportedEnvsString = SUPPORTED_ENVIRONMENTS.join(', ')
@@ -64,17 +56,12 @@ module.exports = (babel, options) => {
     throw new Error(getUnsupportedEnvMessage(env))
   }
 
-  const isModern = env === 'development-modern' || env === 'production-modern'
-  const isDevelopment = env === 'development' || env === 'development-modern'
-  const isProduction = env === 'production' || env === 'production-modern'
-
   const {
-    browserslistEnv = isModern ? 'modern' : undefined,
     emotion = false,
-    include = isDevelopment || isProduction ? APP_PLUGIN_INCLUDE_LIST : [],
+    include = env === 'development' || env === 'production' ? APP_PLUGIN_INCLUDE_LIST : [],
     modules = env === 'test' || env === 'cjs' ? 'commonjs' : false,
     react = {},
-    reactRefresh = isDevelopment && react && {},
+    reactRefresh = env === 'development' && react && {},
     runtime = true,
     targets = getDefaultTargets(env),
     typescript = {},
@@ -101,7 +88,6 @@ module.exports = (babel, options) => {
         require('@babel/preset-env').default,
         {
           ...rest,
-          browserslistEnv,
           include,
           modules,
           targets,
@@ -128,7 +114,7 @@ module.exports = (babel, options) => {
       react && [
         require('@babel/preset-react').default,
         {
-          development: isDevelopment,
+          development: env === 'development',
           importSource: emotion && reactRuntime === 'automatic' ? '@emotion/react' : undefined,
           useSpread: true,
           ...react,
