@@ -2871,6 +2871,7 @@ function MyComponent(props) {
 exports[`transpiles Emotion given {"emotion":true}, {}: output (development) 1`] = `
 import _slicedToArray from "@babel/runtime/helpers/slicedToArray";
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
+var _excluded = ["a", "b"];
 
 var _jsxFileName = "/emotion.js",
     _s = $RefreshSig$();
@@ -2906,7 +2907,7 @@ export default function MyComponent(props) {
 
   var a = props.a,
       b = props.b,
-      rest = _objectWithoutPropertiesLoose(props, ["a", "b"]);
+      rest = _objectWithoutPropertiesLoose(props, _excluded);
 
   var _useState = useState(0),
       _useState2 = _slicedToArray(_useState, 2),
@@ -3068,6 +3069,7 @@ export default function MyComponent(props) {
 exports[`transpiles Emotion given {"emotion":true}, {}: output (production) 1`] = `
 import _slicedToArray from "@babel/runtime/helpers/slicedToArray";
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
+var _excluded = ["a", "b"];
 
 function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."; }
 
@@ -3099,7 +3101,7 @@ var _ref = process.env.NODE_ENV === "production" ? {
 export default function MyComponent(props) {
   var a = props.a,
       b = props.b,
-      rest = _objectWithoutPropertiesLoose(props, ["a", "b"]);
+      rest = _objectWithoutPropertiesLoose(props, _excluded);
 
   var _useState = useState(0),
       _useState2 = _slicedToArray(_useState, 2),
@@ -3251,6 +3253,7 @@ function MyComponent(props) {
 exports[`transpiles Emotion with classic runtime given {"emotion":true,"react":{"runtime":"classic"}}, {}: output (development) 1`] = `
 import _slicedToArray from "@babel/runtime/helpers/slicedToArray";
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
+var _excluded = ["a", "b"];
 
 var _jsxFileName = "/emotion-classic.js",
     _s = $RefreshSig$();
@@ -3285,7 +3288,7 @@ export default function MyComponent(props) {
 
   var a = props.a,
       b = props.b,
-      rest = _objectWithoutPropertiesLoose(props, ["a", "b"]);
+      rest = _objectWithoutPropertiesLoose(props, _excluded);
 
   var _React$useState = React.useState(0),
       _React$useState2 = _slicedToArray(_React$useState, 2),
@@ -3443,6 +3446,7 @@ export default function MyComponent(props) {
 exports[`transpiles Emotion with classic runtime given {"emotion":true,"react":{"runtime":"classic"}}, {}: output (production) 1`] = `
 import _slicedToArray from "@babel/runtime/helpers/slicedToArray";
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
+var _excluded = ["a", "b"];
 
 function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."; }
 
@@ -3472,7 +3476,7 @@ var _ref = process.env.NODE_ENV === "production" ? {
 export default function MyComponent(props) {
   var a = props.a,
       b = props.b,
-      rest = _objectWithoutPropertiesLoose(props, ["a", "b"]);
+      rest = _objectWithoutPropertiesLoose(props, _excluded);
 
   var _React$useState = React.useState(0),
       _React$useState2 = _slicedToArray(_React$useState, 2),
@@ -3582,6 +3586,7 @@ function MyComponent(props) {
 exports[`transpiles React given {}, {}: output (development) 1`] = `
 import _slicedToArray from "@babel/runtime/helpers/slicedToArray";
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
+var _excluded = ["label"];
 
 var _jsxFileName = "/react.js",
     _s = $RefreshSig$();
@@ -3592,7 +3597,7 @@ export default function MyComponent(props) {
   _s();
 
   var label = props.label,
-      rest = _objectWithoutPropertiesLoose(props, ["label"]);
+      rest = _objectWithoutPropertiesLoose(props, _excluded);
 
   var _useState = useState(0),
       _useState2 = _slicedToArray(_useState, 2),
@@ -3675,11 +3680,12 @@ export default function MyComponent(props) {
 exports[`transpiles React given {}, {}: output (production) 1`] = `
 import _slicedToArray from "@babel/runtime/helpers/slicedToArray";
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
+var _excluded = ["label"];
 import { useState } from 'react';
 import { jsxs as _jsxs } from "react/jsx-runtime";
 export default function MyComponent(props) {
   var label = props.label,
-      rest = _objectWithoutPropertiesLoose(props, ["label"]);
+      rest = _objectWithoutPropertiesLoose(props, _excluded);
 
   var _useState = useState(0),
       _useState2 = _slicedToArray(_useState, 2),
@@ -3756,6 +3762,7 @@ function MyComponent(props) {
 exports[`transpiles React with classic runtime given {"react":{"runtime":"classic"}}, {}: output (development) 1`] = `
 import _slicedToArray from "@babel/runtime/helpers/slicedToArray";
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
+var _excluded = ["label"];
 
 var _jsxFileName = "/react-classic.js",
     _s = $RefreshSig$();
@@ -3765,7 +3772,7 @@ export default function MyComponent(props) {
   _s();
 
   var label = props.label,
-      rest = _objectWithoutPropertiesLoose(props, ["label"]);
+      rest = _objectWithoutPropertiesLoose(props, _excluded);
 
   var _React$useState = React.useState(0),
       _React$useState2 = _slicedToArray(_React$useState, 2),
@@ -3847,10 +3854,11 @@ export default function MyComponent(props) {
 exports[`transpiles React with classic runtime given {"react":{"runtime":"classic"}}, {}: output (production) 1`] = `
 import _slicedToArray from "@babel/runtime/helpers/slicedToArray";
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
+var _excluded = ["label"];
 import * as React from 'react';
 export default function MyComponent(props) {
   var label = props.label,
-      rest = _objectWithoutPropertiesLoose(props, ["label"]);
+      rest = _objectWithoutPropertiesLoose(props, _excluded);
 
   var _React$useState = React.useState(0),
       _React$useState2 = _slicedToArray(_React$useState, 2),
