@@ -16,7 +16,8 @@ test('transpiles JSX', () => {
     }
   `
 
-  expect(transform({code, env: 'development'})).toMatchInlineSnapshot(`
+  expect(transform({code})).toMatchInlineSnapshot(`
+    // development:
     var _jsxFileName = '/file.js',
       _s = $RefreshSig$()
     import {useState} from 'react'
@@ -50,9 +51,8 @@ test('transpiles JSX', () => {
     _c = MyComponent
     var _c
     $RefreshReg$(_c, 'MyComponent')
-  `)
 
-  expect(transform({code, env: 'production'})).toMatchInlineSnapshot(`
+    // production:
     import {useState} from 'react'
     import {jsx as _jsx} from 'react/jsx-runtime'
     import {jsxs as _jsxs} from 'react/jsx-runtime'
@@ -63,9 +63,8 @@ test('transpiles JSX', () => {
         Object.assign({height: 2}, rest, {children: [/*#__PURE__*/ _jsx('div', {}), 'foo', ' bar']})
       )
     }
-  `)
 
-  expect(transform({code, env: 'esm'})).toMatchInlineSnapshot(`
+    // esm:
     import {useState} from 'react'
     import {jsx as _jsx} from 'react/jsx-runtime'
     import {jsxs as _jsxs} from 'react/jsx-runtime'
@@ -77,9 +76,8 @@ test('transpiles JSX', () => {
         children: [/*#__PURE__*/ _jsx('div', {}), 'foo', ' bar'],
       })
     }
-  `)
 
-  expect(transform({code, env: 'cjs'})).toMatchInlineSnapshot(`
+    // cjs:
     'use strict'
     var _react = require('react')
     var _jsxRuntime = require('react/jsx-runtime')

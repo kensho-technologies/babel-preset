@@ -9,25 +9,13 @@ test('static imports', () => {
     console.log(defaultExport, namedExport, namespace)
   `
 
-  expect(transform({code, env: 'development'})).toMatchInlineSnapshot(`
+  expect(transform({code})).toMatchInlineSnapshot(`
+    // development, production, esm:
     import defaultExport, {namedExport} from 'foo'
     import * as namespace from 'bar'
     console.log(defaultExport, namedExport, namespace)
-  `)
 
-  expect(transform({code, env: 'production'})).toMatchInlineSnapshot(`
-    import defaultExport, {namedExport} from 'foo'
-    import * as namespace from 'bar'
-    console.log(defaultExport, namedExport, namespace)
-  `)
-
-  expect(transform({code, env: 'esm'})).toMatchInlineSnapshot(`
-    import defaultExport, {namedExport} from 'foo'
-    import * as namespace from 'bar'
-    console.log(defaultExport, namedExport, namespace)
-  `)
-
-  expect(transform({code, env: 'cjs'})).toMatchInlineSnapshot(`
+    // cjs:
     'use strict'
     var _interopRequireWildcard = require('@babel/runtime/helpers/interopRequireWildcard').default
     var _foo = _interopRequireWildcard(require('foo'))
@@ -39,10 +27,11 @@ test('static imports', () => {
 test('dynamic imports', () => {
   const code = `import('foo')`
 
-  expect(transform({code, env: 'development'})).toMatchInlineSnapshot(`import('foo')`)
-  expect(transform({code, env: 'production'})).toMatchInlineSnapshot(`import('foo')`)
-  expect(transform({code, env: 'esm'})).toMatchInlineSnapshot(`import('foo')`)
-  expect(transform({code, env: 'cjs'})).toMatchInlineSnapshot(`
+  expect(transform({code})).toMatchInlineSnapshot(`
+    // development, production, esm:
+    import('foo')
+
+    // cjs:
     'use strict'
     var _interopRequireDefault = require('@babel/runtime/helpers/interopRequireDefault').default
     var _interopRequireWildcard2 = _interopRequireDefault(
@@ -61,33 +50,23 @@ test('static exports', () => {
     export * as baz from 'other'
   `
 
-  expect(transform({code, env: 'development'})).toMatchInlineSnapshot(`
+  expect(transform({code})).toMatchInlineSnapshot(`
+    // development, production:
     var foo = 1
     export default foo
     export {foo}
     export {bar} from 'other'
     import * as _baz from 'other'
     export {_baz as baz}
-  `)
 
-  expect(transform({code, env: 'production'})).toMatchInlineSnapshot(`
-    var foo = 1
-    export default foo
-    export {foo}
-    export {bar} from 'other'
-    import * as _baz from 'other'
-    export {_baz as baz}
-  `)
-
-  expect(transform({code, env: 'esm'})).toMatchInlineSnapshot(`
+    // esm:
     const foo = 1
     export default foo
     export {foo}
     export {bar} from 'other'
     export * as baz from 'other'
-  `)
 
-  expect(transform({code, env: 'cjs'})).toMatchInlineSnapshot(`
+    // cjs:
     'use strict'
     var _interopRequireWildcard = require('@babel/runtime/helpers/interopRequireWildcard').default
     Object.defineProperty(exports, '__esModule', {value: true})

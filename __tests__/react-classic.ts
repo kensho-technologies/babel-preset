@@ -17,7 +17,8 @@ test('transpiles JSX using classic runtime', () => {
     }
   `
 
-  expect(transform({code, options, env: 'development'})).toMatchInlineSnapshot(`
+  expect(transform({code, options})).toMatchInlineSnapshot(`
+    // development:
     var _jsxFileName = '/file.js',
       _s = $RefreshSig$()
     import * as React from 'react'
@@ -42,9 +43,8 @@ test('transpiles JSX using classic runtime', () => {
     _c = MyComponent
     var _c
     $RefreshReg$(_c, 'MyComponent')
-  `)
 
-  expect(transform({code, options, env: 'production'})).toMatchInlineSnapshot(`
+    // production:
     import * as React from 'react'
     function MyComponent() {
       React.useEffect(function () {}, [])
@@ -56,9 +56,8 @@ test('transpiles JSX using classic runtime', () => {
         ' bar'
       )
     }
-  `)
 
-  expect(transform({code, options, env: 'esm'})).toMatchInlineSnapshot(`
+    // esm:
     import * as React from 'react'
     function MyComponent() {
       React.useEffect(() => {}, [])
@@ -70,9 +69,8 @@ test('transpiles JSX using classic runtime', () => {
         ' bar'
       )
     }
-  `)
 
-  expect(transform({code, options, env: 'cjs'})).toMatchInlineSnapshot(`
+    // cjs:
     'use strict'
     var _interopRequireWildcard = require('@babel/runtime/helpers/interopRequireWildcard').default
     var React = _interopRequireWildcard(require('react'))
