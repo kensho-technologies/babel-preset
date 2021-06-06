@@ -2,18 +2,58 @@ import {test, expect} from '@jest/globals'
 
 import transform from '../helpers/transform'
 
-test('narrows polyfill imports', () => {
+test('removes polyfill imports in libraries', () => {
   const code = `import 'core-js/stable'`
 
-  expect(transform({code, env: 'development', targets: 'Chrome 90'})).toMatchInlineSnapshot(
-    `import 'core-js/modules/web.immediate.js'`
-  )
-
-  expect(transform({code, env: 'production', targets: 'Chrome 90'})).toMatchInlineSnapshot(
-    `import 'core-js/modules/web.immediate.js'`
-  )
-
   expect(transform({code, env: 'esm'})).toMatchInlineSnapshot(``)
-
   expect(transform({code, env: 'cjs'})).toMatchInlineSnapshot(`'use strict'`)
+})
+
+test('narrows polyfill imports in apps with modern targets', () => {
+  const code = `import 'core-js/stable'`
+  const targets = 'Chrome 90'
+
+  const development = transform({code, targets, env: 'development'})
+  const production = transform({code, targets, env: 'production'})
+  expect(development).toBe(production)
+  expect(development).toMatchInlineSnapshot(`import 'core-js/modules/web.immediate.js'`)
+})
+
+test('narrows polyfill imports in apps with legacy targets', () => {
+  const code = `import 'core-js/stable'`
+  const targets = 'Chrome 60'
+
+  const development = transform({code, targets, env: 'development'})
+  const production = transform({code, targets, env: 'production'})
+  expect(development).toBe(production)
+
+  expect(development).toMatchInlineSnapshot(`
+    import 'core-js/modules/es.symbol.description.js'
+    import 'core-js/modules/es.symbol.async-iterator.js'
+    import 'core-js/modules/es.array.flat.js'
+    import 'core-js/modules/es.array.flat-map.js'
+    import 'core-js/modules/es.array.iterator.js'
+    import 'core-js/modules/es.array.reduce.js'
+    import 'core-js/modules/es.array.reduce-right.js'
+    import 'core-js/modules/es.array.sort.js'
+    import 'core-js/modules/es.array.unscopables.flat.js'
+    import 'core-js/modules/es.array.unscopables.flat-map.js'
+    import 'core-js/modules/es.math.hypot.js'
+    import 'core-js/modules/es.object.define-getter.js'
+    import 'core-js/modules/es.object.define-setter.js'
+    import 'core-js/modules/es.object.from-entries.js'
+    import 'core-js/modules/es.object.lookup-getter.js'
+    import 'core-js/modules/es.object.lookup-setter.js'
+    import 'core-js/modules/es.promise.js'
+    import 'core-js/modules/es.promise.finally.js'
+    import 'core-js/modules/es.string.replace.js'
+    import 'core-js/modules/es.string.trim-end.js'
+    import 'core-js/modules/es.string.trim-start.js'
+    import 'core-js/modules/web.dom-collections.iterator.js'
+    import 'core-js/modules/web.immediate.js'
+    import 'core-js/modules/web.queue-microtask.js'
+    import 'core-js/modules/web.url.js'
+    import 'core-js/modules/web.url.to-json.js'
+    import 'core-js/modules/web.url-search-params.js'
+  `)
 })
