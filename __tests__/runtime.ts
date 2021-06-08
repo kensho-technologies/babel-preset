@@ -7,22 +7,15 @@ const targets = 'IE 11' // ensures that a helper is required to transpile the re
 
 test('imports external runtime helpers by default', () => {
   const options = {targets}
-  const development = transform({code, options, env: 'development'})
-  const production = transform({code, options, env: 'production'})
-  const esm = transform({code, options, env: 'esm'})
-  const cjs = transform({code, options, env: 'cjs'})
 
-  expect(development).toMatchInlineSnapshot(`
+  expect(transform({code, options})).toMatchInlineSnapshot(`
+    // BABEL_ENV development, production, esm:
     import _objectWithoutPropertiesLoose from '@babel/runtime/helpers/objectWithoutPropertiesLoose'
     var _obj = obj,
       foo = _obj.foo,
       rest = _objectWithoutPropertiesLoose(_obj, ['foo'])
-  `)
 
-  expect(production).toBe(development)
-  expect(esm).toBe(development)
-
-  expect(cjs).toMatchInlineSnapshot(`
+    // BABEL_ENV cjs:
     'use strict'
     var _interopRequireDefault = require('@babel/runtime/helpers/interopRequireDefault').default
     var _objectWithoutPropertiesLoose2 = _interopRequireDefault(
@@ -36,12 +29,9 @@ test('imports external runtime helpers by default', () => {
 
 test('injects runtime helpers when `runtime` is disabled', () => {
   const options = {targets, runtime: false}
-  const development = transform({code, options, env: 'development'})
-  const production = transform({code, options, env: 'production'})
-  const esm = transform({code, options, env: 'esm'})
-  const cjs = transform({code, options, env: 'cjs'})
 
-  expect(development).toMatchInlineSnapshot(`
+  expect(transform({code, options})).toMatchInlineSnapshot(`
+    // BABEL_ENV development, production, esm:
     function _objectWithoutPropertiesLoose(source, excluded) {
       if (source == null) return {}
       var target = {}
@@ -57,12 +47,8 @@ test('injects runtime helpers when `runtime` is disabled', () => {
     var _obj = obj,
       foo = _obj.foo,
       rest = _objectWithoutPropertiesLoose(_obj, ['foo'])
-  `)
 
-  expect(production).toBe(development)
-  expect(esm).toBe(development)
-
-  expect(cjs).toMatchInlineSnapshot(`
+    // BABEL_ENV cjs:
     'use strict'
     function _objectWithoutPropertiesLoose(source, excluded) {
       if (source == null) return {}

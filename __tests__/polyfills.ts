@@ -4,30 +4,34 @@ import transform from '../helpers/transform'
 
 test('removes polyfill imports in libraries', () => {
   const code = `import 'core-js/stable'`
+  const envs = ['esm', 'cjs']
 
-  expect(transform({code, env: 'esm'})).toMatchInlineSnapshot(``)
-  expect(transform({code, env: 'cjs'})).toMatchInlineSnapshot(`'use strict'`)
+  expect(transform({code, envs})).toMatchInlineSnapshot(`
+    // BABEL_ENV esm:
+
+    // BABEL_ENV cjs:
+    'use strict'
+  `)
 })
 
 test('narrows polyfill imports in apps with modern targets', () => {
   const code = `import 'core-js/stable'`
   const targets = 'Chrome 90'
+  const envs = ['development', 'production']
 
-  const development = transform({code, targets, env: 'development'})
-  const production = transform({code, targets, env: 'production'})
-  expect(development).toBe(production)
-  expect(development).toMatchInlineSnapshot(`import 'core-js/modules/web.immediate.js'`)
+  expect(transform({code, targets, envs})).toMatchInlineSnapshot(`
+    // BABEL_ENV development, production:
+    import 'core-js/modules/web.immediate.js'
+  `)
 })
 
 test('narrows polyfill imports in apps with legacy targets', () => {
   const code = `import 'core-js/stable'`
   const targets = 'Chrome 60'
+  const envs = ['development', 'production']
 
-  const development = transform({code, targets, env: 'development'})
-  const production = transform({code, targets, env: 'production'})
-  expect(development).toBe(production)
-
-  expect(development).toMatchInlineSnapshot(`
+  expect(transform({code, targets, envs})).toMatchInlineSnapshot(`
+    // BABEL_ENV development, production:
     import 'core-js/modules/es.symbol.description.js'
     import 'core-js/modules/es.symbol.async-iterator.js'
     import 'core-js/modules/es.array.flat.js'
