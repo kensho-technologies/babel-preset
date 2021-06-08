@@ -14,7 +14,7 @@ test('class properties', () => {
   `
 
   expect(transform({code})).toMatchInlineSnapshot(`
-    // development, production:
+    // BABEL_ENV development, production:
     import _classPrivateFieldLooseKey from '@babel/runtime/helpers/classPrivateFieldLooseKey'
     var _privateMethod = /*#__PURE__*/ _classPrivateFieldLooseKey('privateMethod')
     var Foo = function Foo() {
@@ -28,7 +28,7 @@ test('class properties', () => {
     }
     Foo.bar = 'abc'
 
-    // esm:
+    // BABEL_ENV esm:
     class Foo {
       static bar = 'abc'
       baz = (x, y) => x({...y})
@@ -37,7 +37,7 @@ test('class properties', () => {
       }
     }
 
-    // cjs:
+    // BABEL_ENV cjs:
     'use strict'
     class Foo {
       static bar = 'abc'

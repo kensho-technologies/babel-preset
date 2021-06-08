@@ -10,12 +10,12 @@ test('static imports', () => {
   `
 
   expect(transform({code})).toMatchInlineSnapshot(`
-    // development, production, esm:
+    // BABEL_ENV development, production, esm:
     import defaultExport, {namedExport} from 'foo'
     import * as namespace from 'bar'
     console.log(defaultExport, namedExport, namespace)
 
-    // cjs:
+    // BABEL_ENV cjs:
     'use strict'
     var _interopRequireWildcard = require('@babel/runtime/helpers/interopRequireWildcard').default
     var _foo = _interopRequireWildcard(require('foo'))
@@ -28,10 +28,10 @@ test('dynamic imports', () => {
   const code = `import('foo')`
 
   expect(transform({code})).toMatchInlineSnapshot(`
-    // development, production, esm:
+    // BABEL_ENV development, production, esm:
     import('foo')
 
-    // cjs:
+    // BABEL_ENV cjs:
     'use strict'
     var _interopRequireDefault = require('@babel/runtime/helpers/interopRequireDefault').default
     var _interopRequireWildcard2 = _interopRequireDefault(
@@ -51,7 +51,7 @@ test('static exports', () => {
   `
 
   expect(transform({code})).toMatchInlineSnapshot(`
-    // development, production:
+    // BABEL_ENV development, production:
     var foo = 1
     export default foo
     export {foo}
@@ -59,14 +59,14 @@ test('static exports', () => {
     import * as _baz from 'other'
     export {_baz as baz}
 
-    // esm:
+    // BABEL_ENV esm:
     const foo = 1
     export default foo
     export {foo}
     export {bar} from 'other'
     export * as baz from 'other'
 
-    // cjs:
+    // BABEL_ENV cjs:
     'use strict'
     var _interopRequireWildcard = require('@babel/runtime/helpers/interopRequireWildcard').default
     Object.defineProperty(exports, '__esModule', {value: true})

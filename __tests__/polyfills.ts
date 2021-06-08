@@ -7,9 +7,9 @@ test('removes polyfill imports in libraries', () => {
   const envs = ['esm', 'cjs']
 
   expect(transform({code, envs})).toMatchInlineSnapshot(`
-    // esm:
+    // BABEL_ENV esm:
 
-    // cjs:
+    // BABEL_ENV cjs:
     'use strict'
   `)
 })
@@ -20,7 +20,7 @@ test('narrows polyfill imports in apps with modern targets', () => {
   const envs = ['development', 'production']
 
   expect(transform({code, targets, envs})).toMatchInlineSnapshot(`
-    // development, production:
+    // BABEL_ENV development, production:
     import 'core-js/modules/web.immediate.js'
   `)
 })
@@ -31,7 +31,7 @@ test('narrows polyfill imports in apps with legacy targets', () => {
   const envs = ['development', 'production']
 
   expect(transform({code, targets, envs})).toMatchInlineSnapshot(`
-    // development, production:
+    // BABEL_ENV development, production:
     import 'core-js/modules/es.symbol.description.js'
     import 'core-js/modules/es.symbol.async-iterator.js'
     import 'core-js/modules/es.array.flat.js'

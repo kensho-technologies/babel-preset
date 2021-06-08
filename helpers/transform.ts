@@ -43,6 +43,6 @@ export default function transform(config: TransformConfig): string {
 
   // return a string containing each env group and its transform result
   return [...resultGroups]
-    .map((group) => `// ${group[1].join(', ')}:\n${group[0]}`.trim())
+    .map((group) => `// BABEL_ENV ${group[1].join(', ')}:\n${group[0]}`.trim())
     .join('\n\n')
 }

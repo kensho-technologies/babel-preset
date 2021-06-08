@@ -9,13 +9,13 @@ test('imports external runtime helpers by default', () => {
   const options = {targets}
 
   expect(transform({code, options})).toMatchInlineSnapshot(`
-    // development, production, esm:
+    // BABEL_ENV development, production, esm:
     import _objectWithoutPropertiesLoose from '@babel/runtime/helpers/objectWithoutPropertiesLoose'
     var _obj = obj,
       foo = _obj.foo,
       rest = _objectWithoutPropertiesLoose(_obj, ['foo'])
 
-    // cjs:
+    // BABEL_ENV cjs:
     'use strict'
     var _interopRequireDefault = require('@babel/runtime/helpers/interopRequireDefault').default
     var _objectWithoutPropertiesLoose2 = _interopRequireDefault(
@@ -31,7 +31,7 @@ test('injects runtime helpers when `runtime` is disabled', () => {
   const options = {targets, runtime: false}
 
   expect(transform({code, options})).toMatchInlineSnapshot(`
-    // development, production, esm:
+    // BABEL_ENV development, production, esm:
     function _objectWithoutPropertiesLoose(source, excluded) {
       if (source == null) return {}
       var target = {}
@@ -48,7 +48,7 @@ test('injects runtime helpers when `runtime` is disabled', () => {
       foo = _obj.foo,
       rest = _objectWithoutPropertiesLoose(_obj, ['foo'])
 
-    // cjs:
+    // BABEL_ENV cjs:
     'use strict'
     function _objectWithoutPropertiesLoose(source, excluded) {
       if (source == null) return {}

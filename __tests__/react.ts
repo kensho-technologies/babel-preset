@@ -17,7 +17,7 @@ test('transpiles JSX', () => {
   `
 
   expect(transform({code})).toMatchInlineSnapshot(`
-    // development:
+    // BABEL_ENV development:
     var _jsxFileName = '/file.js',
       _s = $RefreshSig$()
     import {useState} from 'react'
@@ -52,7 +52,7 @@ test('transpiles JSX', () => {
     var _c
     $RefreshReg$(_c, 'MyComponent')
 
-    // production:
+    // BABEL_ENV production:
     import {useState} from 'react'
     import {jsx as _jsx} from 'react/jsx-runtime'
     import {jsxs as _jsxs} from 'react/jsx-runtime'
@@ -64,7 +64,7 @@ test('transpiles JSX', () => {
       )
     }
 
-    // esm:
+    // BABEL_ENV esm:
     import {useState} from 'react'
     import {jsx as _jsx} from 'react/jsx-runtime'
     import {jsxs as _jsxs} from 'react/jsx-runtime'
@@ -77,7 +77,7 @@ test('transpiles JSX', () => {
       })
     }
 
-    // cjs:
+    // BABEL_ENV cjs:
     'use strict'
     var _react = require('react')
     var _jsxRuntime = require('react/jsx-runtime')
