@@ -1,6 +1,6 @@
 # babel-preset
 
-[![Build Status](https://img.shields.io/github/workflow/status/kensho-technologies/babel-preset/test/master)](https://github.com/kensho-technologies/babel-preset/actions)
+[![Build Status](https://img.shields.io/github/workflow/status/kensho-technologies/babel-preset/CI/main)](https://github.com/kensho-technologies/babel-preset/actions)
 [![npm](https://img.shields.io/npm/v/@kensho-technologies/babel-preset.svg)](https://npm.im/@kensho-technologies/babel-preset)
 
 This [Babel 7 preset](http://babeljs.io/docs/plugins/#presets) transpiles ES2020, JSX, and selected language proposals. It also includes optimizations for specific contexts.
@@ -13,17 +13,27 @@ $ npm install -D @kensho-technologies/babel-preset
 
 ## Usage
 
-You can set up Babel transpilation in [several ways](http://babeljs.io/docs/setup). Choose a method, and configure Babel to include the preset, e.g. in a `babel.config.js`:
+You can set up Babel transpilation in [several ways](http://babeljs.io/docs/setup). Choose a method, and configure Babel to include the preset, e.g. in a `babel.config.json`:
 
-```js
-module.exports = {
-  presets: ['@kensho-technologies/babel-preset'],
+```json
+{
+  "presets": ["@kensho-technologies/babel-preset"]
 }
 ```
 
 ## Options
 
-The preset can be configured using several options. Note that some options' defaults depend on the [Babel environment](https://babeljs.io/docs/en/options#envname), which may be one of: `development` | `production` | `test` | `cjs` | `esm`
+The preset can be configured using several options. Note that some options' defaults depend on the [Babel environment](https://babeljs.io/docs/en/options#envname), which may be one of the following:
+
+| Environment   | Purpose                                                              |
+| ------------- | -------------------------------------------------------------------- |
+| `development` | Transpiling an app for development.                                  |
+| `production`  | Transpiling an app for production.                                   |
+| `test`        | Transpiling an app or library to run in the current version of Node. |
+| `cjs`         | Transpiling a library for distribution as CJS.                       |
+| `esm`         | Transpiling a library for distribution as ESM.                       |
+
+The present extends [`@babel/preset-env`](https://babeljs.io/docs/en/babel-preset-env), and forwards all additional options to that preset.
 
 ### `emotion`
 
@@ -38,13 +48,6 @@ Whether to enable support for CSS-in-JS via [Emotion](https://emotion.sh). If an
 Default: `undefined`
 
 List of plugins to always include. Forwarded to [the corresponding option in `@babel/preset-env`](https://babeljs.io/docs/en/babel-preset-env#include).
-
-### `loose`
-
-`true` | `false`<br />
-Default: `true`
-
-Whether to enable [loose mode](http://2ality.com/2015/12/babel6-loose-mode.html) in all presets/plugins that support this option.
 
 ### `modules`
 

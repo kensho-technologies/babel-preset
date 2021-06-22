@@ -1,37 +1,47 @@
 import * as fs from 'fs'
 
 import {test, expect} from '@jest/globals'
-import {PluginItem, transform, TransformOptions} from '@babel/core'
+import {transformSync} from '@babel/core'
 
 import preset from '.'
 
-const ENVS = ['development', 'production', 'esm', 'cjs']
+// the 'test' environment is excluded because it targets the currently running version of Node
+// since our CI runs multiple Node versions, a snapshot for 'test' might not match one of them
+const NON_TEST_ENVIRONMENTS = ['development', 'production', 'esm', 'cjs']
 
 expect.addSnapshotSerializer({
   test: (val: unknown) => typeof val === 'string',
   print: (val: string) => val,
 })
 
-function macro(title: string, fixture: string, presetOptions = {}): void {
-  test(`${title} given ${JSON.stringify(presetOptions)}`, () => {
+function macro(title: string, fixture: string, presetOptions = {}, topLevelOptions = {}): void {
+  const presetOptionsString = JSON.stringify(presetOptions)
+  const topLevelOptionsString = JSON.stringify(topLevelOptions)
+  test(`${title} given ${presetOptionsString}, ${topLevelOptionsString}`, () => {
     const file = `${__dirname}/fixtures/${fixture}`
     const input = fs.readFileSync(file, 'utf8')
     expect(input).toMatchSnapshot('input')
 
-    ENVS.forEach((envName) => {
-      const presets: PluginItem[] = [[preset, presetOptions]]
-      const options: TransformOptions = {envName, presets, filename: `/${fixture}`, babelrc: false}
-      const result = transform(input, options)
+    NON_TEST_ENVIRONMENTS.forEach((envName) => {
+      const result = transformSync(input, {
+        envName,
+        presets: [[preset, presetOptions]],
+        filename: `/${fixture}`,
+        babelrc: false,
+        ...topLevelOptions,
+      })
       expect(result?.code).toMatchSnapshot(`output (${envName})`)
     })
   })
 }
 
 macro('transpiles ES2020+ syntax', 'syntax.js')
-macro('transpiles ES2020+ syntax', 'syntax.js', {targets: 'last 2 Chrome versions'})
-macro('transpiles ES2020+ syntax', 'syntax.js', {loose: false})
+macro('transpiles ES2020+ syntax', 'syntax.js', undefined, {targets: 'Chrome 88'})
 macro('transpiles ES2020+ syntax', 'syntax.js', {runtime: false})
 macro('transpiles ES2020+ syntax', 'syntax.js', {modules: 'commonjs'})
+macro('transpiles ES2020+ syntax', 'syntax.js', undefined, {
+  assumptions: {enumerableModuleMeta: true},
+})
 
 macro('transpiles React', 'react.js')
 macro('transpiles React with classic runtime', 'react-classic.js', {react: {runtime: 'classic'}})
@@ -43,6 +53,9 @@ macro('transpiles Emotion with classic runtime', 'emotion-classic.js', {
 })
 
 macro('replaces generic polyfill with env-targeted polyfills', 'polyfills.js')
+macro('replaces generic polyfill with env-targeted polyfills', 'polyfills.js', undefined, {
+  targets: 'Chrome 88',
+})
 
 macro('transpiles ESM in node_modules', 'vendor/node_modules/my-pkg/index.js')
 macro('transpiles CJS in node_modules', 'vendor/node_modules/my-pkg/cjs.js')
