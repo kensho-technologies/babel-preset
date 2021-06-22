@@ -48,7 +48,6 @@ module.exports = (babel, options) => {
 
   const {
     emotion = false,
-    include,
     modules = env === 'test' || env === 'cjs' ? 'commonjs' : false,
     react = {},
     reactRefresh = env === 'development' && react && {},
@@ -76,15 +75,7 @@ module.exports = (babel, options) => {
     presets: [
       [
         require('@babel/preset-env').default,
-        {
-          ...rest,
-          include,
-          modules,
-          targets,
-          bugfixes: true,
-          corejs: 3,
-          useBuiltIns: 'entry',
-        },
+        {...rest, modules, targets, bugfixes: true, corejs: 3, useBuiltIns: 'entry'},
       ],
     ],
   }
