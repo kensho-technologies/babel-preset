@@ -1656,33 +1656,20 @@ exports.default = _default;
 `;
 
 exports[`transpiles ES2020+ syntax given {}, {"targets":"Chrome 88"}: output (development) 1`] = `
-import _classPrivateFieldLooseKey from "@babel/runtime/helpers/classPrivateFieldLooseKey";
-
-var _nullishAssignment;
-
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
 
-var _privateMethod = /*#__PURE__*/_classPrivateFieldLooseKey("privateMethod");
-
 class Foo {
-  constructor() {
-    Object.defineProperty(this, _privateMethod, {
-      value: _privateMethod2
-    });
+  static bar = 'abc';
+  baz = (x, y) => x({ ...y
+  });
 
-    this.baz = (x, y) => x({ ...y
-    });
+  #privateMethod() {
+    return 1;
   }
 
 }
-
-function _privateMethod2() {
-  return 1;
-}
-
-Foo.bar = 'abc';
 
 function* infiniteGenerator() {
   yield 1;
@@ -1706,9 +1693,9 @@ const {
   ...rest
 } = spread;
 let nullishAssignment;
-(_nullishAssignment = nullishAssignment) != null ? _nullishAssignment : nullishAssignment = 1;
-const nullishCoalescing = obj != null ? obj : 1;
-const optionalChaining = obj == null ? void 0 : obj.b;
+nullishAssignment ??= 1;
+const nullishCoalescing = obj ?? 1;
+const optionalChaining = obj?.b;
 export default obj;
 export { obj };
 `;
@@ -1759,33 +1746,20 @@ export { obj };
 `;
 
 exports[`transpiles ES2020+ syntax given {}, {"targets":"Chrome 88"}: output (production) 1`] = `
-import _classPrivateFieldLooseKey from "@babel/runtime/helpers/classPrivateFieldLooseKey";
-
-var _nullishAssignment;
-
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
 
-var _privateMethod = /*#__PURE__*/_classPrivateFieldLooseKey("privateMethod");
-
 class Foo {
-  constructor() {
-    Object.defineProperty(this, _privateMethod, {
-      value: _privateMethod2
-    });
+  static bar = 'abc';
+  baz = (x, y) => x({ ...y
+  });
 
-    this.baz = (x, y) => x({ ...y
-    });
+  #privateMethod() {
+    return 1;
   }
 
 }
-
-function _privateMethod2() {
-  return 1;
-}
-
-Foo.bar = 'abc';
 
 function* infiniteGenerator() {
   yield 1;
@@ -1809,9 +1783,9 @@ const {
   ...rest
 } = spread;
 let nullishAssignment;
-(_nullishAssignment = nullishAssignment) != null ? _nullishAssignment : nullishAssignment = 1;
-const nullishCoalescing = obj != null ? obj : 1;
-const optionalChaining = obj == null ? void 0 : obj.b;
+nullishAssignment ??= 1;
+const nullishCoalescing = obj ?? 1;
+const optionalChaining = obj?.b;
 export default obj;
 export { obj };
 `;

@@ -2,16 +2,6 @@
 
 const NODE_MODULES_REGEX = /node_modules/
 
-// webpack@4 depends on versions of acorn and terser that lack support for certain modern syntax,
-// so, when transpiling an app, these plugins must be included
-const APP_PLUGIN_INCLUDE_LIST = [
-  '@babel/plugin-proposal-class-properties',
-  '@babel/plugin-proposal-private-methods',
-  '@babel/plugin-proposal-logical-assignment-operators',
-  '@babel/plugin-proposal-nullish-coalescing-operator',
-  '@babel/plugin-proposal-optional-chaining',
-]
-
 const PRECOMPILED_PACKAGES = ['core-js', 'lodash', 'react', 'react-dom', 'whatwg-fetch']
 const PRECOMPILED_PACKAGES_REGEX = new RegExp(`node_modules/(${PRECOMPILED_PACKAGES.join('|')})/`)
 
@@ -58,7 +48,6 @@ module.exports = (babel, options) => {
 
   const {
     emotion = false,
-    include = env === 'development' || env === 'production' ? APP_PLUGIN_INCLUDE_LIST : [],
     modules = env === 'test' || env === 'cjs' ? 'commonjs' : false,
     react = {},
     reactRefresh = env === 'development' && react && {},
@@ -86,15 +75,7 @@ module.exports = (babel, options) => {
     presets: [
       [
         require('@babel/preset-env').default,
-        {
-          ...rest,
-          include,
-          modules,
-          targets,
-          bugfixes: true,
-          corejs: 3,
-          useBuiltIns: 'entry',
-        },
+        {...rest, modules, targets, bugfixes: true, corejs: 3, useBuiltIns: 'entry'},
       ],
     ],
   }
