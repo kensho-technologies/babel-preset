@@ -46,7 +46,7 @@ function getUnsupportedEnvMessage(env) {
 function getDefaultTargets(env) {
   if (env === 'test') return {node: true, browsers: []}
   if (env === 'esm' || env === 'cjs') return {node: '14.14', browsers: []}
-  return undefined // targets will be overridden using the browserslistEnv preset-env config
+  return undefined
 }
 
 module.exports = (babel, options) => {
