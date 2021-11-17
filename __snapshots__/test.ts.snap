@@ -568,7 +568,7 @@ const {
   ...rest
 } = spread;
 let nullishAssignment;
-nullishAssignment ?? (nullishAssignment = 1);
+nullishAssignment ??= 1;
 const nullishCoalescing = obj ?? 1;
 const optionalChaining = obj?.b;
 var _default = obj;
@@ -747,7 +747,7 @@ const {
   ...rest
 } = spread;
 let nullishAssignment;
-nullishAssignment ?? (nullishAssignment = 1);
+nullishAssignment ??= 1;
 const nullishCoalescing = obj ?? 1;
 const optionalChaining = obj?.b;
 var _default = obj;
@@ -962,7 +962,7 @@ const {
   ...rest
 } = spread;
 let nullishAssignment;
-nullishAssignment ?? (nullishAssignment = 1);
+nullishAssignment ??= 1;
 const nullishCoalescing = obj ?? 1;
 const optionalChaining = obj?.b;
 var _default = obj;
@@ -1109,7 +1109,7 @@ const {
   ...rest
 } = spread;
 let nullishAssignment;
-nullishAssignment ?? (nullishAssignment = 1);
+nullishAssignment ??= 1;
 const nullishCoalescing = obj ?? 1;
 const optionalChaining = obj?.b;
 export default obj;
@@ -1308,7 +1308,7 @@ const {
   ...rest
 } = spread;
 let nullishAssignment;
-nullishAssignment ?? (nullishAssignment = 1);
+nullishAssignment ??= 1;
 const nullishCoalescing = obj ?? 1;
 const optionalChaining = obj?.b;
 var _default = obj;
@@ -1451,7 +1451,7 @@ const {
   ...rest
 } = spread;
 let nullishAssignment;
-nullishAssignment ?? (nullishAssignment = 1);
+nullishAssignment ??= 1;
 const nullishCoalescing = obj ?? 1;
 const optionalChaining = obj?.b;
 export default obj;
@@ -1648,7 +1648,7 @@ const {
   ...rest
 } = spread;
 let nullishAssignment;
-nullishAssignment ?? (nullishAssignment = 1);
+nullishAssignment ??= 1;
 const nullishCoalescing = obj ?? 1;
 const optionalChaining = obj?.b;
 var _default = obj;
@@ -1738,7 +1738,7 @@ const {
   ...rest
 } = spread;
 let nullishAssignment;
-nullishAssignment ?? (nullishAssignment = 1);
+nullishAssignment ??= 1;
 const nullishCoalescing = obj ?? 1;
 const optionalChaining = obj?.b;
 export default obj;
@@ -1882,7 +1882,7 @@ const {
   ...rest
 } = spread;
 let nullishAssignment;
-nullishAssignment ?? (nullishAssignment = 1);
+nullishAssignment ??= 1;
 const nullishCoalescing = obj ?? 1;
 const optionalChaining = obj?.b;
 var _default = obj;
@@ -2025,7 +2025,7 @@ const {
   ...rest
 } = spread;
 let nullishAssignment;
-nullishAssignment ?? (nullishAssignment = 1);
+nullishAssignment ??= 1;
 const nullishCoalescing = obj ?? 1;
 const optionalChaining = obj?.b;
 export default obj;
