@@ -35,7 +35,7 @@ function getUnsupportedEnvMessage(env) {
 
 function getDefaultTargets(env) {
   if (env === 'test') return {node: true, browsers: []}
-  if (env === 'esm' || env === 'cjs') return {node: '14.14', browsers: []}
+  if (env === 'esm' || env === 'cjs') return {node: '16.13', browsers: []}
   return undefined
 }
 
