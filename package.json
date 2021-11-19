@@ -36,14 +36,14 @@
   },
   "devDependencies": {
     "@jest/globals": "^27.3.1",
-    "@kensho-technologies/eslint-config": "^23.0.0",
+    "@kensho-technologies/eslint-config": "^23.1.0",
     "@kensho-technologies/prettier-config": "^1.0.0",
     "@kensho-technologies/tsconfig": "^2.0.0",
     "@types/babel__core": "^7.1.16",
-    "@types/node": "^16.11.7",
+    "@types/node": "^16.11.8",
     "eslint": "^8.2.0",
     "jest": "^27.3.1",
     "prettier": "^2.4.1",
-    "typescript": "^4.4.4"
+    "typescript": "^4.5.2"
   }
 }
