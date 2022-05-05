@@ -27,23 +27,23 @@
     "react-refresh": "^0.10.0 || ^0.11.0"
   },
   "dependencies": {
-    "@babel/plugin-transform-runtime": "^7.16.10",
-    "@babel/preset-env": "^7.16.11",
+    "@babel/plugin-transform-runtime": "^7.17.10",
+    "@babel/preset-env": "^7.17.10",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
-    "@emotion/babel-plugin": "^11.7.2",
+    "@emotion/babel-plugin": "^11.9.2",
     "@emotion/babel-preset-css-prop": "^11.2.0"
   },
   "devDependencies": {
-    "@jest/globals": "^27.4.6",
-    "@kensho-technologies/eslint-config": "^23.1.0",
+    "@jest/globals": "^28.0.3",
+    "@kensho-technologies/eslint-config": "^23.1.1",
     "@kensho-technologies/prettier-config": "^1.0.0",
     "@kensho-technologies/tsconfig": "^2.0.0",
-    "@types/babel__core": "^7.1.18",
-    "@types/node": "^16.11.22",
-    "eslint": "^8.8.0",
-    "jest": "^27.4.7",
-    "prettier": "^2.5.1",
-    "typescript": "^4.5.5"
+    "@types/babel__core": "^7.1.19",
+    "@types/node": "^16.11.27",
+    "eslint": "^8.14.0",
+    "jest": "^28.0.3",
+    "prettier": "^2.6.2",
+    "typescript": "^4.6.4"
   }
 }

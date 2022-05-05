@@ -9,11 +9,6 @@ import preset from '.'
 // since our CI runs multiple Node versions, a snapshot for 'test' might not match one of them
 const NON_TEST_ENVIRONMENTS = ['development', 'production', 'esm', 'cjs']
 
-expect.addSnapshotSerializer({
-  test: (val: unknown) => typeof val === 'string',
-  print: (val: string) => val,
-})
-
 function macro(title: string, fixture: string, presetOptions = {}, topLevelOptions = {}): void {
   const presetOptionsString = JSON.stringify(presetOptions)
   const topLevelOptionsString = JSON.stringify(topLevelOptions)
