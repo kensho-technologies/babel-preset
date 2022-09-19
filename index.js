@@ -84,7 +84,7 @@ module.exports = (babel, options) => {
     exclude: NODE_MODULES_REGEX,
     plugins: [
       reactRefresh && [require('react-refresh/babel'), {skipEnvCheck: true, ...reactRefresh}],
-      [require('@emotion/babel-plugin').default, {...emotion}],
+      emotion && [require('@emotion/babel-plugin').default, {...emotion}],
     ].filter(Boolean),
     presets: [
       typescript && [require('@babel/preset-typescript').default, typescript],
