@@ -75,7 +75,7 @@ module.exports = (babel, options) => {
     presets: [
       [
         require('@babel/preset-env').default,
-        {...rest, modules, targets, bugfixes: true, corejs: 3, useBuiltIns: 'entry'},
+        {...rest, modules, targets, bugfixes: true, corejs: '3.25', useBuiltIns: 'entry'},
       ],
     ],
   }
