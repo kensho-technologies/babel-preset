@@ -17,12 +17,12 @@ exports[`avoids transpiling known precompiled packages given {}, {}: output (esm
 
 exports[`avoids transpiling known precompiled packages given {}, {}: output (production) 1`] = `"export default class React{method(value){return value??2;}}"`;
 
-exports[`replaces generic polyfill with env-targeted polyfills given {}, {"targets":"Chrome 88"}: input 1`] = `
+exports[`replaces generic polyfill with env-targeted polyfills given {}, {"targets":"Chrome 106"}: input 1`] = `
 "import 'core-js/stable'
 "
 `;
 
-exports[`replaces generic polyfill with env-targeted polyfills given {}, {"targets":"Chrome 88"}: output (cjs) 1`] = `
+exports[`replaces generic polyfill with env-targeted polyfills given {}, {"targets":"Chrome 106"}: output (cjs) 1`] = `
 ""use strict";
 
 require("core-js/modules/es.regexp.flags.js");
@@ -30,20 +30,18 @@ require("core-js/modules/es.regexp.flags.js");
 require("core-js/modules/es.typed-array.set.js");"
 `;
 
-exports[`replaces generic polyfill with env-targeted polyfills given {}, {"targets":"Chrome 88"}: output (development) 1`] = `
+exports[`replaces generic polyfill with env-targeted polyfills given {}, {"targets":"Chrome 106"}: output (development) 1`] = `
 "import "core-js/modules/es.regexp.flags.js";
-import "core-js/modules/es.typed-array.set.js";
 import "core-js/modules/web.immediate.js";"
 `;
 
-exports[`replaces generic polyfill with env-targeted polyfills given {}, {"targets":"Chrome 88"}: output (esm) 1`] = `
+exports[`replaces generic polyfill with env-targeted polyfills given {}, {"targets":"Chrome 106"}: output (esm) 1`] = `
 "import "core-js/modules/es.regexp.flags.js";
 import "core-js/modules/es.typed-array.set.js";"
 `;
 
-exports[`replaces generic polyfill with env-targeted polyfills given {}, {"targets":"Chrome 88"}: output (production) 1`] = `
+exports[`replaces generic polyfill with env-targeted polyfills given {}, {"targets":"Chrome 106"}: output (production) 1`] = `
 "import "core-js/modules/es.regexp.flags.js";
-import "core-js/modules/es.typed-array.set.js";
 import "core-js/modules/web.immediate.js";"
 `;
 
@@ -1602,7 +1600,7 @@ export default obj;
 export { obj };"
 `;
 
-exports[`transpiles ES2020+ syntax given {}, {"targets":"Chrome 88"}: input 1`] = `
+exports[`transpiles ES2020+ syntax given {}, {"targets":"Chrome 106"}: input 1`] = `
 "import defaultImport, {namedImport} from 'foo'
 import * as namespaceImport from 'bar'
 
@@ -1640,7 +1638,7 @@ export {obj}
 "
 `;
 
-exports[`transpiles ES2020+ syntax given {}, {"targets":"Chrome 88"}: output (cjs) 1`] = `
+exports[`transpiles ES2020+ syntax given {}, {"targets":"Chrome 106"}: output (cjs) 1`] = `
 ""use strict";
 
 var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard").default;
@@ -1701,7 +1699,7 @@ var _default = obj;
 exports.default = _default;"
 `;
 
-exports[`transpiles ES2020+ syntax given {}, {"targets":"Chrome 88"}: output (development) 1`] = `
+exports[`transpiles ES2020+ syntax given {}, {"targets":"Chrome 106"}: output (development) 1`] = `
 "import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
@@ -1746,7 +1744,7 @@ export default obj;
 export { obj };"
 `;
 
-exports[`transpiles ES2020+ syntax given {}, {"targets":"Chrome 88"}: output (esm) 1`] = `
+exports[`transpiles ES2020+ syntax given {}, {"targets":"Chrome 106"}: output (esm) 1`] = `
 "import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
@@ -1791,7 +1789,7 @@ export default obj;
 export { obj };"
 `;
 
-exports[`transpiles ES2020+ syntax given {}, {"targets":"Chrome 88"}: output (production) 1`] = `
+exports[`transpiles ES2020+ syntax given {}, {"targets":"Chrome 106"}: output (production) 1`] = `
 "import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');

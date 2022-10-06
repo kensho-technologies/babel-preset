@@ -31,7 +31,7 @@ function macro(title: string, fixture: string, presetOptions = {}, topLevelOptio
 }
 
 macro('transpiles ES2020+ syntax', 'syntax.js')
-macro('transpiles ES2020+ syntax', 'syntax.js', undefined, {targets: 'Chrome 88'})
+macro('transpiles ES2020+ syntax', 'syntax.js', undefined, {targets: 'Chrome 106'})
 macro('transpiles ES2020+ syntax', 'syntax.js', {runtime: false})
 macro('transpiles ES2020+ syntax', 'syntax.js', {modules: 'commonjs'})
 macro('transpiles ES2020+ syntax', 'syntax.js', undefined, {
@@ -44,7 +44,7 @@ macro('transpiles Emotion', 'emotion.js', {emotion: true})
 
 macro('replaces generic polyfill with env-targeted polyfills', 'polyfills.js')
 macro('replaces generic polyfill with env-targeted polyfills', 'polyfills.js', undefined, {
-  targets: 'Chrome 88',
+  targets: 'Chrome 106',
 })
 
 macro('transpiles ESM in node_modules', 'vendor/node_modules/my-pkg/index.js')
