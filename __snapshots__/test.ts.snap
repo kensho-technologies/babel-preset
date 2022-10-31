@@ -25,9 +25,7 @@ exports[`replaces generic polyfill with env-targeted polyfills given {}, {"targe
 exports[`replaces generic polyfill with env-targeted polyfills given {}, {"targets":"Chrome 106"}: output (cjs) 1`] = `
 ""use strict";
 
-require("core-js/modules/es.regexp.flags.js");
-
-require("core-js/modules/es.typed-array.set.js");"
+require("core-js/modules/es.regexp.flags.js");"
 `;
 
 exports[`replaces generic polyfill with env-targeted polyfills given {}, {"targets":"Chrome 106"}: output (development) 1`] = `
@@ -35,10 +33,7 @@ exports[`replaces generic polyfill with env-targeted polyfills given {}, {"targe
 import "core-js/modules/web.immediate.js";"
 `;
 
-exports[`replaces generic polyfill with env-targeted polyfills given {}, {"targets":"Chrome 106"}: output (esm) 1`] = `
-"import "core-js/modules/es.regexp.flags.js";
-import "core-js/modules/es.typed-array.set.js";"
-`;
+exports[`replaces generic polyfill with env-targeted polyfills given {}, {"targets":"Chrome 106"}: output (esm) 1`] = `"import "core-js/modules/es.regexp.flags.js";"`;
 
 exports[`replaces generic polyfill with env-targeted polyfills given {}, {"targets":"Chrome 106"}: output (production) 1`] = `
 "import "core-js/modules/es.regexp.flags.js";
@@ -53,9 +48,7 @@ exports[`replaces generic polyfill with env-targeted polyfills given {}, {}: inp
 exports[`replaces generic polyfill with env-targeted polyfills given {}, {}: output (cjs) 1`] = `
 ""use strict";
 
-require("core-js/modules/es.regexp.flags.js");
-
-require("core-js/modules/es.typed-array.set.js");"
+require("core-js/modules/es.regexp.flags.js");"
 `;
 
 exports[`replaces generic polyfill with env-targeted polyfills given {}, {}: output (development) 1`] = `
@@ -269,10 +262,7 @@ import "core-js/modules/web.url.to-json.js";
 import "core-js/modules/web.url-search-params.js";"
 `;
 
-exports[`replaces generic polyfill with env-targeted polyfills given {}, {}: output (esm) 1`] = `
-"import "core-js/modules/es.regexp.flags.js";
-import "core-js/modules/es.typed-array.set.js";"
-`;
+exports[`replaces generic polyfill with env-targeted polyfills given {}, {}: output (esm) 1`] = `"import "core-js/modules/es.regexp.flags.js";"`;
 
 exports[`replaces generic polyfill with env-targeted polyfills given {}, {}: output (production) 1`] = `
 "import "core-js/modules/es.symbol.js";
