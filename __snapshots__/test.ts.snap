@@ -532,48 +532,38 @@ exports[`transpiles ES2020+ syntax given {"modules":"commonjs"}, {}: output (cjs
 ""use strict";
 
 var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard").default;
-
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.obj = exports.default = void 0;
-
 var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
-
 var _foo = _interopRequireWildcard3(require("foo"));
-
 var namespaceImport = _interopRequireWildcard3(require("bar"));
-
 const dynamicImport = Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require('baz')));
-
 class Foo {
   static bar = 'abc';
-  baz = (x, y) => x({ ...y
+  baz = (x, y) => x({
+    ...y
   });
-
   #privateMethod() {
     return 1;
   }
-
 }
-
 function* infiniteGenerator() {
   yield 1;
   yield* infiniteGenerator();
 }
-
 async function asyncFunction() {
   return await null;
 }
-
 const obj = {
   a: 1,
   b: 2
 };
 exports.obj = obj;
-const spread = { ...obj,
+const spread = {
+  ...obj,
   b: 2,
   c: 3
 };
@@ -593,58 +583,38 @@ exports[`transpiles ES2020+ syntax given {"modules":"commonjs"}, {}: output (dev
 ""use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault")["default"];
-
 var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard")["default"];
-
 var _regeneratorRuntime3 = require("@babel/runtime/helpers/regeneratorRuntime")["default"];
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.obj = exports["default"] = void 0;
-
 var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutPropertiesLoose"));
-
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
-
 var _regeneratorRuntime2 = _interopRequireDefault(require("@babel/runtime/helpers/regeneratorRuntime"));
-
 var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
-
 var _classPrivateFieldLooseKey2 = _interopRequireDefault(require("@babel/runtime/helpers/classPrivateFieldLooseKey"));
-
 var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
-
 var _foo = _interopRequireWildcard3(require("foo"));
-
 var namespaceImport = _interopRequireWildcard3(require("bar"));
-
 var _nullishAssignment;
-
 var _marked = /*#__PURE__*/_regeneratorRuntime3().mark(infiniteGenerator);
-
 var dynamicImport = Promise.resolve().then(function () {
   return (0, _interopRequireWildcard2["default"])(require('baz'));
 });
-
 var _privateMethod = /*#__PURE__*/(0, _classPrivateFieldLooseKey2["default"])("privateMethod");
-
 var Foo = /*#__PURE__*/(0, _createClass2["default"])(function Foo() {
   Object.defineProperty(this, _privateMethod, {
     value: _privateMethod2
   });
-
   this.baz = function (x, y) {
     return x(Object.assign({}, y));
   };
 });
-
 function _privateMethod2() {
   return 1;
 }
-
 Foo.bar = 'abc';
-
 function infiniteGenerator() {
   return (0, _regeneratorRuntime2["default"])().wrap(function infiniteGenerator$(_context) {
     while (1) {
@@ -652,10 +622,8 @@ function infiniteGenerator() {
         case 0:
           _context.next = 2;
           return 1;
-
         case 2:
           return _context.delegateYield(infiniteGenerator(), "t0", 3);
-
         case 3:
         case "end":
           return _context.stop();
@@ -663,11 +631,9 @@ function infiniteGenerator() {
     }
   }, _marked);
 }
-
 function asyncFunction() {
   return _asyncFunction.apply(this, arguments);
 }
-
 function _asyncFunction() {
   _asyncFunction = (0, _asyncToGenerator2["default"])( /*#__PURE__*/(0, _regeneratorRuntime2["default"])().mark(function _callee() {
     return (0, _regeneratorRuntime2["default"])().wrap(function _callee$(_context2) {
@@ -676,10 +642,8 @@ function _asyncFunction() {
           case 0:
             _context2.next = 2;
             return null;
-
           case 2:
             return _context2.abrupt("return", _context2.sent);
-
           case 3:
           case "end":
             return _context2.stop();
@@ -689,7 +653,6 @@ function _asyncFunction() {
   }));
   return _asyncFunction.apply(this, arguments);
 }
-
 var obj = {
   a: 1,
   b: 2
@@ -700,7 +663,7 @@ var spread = Object.assign({}, obj, {
   c: 3
 });
 var a = spread.a,
-    rest = (0, _objectWithoutPropertiesLoose2["default"])(spread, ["a"]);
+  rest = (0, _objectWithoutPropertiesLoose2["default"])(spread, ["a"]);
 var nullishAssignment;
 (_nullishAssignment = nullishAssignment) != null ? _nullishAssignment : nullishAssignment = 1;
 var nullishCoalescing = obj != null ? obj : 1;
@@ -713,48 +676,38 @@ exports[`transpiles ES2020+ syntax given {"modules":"commonjs"}, {}: output (esm
 ""use strict";
 
 var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard").default;
-
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.obj = exports.default = void 0;
-
 var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
-
 var _foo = _interopRequireWildcard3(require("foo"));
-
 var namespaceImport = _interopRequireWildcard3(require("bar"));
-
 const dynamicImport = Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require('baz')));
-
 class Foo {
   static bar = 'abc';
-  baz = (x, y) => x({ ...y
+  baz = (x, y) => x({
+    ...y
   });
-
   #privateMethod() {
     return 1;
   }
-
 }
-
 function* infiniteGenerator() {
   yield 1;
   yield* infiniteGenerator();
 }
-
 async function asyncFunction() {
   return await null;
 }
-
 const obj = {
   a: 1,
   b: 2
 };
 exports.obj = obj;
-const spread = { ...obj,
+const spread = {
+  ...obj,
   b: 2,
   c: 3
 };
@@ -774,58 +727,38 @@ exports[`transpiles ES2020+ syntax given {"modules":"commonjs"}, {}: output (pro
 ""use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault")["default"];
-
 var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard")["default"];
-
 var _regeneratorRuntime3 = require("@babel/runtime/helpers/regeneratorRuntime")["default"];
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.obj = exports["default"] = void 0;
-
 var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutPropertiesLoose"));
-
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
-
 var _regeneratorRuntime2 = _interopRequireDefault(require("@babel/runtime/helpers/regeneratorRuntime"));
-
 var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
-
 var _classPrivateFieldLooseKey2 = _interopRequireDefault(require("@babel/runtime/helpers/classPrivateFieldLooseKey"));
-
 var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
-
 var _foo = _interopRequireWildcard3(require("foo"));
-
 var namespaceImport = _interopRequireWildcard3(require("bar"));
-
 var _nullishAssignment;
-
 var _marked = /*#__PURE__*/_regeneratorRuntime3().mark(infiniteGenerator);
-
 var dynamicImport = Promise.resolve().then(function () {
   return (0, _interopRequireWildcard2["default"])(require('baz'));
 });
-
 var _privateMethod = /*#__PURE__*/(0, _classPrivateFieldLooseKey2["default"])("privateMethod");
-
 var Foo = /*#__PURE__*/(0, _createClass2["default"])(function Foo() {
   Object.defineProperty(this, _privateMethod, {
     value: _privateMethod2
   });
-
   this.baz = function (x, y) {
     return x(Object.assign({}, y));
   };
 });
-
 function _privateMethod2() {
   return 1;
 }
-
 Foo.bar = 'abc';
-
 function infiniteGenerator() {
   return (0, _regeneratorRuntime2["default"])().wrap(function infiniteGenerator$(_context) {
     while (1) {
@@ -833,10 +766,8 @@ function infiniteGenerator() {
         case 0:
           _context.next = 2;
           return 1;
-
         case 2:
           return _context.delegateYield(infiniteGenerator(), "t0", 3);
-
         case 3:
         case "end":
           return _context.stop();
@@ -844,11 +775,9 @@ function infiniteGenerator() {
     }
   }, _marked);
 }
-
 function asyncFunction() {
   return _asyncFunction.apply(this, arguments);
 }
-
 function _asyncFunction() {
   _asyncFunction = (0, _asyncToGenerator2["default"])( /*#__PURE__*/(0, _regeneratorRuntime2["default"])().mark(function _callee() {
     return (0, _regeneratorRuntime2["default"])().wrap(function _callee$(_context2) {
@@ -857,10 +786,8 @@ function _asyncFunction() {
           case 0:
             _context2.next = 2;
             return null;
-
           case 2:
             return _context2.abrupt("return", _context2.sent);
-
           case 3:
           case "end":
             return _context2.stop();
@@ -870,7 +797,6 @@ function _asyncFunction() {
   }));
   return _asyncFunction.apply(this, arguments);
 }
-
 var obj = {
   a: 1,
   b: 2
@@ -881,7 +807,7 @@ var spread = Object.assign({}, obj, {
   c: 3
 });
 var a = spread.a,
-    rest = (0, _objectWithoutPropertiesLoose2["default"])(spread, ["a"]);
+  rest = (0, _objectWithoutPropertiesLoose2["default"])(spread, ["a"]);
 var nullishAssignment;
 (_nullishAssignment = nullishAssignment) != null ? _nullishAssignment : nullishAssignment = 1;
 var nullishCoalescing = obj != null ? obj : 1;
@@ -935,43 +861,34 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.obj = exports.default = void 0;
-
 var _foo = _interopRequireWildcard(require("foo"));
-
 var namespaceImport = _interopRequireWildcard(require("bar"));
-
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
 const dynamicImport = Promise.resolve().then(() => _interopRequireWildcard(require('baz')));
-
 class Foo {
   static bar = 'abc';
-  baz = (x, y) => x({ ...y
+  baz = (x, y) => x({
+    ...y
   });
-
   #privateMethod() {
     return 1;
   }
-
 }
-
 function* infiniteGenerator() {
   yield 1;
   yield* infiniteGenerator();
 }
-
 async function asyncFunction() {
   return await null;
 }
-
 const obj = {
   a: 1,
   b: 2
 };
 exports.obj = obj;
-const spread = { ...obj,
+const spread = {
+  ...obj,
   b: 2,
   c: 3
 };
@@ -989,49 +906,34 @@ exports.default = _default;"
 
 exports[`transpiles ES2020+ syntax given {"runtime":false}, {}: output (development) 1`] = `
 "function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
 var _nullishAssignment;
-
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
-
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, "throw" === context.method) { if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel; context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
-
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, defineProperty = Object.defineProperty || function (obj, key, desc) { obj[key] = desc.value; }, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return defineProperty(generator, "_invoke", { value: makeInvokeMethod(innerFn, self, context) }), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; defineProperty(this, "_invoke", { value: function value(method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; } function maybeInvokeDelegate(delegate, context) { var methodName = context.method, method = delegate.iterator[methodName]; if (undefined === method) return context.delegate = null, "throw" === methodName && delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method) || "return" !== methodName && (context.method = "throw", context.arg = new TypeError("The iterator does not provide a '" + methodName + "' method")), ContinueSentinel; var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, defineProperty(Gp, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), defineProperty(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (val) { var object = Object(val), keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
 var _marked = /*#__PURE__*/_regeneratorRuntime().mark(infiniteGenerator);
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 var id = 0;
-
 function _classPrivateFieldLooseKey(name) { return "__private_" + id++ + "_" + name; }
-
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 var dynamicImport = import('baz');
-
 var _privateMethod = /*#__PURE__*/_classPrivateFieldLooseKey("privateMethod");
-
 var Foo = /*#__PURE__*/_createClass(function Foo() {
   Object.defineProperty(this, _privateMethod, {
     value: _privateMethod2
   });
-
   this.baz = function (x, y) {
     return x(Object.assign({}, y));
   };
 });
-
 function _privateMethod2() {
   return 1;
 }
-
 Foo.bar = 'abc';
-
 function infiniteGenerator() {
   return _regeneratorRuntime().wrap(function infiniteGenerator$(_context) {
     while (1) {
@@ -1039,10 +941,8 @@ function infiniteGenerator() {
         case 0:
           _context.next = 2;
           return 1;
-
         case 2:
           return _context.delegateYield(infiniteGenerator(), "t0", 3);
-
         case 3:
         case "end":
           return _context.stop();
@@ -1050,11 +950,9 @@ function infiniteGenerator() {
     }
   }, _marked);
 }
-
 function asyncFunction() {
   return _asyncFunction.apply(this, arguments);
 }
-
 function _asyncFunction() {
   _asyncFunction = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
     return _regeneratorRuntime().wrap(function _callee$(_context2) {
@@ -1063,10 +961,8 @@ function _asyncFunction() {
           case 0:
             _context2.next = 2;
             return null;
-
           case 2:
             return _context2.abrupt("return", _context2.sent);
-
           case 3:
           case "end":
             return _context2.stop();
@@ -1076,7 +972,6 @@ function _asyncFunction() {
   }));
   return _asyncFunction.apply(this, arguments);
 }
-
 var obj = {
   a: 1,
   b: 2
@@ -1085,10 +980,8 @@ var spread = Object.assign({}, obj, {
   b: 2,
   c: 3
 });
-
 var a = spread.a,
-    rest = _objectWithoutPropertiesLoose(spread, ["a"]);
-
+  rest = _objectWithoutPropertiesLoose(spread, ["a"]);
 var nullishAssignment;
 (_nullishAssignment = nullishAssignment) != null ? _nullishAssignment : nullishAssignment = 1;
 var nullishCoalescing = obj != null ? obj : 1;
@@ -1101,32 +994,28 @@ exports[`transpiles ES2020+ syntax given {"runtime":false}, {}: output (esm) 1`]
 "import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
-
 class Foo {
   static bar = 'abc';
-  baz = (x, y) => x({ ...y
+  baz = (x, y) => x({
+    ...y
   });
-
   #privateMethod() {
     return 1;
   }
-
 }
-
 function* infiniteGenerator() {
   yield 1;
   yield* infiniteGenerator();
 }
-
 async function asyncFunction() {
   return await null;
 }
-
 const obj = {
   a: 1,
   b: 2
 };
-const spread = { ...obj,
+const spread = {
+  ...obj,
   b: 2,
   c: 3
 };
@@ -1144,49 +1033,34 @@ export { obj };"
 
 exports[`transpiles ES2020+ syntax given {"runtime":false}, {}: output (production) 1`] = `
 "function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
 var _nullishAssignment;
-
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
-
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, "throw" === context.method) { if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel; context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
-
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, defineProperty = Object.defineProperty || function (obj, key, desc) { obj[key] = desc.value; }, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return defineProperty(generator, "_invoke", { value: makeInvokeMethod(innerFn, self, context) }), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; defineProperty(this, "_invoke", { value: function value(method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; } function maybeInvokeDelegate(delegate, context) { var methodName = context.method, method = delegate.iterator[methodName]; if (undefined === method) return context.delegate = null, "throw" === methodName && delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method) || "return" !== methodName && (context.method = "throw", context.arg = new TypeError("The iterator does not provide a '" + methodName + "' method")), ContinueSentinel; var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, defineProperty(Gp, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), defineProperty(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (val) { var object = Object(val), keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
 var _marked = /*#__PURE__*/_regeneratorRuntime().mark(infiniteGenerator);
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 var id = 0;
-
 function _classPrivateFieldLooseKey(name) { return "__private_" + id++ + "_" + name; }
-
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 var dynamicImport = import('baz');
-
 var _privateMethod = /*#__PURE__*/_classPrivateFieldLooseKey("privateMethod");
-
 var Foo = /*#__PURE__*/_createClass(function Foo() {
   Object.defineProperty(this, _privateMethod, {
     value: _privateMethod2
   });
-
   this.baz = function (x, y) {
     return x(Object.assign({}, y));
   };
 });
-
 function _privateMethod2() {
   return 1;
 }
-
 Foo.bar = 'abc';
-
 function infiniteGenerator() {
   return _regeneratorRuntime().wrap(function infiniteGenerator$(_context) {
     while (1) {
@@ -1194,10 +1068,8 @@ function infiniteGenerator() {
         case 0:
           _context.next = 2;
           return 1;
-
         case 2:
           return _context.delegateYield(infiniteGenerator(), "t0", 3);
-
         case 3:
         case "end":
           return _context.stop();
@@ -1205,11 +1077,9 @@ function infiniteGenerator() {
     }
   }, _marked);
 }
-
 function asyncFunction() {
   return _asyncFunction.apply(this, arguments);
 }
-
 function _asyncFunction() {
   _asyncFunction = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
     return _regeneratorRuntime().wrap(function _callee$(_context2) {
@@ -1218,10 +1088,8 @@ function _asyncFunction() {
           case 0:
             _context2.next = 2;
             return null;
-
           case 2:
             return _context2.abrupt("return", _context2.sent);
-
           case 3:
           case "end":
             return _context2.stop();
@@ -1231,7 +1099,6 @@ function _asyncFunction() {
   }));
   return _asyncFunction.apply(this, arguments);
 }
-
 var obj = {
   a: 1,
   b: 2
@@ -1240,10 +1107,8 @@ var spread = Object.assign({}, obj, {
   b: 2,
   c: 3
 });
-
 var a = spread.a,
-    rest = _objectWithoutPropertiesLoose(spread, ["a"]);
-
+  rest = _objectWithoutPropertiesLoose(spread, ["a"]);
 var nullishAssignment;
 (_nullishAssignment = nullishAssignment) != null ? _nullishAssignment : nullishAssignment = 1;
 var nullishCoalescing = obj != null ? obj : 1;
@@ -1294,46 +1159,36 @@ exports[`transpiles ES2020+ syntax given {}, {"assumptions":{"enumerableModuleMe
 ""use strict";
 
 var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard").default;
-
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
-
 exports.__esModule = true;
 exports.obj = exports.default = void 0;
-
 var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
-
 var _foo = _interopRequireWildcard3(require("foo"));
-
 var namespaceImport = _interopRequireWildcard3(require("bar"));
-
 const dynamicImport = Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require('baz')));
-
 class Foo {
   static bar = 'abc';
-  baz = (x, y) => x({ ...y
+  baz = (x, y) => x({
+    ...y
   });
-
   #privateMethod() {
     return 1;
   }
-
 }
-
 function* infiniteGenerator() {
   yield 1;
   yield* infiniteGenerator();
 }
-
 async function asyncFunction() {
   return await null;
 }
-
 const obj = {
   a: 1,
   b: 2
 };
 exports.obj = obj;
-const spread = { ...obj,
+const spread = {
+  ...obj,
   b: 2,
   c: 3
 };
@@ -1355,33 +1210,24 @@ import _asyncToGenerator from "@babel/runtime/helpers/asyncToGenerator";
 import _regeneratorRuntime from "@babel/runtime/helpers/regeneratorRuntime";
 import _createClass from "@babel/runtime/helpers/createClass";
 import _classPrivateFieldLooseKey from "@babel/runtime/helpers/classPrivateFieldLooseKey";
-
 var _nullishAssignment;
-
 var _marked = /*#__PURE__*/_regeneratorRuntime().mark(infiniteGenerator);
-
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 var dynamicImport = import('baz');
-
 var _privateMethod = /*#__PURE__*/_classPrivateFieldLooseKey("privateMethod");
-
 var Foo = /*#__PURE__*/_createClass(function Foo() {
   Object.defineProperty(this, _privateMethod, {
     value: _privateMethod2
   });
-
   this.baz = function (x, y) {
     return x(Object.assign({}, y));
   };
 });
-
 function _privateMethod2() {
   return 1;
 }
-
 Foo.bar = 'abc';
-
 function infiniteGenerator() {
   return _regeneratorRuntime().wrap(function infiniteGenerator$(_context) {
     while (1) {
@@ -1389,10 +1235,8 @@ function infiniteGenerator() {
         case 0:
           _context.next = 2;
           return 1;
-
         case 2:
           return _context.delegateYield(infiniteGenerator(), "t0", 3);
-
         case 3:
         case "end":
           return _context.stop();
@@ -1400,11 +1244,9 @@ function infiniteGenerator() {
     }
   }, _marked);
 }
-
 function asyncFunction() {
   return _asyncFunction.apply(this, arguments);
 }
-
 function _asyncFunction() {
   _asyncFunction = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
     return _regeneratorRuntime().wrap(function _callee$(_context2) {
@@ -1413,10 +1255,8 @@ function _asyncFunction() {
           case 0:
             _context2.next = 2;
             return null;
-
           case 2:
             return _context2.abrupt("return", _context2.sent);
-
           case 3:
           case "end":
             return _context2.stop();
@@ -1426,7 +1266,6 @@ function _asyncFunction() {
   }));
   return _asyncFunction.apply(this, arguments);
 }
-
 var obj = {
   a: 1,
   b: 2
@@ -1435,10 +1274,8 @@ var spread = Object.assign({}, obj, {
   b: 2,
   c: 3
 });
-
 var a = spread.a,
-    rest = _objectWithoutPropertiesLoose(spread, ["a"]);
-
+  rest = _objectWithoutPropertiesLoose(spread, ["a"]);
 var nullishAssignment;
 (_nullishAssignment = nullishAssignment) != null ? _nullishAssignment : nullishAssignment = 1;
 var nullishCoalescing = obj != null ? obj : 1;
@@ -1451,32 +1288,28 @@ exports[`transpiles ES2020+ syntax given {}, {"assumptions":{"enumerableModuleMe
 "import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
-
 class Foo {
   static bar = 'abc';
-  baz = (x, y) => x({ ...y
+  baz = (x, y) => x({
+    ...y
   });
-
   #privateMethod() {
     return 1;
   }
-
 }
-
 function* infiniteGenerator() {
   yield 1;
   yield* infiniteGenerator();
 }
-
 async function asyncFunction() {
   return await null;
 }
-
 const obj = {
   a: 1,
   b: 2
 };
-const spread = { ...obj,
+const spread = {
+  ...obj,
   b: 2,
   c: 3
 };
@@ -1498,33 +1331,24 @@ import _asyncToGenerator from "@babel/runtime/helpers/asyncToGenerator";
 import _regeneratorRuntime from "@babel/runtime/helpers/regeneratorRuntime";
 import _createClass from "@babel/runtime/helpers/createClass";
 import _classPrivateFieldLooseKey from "@babel/runtime/helpers/classPrivateFieldLooseKey";
-
 var _nullishAssignment;
-
 var _marked = /*#__PURE__*/_regeneratorRuntime().mark(infiniteGenerator);
-
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 var dynamicImport = import('baz');
-
 var _privateMethod = /*#__PURE__*/_classPrivateFieldLooseKey("privateMethod");
-
 var Foo = /*#__PURE__*/_createClass(function Foo() {
   Object.defineProperty(this, _privateMethod, {
     value: _privateMethod2
   });
-
   this.baz = function (x, y) {
     return x(Object.assign({}, y));
   };
 });
-
 function _privateMethod2() {
   return 1;
 }
-
 Foo.bar = 'abc';
-
 function infiniteGenerator() {
   return _regeneratorRuntime().wrap(function infiniteGenerator$(_context) {
     while (1) {
@@ -1532,10 +1356,8 @@ function infiniteGenerator() {
         case 0:
           _context.next = 2;
           return 1;
-
         case 2:
           return _context.delegateYield(infiniteGenerator(), "t0", 3);
-
         case 3:
         case "end":
           return _context.stop();
@@ -1543,11 +1365,9 @@ function infiniteGenerator() {
     }
   }, _marked);
 }
-
 function asyncFunction() {
   return _asyncFunction.apply(this, arguments);
 }
-
 function _asyncFunction() {
   _asyncFunction = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
     return _regeneratorRuntime().wrap(function _callee$(_context2) {
@@ -1556,10 +1376,8 @@ function _asyncFunction() {
           case 0:
             _context2.next = 2;
             return null;
-
           case 2:
             return _context2.abrupt("return", _context2.sent);
-
           case 3:
           case "end":
             return _context2.stop();
@@ -1569,7 +1387,6 @@ function _asyncFunction() {
   }));
   return _asyncFunction.apply(this, arguments);
 }
-
 var obj = {
   a: 1,
   b: 2
@@ -1578,10 +1395,8 @@ var spread = Object.assign({}, obj, {
   b: 2,
   c: 3
 });
-
 var a = spread.a,
-    rest = _objectWithoutPropertiesLoose(spread, ["a"]);
-
+  rest = _objectWithoutPropertiesLoose(spread, ["a"]);
 var nullishAssignment;
 (_nullishAssignment = nullishAssignment) != null ? _nullishAssignment : nullishAssignment = 1;
 var nullishCoalescing = obj != null ? obj : 1;
@@ -1632,48 +1447,38 @@ exports[`transpiles ES2020+ syntax given {}, {"targets":"Chrome 106"}: output (c
 ""use strict";
 
 var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard").default;
-
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.obj = exports.default = void 0;
-
 var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
-
 var _foo = _interopRequireWildcard3(require("foo"));
-
 var namespaceImport = _interopRequireWildcard3(require("bar"));
-
 const dynamicImport = Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require('baz')));
-
 class Foo {
   static bar = 'abc';
-  baz = (x, y) => x({ ...y
+  baz = (x, y) => x({
+    ...y
   });
-
   #privateMethod() {
     return 1;
   }
-
 }
-
 function* infiniteGenerator() {
   yield 1;
   yield* infiniteGenerator();
 }
-
 async function asyncFunction() {
   return await null;
 }
-
 const obj = {
   a: 1,
   b: 2
 };
 exports.obj = obj;
-const spread = { ...obj,
+const spread = {
+  ...obj,
   b: 2,
   c: 3
 };
@@ -1693,32 +1498,28 @@ exports[`transpiles ES2020+ syntax given {}, {"targets":"Chrome 106"}: output (d
 "import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
-
 class Foo {
   static bar = 'abc';
-  baz = (x, y) => x({ ...y
+  baz = (x, y) => x({
+    ...y
   });
-
   #privateMethod() {
     return 1;
   }
-
 }
-
 function* infiniteGenerator() {
   yield 1;
   yield* infiniteGenerator();
 }
-
 async function asyncFunction() {
   return await null;
 }
-
 const obj = {
   a: 1,
   b: 2
 };
-const spread = { ...obj,
+const spread = {
+  ...obj,
   b: 2,
   c: 3
 };
@@ -1738,32 +1539,28 @@ exports[`transpiles ES2020+ syntax given {}, {"targets":"Chrome 106"}: output (e
 "import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
-
 class Foo {
   static bar = 'abc';
-  baz = (x, y) => x({ ...y
+  baz = (x, y) => x({
+    ...y
   });
-
   #privateMethod() {
     return 1;
   }
-
 }
-
 function* infiniteGenerator() {
   yield 1;
   yield* infiniteGenerator();
 }
-
 async function asyncFunction() {
   return await null;
 }
-
 const obj = {
   a: 1,
   b: 2
 };
-const spread = { ...obj,
+const spread = {
+  ...obj,
   b: 2,
   c: 3
 };
@@ -1783,32 +1580,28 @@ exports[`transpiles ES2020+ syntax given {}, {"targets":"Chrome 106"}: output (p
 "import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
-
 class Foo {
   static bar = 'abc';
-  baz = (x, y) => x({ ...y
+  baz = (x, y) => x({
+    ...y
   });
-
   #privateMethod() {
     return 1;
   }
-
 }
-
 function* infiniteGenerator() {
   yield 1;
   yield* infiniteGenerator();
 }
-
 async function asyncFunction() {
   return await null;
 }
-
 const obj = {
   a: 1,
   b: 2
 };
-const spread = { ...obj,
+const spread = {
+  ...obj,
   b: 2,
   c: 3
 };
@@ -1866,48 +1659,38 @@ exports[`transpiles ES2020+ syntax given {}, {}: output (cjs) 1`] = `
 ""use strict";
 
 var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard").default;
-
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.obj = exports.default = void 0;
-
 var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
-
 var _foo = _interopRequireWildcard3(require("foo"));
-
 var namespaceImport = _interopRequireWildcard3(require("bar"));
-
 const dynamicImport = Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require('baz')));
-
 class Foo {
   static bar = 'abc';
-  baz = (x, y) => x({ ...y
+  baz = (x, y) => x({
+    ...y
   });
-
   #privateMethod() {
     return 1;
   }
-
 }
-
 function* infiniteGenerator() {
   yield 1;
   yield* infiniteGenerator();
 }
-
 async function asyncFunction() {
   return await null;
 }
-
 const obj = {
   a: 1,
   b: 2
 };
 exports.obj = obj;
-const spread = { ...obj,
+const spread = {
+  ...obj,
   b: 2,
   c: 3
 };
@@ -1929,33 +1712,24 @@ import _asyncToGenerator from "@babel/runtime/helpers/asyncToGenerator";
 import _regeneratorRuntime from "@babel/runtime/helpers/regeneratorRuntime";
 import _createClass from "@babel/runtime/helpers/createClass";
 import _classPrivateFieldLooseKey from "@babel/runtime/helpers/classPrivateFieldLooseKey";
-
 var _nullishAssignment;
-
 var _marked = /*#__PURE__*/_regeneratorRuntime().mark(infiniteGenerator);
-
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 var dynamicImport = import('baz');
-
 var _privateMethod = /*#__PURE__*/_classPrivateFieldLooseKey("privateMethod");
-
 var Foo = /*#__PURE__*/_createClass(function Foo() {
   Object.defineProperty(this, _privateMethod, {
     value: _privateMethod2
   });
-
   this.baz = function (x, y) {
     return x(Object.assign({}, y));
   };
 });
-
 function _privateMethod2() {
   return 1;
 }
-
 Foo.bar = 'abc';
-
 function infiniteGenerator() {
   return _regeneratorRuntime().wrap(function infiniteGenerator$(_context) {
     while (1) {
@@ -1963,10 +1737,8 @@ function infiniteGenerator() {
         case 0:
           _context.next = 2;
           return 1;
-
         case 2:
           return _context.delegateYield(infiniteGenerator(), "t0", 3);
-
         case 3:
         case "end":
           return _context.stop();
@@ -1974,11 +1746,9 @@ function infiniteGenerator() {
     }
   }, _marked);
 }
-
 function asyncFunction() {
   return _asyncFunction.apply(this, arguments);
 }
-
 function _asyncFunction() {
   _asyncFunction = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
     return _regeneratorRuntime().wrap(function _callee$(_context2) {
@@ -1987,10 +1757,8 @@ function _asyncFunction() {
           case 0:
             _context2.next = 2;
             return null;
-
           case 2:
             return _context2.abrupt("return", _context2.sent);
-
           case 3:
           case "end":
             return _context2.stop();
@@ -2000,7 +1768,6 @@ function _asyncFunction() {
   }));
   return _asyncFunction.apply(this, arguments);
 }
-
 var obj = {
   a: 1,
   b: 2
@@ -2009,10 +1776,8 @@ var spread = Object.assign({}, obj, {
   b: 2,
   c: 3
 });
-
 var a = spread.a,
-    rest = _objectWithoutPropertiesLoose(spread, ["a"]);
-
+  rest = _objectWithoutPropertiesLoose(spread, ["a"]);
 var nullishAssignment;
 (_nullishAssignment = nullishAssignment) != null ? _nullishAssignment : nullishAssignment = 1;
 var nullishCoalescing = obj != null ? obj : 1;
@@ -2025,32 +1790,28 @@ exports[`transpiles ES2020+ syntax given {}, {}: output (esm) 1`] = `
 "import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 const dynamicImport = import('baz');
-
 class Foo {
   static bar = 'abc';
-  baz = (x, y) => x({ ...y
+  baz = (x, y) => x({
+    ...y
   });
-
   #privateMethod() {
     return 1;
   }
-
 }
-
 function* infiniteGenerator() {
   yield 1;
   yield* infiniteGenerator();
 }
-
 async function asyncFunction() {
   return await null;
 }
-
 const obj = {
   a: 1,
   b: 2
 };
-const spread = { ...obj,
+const spread = {
+  ...obj,
   b: 2,
   c: 3
 };
@@ -2072,33 +1833,24 @@ import _asyncToGenerator from "@babel/runtime/helpers/asyncToGenerator";
 import _regeneratorRuntime from "@babel/runtime/helpers/regeneratorRuntime";
 import _createClass from "@babel/runtime/helpers/createClass";
 import _classPrivateFieldLooseKey from "@babel/runtime/helpers/classPrivateFieldLooseKey";
-
 var _nullishAssignment;
-
 var _marked = /*#__PURE__*/_regeneratorRuntime().mark(infiniteGenerator);
-
 import defaultImport, { namedImport } from 'foo';
 import * as namespaceImport from 'bar';
 var dynamicImport = import('baz');
-
 var _privateMethod = /*#__PURE__*/_classPrivateFieldLooseKey("privateMethod");
-
 var Foo = /*#__PURE__*/_createClass(function Foo() {
   Object.defineProperty(this, _privateMethod, {
     value: _privateMethod2
   });
-
   this.baz = function (x, y) {
     return x(Object.assign({}, y));
   };
 });
-
 function _privateMethod2() {
   return 1;
 }
-
 Foo.bar = 'abc';
-
 function infiniteGenerator() {
   return _regeneratorRuntime().wrap(function infiniteGenerator$(_context) {
     while (1) {
@@ -2106,10 +1858,8 @@ function infiniteGenerator() {
         case 0:
           _context.next = 2;
           return 1;
-
         case 2:
           return _context.delegateYield(infiniteGenerator(), "t0", 3);
-
         case 3:
         case "end":
           return _context.stop();
@@ -2117,11 +1867,9 @@ function infiniteGenerator() {
     }
   }, _marked);
 }
-
 function asyncFunction() {
   return _asyncFunction.apply(this, arguments);
 }
-
 function _asyncFunction() {
   _asyncFunction = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
     return _regeneratorRuntime().wrap(function _callee$(_context2) {
@@ -2130,10 +1878,8 @@ function _asyncFunction() {
           case 0:
             _context2.next = 2;
             return null;
-
           case 2:
             return _context2.abrupt("return", _context2.sent);
-
           case 3:
           case "end":
             return _context2.stop();
@@ -2143,7 +1889,6 @@ function _asyncFunction() {
   }));
   return _asyncFunction.apply(this, arguments);
 }
-
 var obj = {
   a: 1,
   b: 2
@@ -2152,10 +1897,8 @@ var spread = Object.assign({}, obj, {
   b: 2,
   c: 3
 });
-
 var a = spread.a,
-    rest = _objectWithoutPropertiesLoose(spread, ["a"]);
-
+  rest = _objectWithoutPropertiesLoose(spread, ["a"]);
 var nullishAssignment;
 (_nullishAssignment = nullishAssignment) != null ? _nullishAssignment : nullishAssignment = 1;
 var nullishCoalescing = obj != null ? obj : 1;
@@ -2207,15 +1950,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = MyComponent;
-
 var _react = require("react");
-
 var _react2 = require("@emotion/react");
-
 var _jsxRuntime = require("@emotion/react/jsx-runtime");
-
 function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."; }
-
 const cssObj = process.env.NODE_ENV === "production" ? {
   name: "hwfcu5",
   styles: "color:red"
@@ -2225,7 +1963,6 @@ const cssObj = process.env.NODE_ENV === "production" ? {
   map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVtb3Rpb24uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBR2UiLCJmaWxlIjoiZW1vdGlvbi5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7dXNlU3RhdGV9IGZyb20gJ3JlYWN0J1xuaW1wb3J0IHtjc3N9IGZyb20gJ0BlbW90aW9uL3JlYWN0J1xuXG5jb25zdCBjc3NPYmogPSBjc3Moe2NvbG9yOiAncmVkJ30pXG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIE15Q29tcG9uZW50KHByb3BzKSB7XG4gIGNvbnN0IHthLCBiLCAuLi5yZXN0fSA9IHByb3BzXG4gIGNvbnN0IFtjb3VudCwgc2V0Q291bnRdID0gdXNlU3RhdGUoMClcbiAgcmV0dXJuIChcbiAgICA8PlxuICAgICAgPGJ1dHRvbiBjc3M9e3tjb2xvcjogJ2JsdWUnfX0gb25DbGljaz17KCkgPT4gc2V0Q291bnQoKHByZXZTaXplKSA9PiBwcmV2U2l6ZSArIDEpfT5cbiAgICAgICAgSW5jcmVtZW50XG4gICAgICA8L2J1dHRvbj5cbiAgICAgIDxkaXYgaGVpZ2h0PXtjb3VudH0gey4uLnJlc3R9IGNzcz17Y3NzT2JqfSAvPlxuICAgIDwvPlxuICApXG59XG4iXX0= */",
   toString: _EMOTION_STRINGIFIED_CSS_ERROR__
 };
-
 var _ref = process.env.NODE_ENV === "production" ? {
   name: "117wnve",
   styles: "color:blue"
@@ -2235,7 +1972,6 @@ var _ref = process.env.NODE_ENV === "production" ? {
   map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVtb3Rpb24uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBVWMiLCJmaWxlIjoiZW1vdGlvbi5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7dXNlU3RhdGV9IGZyb20gJ3JlYWN0J1xuaW1wb3J0IHtjc3N9IGZyb20gJ0BlbW90aW9uL3JlYWN0J1xuXG5jb25zdCBjc3NPYmogPSBjc3Moe2NvbG9yOiAncmVkJ30pXG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIE15Q29tcG9uZW50KHByb3BzKSB7XG4gIGNvbnN0IHthLCBiLCAuLi5yZXN0fSA9IHByb3BzXG4gIGNvbnN0IFtjb3VudCwgc2V0Q291bnRdID0gdXNlU3RhdGUoMClcbiAgcmV0dXJuIChcbiAgICA8PlxuICAgICAgPGJ1dHRvbiBjc3M9e3tjb2xvcjogJ2JsdWUnfX0gb25DbGljaz17KCkgPT4gc2V0Q291bnQoKHByZXZTaXplKSA9PiBwcmV2U2l6ZSArIDEpfT5cbiAgICAgICAgSW5jcmVtZW50XG4gICAgICA8L2J1dHRvbj5cbiAgICAgIDxkaXYgaGVpZ2h0PXtjb3VudH0gey4uLnJlc3R9IGNzcz17Y3NzT2JqfSAvPlxuICAgIDwvPlxuICApXG59XG4iXX0= */",
   toString: _EMOTION_STRINGIFIED_CSS_ERROR__
 };
-
 function MyComponent(props) {
   const {
     a,
@@ -2261,12 +1997,9 @@ exports[`transpiles Emotion given {"emotion":true}, {}: output (development) 1`]
 "import _slicedToArray from "@babel/runtime/helpers/slicedToArray";
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
 var _excluded = ["a", "b"];
-
 var _jsxFileName = "/emotion.js",
-    _s = $RefreshSig$();
-
+  _s = $RefreshSig$();
 function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."; }
-
 import { useState } from 'react';
 import { css } from '@emotion/react';
 import { jsxDEV as _jsxDEV } from "@emotion/react/jsx-dev-runtime";
@@ -2280,7 +2013,6 @@ var cssObj = process.env.NODE_ENV === "production" ? {
   map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVtb3Rpb24uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBR2UiLCJmaWxlIjoiZW1vdGlvbi5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7dXNlU3RhdGV9IGZyb20gJ3JlYWN0J1xuaW1wb3J0IHtjc3N9IGZyb20gJ0BlbW90aW9uL3JlYWN0J1xuXG5jb25zdCBjc3NPYmogPSBjc3Moe2NvbG9yOiAncmVkJ30pXG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIE15Q29tcG9uZW50KHByb3BzKSB7XG4gIGNvbnN0IHthLCBiLCAuLi5yZXN0fSA9IHByb3BzXG4gIGNvbnN0IFtjb3VudCwgc2V0Q291bnRdID0gdXNlU3RhdGUoMClcbiAgcmV0dXJuIChcbiAgICA8PlxuICAgICAgPGJ1dHRvbiBjc3M9e3tjb2xvcjogJ2JsdWUnfX0gb25DbGljaz17KCkgPT4gc2V0Q291bnQoKHByZXZTaXplKSA9PiBwcmV2U2l6ZSArIDEpfT5cbiAgICAgICAgSW5jcmVtZW50XG4gICAgICA8L2J1dHRvbj5cbiAgICAgIDxkaXYgaGVpZ2h0PXtjb3VudH0gey4uLnJlc3R9IGNzcz17Y3NzT2JqfSAvPlxuICAgIDwvPlxuICApXG59XG4iXX0= */",
   toString: _EMOTION_STRINGIFIED_CSS_ERROR__
 };
-
 var _ref = process.env.NODE_ENV === "production" ? {
   name: "117wnve",
   styles: "color:blue"
@@ -2290,19 +2022,15 @@ var _ref = process.env.NODE_ENV === "production" ? {
   map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVtb3Rpb24uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBVWMiLCJmaWxlIjoiZW1vdGlvbi5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7dXNlU3RhdGV9IGZyb20gJ3JlYWN0J1xuaW1wb3J0IHtjc3N9IGZyb20gJ0BlbW90aW9uL3JlYWN0J1xuXG5jb25zdCBjc3NPYmogPSBjc3Moe2NvbG9yOiAncmVkJ30pXG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIE15Q29tcG9uZW50KHByb3BzKSB7XG4gIGNvbnN0IHthLCBiLCAuLi5yZXN0fSA9IHByb3BzXG4gIGNvbnN0IFtjb3VudCwgc2V0Q291bnRdID0gdXNlU3RhdGUoMClcbiAgcmV0dXJuIChcbiAgICA8PlxuICAgICAgPGJ1dHRvbiBjc3M9e3tjb2xvcjogJ2JsdWUnfX0gb25DbGljaz17KCkgPT4gc2V0Q291bnQoKHByZXZTaXplKSA9PiBwcmV2U2l6ZSArIDEpfT5cbiAgICAgICAgSW5jcmVtZW50XG4gICAgICA8L2J1dHRvbj5cbiAgICAgIDxkaXYgaGVpZ2h0PXtjb3VudH0gey4uLnJlc3R9IGNzcz17Y3NzT2JqfSAvPlxuICAgIDwvPlxuICApXG59XG4iXX0= */",
   toString: _EMOTION_STRINGIFIED_CSS_ERROR__
 };
-
 export default function MyComponent(props) {
   _s();
-
   var a = props.a,
-      b = props.b,
-      rest = _objectWithoutPropertiesLoose(props, _excluded);
-
+    b = props.b,
+    rest = _objectWithoutPropertiesLoose(props, _excluded);
   var _useState = useState(0),
-      _useState2 = _slicedToArray(_useState, 2),
-      count = _useState2[0],
-      setCount = _useState2[1];
-
+    _useState2 = _slicedToArray(_useState, 2),
+    count = _useState2[0],
+    setCount = _useState2[1];
   return _jsxDEV(_Fragment, {
     children: [_jsxDEV("button", {
       css: _ref,
@@ -2327,19 +2055,14 @@ export default function MyComponent(props) {
     }, this)]
   }, void 0, true);
 }
-
 _s(MyComponent, "oDgYfYHkD9Wkv4hrAPCkI/ev3YU=");
-
 _c = MyComponent;
-
 var _c;
-
 $RefreshReg$(_c, "MyComponent");"
 `;
 
 exports[`transpiles Emotion given {"emotion":true}, {}: output (esm) 1`] = `
 "function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."; }
-
 import { useState } from 'react';
 import { css } from '@emotion/react';
 import { jsx as _jsx } from "@emotion/react/jsx-runtime";
@@ -2354,7 +2077,6 @@ const cssObj = process.env.NODE_ENV === "production" ? {
   map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVtb3Rpb24uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBR2UiLCJmaWxlIjoiZW1vdGlvbi5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7dXNlU3RhdGV9IGZyb20gJ3JlYWN0J1xuaW1wb3J0IHtjc3N9IGZyb20gJ0BlbW90aW9uL3JlYWN0J1xuXG5jb25zdCBjc3NPYmogPSBjc3Moe2NvbG9yOiAncmVkJ30pXG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIE15Q29tcG9uZW50KHByb3BzKSB7XG4gIGNvbnN0IHthLCBiLCAuLi5yZXN0fSA9IHByb3BzXG4gIGNvbnN0IFtjb3VudCwgc2V0Q291bnRdID0gdXNlU3RhdGUoMClcbiAgcmV0dXJuIChcbiAgICA8PlxuICAgICAgPGJ1dHRvbiBjc3M9e3tjb2xvcjogJ2JsdWUnfX0gb25DbGljaz17KCkgPT4gc2V0Q291bnQoKHByZXZTaXplKSA9PiBwcmV2U2l6ZSArIDEpfT5cbiAgICAgICAgSW5jcmVtZW50XG4gICAgICA8L2J1dHRvbj5cbiAgICAgIDxkaXYgaGVpZ2h0PXtjb3VudH0gey4uLnJlc3R9IGNzcz17Y3NzT2JqfSAvPlxuICAgIDwvPlxuICApXG59XG4iXX0= */",
   toString: _EMOTION_STRINGIFIED_CSS_ERROR__
 };
-
 var _ref = process.env.NODE_ENV === "production" ? {
   name: "117wnve",
   styles: "color:blue"
@@ -2364,7 +2086,6 @@ var _ref = process.env.NODE_ENV === "production" ? {
   map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVtb3Rpb24uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBVWMiLCJmaWxlIjoiZW1vdGlvbi5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7dXNlU3RhdGV9IGZyb20gJ3JlYWN0J1xuaW1wb3J0IHtjc3N9IGZyb20gJ0BlbW90aW9uL3JlYWN0J1xuXG5jb25zdCBjc3NPYmogPSBjc3Moe2NvbG9yOiAncmVkJ30pXG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIE15Q29tcG9uZW50KHByb3BzKSB7XG4gIGNvbnN0IHthLCBiLCAuLi5yZXN0fSA9IHByb3BzXG4gIGNvbnN0IFtjb3VudCwgc2V0Q291bnRdID0gdXNlU3RhdGUoMClcbiAgcmV0dXJuIChcbiAgICA8PlxuICAgICAgPGJ1dHRvbiBjc3M9e3tjb2xvcjogJ2JsdWUnfX0gb25DbGljaz17KCkgPT4gc2V0Q291bnQoKHByZXZTaXplKSA9PiBwcmV2U2l6ZSArIDEpfT5cbiAgICAgICAgSW5jcmVtZW50XG4gICAgICA8L2J1dHRvbj5cbiAgICAgIDxkaXYgaGVpZ2h0PXtjb3VudH0gey4uLnJlc3R9IGNzcz17Y3NzT2JqfSAvPlxuICAgIDwvPlxuICApXG59XG4iXX0= */",
   toString: _EMOTION_STRINGIFIED_CSS_ERROR__
 };
-
 export default function MyComponent(props) {
   const {
     a,
@@ -2390,9 +2111,7 @@ exports[`transpiles Emotion given {"emotion":true}, {}: output (production) 1`] 
 "import _slicedToArray from "@babel/runtime/helpers/slicedToArray";
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
 var _excluded = ["a", "b"];
-
 function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."; }
-
 import { useState } from 'react';
 import { css } from '@emotion/react';
 import { jsx as _jsx } from "@emotion/react/jsx-runtime";
@@ -2407,7 +2126,6 @@ var cssObj = process.env.NODE_ENV === "production" ? {
   map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVtb3Rpb24uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBR2UiLCJmaWxlIjoiZW1vdGlvbi5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7dXNlU3RhdGV9IGZyb20gJ3JlYWN0J1xuaW1wb3J0IHtjc3N9IGZyb20gJ0BlbW90aW9uL3JlYWN0J1xuXG5jb25zdCBjc3NPYmogPSBjc3Moe2NvbG9yOiAncmVkJ30pXG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIE15Q29tcG9uZW50KHByb3BzKSB7XG4gIGNvbnN0IHthLCBiLCAuLi5yZXN0fSA9IHByb3BzXG4gIGNvbnN0IFtjb3VudCwgc2V0Q291bnRdID0gdXNlU3RhdGUoMClcbiAgcmV0dXJuIChcbiAgICA8PlxuICAgICAgPGJ1dHRvbiBjc3M9e3tjb2xvcjogJ2JsdWUnfX0gb25DbGljaz17KCkgPT4gc2V0Q291bnQoKHByZXZTaXplKSA9PiBwcmV2U2l6ZSArIDEpfT5cbiAgICAgICAgSW5jcmVtZW50XG4gICAgICA8L2J1dHRvbj5cbiAgICAgIDxkaXYgaGVpZ2h0PXtjb3VudH0gey4uLnJlc3R9IGNzcz17Y3NzT2JqfSAvPlxuICAgIDwvPlxuICApXG59XG4iXX0= */",
   toString: _EMOTION_STRINGIFIED_CSS_ERROR__
 };
-
 var _ref = process.env.NODE_ENV === "production" ? {
   name: "117wnve",
   styles: "color:blue"
@@ -2417,17 +2135,14 @@ var _ref = process.env.NODE_ENV === "production" ? {
   map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVtb3Rpb24uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBVWMiLCJmaWxlIjoiZW1vdGlvbi5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7dXNlU3RhdGV9IGZyb20gJ3JlYWN0J1xuaW1wb3J0IHtjc3N9IGZyb20gJ0BlbW90aW9uL3JlYWN0J1xuXG5jb25zdCBjc3NPYmogPSBjc3Moe2NvbG9yOiAncmVkJ30pXG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIE15Q29tcG9uZW50KHByb3BzKSB7XG4gIGNvbnN0IHthLCBiLCAuLi5yZXN0fSA9IHByb3BzXG4gIGNvbnN0IFtjb3VudCwgc2V0Q291bnRdID0gdXNlU3RhdGUoMClcbiAgcmV0dXJuIChcbiAgICA8PlxuICAgICAgPGJ1dHRvbiBjc3M9e3tjb2xvcjogJ2JsdWUnfX0gb25DbGljaz17KCkgPT4gc2V0Q291bnQoKHByZXZTaXplKSA9PiBwcmV2U2l6ZSArIDEpfT5cbiAgICAgICAgSW5jcmVtZW50XG4gICAgICA8L2J1dHRvbj5cbiAgICAgIDxkaXYgaGVpZ2h0PXtjb3VudH0gey4uLnJlc3R9IGNzcz17Y3NzT2JqfSAvPlxuICAgIDwvPlxuICApXG59XG4iXX0= */",
   toString: _EMOTION_STRINGIFIED_CSS_ERROR__
 };
-
 export default function MyComponent(props) {
   var a = props.a,
-      b = props.b,
-      rest = _objectWithoutPropertiesLoose(props, _excluded);
-
+    b = props.b,
+    rest = _objectWithoutPropertiesLoose(props, _excluded);
   var _useState = useState(0),
-      _useState2 = _slicedToArray(_useState, 2),
-      count = _useState2[0],
-      setCount = _useState2[1];
-
+    _useState2 = _slicedToArray(_useState, 2),
+    count = _useState2[0],
+    setCount = _useState2[1];
   return _jsxs(_Fragment, {
     children: [_jsx("button", {
       css: _ref,
@@ -2468,11 +2183,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = MyComponent;
-
 var _react = require("react");
-
 var _jsxRuntime = require("react/jsx-runtime");
-
 function MyComponent(props) {
   const {
     label,
@@ -2491,23 +2203,18 @@ exports[`transpiles React given {}, {}: output (development) 1`] = `
 "import _slicedToArray from "@babel/runtime/helpers/slicedToArray";
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
 var _excluded = ["label"];
-
 var _jsxFileName = "/react.js",
-    _s = $RefreshSig$();
-
+  _s = $RefreshSig$();
 import { useState } from 'react';
 import { jsxDEV as _jsxDEV } from "react/jsx-dev-runtime";
 export default function MyComponent(props) {
   _s();
-
   var label = props.label,
-      rest = _objectWithoutPropertiesLoose(props, _excluded);
-
+    rest = _objectWithoutPropertiesLoose(props, _excluded);
   var _useState = useState(0),
-      _useState2 = _slicedToArray(_useState, 2),
-      count = _useState2[0],
-      setCount = _useState2[1];
-
+    _useState2 = _slicedToArray(_useState, 2),
+    count = _useState2[0],
+    setCount = _useState2[1];
   return /*#__PURE__*/_jsxDEV("button", Object.assign({
     onClick: function onClick() {
       return setCount(count + 1);
@@ -2520,13 +2227,9 @@ export default function MyComponent(props) {
     columnNumber: 5
   }, this);
 }
-
 _s(MyComponent, "oDgYfYHkD9Wkv4hrAPCkI/ev3YU=");
-
 _c = MyComponent;
-
 var _c;
-
 $RefreshReg$(_c, "MyComponent");"
 `;
 
@@ -2555,13 +2258,11 @@ import { useState } from 'react';
 import { jsxs as _jsxs } from "react/jsx-runtime";
 export default function MyComponent(props) {
   var label = props.label,
-      rest = _objectWithoutPropertiesLoose(props, _excluded);
-
+    rest = _objectWithoutPropertiesLoose(props, _excluded);
   var _useState = useState(0),
-      _useState2 = _slicedToArray(_useState, 2),
-      count = _useState2[0],
-      setCount = _useState2[1];
-
+    _useState2 = _slicedToArray(_useState, 2),
+    count = _useState2[0],
+    setCount = _useState2[1];
   return /*#__PURE__*/_jsxs("button", Object.assign({
     onClick: function onClick() {
       return setCount(count + 1);
@@ -2586,7 +2287,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = add;
-
 function add(a, b) {
   return a + b;
 }"
