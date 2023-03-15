@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "fix": "prettier -w . && eslint --fix .",
-    "test": "tsc && prettier -c . && eslint . && jest",
+    "test": "tsc && prettier -c . && eslint --format=compact . && jest",
     "prepublishOnly": "npm test"
   },
   "author": "Kensho Technologies, LLC.",
