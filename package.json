@@ -24,6 +24,7 @@
   "peerDependencies": {
     "@babel/core": "^7.19.0",
     "@babel/runtime": "^7.19.0",
+    "core-js": "^3.30.0",
     "react-refresh": "^0.14.0"
   },
   "dependencies": {
