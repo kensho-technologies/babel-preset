@@ -3,7 +3,7 @@ import * as fs from 'fs'
 import {test, expect} from '@jest/globals'
 import {transformSync} from '@babel/core'
 
-import preset from '.'
+import preset from './index'
 
 // the 'test' environment is excluded because it targets the currently running version of Node
 // since our CI runs multiple Node versions, a snapshot for 'test' might not match one of them

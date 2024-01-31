@@ -3,6 +3,6 @@
   "exclude": ["fixtures"],
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "noEmit": true
-  }
+    "noEmit": true,
+  },
 }
