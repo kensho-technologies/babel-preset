@@ -50,6 +50,7 @@ module.exports = (babel, options) => {
     emotion = false,
     modules = env === 'test' || env === 'cjs' ? 'commonjs' : false,
     react = {},
+    reactCompiler = {},
     reactRefresh = env === 'development' && react && {},
     runtime = true,
     targets = getDefaultTargets(env),
@@ -83,6 +84,7 @@ module.exports = (babel, options) => {
   const nonNodeModules = {
     exclude: NODE_MODULES_REGEX,
     plugins: [
+      reactCompiler && [require('babel-plugin-react-compiler'), {...reactCompiler}],
       reactRefresh && [require('react-refresh/babel'), {skipEnvCheck: true, ...reactRefresh}],
       emotion && [require('@emotion/babel-plugin').default, {...emotion}],
     ].filter(Boolean),

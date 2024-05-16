@@ -1902,6 +1902,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = MyComponent;
+var _compilerRuntime = require("react/compiler-runtime");
 var _react = require("react");
 var _react2 = require("@emotion/react");
 var _jsxRuntime = require("@emotion/react/jsx-runtime");
@@ -1919,29 +1920,54 @@ var _ref = process.env.NODE_ENV === "production" ? {
   name: "117wnve",
   styles: "color:blue"
 } : {
-  name: "fveiva-MyComponent",
-  styles: "color:blue;label:MyComponent;",
-  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVtb3Rpb24uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBVWMiLCJmaWxlIjoiZW1vdGlvbi5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7dXNlU3RhdGV9IGZyb20gJ3JlYWN0J1xuaW1wb3J0IHtjc3N9IGZyb20gJ0BlbW90aW9uL3JlYWN0J1xuXG5jb25zdCBjc3NPYmogPSBjc3Moe2NvbG9yOiAncmVkJ30pXG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIE15Q29tcG9uZW50KHByb3BzKSB7XG4gIGNvbnN0IHthLCBiLCAuLi5yZXN0fSA9IHByb3BzXG4gIGNvbnN0IFtjb3VudCwgc2V0Q291bnRdID0gdXNlU3RhdGUoMClcbiAgcmV0dXJuIChcbiAgICA8PlxuICAgICAgPGJ1dHRvbiBjc3M9e3tjb2xvcjogJ2JsdWUnfX0gb25DbGljaz17KCkgPT4gc2V0Q291bnQoKHByZXZTaXplKSA9PiBwcmV2U2l6ZSArIDEpfT5cbiAgICAgICAgSW5jcmVtZW50XG4gICAgICA8L2J1dHRvbj5cbiAgICAgIDxkaXYgaGVpZ2h0PXtjb3VudH0gey4uLnJlc3R9IGNzcz17Y3NzT2JqfSAvPlxuICAgIDwvPlxuICApXG59XG4iXX0= */",
+  name: "16jqs9o-t0",
+  styles: "color:blue;label:t0;",
+  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVtb3Rpb24uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBVW1CIiwiZmlsZSI6ImVtb3Rpb24uanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge3VzZVN0YXRlfSBmcm9tICdyZWFjdCdcbmltcG9ydCB7Y3NzfSBmcm9tICdAZW1vdGlvbi9yZWFjdCdcblxuY29uc3QgY3NzT2JqID0gY3NzKHtjb2xvcjogJ3JlZCd9KVxuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBNeUNvbXBvbmVudChwcm9wcykge1xuICBjb25zdCB7YSwgYiwgLi4ucmVzdH0gPSBwcm9wc1xuICBjb25zdCBbY291bnQsIHNldENvdW50XSA9IHVzZVN0YXRlKDApXG4gIHJldHVybiAoXG4gICAgPD5cbiAgICAgIDxidXR0b24gY3NzPXt7Y29sb3I6ICdibHVlJ319IG9uQ2xpY2s9eygpID0+IHNldENvdW50KChwcmV2U2l6ZSkgPT4gcHJldlNpemUgKyAxKX0+XG4gICAgICAgIEluY3JlbWVudFxuICAgICAgPC9idXR0b24+XG4gICAgICA8ZGl2IGhlaWdodD17Y291bnR9IHsuLi5yZXN0fSBjc3M9e2Nzc09ian0gLz5cbiAgICA8Lz5cbiAgKVxufVxuIl19 */",
   toString: _EMOTION_STRINGIFIED_CSS_ERROR__
 };
 function MyComponent(props) {
-  const {
-    a,
-    b,
-    ...rest
-  } = props;
+  const $ = (0, _compilerRuntime.c)(6);
+  let rest;
+  if ($[0] !== props) {
+    const {
+      a,
+      b,
+      ...t0
+    } = props;
+    rest = t0;
+    $[0] = props;
+    $[1] = rest;
+  } else {
+    rest = $[1];
+  }
   const [count, setCount] = (0, _react.useState)(0);
-  return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
-    children: [(0, _jsxRuntime.jsx)("button", {
+  let t0;
+  if ($[2] === Symbol.for("react.memo_cache_sentinel")) {
+    t0 = (0, _jsxRuntime.jsx)("button", {
       css: _ref,
       onClick: () => setCount(prevSize => prevSize + 1),
       children: "Increment"
-    }), (0, _jsxRuntime.jsx)("div", {
-      height: count,
-      ...rest,
-      css: cssObj
-    })]
-  });
+    });
+    $[2] = t0;
+  } else {
+    t0 = $[2];
+  }
+  let t1;
+  if ($[3] !== count || $[4] !== rest) {
+    t1 = (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+      children: [t0, (0, _jsxRuntime.jsx)("div", {
+        height: count,
+        ...rest,
+        css: cssObj
+      })]
+    });
+    $[3] = count;
+    $[4] = rest;
+    $[5] = t1;
+  } else {
+    t1 = $[5];
+  }
+  return t1;
 }"
 `;
 
@@ -1952,6 +1978,7 @@ var _excluded = ["a", "b"];
 var _jsxFileName = "/emotion.js",
   _s = $RefreshSig$();
 function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."; }
+import { c as _c } from "react/compiler-runtime";
 import { useState } from 'react';
 import { css } from '@emotion/react';
 import { jsxDEV as _jsxDEV, Fragment as _Fragment } from "@emotion/react/jsx-dev-runtime";
@@ -1968,22 +1995,32 @@ var _ref = process.env.NODE_ENV === "production" ? {
   name: "117wnve",
   styles: "color:blue"
 } : {
-  name: "fveiva-MyComponent",
-  styles: "color:blue;label:MyComponent;",
-  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVtb3Rpb24uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBVWMiLCJmaWxlIjoiZW1vdGlvbi5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7dXNlU3RhdGV9IGZyb20gJ3JlYWN0J1xuaW1wb3J0IHtjc3N9IGZyb20gJ0BlbW90aW9uL3JlYWN0J1xuXG5jb25zdCBjc3NPYmogPSBjc3Moe2NvbG9yOiAncmVkJ30pXG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIE15Q29tcG9uZW50KHByb3BzKSB7XG4gIGNvbnN0IHthLCBiLCAuLi5yZXN0fSA9IHByb3BzXG4gIGNvbnN0IFtjb3VudCwgc2V0Q291bnRdID0gdXNlU3RhdGUoMClcbiAgcmV0dXJuIChcbiAgICA8PlxuICAgICAgPGJ1dHRvbiBjc3M9e3tjb2xvcjogJ2JsdWUnfX0gb25DbGljaz17KCkgPT4gc2V0Q291bnQoKHByZXZTaXplKSA9PiBwcmV2U2l6ZSArIDEpfT5cbiAgICAgICAgSW5jcmVtZW50XG4gICAgICA8L2J1dHRvbj5cbiAgICAgIDxkaXYgaGVpZ2h0PXtjb3VudH0gey4uLnJlc3R9IGNzcz17Y3NzT2JqfSAvPlxuICAgIDwvPlxuICApXG59XG4iXX0= */",
+  name: "16jqs9o-t0",
+  styles: "color:blue;label:t0;",
+  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVtb3Rpb24uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBVW1CIiwiZmlsZSI6ImVtb3Rpb24uanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge3VzZVN0YXRlfSBmcm9tICdyZWFjdCdcbmltcG9ydCB7Y3NzfSBmcm9tICdAZW1vdGlvbi9yZWFjdCdcblxuY29uc3QgY3NzT2JqID0gY3NzKHtjb2xvcjogJ3JlZCd9KVxuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBNeUNvbXBvbmVudChwcm9wcykge1xuICBjb25zdCB7YSwgYiwgLi4ucmVzdH0gPSBwcm9wc1xuICBjb25zdCBbY291bnQsIHNldENvdW50XSA9IHVzZVN0YXRlKDApXG4gIHJldHVybiAoXG4gICAgPD5cbiAgICAgIDxidXR0b24gY3NzPXt7Y29sb3I6ICdibHVlJ319IG9uQ2xpY2s9eygpID0+IHNldENvdW50KChwcmV2U2l6ZSkgPT4gcHJldlNpemUgKyAxKX0+XG4gICAgICAgIEluY3JlbWVudFxuICAgICAgPC9idXR0b24+XG4gICAgICA8ZGl2IGhlaWdodD17Y291bnR9IHsuLi5yZXN0fSBjc3M9e2Nzc09ian0gLz5cbiAgICA8Lz5cbiAgKVxufVxuIl19 */",
   toString: _EMOTION_STRINGIFIED_CSS_ERROR__
 };
 export default function MyComponent(props) {
   _s();
-  var a = props.a,
-    b = props.b,
-    rest = _objectWithoutPropertiesLoose(props, _excluded);
+  var $ = _c(6);
+  var rest;
+  if ($[0] !== props) {
+    var a = props.a,
+      b = props.b,
+      _t = _objectWithoutPropertiesLoose(props, _excluded);
+    rest = _t;
+    $[0] = props;
+    $[1] = rest;
+  } else {
+    rest = $[1];
+  }
   var _useState = useState(0),
     _useState2 = _slicedToArray(_useState, 2),
     count = _useState2[0],
     setCount = _useState2[1];
-  return _jsxDEV(_Fragment, {
-    children: [_jsxDEV("button", {
+  var t0;
+  if ($[2] === Symbol["for"]("react.memo_cache_sentinel")) {
+    t0 = _jsxDEV("button", {
       css: _ref,
       onClick: function onClick() {
         return setCount(function (prevSize) {
@@ -1995,25 +2032,41 @@ export default function MyComponent(props) {
       fileName: _jsxFileName,
       lineNumber: 11,
       columnNumber: 7
-    }, this), _jsxDEV("div", Object.assign({
-      height: count
-    }, rest, {
-      css: cssObj
-    }), void 0, false, {
-      fileName: _jsxFileName,
-      lineNumber: 14,
-      columnNumber: 7
-    }, this)]
-  }, void 0, true);
+    }, this);
+    $[2] = t0;
+  } else {
+    t0 = $[2];
+  }
+  var t1;
+  if ($[3] !== count || $[4] !== rest) {
+    t1 = _jsxDEV(_Fragment, {
+      children: [t0, _jsxDEV("div", Object.assign({
+        height: count
+      }, rest, {
+        css: cssObj
+      }), void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 14,
+        columnNumber: 7
+      }, this)]
+    }, void 0, true);
+    $[3] = count;
+    $[4] = rest;
+    $[5] = t1;
+  } else {
+    t1 = $[5];
+  }
+  return t1;
 }
-_s(MyComponent, "oDgYfYHkD9Wkv4hrAPCkI/ev3YU=");
-_c = MyComponent;
-var _c;
-$RefreshReg$(_c, "MyComponent");"
+_s(MyComponent, "7rNyFrw5FVpFFCFYkWAjQci0NUk=");
+_c2 = MyComponent;
+var _c2;
+$RefreshReg$(_c2, "MyComponent");"
 `;
 
 exports[`transpiles Emotion given {"emotion":true}, {}: output (esm) 1`] = `
 "function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."; }
+import { c as _c } from "react/compiler-runtime";
 import { useState } from 'react';
 import { css } from '@emotion/react';
 import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "@emotion/react/jsx-runtime";
@@ -2030,29 +2083,54 @@ var _ref = process.env.NODE_ENV === "production" ? {
   name: "117wnve",
   styles: "color:blue"
 } : {
-  name: "fveiva-MyComponent",
-  styles: "color:blue;label:MyComponent;",
-  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVtb3Rpb24uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBVWMiLCJmaWxlIjoiZW1vdGlvbi5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7dXNlU3RhdGV9IGZyb20gJ3JlYWN0J1xuaW1wb3J0IHtjc3N9IGZyb20gJ0BlbW90aW9uL3JlYWN0J1xuXG5jb25zdCBjc3NPYmogPSBjc3Moe2NvbG9yOiAncmVkJ30pXG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIE15Q29tcG9uZW50KHByb3BzKSB7XG4gIGNvbnN0IHthLCBiLCAuLi5yZXN0fSA9IHByb3BzXG4gIGNvbnN0IFtjb3VudCwgc2V0Q291bnRdID0gdXNlU3RhdGUoMClcbiAgcmV0dXJuIChcbiAgICA8PlxuICAgICAgPGJ1dHRvbiBjc3M9e3tjb2xvcjogJ2JsdWUnfX0gb25DbGljaz17KCkgPT4gc2V0Q291bnQoKHByZXZTaXplKSA9PiBwcmV2U2l6ZSArIDEpfT5cbiAgICAgICAgSW5jcmVtZW50XG4gICAgICA8L2J1dHRvbj5cbiAgICAgIDxkaXYgaGVpZ2h0PXtjb3VudH0gey4uLnJlc3R9IGNzcz17Y3NzT2JqfSAvPlxuICAgIDwvPlxuICApXG59XG4iXX0= */",
+  name: "16jqs9o-t0",
+  styles: "color:blue;label:t0;",
+  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVtb3Rpb24uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBVW1CIiwiZmlsZSI6ImVtb3Rpb24uanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge3VzZVN0YXRlfSBmcm9tICdyZWFjdCdcbmltcG9ydCB7Y3NzfSBmcm9tICdAZW1vdGlvbi9yZWFjdCdcblxuY29uc3QgY3NzT2JqID0gY3NzKHtjb2xvcjogJ3JlZCd9KVxuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBNeUNvbXBvbmVudChwcm9wcykge1xuICBjb25zdCB7YSwgYiwgLi4ucmVzdH0gPSBwcm9wc1xuICBjb25zdCBbY291bnQsIHNldENvdW50XSA9IHVzZVN0YXRlKDApXG4gIHJldHVybiAoXG4gICAgPD5cbiAgICAgIDxidXR0b24gY3NzPXt7Y29sb3I6ICdibHVlJ319IG9uQ2xpY2s9eygpID0+IHNldENvdW50KChwcmV2U2l6ZSkgPT4gcHJldlNpemUgKyAxKX0+XG4gICAgICAgIEluY3JlbWVudFxuICAgICAgPC9idXR0b24+XG4gICAgICA8ZGl2IGhlaWdodD17Y291bnR9IHsuLi5yZXN0fSBjc3M9e2Nzc09ian0gLz5cbiAgICA8Lz5cbiAgKVxufVxuIl19 */",
   toString: _EMOTION_STRINGIFIED_CSS_ERROR__
 };
 export default function MyComponent(props) {
-  const {
-    a,
-    b,
-    ...rest
-  } = props;
+  const $ = _c(6);
+  let rest;
+  if ($[0] !== props) {
+    const {
+      a,
+      b,
+      ...t0
+    } = props;
+    rest = t0;
+    $[0] = props;
+    $[1] = rest;
+  } else {
+    rest = $[1];
+  }
   const [count, setCount] = useState(0);
-  return _jsxs(_Fragment, {
-    children: [_jsx("button", {
+  let t0;
+  if ($[2] === Symbol.for("react.memo_cache_sentinel")) {
+    t0 = _jsx("button", {
       css: _ref,
       onClick: () => setCount(prevSize => prevSize + 1),
       children: "Increment"
-    }), _jsx("div", {
-      height: count,
-      ...rest,
-      css: cssObj
-    })]
-  });
+    });
+    $[2] = t0;
+  } else {
+    t0 = $[2];
+  }
+  let t1;
+  if ($[3] !== count || $[4] !== rest) {
+    t1 = _jsxs(_Fragment, {
+      children: [t0, _jsx("div", {
+        height: count,
+        ...rest,
+        css: cssObj
+      })]
+    });
+    $[3] = count;
+    $[4] = rest;
+    $[5] = t1;
+  } else {
+    t1 = $[5];
+  }
+  return t1;
 }"
 `;
 
@@ -2061,6 +2139,7 @@ exports[`transpiles Emotion given {"emotion":true}, {}: output (production) 1`] 
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
 var _excluded = ["a", "b"];
 function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."; }
+import { c as _c } from "react/compiler-runtime";
 import { useState } from 'react';
 import { css } from '@emotion/react';
 import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "@emotion/react/jsx-runtime";
@@ -2077,21 +2156,31 @@ var _ref = process.env.NODE_ENV === "production" ? {
   name: "117wnve",
   styles: "color:blue"
 } : {
-  name: "fveiva-MyComponent",
-  styles: "color:blue;label:MyComponent;",
-  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVtb3Rpb24uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBVWMiLCJmaWxlIjoiZW1vdGlvbi5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7dXNlU3RhdGV9IGZyb20gJ3JlYWN0J1xuaW1wb3J0IHtjc3N9IGZyb20gJ0BlbW90aW9uL3JlYWN0J1xuXG5jb25zdCBjc3NPYmogPSBjc3Moe2NvbG9yOiAncmVkJ30pXG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIE15Q29tcG9uZW50KHByb3BzKSB7XG4gIGNvbnN0IHthLCBiLCAuLi5yZXN0fSA9IHByb3BzXG4gIGNvbnN0IFtjb3VudCwgc2V0Q291bnRdID0gdXNlU3RhdGUoMClcbiAgcmV0dXJuIChcbiAgICA8PlxuICAgICAgPGJ1dHRvbiBjc3M9e3tjb2xvcjogJ2JsdWUnfX0gb25DbGljaz17KCkgPT4gc2V0Q291bnQoKHByZXZTaXplKSA9PiBwcmV2U2l6ZSArIDEpfT5cbiAgICAgICAgSW5jcmVtZW50XG4gICAgICA8L2J1dHRvbj5cbiAgICAgIDxkaXYgaGVpZ2h0PXtjb3VudH0gey4uLnJlc3R9IGNzcz17Y3NzT2JqfSAvPlxuICAgIDwvPlxuICApXG59XG4iXX0= */",
+  name: "16jqs9o-t0",
+  styles: "color:blue;label:t0;",
+  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVtb3Rpb24uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBVW1CIiwiZmlsZSI6ImVtb3Rpb24uanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge3VzZVN0YXRlfSBmcm9tICdyZWFjdCdcbmltcG9ydCB7Y3NzfSBmcm9tICdAZW1vdGlvbi9yZWFjdCdcblxuY29uc3QgY3NzT2JqID0gY3NzKHtjb2xvcjogJ3JlZCd9KVxuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBNeUNvbXBvbmVudChwcm9wcykge1xuICBjb25zdCB7YSwgYiwgLi4ucmVzdH0gPSBwcm9wc1xuICBjb25zdCBbY291bnQsIHNldENvdW50XSA9IHVzZVN0YXRlKDApXG4gIHJldHVybiAoXG4gICAgPD5cbiAgICAgIDxidXR0b24gY3NzPXt7Y29sb3I6ICdibHVlJ319IG9uQ2xpY2s9eygpID0+IHNldENvdW50KChwcmV2U2l6ZSkgPT4gcHJldlNpemUgKyAxKX0+XG4gICAgICAgIEluY3JlbWVudFxuICAgICAgPC9idXR0b24+XG4gICAgICA8ZGl2IGhlaWdodD17Y291bnR9IHsuLi5yZXN0fSBjc3M9e2Nzc09ian0gLz5cbiAgICA8Lz5cbiAgKVxufVxuIl19 */",
   toString: _EMOTION_STRINGIFIED_CSS_ERROR__
 };
 export default function MyComponent(props) {
-  var a = props.a,
-    b = props.b,
-    rest = _objectWithoutPropertiesLoose(props, _excluded);
+  var $ = _c(6);
+  var rest;
+  if ($[0] !== props) {
+    var a = props.a,
+      b = props.b,
+      _t = _objectWithoutPropertiesLoose(props, _excluded);
+    rest = _t;
+    $[0] = props;
+    $[1] = rest;
+  } else {
+    rest = $[1];
+  }
   var _useState = useState(0),
     _useState2 = _slicedToArray(_useState, 2),
     count = _useState2[0],
     setCount = _useState2[1];
-  return _jsxs(_Fragment, {
-    children: [_jsx("button", {
+  var t0;
+  if ($[2] === Symbol["for"]("react.memo_cache_sentinel")) {
+    t0 = _jsx("button", {
       css: _ref,
       onClick: function onClick() {
         return setCount(function (prevSize) {
@@ -2099,12 +2188,27 @@ export default function MyComponent(props) {
         });
       },
       children: "Increment"
-    }), _jsx("div", Object.assign({
-      height: count
-    }, rest, {
-      css: cssObj
-    }))]
-  });
+    });
+    $[2] = t0;
+  } else {
+    t0 = $[2];
+  }
+  var t1;
+  if ($[3] !== count || $[4] !== rest) {
+    t1 = _jsxs(_Fragment, {
+      children: [t0, _jsx("div", Object.assign({
+        height: count
+      }, rest, {
+        css: cssObj
+      }))]
+    });
+    $[3] = count;
+    $[4] = rest;
+    $[5] = t1;
+  } else {
+    t1 = $[5];
+  }
+  return t1;
 }"
 `;
 
@@ -2130,19 +2234,50 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = MyComponent;
+var _compilerRuntime = require("react/compiler-runtime");
 var _react = require("react");
 var _jsxRuntime = require("react/jsx-runtime");
 function MyComponent(props) {
-  const {
-    label,
-    ...rest
-  } = props;
+  const $ = (0, _compilerRuntime.c)(10);
+  let rest;
+  let label;
+  if ($[0] !== props) {
+    ({
+      label,
+      ...rest
+    } = props);
+    $[0] = props;
+    $[1] = rest;
+    $[2] = label;
+  } else {
+    rest = $[1];
+    label = $[2];
+  }
   const [count, setCount] = (0, _react.useState)(0);
-  return /*#__PURE__*/(0, _jsxRuntime.jsxs)("button", {
-    onClick: () => setCount(count + 1),
-    ...rest,
-    children: [label, " ", count]
-  });
+  let t0;
+  if ($[3] !== count) {
+    t0 = () => setCount(count + 1);
+    $[3] = count;
+    $[4] = t0;
+  } else {
+    t0 = $[4];
+  }
+  let t1;
+  if ($[5] !== t0 || $[6] !== rest || $[7] !== label || $[8] !== count) {
+    t1 = /*#__PURE__*/(0, _jsxRuntime.jsxs)("button", {
+      onClick: t0,
+      ...rest,
+      children: [label, " ", count]
+    });
+    $[5] = t0;
+    $[6] = rest;
+    $[7] = label;
+    $[8] = count;
+    $[9] = t1;
+  } else {
+    t1 = $[9];
+  }
+  return t1;
 }"
 `;
 
@@ -2152,48 +2287,112 @@ import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutP
 var _excluded = ["label"];
 var _jsxFileName = "/react.js",
   _s = $RefreshSig$();
+import { c as _c } from "react/compiler-runtime";
 import { useState } from 'react';
 import { jsxDEV as _jsxDEV } from "react/jsx-dev-runtime";
 export default function MyComponent(props) {
   _s();
-  var label = props.label,
-    rest = _objectWithoutPropertiesLoose(props, _excluded);
+  var $ = _c(10);
+  var rest;
+  var label;
+  if ($[0] !== props) {
+    var _props = props;
+    label = _props.label;
+    rest = _objectWithoutPropertiesLoose(_props, _excluded);
+    _props;
+    $[0] = props;
+    $[1] = rest;
+    $[2] = label;
+  } else {
+    rest = $[1];
+    label = $[2];
+  }
   var _useState = useState(0),
     _useState2 = _slicedToArray(_useState, 2),
     count = _useState2[0],
     setCount = _useState2[1];
-  return /*#__PURE__*/_jsxDEV("button", Object.assign({
-    onClick: function onClick() {
+  var t0;
+  if ($[3] !== count) {
+    t0 = function t0() {
       return setCount(count + 1);
-    }
-  }, rest, {
-    children: [label, " ", count]
-  }), void 0, true, {
-    fileName: _jsxFileName,
-    lineNumber: 7,
-    columnNumber: 5
-  }, this);
+    };
+    $[3] = count;
+    $[4] = t0;
+  } else {
+    t0 = $[4];
+  }
+  var t1;
+  if ($[5] !== t0 || $[6] !== rest || $[7] !== label || $[8] !== count) {
+    t1 = /*#__PURE__*/_jsxDEV("button", Object.assign({
+      onClick: t0
+    }, rest, {
+      children: [label, " ", count]
+    }), void 0, true, {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 5
+    }, this);
+    $[5] = t0;
+    $[6] = rest;
+    $[7] = label;
+    $[8] = count;
+    $[9] = t1;
+  } else {
+    t1 = $[9];
+  }
+  return t1;
 }
-_s(MyComponent, "oDgYfYHkD9Wkv4hrAPCkI/ev3YU=");
-_c = MyComponent;
-var _c;
-$RefreshReg$(_c, "MyComponent");"
+_s(MyComponent, "7rNyFrw5FVpFFCFYkWAjQci0NUk=");
+_c2 = MyComponent;
+var _c2;
+$RefreshReg$(_c2, "MyComponent");"
 `;
 
 exports[`transpiles React given {}, {}: output (esm) 1`] = `
-"import { useState } from 'react';
+"import { c as _c } from "react/compiler-runtime";
+import { useState } from 'react';
 import { jsxs as _jsxs } from "react/jsx-runtime";
 export default function MyComponent(props) {
-  const {
-    label,
-    ...rest
-  } = props;
+  const $ = _c(10);
+  let rest;
+  let label;
+  if ($[0] !== props) {
+    ({
+      label,
+      ...rest
+    } = props);
+    $[0] = props;
+    $[1] = rest;
+    $[2] = label;
+  } else {
+    rest = $[1];
+    label = $[2];
+  }
   const [count, setCount] = useState(0);
-  return /*#__PURE__*/_jsxs("button", {
-    onClick: () => setCount(count + 1),
-    ...rest,
-    children: [label, " ", count]
-  });
+  let t0;
+  if ($[3] !== count) {
+    t0 = () => setCount(count + 1);
+    $[3] = count;
+    $[4] = t0;
+  } else {
+    t0 = $[4];
+  }
+  let t1;
+  if ($[5] !== t0 || $[6] !== rest || $[7] !== label || $[8] !== count) {
+    t1 = /*#__PURE__*/_jsxs("button", {
+      onClick: t0,
+      ...rest,
+      children: [label, " ", count]
+    });
+    $[5] = t0;
+    $[6] = rest;
+    $[7] = label;
+    $[8] = count;
+    $[9] = t1;
+  } else {
+    t1 = $[9];
+  }
+  return t1;
 }"
 `;
 
@@ -2201,22 +2400,55 @@ exports[`transpiles React given {}, {}: output (production) 1`] = `
 "import _slicedToArray from "@babel/runtime/helpers/slicedToArray";
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/objectWithoutPropertiesLoose";
 var _excluded = ["label"];
+import { c as _c } from "react/compiler-runtime";
 import { useState } from 'react';
 import { jsxs as _jsxs } from "react/jsx-runtime";
 export default function MyComponent(props) {
-  var label = props.label,
-    rest = _objectWithoutPropertiesLoose(props, _excluded);
+  var $ = _c(10);
+  var rest;
+  var label;
+  if ($[0] !== props) {
+    var _props = props;
+    label = _props.label;
+    rest = _objectWithoutPropertiesLoose(_props, _excluded);
+    _props;
+    $[0] = props;
+    $[1] = rest;
+    $[2] = label;
+  } else {
+    rest = $[1];
+    label = $[2];
+  }
   var _useState = useState(0),
     _useState2 = _slicedToArray(_useState, 2),
     count = _useState2[0],
     setCount = _useState2[1];
-  return /*#__PURE__*/_jsxs("button", Object.assign({
-    onClick: function onClick() {
+  var t0;
+  if ($[3] !== count) {
+    t0 = function t0() {
       return setCount(count + 1);
-    }
-  }, rest, {
-    children: [label, " ", count]
-  }));
+    };
+    $[3] = count;
+    $[4] = t0;
+  } else {
+    t0 = $[4];
+  }
+  var t1;
+  if ($[5] !== t0 || $[6] !== rest || $[7] !== label || $[8] !== count) {
+    t1 = /*#__PURE__*/_jsxs("button", Object.assign({
+      onClick: t0
+    }, rest, {
+      children: [label, " ", count]
+    }));
+    $[5] = t0;
+    $[6] = rest;
+    $[7] = label;
+    $[8] = count;
+    $[9] = t1;
+  } else {
+    t1 = $[9];
+  }
+  return t1;
 }"
 `;
 

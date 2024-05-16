@@ -31,7 +31,8 @@
     "@babel/preset-env": "^7.24.5",
     "@babel/preset-react": "^7.24.1",
     "@babel/preset-typescript": "^7.24.1",
-    "@emotion/babel-plugin": "^11.11.0"
+    "@emotion/babel-plugin": "^11.11.0",
+    "babel-plugin-react-compiler": "^0.0.0-experimental-4690415-20240515"
   },
   "devDependencies": {
     "@jest/globals": "^29.7.0",
