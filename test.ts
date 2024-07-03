@@ -40,7 +40,6 @@ macro('transpiles ES2020+ syntax', 'syntax.js', undefined, {
 
 macro('transpiles React', 'react.js')
 macro('transpiles TSX', 'typescript.tsx')
-macro('transpiles Emotion', 'emotion.js', {emotion: true})
 
 macro('replaces generic polyfill with env-targeted polyfills', 'polyfills.js')
 macro('replaces generic polyfill with env-targeted polyfills', 'polyfills.js', undefined, {

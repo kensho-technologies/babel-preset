@@ -47,7 +47,6 @@ module.exports = (babel, options) => {
   }
 
   const {
-    emotion = false,
     modules = env === 'test' || env === 'cjs' ? 'commonjs' : false,
     react = {},
     reactRefresh = env === 'development' && react && {},
@@ -84,7 +83,6 @@ module.exports = (babel, options) => {
     exclude: NODE_MODULES_REGEX,
     plugins: [
       reactRefresh && [require('react-refresh/babel'), {skipEnvCheck: true, ...reactRefresh}],
-      emotion && [require('@emotion/babel-plugin').default, {...emotion}],
     ].filter(Boolean),
     presets: [
       typescript && [require('@babel/preset-typescript').default, typescript],
@@ -92,7 +90,6 @@ module.exports = (babel, options) => {
         require('@babel/preset-react').default,
         {
           development: env === 'development',
-          importSource: emotion ? '@emotion/react' : undefined,
           useSpread: true,
           ...react,
           runtime: 'automatic',
